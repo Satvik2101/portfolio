@@ -1,0 +1,17 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');  */
+h1 {
+  font-family: Rowdies, cursive;
+  margin: 1.6%;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+img {
+  width: 30%;
+  /* height: 200px; */
+  float: left;
+  padding: 0px;
+  /* object-fit: cover; */
+  border: 0.05rem solid black;
+  margin: 1.5%;
+  /* align-tracks: center; */
+}

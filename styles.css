@@ -1,0 +1,39 @@
+/* * {
+  border: 1px solid red;
+} */
+#home-page {
+  display: flex;
+  /* border: 1px solid red; */
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0 1rem;
+  /* margin: auto 0; */
+}
+#name-heading {
+  font-family: "Righteous", cursive;
+  font-size: 3rem;
+  margin-bottom: 0;
+  /* padding: 0; */
+  color: white;
+}
+
+#designation {
+  margin: 0;
+  font-family: "Roboto Slab", sans;
+  font-size: 1.2rem;
+  color: white;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 50em;
+
+  font-family: "Open Sans", Geneva, Verdana, sans-serif;
+  color: #d7dee3;
+  line-height: 1.8;
+  background-color: #121212;
+}
+
+/* color: #566b78; */
