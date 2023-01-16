@@ -3,7 +3,8 @@ typewrite = async function () {
   var i = 0;
   var speed = 50;
   var text = document.getElementById("name-heading");
-  text.innerHTML = "";
+  text.innerHTML = "> ";
+  // text.
   // var text2 = document.getElementById("name-heading2");
   function typeWriter() {
     if (i < finalText.length) {

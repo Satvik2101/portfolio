@@ -14,7 +14,10 @@ body {
 #home-page-container {
   position: relative;
   display: flex;
-  border: 0.8vh solid red;
+  border-top: 0.8vh solid red;
+  border-right: 0.8vh solid green;
+  border-bottom: 0.8vh solid blue;
+  border-left: 0.8vh solid white;
   max-width: 55em;
   padding: 0rem 6em;
   /* align-items: center; */
@@ -63,7 +66,7 @@ body {
   margin-top: 0;
   margin-bottom: 0;
   /* padding: 0; */
-  line-height: 0;
+  /* line-height: 0; */
   /* margin-bottom: 0; */
   min-height: 3rem;
   /* display: fixed; */
