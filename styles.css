@@ -81,9 +81,9 @@ body {
   width: 40px;
   margin-right: 0.5rem;
   background-image: url(./images/resume.svg);
-  background-repeat: none;
-  border: 4px solid #3b00a1;
-  background-size: 85% 85%;
+  background-repeat: no-repeat;
+  border: none;
+  background-size: 100% 100%;
   background-position: center;
   border-radius: 50% 50%;
 }
@@ -94,7 +94,7 @@ body {
 }
 #resume_button:hover #resume_icon {
   background-image: url(./images/resume_inverted.svg);
-  border: 4px solid #ffffff;
+  /* border: 4px solid #ffffff; */
 }
 #resume_button:hover {
   background-color: #4e00d4;
