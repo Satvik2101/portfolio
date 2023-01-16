@@ -1,6 +1,15 @@
 /* * {
   border: 1px solid red;
 } */
+body {
+  margin: 0 auto;
+  max-width: 50em;
+
+  font-family: "Open Sans", Geneva, Verdana, sans-serif;
+  color: #d7dee3;
+  line-height: 1.8;
+  background-color: #121212;
+}
 #home-page {
   display: flex;
   /* border: 1px solid red; */
@@ -53,25 +62,52 @@
   text-decoration: none;
   font-size: 1.1rem;
   background-color: white;
+  transition: all 0.2s ease-in-out;
 }
-.profile_link_button img {
+.profile_link_icon {
   padding-right: 0.5rem;
 }
 #github_button {
   color: #000000;
 }
+#github_button:hover {
+  background-color: #000000;
+  color: white;
+  filter: invert(100%);
+}
 
+#resume_icon {
+  height: 40px;
+  width: 40px;
+  margin-right: 0.5rem;
+  background-image: url(./images/resume.svg);
+  background-repeat: none;
+  border: 4px solid #3b00a1;
+  background-size: 85% 85%;
+  background-position: center;
+  border-radius: 50% 50%;
+}
+
+#resume_button {
+  color: #4e00d4;
+  background-color: white;
+}
+#resume_button:hover #resume_icon {
+  background-image: url(./images/resume_inverted.svg);
+  border: 4px solid #ffffff;
+}
+#resume_button:hover {
+  background-color: #4e00d4;
+  color: white;
+
+  /* filter: invert(100%); */
+}
 #linkedin_button {
   color: #0a66c2;
 }
-body {
-  margin: 0 auto;
-  max-width: 50em;
-
-  font-family: "Open Sans", Geneva, Verdana, sans-serif;
-  color: #d7dee3;
-  line-height: 1.8;
-  background-color: #121212;
+#linkedin_button:hover {
+  background-color: #0a66c2;
+  color: white;
 }
 
 /* color: #566b78; */
