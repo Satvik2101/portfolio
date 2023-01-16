@@ -35,29 +35,34 @@
 }
 
 .profile_link_icon {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 
 .profile_link_button {
   display: flex;
   align-items: center;
+  justify-content: center;
   border: none;
   border-radius: 50px;
   padding: 0.2rem;
+  margin: 0rem 0.5rem 0.5rem 0rem;
   padding-right: 1rem;
-}
-
-.profile_link {
-  margin: 0 0.5rem;
-  text-decoration: none;
-  font-size: 1.1rem;
   font-family: "Open Sans";
   font-weight: bold;
-  /* color: white; */
+  text-decoration: none;
+  font-size: 1.1rem;
+  background-color: white;
 }
-#github_link {
+.profile_link_button img {
+  padding-right: 0.5rem;
+}
+#github_button {
   color: #000000;
+}
+
+#linkedin_button {
+  color: #0a66c2;
 }
 body {
   margin: 0 auto;
