@@ -1,6 +1,12 @@
 /* * {
   border: 1px solid red;
 } */
+a {
+  color: #136cab;
+
+  /* color: #d7dee3; */
+}
+
 html {
   background-image: url(./images/keyboard.jpg);
   background-repeat: no-repeat;
