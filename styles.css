@@ -48,11 +48,11 @@ body {
 
   position: relative;
   display: flex;
-  border: 0.8vh solid transparent;
+  /* border: 0.8vh solid transparent; */
 
   justify-content: center;
   flex-direction: column;
-  height: 98.4vh;
+  height: 100vh;
   /* padding: 0 1rem; */
   /* margin: auto 0; */
 }
