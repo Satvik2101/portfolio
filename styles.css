@@ -1,114 +1,59 @@
 /* * {
   border: 1px solid red;
 } */
+@import "./styles/profile_links.css";
+@import "./styles/border_mask.css";
+
 a {
   color: #136cab;
-
-  /* color: #d7dee3; */
 }
 
 html {
   background-image: url(./images/keyboard.jpg);
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
-  /* background-color: #121212; */
-  /* background-blend-mode: multiply; */
 }
 body {
   margin: 0 auto;
-  /* max-width: 55em; */
-  background-color: rgba(61, 74, 120, 0.443);
+
   padding: 0;
-  /* border: 1px solid   red; */
+
   font-family: "Open Sans", Geneva, Verdana, sans-serif;
   color: #d7dee3;
   line-height: 1.8;
 }
-.padded-centered {
+.padded_centered {
   max-width: 55em;
   margin: 0 auto;
   padding: 1rem;
 }
 
-.border-mask {
-  z-index: -1;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  max-width: 55em;
-  height: 100vh;
-  /* border: 2px solid yellow; */
-  /* margin: 0 55em; */
-}
-#home-page-container {
-  /* margin: 0 auto; */
-
+/*This is used to (basically) center the home section div*/
+#home_section_container {
   position: relative;
   display: flex;
   border: 0;
   margin: 0;
+  background-color: rgba(61, 74, 120, 0.443);
 
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  /* padding: 0 1rem; */
-  /* margin: auto 0; */
 }
-#home-page {
-  /* max-width: 55em; */
-
-  /* margin: 0 auto; */
+#home_section {
   padding: 0rem 6em;
   background-color: #121212d8;
 }
-#mask-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20%;
-  background-color: red;
-  height: 0.9vh;
-}
-#mask-right {
-  position: absolute;
-  right: 0vh;
-  top: 0;
-  height: 20%;
-  background-color: green;
-  width: 0.9vh;
-}
-#mask-bottom {
-  position: absolute;
-  bottom: 0vh;
-  right: 0;
-  width: 20%;
-  background-color: blue;
-  height: 0.9vh;
-}
-#mask-left {
-  position: absolute;
-  left: 0vh;
-  bottom: 0;
-  height: 20%;
-  background-color: white;
-  width: 0.9vh;
-}
-#name-heading {
+#name_heading {
   font-family: "Righteous", cursive;
   font-size: 2.5rem;
   margin-top: 0;
   display: flex;
-  /* overflow-x: hidden; */
+
   margin-bottom: 0;
-  /* padding: 0; */
-  /* line-height: 0; */
-  /* margin-bottom: 0; */
+
   min-height: 3rem;
-  /* display: fixed; */
-  /* padding: 0; */
+
   color: white;
 }
 #designation {
@@ -117,97 +62,12 @@ body {
   font-size: 1.2rem;
   color: white;
 }
-#profile_links {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.profile_link_icon {
-  height: 40px;
-  width: 40px;
-}
-
-.profile_link_button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 50px;
-  padding: 0.2rem;
-  margin: 0rem 0.5rem 0.5rem 0rem;
-  padding-right: 1rem;
-  font-family: "Open Sans";
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1.1rem;
-  background-color: white;
-  transition: all 0.2s ease-in-out;
-}
-.profile_link_icon {
-  padding-right: 0.5rem;
-}
-#github_button:hover {
-  /* color: #000000;
-  background-color: white; */
-  box-shadow: 0 0 8px 1.5px #ffffff;
-}
-/*
-#github_button:hover img {
-  filter: none;
-} */
-#github_button {
-  background-color: #121212;
-  color: white;
-  /* box-shadow: inset 0 0 0 0 #000000; */
-}
-#github_button img {
-  filter: invert(100%);
-}
-
-/* #resume_button:hover #resume_icon {
-  background-image: url(./images/resume.svg);
-} */
-
-#resume_button {
-  background-color: #4e00d4;
-  color: white;
-}
-#resume_icon {
-  background-image: url(./images/resume_inverted.svg);
-  height: 40px;
-  width: 40px;
-  margin-right: 0.5rem;
-  /* background-image: url(./images/resume.svg); */
-  background-repeat: no-repeat;
-  border: none;
-  background-size: 100% 100%;
-  background-position: center;
-  border-radius: 50% 50%;
-}
-#resume_button:hover {
-  /* color: #4e00d4;
-  background-color: white; */
-  box-shadow: 0 0 8px 1.5px #cbb6fffd;
-}
-
-#linkedin_button:hover {
-  box-shadow: 0 0 8px 1.5px #7cb4f1fd;
-}
-#linkedin_button {
-  background-color: #0a66c2;
-  color: white;
-}
-
 @media screen and (max-width: 600px) {
   body {
-    /* background-color: red; */
     max-width: 70em;
   }
-  /* #home-page-container {
-    border: 2px solid white; 
-     padding: 0 2rem;
-  } */
-  #home-page {
+
+  #home_section {
     max-width: 70em;
     padding: 0 2rem;
   }

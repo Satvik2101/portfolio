@@ -2,10 +2,10 @@ typewrite = async function () {
   var finalText = "Hi. I'm Satvik.";
   var i = 0;
   var speed = 50;
-  var text = document.getElementById("name-heading");
+  var text = document.getElementById("name_heading");
   text.innerHTML = "> ";
   // text.
-  // var text2 = document.getElementById("name-heading2");
+  // var text2 = document.getElementById("name_heading2");
   function typeWriter() {
     if (i < finalText.length) {
       text.innerHTML += finalText.charAt(i);
