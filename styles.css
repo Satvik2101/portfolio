@@ -1,12 +1,26 @@
 @import "./styles/profile_links.css";
 @import "./styles/border_mask.css";
 @import "./styles/home_section.css";
-@import "./styles/projects_section.css";
+@import "./styles/workexp_section.css";
+:root {
+  --primary: #e02633;
+}
 * {
   margin: 0;
 }
 a {
   color: #136cab;
+}
+
+body ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(37, 37, 37);
+  outline: 1px solid rgb(37, 37, 37);
 }
 
 html {
