@@ -1,10 +1,10 @@
-/* * {
-  border: 1px solid red;
-} */
 @import "./styles/profile_links.css";
 @import "./styles/border_mask.css";
 @import "./styles/home_section.css";
-
+@import "./styles/projects_section.css";
+* {
+  margin: 0;
+}
 a {
   color: #136cab;
 }
