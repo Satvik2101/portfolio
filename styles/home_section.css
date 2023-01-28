@@ -42,10 +42,26 @@ in the body and html
   font-size: 1.2rem;
   color: var(--primary);
 }
+@media screen and (max-width: 300px) {
+  #name_heading {
+    font-size: 2rem;
+  }
+  #home_section {
+    max-width: 100em;
+    padding: 0 0;
+  }
+}
 
-@media screen and (max-width: 600px) {
+@media screen  and  (min-width:300px)  and (max-width: 450px) {
+  #home_section {
+    max-width: 100em;
+    padding: 0 0;
+  }
+}
+@media screen and (min-width:450px) and (max-width: 600px) {
   #home_section {
     max-width: 70em;
     padding: 0 2rem;
   }
+
 }

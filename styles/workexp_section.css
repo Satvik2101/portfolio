@@ -1,3 +1,17 @@
+#workexp_cards_and_description {
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  /* flex: ; */
+}
+#workexp_description {
+  flex: 1;
+  background-color: red;
+}
+
 #workexp_section {
   padding: 2rem 6em;
   max-height: 100vh;

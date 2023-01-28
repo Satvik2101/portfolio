@@ -1,6 +1,7 @@
 #profile_links {
   display: flex;
   flex-wrap: wrap;
+  /* z-index: -1; */
 }
 
 .profile_link_icon {
