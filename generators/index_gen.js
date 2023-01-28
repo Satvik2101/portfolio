@@ -39,7 +39,12 @@ var workexp = require('./workexp_gen.js')();
 var html = start + home + workexp + end;
 
 //write to index_2.html
-fs.writeFile('index_2.html', html, function (err) {
+
+//Remove comments and newlines
+html = html.replace(/(\r\n|\n|\r)/gm, "");
+html = html.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '');
+
+fs.writeFile('index.html', html, function (err) {
     if (err) throw err;
     console.log('Saved!');
 });

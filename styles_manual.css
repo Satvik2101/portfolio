@@ -1,0 +1,51 @@
+
+
+:root {
+  --primary: #e02633;
+}
+* {
+  margin: 0;
+}
+a {
+  color: #136cab;
+}
+
+body ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(37, 37, 37);
+  outline: 1px solid rgb(37, 37, 37);
+}
+
+#bg_image {
+  background-image: url(./images/keyboard.jpg);
+  background-repeat: no-repeat;
+  background-size:cover ;
+  background-position: top center;
+  /* background-attachment: fixed; */
+}
+body {
+  margin: 0 0;
+  font-family: "Open Sans", Geneva, Verdana, sans-serif;
+  color: #d7dee3;
+  line-height: 1.8;
+  /* width: 100vw; */
+}
+
+/* Apparently these 2 aren't even required anymore */
+
+/* @media screen and (max-width: 450px) {
+  body {
+    max-width: 100em;
+  }
+}
+@media screen and (min-width:450px) and (max-width: 600px) {
+  body {
+    max-width: 70em;
+  }
+} */
+
