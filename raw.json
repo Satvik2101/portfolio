@@ -106,6 +106,10 @@
         {
           "name": "Github-Web",
           "url": "https://github.com/TEDxDTU/Web"
+        },
+        {
+          "name":"Website",
+          "url":"https://tedxdtu.in/"
         }
       ],
       "points": [
