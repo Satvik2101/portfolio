@@ -2,6 +2,7 @@
 @import "./styles/border_mask.css";
 @import "./styles/home_section.css";
 @import "./styles/workexp_section.css";
+
 :root {
   --primary: #e02633;
 }
@@ -38,8 +39,9 @@ body {
   /* width: 100vw; */
 }
 
+/* Apparently these 2 aren't even required anymore */
 
-@media screen and (max-width: 450px) {
+/* @media screen and (max-width: 450px) {
   body {
     max-width: 100em;
   }
@@ -48,5 +50,5 @@ body {
   body {
     max-width: 70em;
   }
-}
+} */
 
