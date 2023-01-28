@@ -1,10 +1,7 @@
 #workexp_section {
   padding: 2rem 6em;
-  max-height: 100vh;
-  /* background-color: #16191b; */
-  display: flex;
-  flex-direction: column;
-  background-color: black;
+
+  background-color: rgb(28, 27, 27);
   margin: 0;
   border: none;
   /* overflow: hidden; */
@@ -15,49 +12,36 @@
   color: rgb(255, 255, 255);
 }
 
-
-#workexp_section_start {
-  flex: 1;
-}
-
 #workexp_cards_and_description {
-  max-height: 100vh;
+  /* max-height: 100vh; */
   margin: 0;
   padding: 0;
-  overflow: auto;
-  display: flex;
-  flex-direction: row;
-  /* flex: ; */
-}
-#workexp_description {
-  flex: 1;
-  /* background-color: red; */
-  padding:2em;
-  margin-left:2em;
 
 }
-
 
 
 #workexp_cards_container {
   /* flex: 1; */
+  
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  margin-top: 2em;
-  padding-right:3em;
-
+  /* margin-top: 2em; */
+  margin:1em auto;
+  max-width: 75vw;
 }
 
 .workexp_card {
   transition: 0.25s all ease-out;
-  margin-bottom: 2em;
-  margin-left: 0.5em;
+  /* margin-bottom: 2em; */
+  padding:1.5em;
+  /* margin-left: 0.5em; */
 
 }
 
 .workexp_card:hover {
-
+  background-color: #121212;
+  border-radius: 2.5em;
   margin-left: 3.3em;
 }
 
