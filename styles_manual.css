@@ -1,11 +1,19 @@
-
+@import "./styles/projects_section.css";
+@import "./styles/sections.css";
+@import "./styles/border_mask.css";
+@import "./styles/home_section.css";
+@import "./styles/profile_links.css";
+@import "./styles/projects_section.css";
+@import "./styles/workexp_section.css";
 
 :root {
   --primary: #e02633;
 }
+
 * {
   margin: 0;
 }
+
 a {
   color: #136cab;
 }
@@ -24,10 +32,11 @@ body ::-webkit-scrollbar {
 #bg_image {
   background-image: url(./images/keyboard.jpg);
   background-repeat: no-repeat;
-  background-size:cover ;
+  background-size: cover;
   background-position: top center;
   /* background-attachment: fixed; */
 }
+
 body {
   margin: 0 0;
   font-family: "Open Sans", Geneva, Verdana, sans-serif;
@@ -48,4 +57,3 @@ body {
     max-width: 70em;
   }
 } */
-

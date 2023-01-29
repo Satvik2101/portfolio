@@ -32,19 +32,6 @@
   max-width: 75vw;
 }
 
-.workexp_card {
-  transition: 0.25s all ease-out;
-  /* margin-bottom: 2em; */
-  padding: 1.5em;
-  /* margin-left: 0.5em; */
-
-}
-
-.workexp_card:hover {
-  background-color: #121212;
-  border-radius: 2.5em;
-  margin-left: 3.3em;
-}
 
 .workexp_title {
   font-size: 2.2em;
@@ -63,4 +50,38 @@
 .workexp_timespan {
   margin-left: 0.5rem;
   color: rgb(194, 198, 202);
+}
+
+.workexp_card {
+  transition: 0.25s all ease-out;
+  /* margin-bottom: 2em; */
+  padding: 1.5em;
+  /* margin-left: 0.5em; */
+
+}
+
+.workexp_card:hover {
+  background-color: #121212;
+  border-radius: 2.5em;
+  padding-left: 3.3em;
+}
+
+
+@media screen and (max-width: 600px) {
+  .workexp_card {
+    padding: 0.5em 0em;
+    margin: 0;
+  }
+
+  .workexp_card:hover {
+    background-color: transparent;
+    border-radius: 0;
+    margin-left: 0;
+    padding-left: 1.5em;
+  }
+
+  #workexp_cards_container {
+    margin: 0em auto;
+    max-width: 90vw;
+  }
 }
