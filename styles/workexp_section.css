@@ -1,16 +1,17 @@
 #workexp_section {
-  padding: 2rem 6em;
+  /* padding: 2rem 6em; */
 
   background-color: rgb(28, 27, 27);
-  margin: 0;
-  border: none;
+  /* margin: 0; */
+  /* border: none; */
   /* overflow: hidden; */
   color: white;
 }
-#workexp_section h1 {
+
+/* #workexp_section h1 {
   font-family: "Cinzel Decorative", sans-serif;
   color: rgb(255, 255, 255);
-}
+} */
 
 #workexp_cards_and_description {
   /* max-height: 100vh; */
@@ -22,19 +23,19 @@
 
 #workexp_cards_container {
   /* flex: 1; */
-  
+
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   /* margin-top: 2em; */
-  margin:1em auto;
+  margin: 1em auto;
   max-width: 75vw;
 }
 
 .workexp_card {
   transition: 0.25s all ease-out;
   /* margin-bottom: 2em; */
-  padding:1.5em;
+  padding: 1.5em;
   /* margin-left: 0.5em; */
 
 }
