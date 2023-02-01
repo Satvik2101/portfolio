@@ -2,3 +2,64 @@
     background-color: #121212;
     /* padding: 2rem; */
 }
+
+#projects_and_pors_cards {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+.project_card {
+    background-color: black;
+    border-width: 2px;
+    border-style: solid;
+    width: 30vw;
+    padding: 1em;
+    /* font-size: 0.7rem; */
+    border-radius: 2em 0 2em 0em;
+    box-shadow: none;
+    transition: 0.5s ease;
+
+    ;
+}
+
+.project_card h1 {
+    font-family: "Righteous", sans-serif;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1.2px;
+    font-size: 1.5rem;
+    /* text-shadow: 0 0 10px #343232; */
+}
+
+.por_title {
+    font-family: "Righteous", sans-serif;
+    color: var(--primary);
+    letter-spacing: 1.2px;
+    font-size: 1rem;
+    /* text-shadow: 0 0 10px #343232; */
+}
+
+.por_points {
+    font-size: 0.8rem;
+}
+
+.project_card:hover {
+    background-color: rgb(225, 32, 32);
+    color: white;
+    border-color: black;
+    box-shadow:
+        1px 1px #2e2c2c,
+        /* 2px 2px #bdbdbd, */
+        3px 3px #2e2c2c,
+        /* 4px 4px #bdbdbd, */
+        5px 5px #2e2c2c,
+
+        7px 7px #2e2c2c;
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+    transition: 0.5s ease;
+}
+
+.project_card:hover .por_title {
+    color: black;
+}

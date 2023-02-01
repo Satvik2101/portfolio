@@ -8,6 +8,9 @@
 
 :root {
   --primary: #e02633;
+  --primary_bg: #D2042D;
+  --cherry: #D2042D;
+  --rose: #FF033E;
 }
 
 * {
