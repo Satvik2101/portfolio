@@ -1,63 +1,36 @@
 #projects_and_pors {
-    background-color: #121212;
-    /* padding: 2rem; */
+    /* background-color: #2f0a0a; */
 }
 
 #projects_and_pors_cards {
     margin-top: 1em;
     display: flex;
-    /* flex-direction: row; */
 }
 
 .project_card {
-    /* background-color: black; */
-    /* border-width: 2px; */
-    /* border-style: solid; */
-    /* width: 30vw; */
     padding: 1em;
-    /* font-size: 0.7rem; */
-    /* border-radius: 2em 0 2em 0em; */
-    /* box-shadow: none; */
     transition: 0.5s ease;
-
     ;
 }
 
 .project_card h1 {
     font-family: "Righteous", sans-serif;
-    color: rgb(255, 255, 255);
+    font-weight: 900;
+    font-size: 2.3rem;
+    color: white;
     letter-spacing: 1.2px;
-    /* font-size: 1.5rem; */
-    /* text-shadow: 0 0 10px #343232; */
 }
 
 .por_title {
     font-family: "Open Sans", sans-serif;
     color: var(--primary);
     letter-spacing: 1.2px;
-    font-size: 1rem;
-    /* text-shadow: 0 0 10px #343232; */
+    font-size: 1.2rem;
 }
 
-.por_points {
-    /* font-size: 0.8rem; */
-}
-
-/* .project_card:hover {
-    background-color: rgb(225, 32, 32);
-    color: white;
-    border-color: black;
-    box-shadow:
-        1px 1px #2e2c2c,
-        3px 3px #2e2c2c,
-        5px 5px #2e2c2c,
-
-        7px 7px #2e2c2c;
-    -webkit-transform: translateX(-3px);
-    transform: translateX(-3px);
+.project_card:hover {
+    margin-left: 3em;
+    padding: 1em;
     transition: 0.5s ease;
+    ;
 }
-
-.project_card:hover .por_title {
-    color: black;
-} */

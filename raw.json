@@ -55,6 +55,7 @@
           "url": "https://play.google.com/store/apps/details?id=org.dtudcefraternity.mobile.app"
         }
       ],
+      "shortDescription":"Headed the development of the mobile app for the forum. Worked closely with the President of the Forum, and led a team of 3 developers to develop and launch the app.",
       "points": [
         "Directed a team of 3 developers and architected, developed and coded an app for DTU-DCE FraternityForum from scratch using Flutter, with full integration with REST API with server.",
         "Co-ordinated with backend team to develop and test new API endpoints. Also coordinated with Resume partner Resumod, who provide free membership of Resumod to forum members.",

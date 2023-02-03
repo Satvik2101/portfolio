@@ -21,6 +21,11 @@ a {
   color: #136cab;
 }
 
+body {
+  background-color: #322f2f;
+
+}
+
 body ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
