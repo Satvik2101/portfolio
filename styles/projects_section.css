@@ -1,8 +1,4 @@
-#projects_and_pors {
-    /* background-color: #2f0a0a; */
-}
-
-#projects_and_pors_cards {
+#projects_and_pors_cards_and_description {
     margin-top: 1em;
     display: flex;
 }
@@ -33,4 +29,16 @@
     padding: 1em;
     transition: 0.5s ease;
     ;
+}
+
+.project_por_points {
+    color: white;
+}
+
+.tech_stack_header {
+    font-family: "Righteous", sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: white;
+    letter-spacing: 1.2px;
 }
