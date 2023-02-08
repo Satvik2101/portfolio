@@ -57,12 +57,13 @@
       ],
       "shortDescription":"Headed the development of the mobile app for the forum. Worked closely with the President of the Forum, and led a team of 3 developers to develop and launch the app.",
       "points": [
-        "Directed a team of 3 developers and architected, developed and coded an app for DTU-DCE FraternityForum from scratch using Flutter, with full integration with REST API with server.",
+        "Directed a team of 3 developers and architected, developed and coded an app for DTU-DCE Fraternity Forum from scratch using Flutter, with full integration with REST API with server.",
         "Co-ordinated with backend team to develop and test new API endpoints. Also coordinated with Resume partner Resumod, who provide free membership of Resumod to forum members.",
         "Integrated authentication support with JWT authentication tokens for registered users. ",
         "Built an admin panel into the app for the administrators to alter membership statuses and view user data.",
         "The app has 100+ downloads on Play Store, with a rating of 5 on both the Play Store and App Store."
-      ]
+      ],
+      "image":"./images/projects/dtu_dce_frat.png"
     }
   ],
   "achievements": [
@@ -111,7 +112,10 @@
         {
           "name":"Website",
           "url":"https://tedxdtu.in/"
-        }
+        },
+        {"name":"Play Store",
+        "url":"ADDLINKHERE"
+      }
       ],
       "points": [
         "Led the development of the mobile app in Flutter, and oversaw the development of the Website in Next.js",

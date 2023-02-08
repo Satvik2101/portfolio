@@ -3,48 +3,85 @@
     display: flex;
 }
 
+.project_title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .project_card {
     padding: 1em;
     transition: 0.5s ease;
     ;
 }
 
-.project_card h1 {
+.project_title_first {
     font-family: "Righteous", sans-serif;
     font-weight: 900;
     font-size: 2.3rem;
-    color: rgb(215, 220, 225);
+    color: rgb(179, 192, 206);
     letter-spacing: 1.2px;
+    margin-right: 20px;
 }
 
-.por_title {
+.project_title_second {
+    font-family: "Roboto Slab", serif;
+    font-weight: bold;
+
+    font-size: 2.3rem;
+    color: var(--primary)
+        /* letter-spacing: 1.2px; */
+}
+
+
+.por_designation {
     font-family: "Open Sans", sans-serif;
     color: var(--primary);
     letter-spacing: 1.2px;
     font-size: 1.2rem;
+    padding: 0.5em 0;
 }
 
 .project_card:hover {
-    margin-left: 3em;
+    /* margin-left: 3em; */
     padding: 1em;
     transition: 0.5s ease;
     /* transform: perspective(1000px) rotateY(10deg); */
 }
 
-.project_por_points {
-    /* color: white; */
-    color: rgb(202, 211, 220);
+.project_por_points li {
+
+    padding: 4px;
 }
 
 .tech_stack_header {
     font-family: "Righteous", sans-serif;
     font-weight: 900;
     font-size: 1.2rem;
-    color: lightslategray;
+    color: rgb(179, 192, 206);
     letter-spacing: 1.2px;
 }
 
 .tech_stack_item {
     font-family: 'Consolas', 'Courier New', Courier, monospace;
     color: lightslategray;
+    font-size: 1.2rem;
+}
+
+.project_links a {
+    text-decoration: none;
+}
+
+.project_link {
+    color: lightgrey;
+    cursor: pointer;
+    transition: 0.5s ease;
+    padding: 0 10px;
+}
+
+
+.project_link:hover {
+    color: var(--primary);
+    transition: 0.5s ease;
 }
