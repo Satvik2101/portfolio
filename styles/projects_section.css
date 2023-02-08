@@ -13,7 +13,7 @@
     font-family: "Righteous", sans-serif;
     font-weight: 900;
     font-size: 2.3rem;
-    color: white;
+    color: rgb(215, 220, 225);
     letter-spacing: 1.2px;
 }
 
@@ -28,17 +28,23 @@
     margin-left: 3em;
     padding: 1em;
     transition: 0.5s ease;
-    ;
+    /* transform: perspective(1000px) rotateY(10deg); */
 }
 
 .project_por_points {
-    color: white;
+    /* color: white; */
+    color: rgb(202, 211, 220);
 }
 
 .tech_stack_header {
     font-family: "Righteous", sans-serif;
     font-weight: 900;
     font-size: 1.2rem;
-    color: white;
+    color: lightslategray;
     letter-spacing: 1.2px;
+}
+
+.tech_stack_item {
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    color: lightslategray;
 }

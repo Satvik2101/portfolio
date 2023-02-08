@@ -1,5 +1,6 @@
 #workexp_section {
   /* padding: 2rem 6em; */
+  margin-top: 1em;
   max-width: 100vw;
   background-color: black;
   /* margin: 0; */
@@ -17,6 +18,7 @@
 #workexp_cards_and_description {
   /* max-height: 100vh; */
   margin: 0;
+  margin-top: 20px;
   padding: 0;
   overflow: hidden;
 
