@@ -18,7 +18,11 @@
       "role": "App Developer Intern",
       "start": "Dec 2021",
       "end": "March 2022",
-      "techstack": ["Flutter", "SQLite", "Arduino"],
+      "techstack": [
+        "Flutter",
+        "SQLite",
+        "Arduino"
+      ],
       "points": [
         "Single-handedly designed and authored an Android app using Flutter SDK. The application receives, stores, displays and exports ECG data received from Arduino-based hardware. ",
         "The app utilizes SQLite as a local database and hashes the user's pin code using SHA-256."
@@ -28,7 +32,9 @@
       "company": "CRIS, Ministry of Railways",
       "location": "Delhi",
       "role": "Flutter Developer Intern",
-      "techstack": ["Flutter"],
+      "techstack": [
+        "Flutter"
+      ],
       "start": "Aug 2021",
       "end": "Oct 2021",
       "points": [
@@ -40,7 +46,12 @@
   "projects": [
     {
       "name:": "DTU-DCE Fraternity Forum",
-      "techstack": ["Flutter", "JWT", "REST"],
+      "role": "Head of Mobile App Team",
+      "techstack": [
+        "Flutter",
+        "JWT",
+        "REST"
+      ],
       "links": [
         {
           "name": "DTU-DCE Fraternity Forum",
@@ -55,7 +66,7 @@
           "url": "https://play.google.com/store/apps/details?id=org.dtudcefraternity.mobile.app"
         }
       ],
-      "shortDescription":"Headed the development of the mobile app for the forum. Worked closely with the President of the Forum, and led a team of 3 developers to develop and launch the app.",
+      "shortDescription": "Headed the development of the mobile app for the forum. Worked closely with the President of the Forum, and led a team of 3 developers to develop and launch the app.",
       "points": [
         "Directed a team of 3 developers and architected, developed and coded an app for DTU-DCE Fraternity Forum from scratch using Flutter, with full integration with REST API with server.",
         "Co-ordinated with backend team to develop and test new API endpoints. Also coordinated with Resume partner Resumod, who provide free membership of Resumod to forum members.",
@@ -63,7 +74,7 @@
         "Built an admin panel into the app for the administrators to alter membership statuses and view user data.",
         "The app has 100+ downloads on Play Store, with a rating of 5 on both the Play Store and App Store."
       ],
-      "image":"./images/projects/dtu_dce_frat.png"
+      "image": "./images/projects/dtu_dce_frat.png"
     }
   ],
   "achievements": [
@@ -102,6 +113,10 @@
       "end": "Present",
       "links": [
         {
+          "name": "Github",
+          "url": "https://github.com/TEDxDTU"
+        },
+        {
           "name": "Github-App",
           "url": "https://github.com/TEDxDTU/FlutterApp"
         },
@@ -110,12 +125,13 @@
           "url": "https://github.com/TEDxDTU/Web"
         },
         {
-          "name":"Website",
-          "url":"https://tedxdtu.in/"
+          "name": "Website",
+          "url": "https://tedxdtu.in/"
         },
-        {"name":"Play Store",
-        "url":"ADDLINKHERE"
-      }
+        {
+          "name": "Play Store",
+          "url": "https://play.google.com/store/apps/details?id=in.tedxdtu.flutter_app&pli=1"
+        }
       ],
       "points": [
         "Led the development of the mobile app in Flutter, and oversaw the development of the Website in Next.js",
