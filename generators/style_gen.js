@@ -19,6 +19,9 @@ stylesheet = stylesheet.replace(/(\r\n|\n|\r)/gm, "");
 //Remove comments too
 stylesheet = stylesheet.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '');
 
+//remove import statements
+stylesheet = stylesheet.replace(/@import[^;]+;/g, '');
+
 fs.writeFile('styles.css', stylesheet, function (err) {
     if (err) throw err;
     console.log('Saved Styles');

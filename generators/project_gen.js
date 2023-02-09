@@ -4,74 +4,120 @@ var fs = require('fs');
 
 
 
-function generateHtml(company, role, start, end, points, location, techstack) {
+function generateLinks(links) {
+    var output = "";
+    if (links == null) return output;
+    output += `<div class="project_links">`
+    for (var i = 0; i < links.length; i++) {
+        var name = links[i].name;
+        var icon = "";
+        if (name == "App Store") {
+            icon = "fa-brands fa-app-store fa-2x";
+        } else if (name == "Play Store") {
+            icon = "fab fa-google-play fa-2x";
+        } else if (name == "Github") {
+            icon = "fab fa-github fa-2x";
+        } else if (name == "Website") {
+            icon = "fas fa-link fa-2x";
+        }
 
-    var output = `<div class="workexp_card">
-    <div class="workexp_title">
-      ${company}
-    </div>
-    <div class="workexp_subtitle" w>
-      ${role}
-    </div>
-    <div class="workexp_timespan" w>
-      ${start} - ${end}
-    </div>
-    <div class="workexp_points">
-      <ul>
-        <br/>`;
-
-    for (var i = 0; i < points.length; i++) {
-        output += `<li>${points[i]}</li>`;
+        output += `<a href="${links[i].url}"><span class="project_link"><i class="${icon}"></i></span></a>`
     }
-    output += `
-      
-     </ul>
-    </div>
-  </div>
-  
-  `;
+    output += `</div>`
+    return output;
+}
+
+function generatePoints(points) {
+    var output = "";
+    if (points == null) return output;
+    output += `<div class="project_por_points"> <ul>`
+    for (var i = 0; i < points.length; i++) {
+        output += `<li>${points[i]}</li>`
+    }
+    output += `</ul></div>`
+    return output;
+}
+
+function generateTechStack(techstack) {
+    var output = "";
+    if (techstack == null) return output;
+    output += `<div class="tech_stack">`
+    for (var i = 0; i < techstack.length; i++) {
+        output += `<span class="tech_stack_item">${techstack[i]}</span>`
+    }
+    output += `</div>`
+    return output;
+}
+function generateHtml(name, product, role, techstack, links, points, image) {
+    if (product != null) {
+        name = name + "'s"
+    }
+    var output = `
+    <div class="project_card">
+    <div class="project_details">
+      <div class="project_title">
+        <div class="project_title_first">
+
+         ${name}
+        </div>
+        ${(product == null) ? "" : "<div class=\"project_title_second\">" + product + "</div>"}
+       
+      </div>`
+
+    output += generateLinks(links);
+
+    if (role != null)
+        output += `<div class="por_designation"> ${role}</div>`
+
+
+    output += generatePoints(points);
+
+    output += generateTechStack(techstack);
+    output += `</div>`
+    if (image != null) {
+        output += `<div class="project_image">
+            <img src='${image}' />
+        </div>`
+    }
+    output += `</div >`
     return output;
 }
 
 
 function generate() {
     var raw = JSON.parse(fs.readFileSync('raw.json', 'utf8'));
-    var workexp = raw.workexp;
+    var data = [...raw.pors, ...raw.projects];
     var start = `
-  <div id="workexp_section" class="section">
-  <div id="workexp_section_start">
+        <div id = "projects_and_pors" class="section" >
+    <div id="projects_section_start">
+      <div class="section_title">
+        What I've Created
+        <span class="separator_line"></span>
+      </div>
 
-  <div class="section_title">
+      I've worked on a lot of projects, both personal and professional, and have held Positions of Responsibility as a
+      student. <br />Here are some of them.
+    </div>
 
-  Where I've Worked
-  <span class="separator_line"></span>
-</div>
-I've been lucky enough to be able to work for some amazing companies and organizations. Here are some of them.
-  </div>
-
-  <div id="workexp_cards_and_description">
-
-    <div id="workexp_cards_container">
+    <div id="projects_and_pors_cards_and_description">
     `;
 
     var end = `  </div>
 
-  </div>
-
-</div>
-  `
+  </ >
+        `
     var result = start;
 
-    for (var i = 0; i < workexp.length; i++) {
-        var company = workexp[i].company;
-        var role = workexp[i].role;
-        var startDate = workexp[i].start;
-        var endDate = workexp[i].end;
-        var points = workexp[i].points;
-        var location = workexp[i].location;
-        var techstack = workexp[i].techstack;
+    for (var i = 0; i < data.length; i++) {
+        var name = data[i].name;
+        var role = data[i].role;
+        var product = data[i].product;
+        var techstack = data[i].techstack;
+        var points = data[i].points;
+        var links = data[i].links;
+        var image = data[i].image;
 
-        result += generateHtml(company, role, startDate, endDate, points, location, techstack);
+        result += generateHtml(name, product, role, techstack, links, points, image);
 
     }
     result += end;

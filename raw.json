@@ -45,7 +45,8 @@
   ],
   "projects": [
     {
-      "name:": "DTU-DCE Fraternity Forum",
+      "name": "DTU-DCE Fraternity Forum",
+      "product": "Flutter App",
       "role": "Head of Mobile App Team",
       "techstack": [
         "Flutter",
@@ -66,7 +67,6 @@
           "url": "https://play.google.com/store/apps/details?id=org.dtudcefraternity.mobile.app"
         }
       ],
-      "shortDescription": "Headed the development of the mobile app for the forum. Worked closely with the President of the Forum, and led a team of 3 developers to develop and launch the app.",
       "points": [
         "Directed a team of 3 developers and architected, developed and coded an app for DTU-DCE Fraternity Forum from scratch using Flutter, with full integration with REST API with server.",
         "Co-ordinated with backend team to develop and test new API endpoints. Also coordinated with Resume partner Resumod, who provide free membership of Resumod to forum members.",
@@ -98,7 +98,8 @@
   ],
   "pors": [
     {
-      "name:": "TEDxDTU",
+      "name": "TEDxDTU",
+      "product": "Website & App",
       "role": "Head of Tech Team",
       "techstack": [
         "Flutter",
@@ -117,14 +118,6 @@
           "url": "https://github.com/TEDxDTU"
         },
         {
-          "name": "Github-App",
-          "url": "https://github.com/TEDxDTU/FlutterApp"
-        },
-        {
-          "name": "Github-Web",
-          "url": "https://github.com/TEDxDTU/Web"
-        },
-        {
           "name": "Website",
           "url": "https://tedxdtu.in/"
         },
@@ -138,7 +131,8 @@
         "Contributed extensively to the backend code in Node.js",
         "Set up AWS EC2 as a server for hosting the website, and configured SSL certificates for the domain using Let's Encrypt, and moved the live website to GCP Compute Engine to scale it. Used nginx as a reverse proxy to route requests to the Node.js code.",
         "The website served 400,000 HTTP requests, had 8k unique IP addresses making requests, and 1.5k registered users in a span of 20 days. 2/3rds of the tickets for the event were sold on the website"
-      ]
+      ],
+      "image": "./images/projects/tedx.png"
     }
   ]
 }
