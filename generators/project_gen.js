@@ -48,12 +48,34 @@ function generateTechStack(techstack) {
     output += `</div>`
     return output;
 }
-function generateHtml(name, product, role, techstack, links, points, image) {
+
+function generateImage(image, isEven) {
+    var output = "";
+    if (image == null) return output;
+    var style = "";
+    if (isEven) {
+
+        style = "\"margin-left:0;margin-right:2em;\""
+    } else {
+        style = "\"margin-right:0;margin-left:2em;\""
+    }
+    output += `<div class="project_image" style=${style}>
+            <img src='${image}' />
+        </div>`
+    return output;
+}
+function generateHtml(name, product, role, techstack, links, points, image, isEven) {
     if (product != null) {
         name = name + "'s"
     }
+    var style;
+    if (isEven) {
+        style = "\"flex-direction:row-reverse;\"";
+    } else {
+        style = "\"flex-direction:row;\"";
+    }
     var output = `
-    <div class="project_card">
+    <div class="project_card" style=${style}>
     <div class="project_details">
       <div class="project_title">
         <div class="project_title_first">
@@ -75,9 +97,7 @@ function generateHtml(name, product, role, techstack, links, points, image) {
     output += generateTechStack(techstack);
     output += `</div>`
     if (image != null) {
-        output += `<div class="project_image">
-            <img src='${image}' />
-        </div>`
+        output += generateImage(image, isEven);
     }
     output += `</div >`
     return output;
@@ -117,7 +137,7 @@ function generate() {
         var links = data[i].links;
         var image = data[i].image;
 
-        result += generateHtml(name, product, role, techstack, links, points, image);
+        result += generateHtml(name, product, role, techstack, links, points, image, i % 2 == 0);
 
     }
     result += end;
