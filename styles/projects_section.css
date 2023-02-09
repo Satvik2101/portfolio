@@ -93,6 +93,9 @@
 
 .tech_stack {
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .tech_stack_header {
@@ -141,6 +144,7 @@
         overflow: hidden;
     }
 
+
     .project_image {
         top: 1em;
         bottom: 1em;
@@ -153,13 +157,18 @@
     }
 
     .project_image img {
-        width: 150%;
+        width: 100%;
 
         margin: 0 auto;
         max-width: none;
         max-height: none;
         border-radius: 20px;
         object-fit: cover;
+        opacity: 1;
+        z-index: -1;
+        filter: grayscale(100%);
+        object-fit: contain;
+        transition: 0.5s ease;
     }
 
     .project_details {
@@ -172,13 +181,6 @@
         ;
     }
 
-    .project_image img {
-        opacity: 0.6;
-        z-index: -1;
-        filter: grayscale(100%);
-        object-fit: contain;
-        transition: 0.5s ease;
-    }
 
     .project_card:hover img {
         opacity: 1;
@@ -199,18 +201,45 @@
 
 
 @media screen and (max-width:600px) {
+
+    .tech_stack {
+        width: 100%;
+    }
+
+    .project_card {
+        /* display: block; */
+        z-index: 1;
+    }
+
     .project_title_first {
         font-size: 1.5rem;
         ;
     }
 
+    .project_title_second {
+        font-size: 1.2rem;
+    }
+
+    .por_designation {
+        font-size: 1.2rem;
+    }
+
+    /* .project_por_points li {
+        font-size: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+
+    }
+
+    .project_por_points ul {
+        padding-left: 0;
+        margin-left: 0;
+    } */
+
     .project_links {
         margin-top: 0;
     }
 
-    .project_title_second {
-        font-size: 1.2rem;
-    }
 
     i {
         font-size: 1.2rem !important;
@@ -220,7 +249,7 @@
         max-width: 20px;
         max-height: 20px;
         overflow: hidden;
-        padding-right: 5px;
+        padding-right: 10px;
     }
 
     .project_card {
@@ -231,6 +260,7 @@
     }
 
     .project_image {
+        width: 100%;
         top: 1em;
         bottom: 1em;
         left: 1em;
@@ -242,6 +272,7 @@
     }
 
     .project_image img {
+        width: 100%;
         margin: 0 auto;
         max-width: none;
         max-height: none;
@@ -252,7 +283,7 @@
     .project_details {
         max-width: 100%;
         padding: 2.5rem;
-        background-color: #000000d4;
+        background-color: #000000a8;
         z-index: 1;
         transition: 0.5s ease;
 
@@ -263,7 +294,7 @@
     .project_image img {
         opacity: 0.6;
         z-index: -1;
-        filter: grayscale(100%);
+        /* filter: grayscale(100%); */
         object-fit: contain;
         transition: 0.5s ease;
     }

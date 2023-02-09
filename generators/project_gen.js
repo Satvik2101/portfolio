@@ -43,7 +43,7 @@ function generateTechStack(techstack) {
     if (techstack == null) return output;
     output += `<div class="tech_stack">`
     for (var i = 0; i < techstack.length; i++) {
-        output += `<span class="tech_stack_item">${techstack[i]}</span>`
+        output += `<div class="tech_stack_item">${techstack[i]}</div>`
     }
     output += `</div>`
     return output;
