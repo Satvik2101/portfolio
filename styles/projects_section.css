@@ -142,6 +142,8 @@
         position: relative;
         justify-content: center;
         overflow: hidden;
+        margin-bottom: 20px;
+
     }
 
 
@@ -174,7 +176,7 @@
     .project_details {
         max-width: 100%;
         padding: 2.5rem;
-        background-color: #000000d4;
+        background-color: #1e1c1ce1;
         z-index: 1;
         transition: 0.5s ease;
 
@@ -309,9 +311,6 @@
     .tech_stack_item {
         font-size: 0.8rem;
     }
-
-
-
 
     .project_card:hover {
         padding: 0;
