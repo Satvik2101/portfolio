@@ -2,6 +2,8 @@
 
 var fs = require('fs');
 
+var generateTechStack = require('../helpers/techStackGen.js');
+
 
 
 function generateLinks(links) {
@@ -38,16 +40,6 @@ function generatePoints(points) {
     return output;
 }
 
-function generateTechStack(techstack) {
-    var output = "";
-    if (techstack == null) return output;
-    output += `<div class="tech_stack">`
-    for (var i = 0; i < techstack.length; i++) {
-        output += `<div class="tech_stack_item">${techstack[i]}</div>`
-    }
-    output += `</div>`
-    return output;
-}
 
 function generateImage(image, isEven) {
     var output = "";
@@ -128,7 +120,7 @@ function generate() {
 
     var end = `  </div>
 
-  </ >
+  </div>
         `
     var result = start;
 

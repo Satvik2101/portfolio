@@ -76,6 +76,10 @@
   ;
 }
 
+.workexp_card .tech_stack_item {
+  font-size: 0.9rem;
+}
+
 
 .workexp_card:hover {
   background-color: rgb(253, 253, 253);

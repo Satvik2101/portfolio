@@ -1,10 +1,10 @@
 //read data from raw.json
 
 var fs = require('fs');
+var generateTechStack = require('../helpers/techStackGen.js');
 
 
-
-function generateHtml(company, role, start, end, points, location, techstack) {
+function generateHtml(company, role, start, end, points, techstack) {
 
   var output = `<div class="workexp_card">
     <div class="workexp_title">
@@ -25,7 +25,9 @@ function generateHtml(company, role, start, end, points, location, techstack) {
   }
   output += `
       
-     </ul>
+     </ul>`
+  output += generateTechStack(techstack);
+  output += `
     </div>
   </div>
   
@@ -68,10 +70,10 @@ I've been lucky enough to be able to work for some amazing companies and organiz
     var startDate = workexp[i].start;
     var endDate = workexp[i].end;
     var points = workexp[i].points;
-    var location = workexp[i].location;
+    // var location = workexp[i].location;
     var techstack = workexp[i].techstack;
 
-    result += generateHtml(company, role, startDate, endDate, points, location, techstack);
+    result += generateHtml(company, role, startDate, endDate, points, techstack);
 
   }
   result += end;
