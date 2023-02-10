@@ -53,14 +53,18 @@ function generateImage(image, isEven) {
     var output = "";
     if (image == null) return output;
     var style = "";
+    var imgStyle = "";
     if (isEven) {
 
         style = "\"margin-left:0;margin-right:2em;\""
+        imgStyle = "\"float:right\"";
     } else {
         style = "\"margin-right:0;margin-left:2em;\""
+        imgStyle = "\"float:left\"";
+
     }
     output += `<div class="project_image" style=${style}>
-            <img src='${image}' />
+            <img src='${image}' style=${imgStyle}/>
         </div>`
     return output;
 }
