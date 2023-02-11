@@ -1,5 +1,25 @@
 var home = `
 <div id="bg_image">
+<div id="navbar">
+
+      <div id="navbar_text">
+        .satvik
+      </div>
+      <div id="navbar_links">
+        <div class="navbar_link" id="home_link">
+          <a href="#home" target="_self">Home</a>
+        </div>
+        <div class="navbar_link" id="workexp_link">
+          <a href="#workexp" target="_self">
+            Work Experience
+          </a>
+        </div>
+        <div class=" navbar_link" id="projects_link">
+          <a href="#projects" target="_self">Projects</a>
+        </div>
+        <!-- <div class="navbar_link" id="contact_link">Contact</div> -->
+      </div>
+    </div>
 
 <div class="border_mask">
 
@@ -65,7 +85,7 @@ var home = `
 `
 
 function generate() {
-    return home;
+  return home;
 }
 
 module.exports = generate;
