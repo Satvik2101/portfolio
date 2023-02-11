@@ -44,14 +44,14 @@ a {
   cursor: default;
 }
 
+/*add webkit properties*/
+
 #navbar:hover #navbar_links {
   height: auto;
   opacity: 1;
   transition: all 0.5s ease-in;
-
-
+  -webkit-transition: all 0.5s ease-in;
 }
-
 
 
 #navbar_links {
@@ -61,12 +61,14 @@ a {
   height: 0;
   opacity: 0;
   transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-in;
+
 }
 
 #navbar_links a {
   text-decoration: none;
-  text-shadow: 0 0 10px rgb(0, 0, 0);
-  color: lightslategray;
+  text-shadow: 0 0 5px rgb(0, 0, 0);
+  color: rgb(200, 213, 225);
 
 }
 
