@@ -1,4 +1,4 @@
-#workexp_section {
+#workexp {
   /* padding: 2rem 6em; */
   margin-top: 1em;
   max-width: 100vw;
@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-/* #workexp_section h1 {
+/* #workexp h1 {
   font-family: "Cinzel Decorative", sans-serif;
   color: rgb(255, 255, 255);
 } */

@@ -9,7 +9,7 @@ in the body and html
 }
 
 /*This is used to (basically) center the home section div*/
-#home_section_container {
+#home {
   position: relative;
   display: flex;
   border: 0;

@@ -12,7 +12,7 @@ var home = `
 
 
 </div>
-<div id="home_section_container">
+<div id="home">
 
 
   <div id="home_section">

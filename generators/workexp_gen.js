@@ -40,7 +40,7 @@ function generate() {
   var raw = JSON.parse(fs.readFileSync('raw.json', 'utf8'));
   var workexp = raw.workexp;
   var start = `
-  <div id="workexp_section" class="section">
+  <div id="workexp" class="section">
   <div id="workexp_section_start">
 
   <div class="section_title">

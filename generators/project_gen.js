@@ -104,7 +104,7 @@ function generate() {
     var raw = JSON.parse(fs.readFileSync('raw.json', 'utf8'));
     var data = [...raw.pors, ...raw.projects];
     var start = `
-        <div id = "projects_and_pors" class="section" >
+        <div id = "projects" class="section" >
     <div id="projects_section_start">
       <div class="section_title">
         What I've Created
