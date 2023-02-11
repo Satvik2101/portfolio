@@ -21,6 +21,55 @@ a {
   color: var(--primary);
 }
 
+#navbar {
+  transition: 0.5s all ease-out;
+
+  text-align: right;
+  position: fixed;
+  top: 5%;
+  height: auto;
+  right: 5%;
+  z-index: 100;
+  font-family: 'Roboto Slab';
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+#navbar_text {
+  text-shadow: 0 0 10px rgb(0, 0, 0);
+  background-color: transparent;
+}
+
+#navbar:hover #navbar_links {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s linear;
+
+
+}
+
+
+
+#navbar_links {
+  text-align: right;
+  font-size: 1.1rem;
+  color: lightslategray;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+#navbar_links a {
+  text-decoration: none;
+  text-shadow: 0 0 10px rgb(0, 0, 0);
+  color: lightslategray;
+
+}
+
+
 
 body ::-webkit-scrollbar {
   width: 10px;
@@ -83,16 +132,3 @@ body {
     font-size: 0.8rem;
   }
 }
-
-/* Apparently these 2 aren't even required anymore */
-
-/* @media screen and (max-width: 450px) {
-  body {
-    max-width: 100em;
-  }
-}
-@media screen and (min-width:450px) and (max-width: 600px) {
-  body {
-    max-width: 70em;
-  }
-} */
