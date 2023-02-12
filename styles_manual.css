@@ -5,6 +5,7 @@
 @import "./styles/profile_links.css";
 @import "./styles/projects_section.css";
 @import "./styles/workexp_section.css";
+@import "./styles/contact.css";
 
 :root {
   --primary: #e02633;
