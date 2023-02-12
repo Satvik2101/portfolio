@@ -1,5 +1,12 @@
 var home = `
 <div id="bg_image">
+
+<div id="arc_reactor">
+<a href="#home" target="_self">
+
+  <img src="./images/arc_reactor.png" />
+</a>
+</div>
 <div id="navbar">
 
       <div id="navbar_text">
