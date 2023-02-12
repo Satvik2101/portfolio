@@ -24,7 +24,10 @@ var home = `
         <div class=" navbar_link" id="projects_link">
           <a href="#projects" target="_self">Projects</a>
         </div>
-        <!-- <div class="navbar_link" id="contact_link">Contact</div> -->
+        <div class=" navbar_link" id="contacts_lini">
+        <a href="#contact" target="_self">Contact</a>
+      </div>
+        
       </div>
     </div>
 
