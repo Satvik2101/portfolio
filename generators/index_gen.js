@@ -2,7 +2,7 @@ var fs = require('fs');
 
 
 var start = `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ontouchmove="">
 
 <head>
   <meta charset="UTF-8" />
@@ -34,9 +34,10 @@ var home = require('./home_gen.js')();
 
 var workexp = require('./workexp_gen.js')();
 var projects_pors = require('./project_gen.js')();
+var contact_and_footer = require('./contact_and_footer_gen.js')();
 //projects
 
-var html = start + home + workexp + projects_pors + end;
+var html = start + home + workexp + projects_pors + contact_and_footer + end;
 
 //write to index_2.html
 
