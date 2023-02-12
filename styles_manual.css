@@ -21,6 +21,17 @@ a {
   color: var(--primary);
 }
 
+#arc_reactor img {
+  filter: drop-shadow(0px 0 4px #ffffff8d);
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  z-index: 100;
+  height: 50px;
+  width: 50px;
+  object-fit: scale-down;
+}
+
 #navbar {
   transition: 0.5s all ease-out;
   overflow: hidden;
@@ -134,4 +145,18 @@ body {
   .tech_stack_item {
     font-size: 0.8rem;
   }
+
+  #arc_reactor img {
+    top: 10px;
+    left: 10px;
+    height: 40px;
+    width: 40px;
+  }
+
+  #navbar {
+    top: 10px;
+    right: 10px;
+  }
+
+
 }
