@@ -1,7 +1,2 @@
-.gitignore
-aws/.awsignore
-aws/added_files
-aws/changed_files
-aws/last_commit_hash
-aws/scripts/calc_diff.sh
-generators/test.js
+blah2.html
+scripts/test.js
