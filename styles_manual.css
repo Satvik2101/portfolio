@@ -1,0 +1,163 @@
+@import "./styles/projects_section.css";
+@import "./styles/sections.css";
+@import "./styles/border_mask.css";
+@import "./styles/home_section.css";
+@import "./styles/profile_links.css";
+@import "./styles/projects_section.css";
+@import "./styles/workexp_section.css";
+@import "./styles/contact.css";
+
+:root {
+  --primary: #e02633;
+  --primary_bg: #D2042D;
+  --cherry: #D2042D;
+  --rose: #FF033E;
+}
+
+* {
+  margin: 0;
+}
+
+a {
+  color: var(--primary);
+}
+
+#arc_reactor img {
+  filter: drop-shadow(0px 0 4px #ffffff8d);
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  z-index: 100;
+  height: 50px;
+  width: 50px;
+  object-fit: scale-down;
+}
+
+#navbar {
+  transition: 0.5s all ease-out;
+  overflow: hidden;
+  text-align: right;
+  position: fixed;
+  top: 5%;
+  height: auto;
+  right: 5%;
+  z-index: 100;
+  font-family: 'Roboto Slab';
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+#navbar_text {
+  text-shadow: 0 0 10px rgb(0, 0, 0);
+  background-color: transparent;
+  cursor: default;
+}
+
+/*add webkit properties*/
+
+#navbar:hover #navbar_links {
+  height: auto;
+  opacity: 1;
+  transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-in;
+}
+
+
+#navbar_links {
+  text-align: right;
+  font-size: 1.1rem;
+  color: lightslategray;
+  height: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-in;
+
+}
+
+#navbar_links a {
+  text-decoration: none;
+  text-shadow: 0 0 5px rgb(0, 0, 0);
+  color: rgb(200, 213, 225);
+
+}
+
+
+
+body ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(132, 129, 129);
+  outline: 1px solid rgb(37, 37, 37);
+}
+
+#bg_image {
+  background-image: url(./images/keyboard.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  /* background-attachment: fixed; */
+}
+
+body {
+  margin: 0 0;
+  font-family: "Open Sans", Geneva, Verdana, sans-serif;
+  color: azure;
+  line-height: 1.8;
+  background-color: black;
+  /* width: 100vw; */
+}
+
+.tech_stack {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tech_stack_header {
+  font-family: "Righteous", sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: rgb(179, 192, 206);
+  letter-spacing: 1.2px;
+}
+
+.tech_stack_item {
+  font-family: 'Consolas', 'Courier New', Courier, monospace;
+  color: lightslategray;
+  font-size: 1.2rem;
+  padding: 0em 0.25em;
+}
+
+
+@media screen and (max-width:600px) {
+
+  .tech_stack {
+    width: 100%;
+  }
+
+  .tech_stack_item {
+    font-size: 0.8rem;
+  }
+
+  #arc_reactor img {
+    top: 10px;
+    left: 10px;
+    height: 40px;
+    width: 40px;
+  }
+
+  #navbar {
+    top: 10px;
+    right: 10px;
+  }
+
+
+}

@@ -18,7 +18,11 @@
       "role": "App Developer Intern",
       "start": "Dec 2021",
       "end": "March 2022",
-      "techstack": ["Flutter", "SQLite", "Arduino"],
+      "techstack": [
+        "Flutter",
+        "SQLite",
+        "Arduino"
+      ],
       "points": [
         "Single-handedly designed and authored an Android app using Flutter SDK. The application receives, stores, displays and exports ECG data received from Arduino-based hardware. ",
         "The app utilizes SQLite as a local database and hashes the user's pin code using SHA-256."
@@ -28,7 +32,9 @@
       "company": "CRIS, Ministry of Railways",
       "location": "Delhi",
       "role": "Flutter Developer Intern",
-      "techstack": ["Flutter"],
+      "techstack": [
+        "Flutter"
+      ],
       "start": "Aug 2021",
       "end": "Oct 2021",
       "points": [
@@ -39,13 +45,15 @@
   ],
   "projects": [
     {
-      "name:": "DTU-DCE Fraternity Forum",
-      "techstack": ["Flutter", "JWT", "REST"],
+      "name": "DTU-DCE Fraternity Forum",
+      "product": "Flutter App",
+      "role": "Head of Mobile App Team",
+      "techstack": [
+        "Flutter",
+        "JWT",
+        "REST"
+      ],
       "links": [
-        {
-          "name": "DTU-DCE Fraternity Forum",
-          "url": "https://dtudcefraternity.org/"
-        },
         {
           "name": "App Store",
           "url": "https://apps.apple.com/in/app/dtu-dce-fraternity-forum/id1601864796"
@@ -56,12 +64,13 @@
         }
       ],
       "points": [
-        "Directed a team of 3 developers and architected, developed and coded an app for DTU-DCE FraternityForum from scratch using Flutter, with full integration with REST API with server.",
+        "Directed a team of 3 developers and architected, developed and coded an app for DTU-DCE Fraternity Forum from scratch using Flutter, with full integration with REST API with server.",
         "Co-ordinated with backend team to develop and test new API endpoints. Also coordinated with Resume partner Resumod, who provide free membership of Resumod to forum members.",
         "Integrated authentication support with JWT authentication tokens for registered users. ",
         "Built an admin panel into the app for the administrators to alter membership statuses and view user data.",
         "The app has 100+ downloads on Play Store, with a rating of 5 on both the Play Store and App Store."
-      ]
+      ],
+      "image": "./images/projects/dtu_dce_frat.png"
     }
   ],
   "achievements": [
@@ -85,7 +94,8 @@
   ],
   "pors": [
     {
-      "name:": "TEDxDTU",
+      "name": "TEDxDTU",
+      "product": "Website & App",
       "role": "Head of Tech Team",
       "techstack": [
         "Flutter",
@@ -100,12 +110,16 @@
       "end": "Present",
       "links": [
         {
-          "name": "Github-App",
-          "url": "https://github.com/TEDxDTU/FlutterApp"
+          "name": "Github",
+          "url": "https://github.com/TEDxDTU"
         },
         {
-          "name": "Github-Web",
-          "url": "https://github.com/TEDxDTU/Web"
+          "name": "Website",
+          "url": "https://tedxdtu.in/"
+        },
+        {
+          "name": "Play Store",
+          "url": "https://play.google.com/store/apps/details?id=in.tedxdtu.flutter_app&pli=1"
         }
       ],
       "points": [
@@ -113,7 +127,8 @@
         "Contributed extensively to the backend code in Node.js",
         "Set up AWS EC2 as a server for hosting the website, and configured SSL certificates for the domain using Let's Encrypt, and moved the live website to GCP Compute Engine to scale it. Used nginx as a reverse proxy to route requests to the Node.js code.",
         "The website served 400,000 HTTP requests, had 8k unique IP addresses making requests, and 1.5k registered users in a span of 20 days. 2/3rds of the tickets for the event were sold on the website"
-      ]
+      ],
+      "image": "./images/projects/tedx.png"
     }
   ]
 }
