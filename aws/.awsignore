@@ -9,3 +9,4 @@ aws
 workexp.html
 .gitignore
 sync.sh
+test.sh
