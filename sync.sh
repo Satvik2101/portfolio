@@ -44,6 +44,11 @@ read files < ./aws/upload_files
 echo "Files to upload: $files"
 read -p "Press enter to continue";
 
+#MSYS_NO_PATHCONV=1  -- This line prevents Git-Bash from converting the path to Windows format
+# Without it, /xyz/abc is converted to C:/Program Files/Git/xyz/abc
+# Only happens with file names starting with a /
+
+
 # Upload files to S3
 if [ $d == 1 ]; then
     echo "Dry run. Not uploading to S3"

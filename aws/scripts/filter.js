@@ -80,7 +80,13 @@ changed_files.forEach(function (fileData) {
 // fs.writeFileSync('./aws/changed_files', finalChangedFiles.join("\n"));
 var upload = [...finalAddedFiles, ...finalChangedFiles];
 fs.writeFileSync('./aws/upload_files', upload.join(" "));
+
+
 // add / to start of all files in finalChangedFiles
+// The AWS CLI's invalidate command and the S3 upload command apparently require different formats
+// The issue is there only because I'm using git-bash to run the scripts, and that causes some issues
+// with file paths as well. 
+// This is a temporary fix that works well.
 
 for (var i = 0; i < finalChangedFiles.length; i++) {
     finalChangedFiles[i] = '/' + finalChangedFiles[i];
