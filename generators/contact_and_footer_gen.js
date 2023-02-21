@@ -1,12 +1,12 @@
 var data = `
 <div id="contact" class="section">
-    <h1 class="section_title">
+    <h2 class="section_title">
       Contact Me <span class="separator_line"></span>
-    </h1>
+    </h2>
     <br>
     <div id="contact_flex_box">
       <div id="contact_left">
-        <h2> Let's build something great together.</h2>
+        <h3> Let's build something great together.</h3>
 
         <br />
 

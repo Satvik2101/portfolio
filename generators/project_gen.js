@@ -74,11 +74,11 @@ function generateHtml(name, product, role, techstack, links, points, image, isEv
     <div class="project_card" style=${style}>
     <div class="project_details">
       <div class="project_title">
-        <h2 class="project_title_first">
+        <h3 class="project_title_first">
 
          ${name}
-        </h2>
-        ${(product == null) ? "" : "<h3 class=\"project_title_second\">" + product + "</h2>"}
+        </h3>
+        ${(product == null) ? "" : "<h3 class=\"project_title_second\">" + product + "</h3>"}
        
       </div>`
 
@@ -106,10 +106,10 @@ function generate() {
     var start = `
         <div id = "projects" class="section" >
     <div id="projects_section_start">
-      <h1 class="section_title">
+      <h2 class="section_title">
         What I've Created
         <span class="separator_line"></span>
-      </h1>
+      </h2>
 
       I've worked on a lot of projects, both personal and professional, and have held Positions of Responsibility as a
       student. <br />Here are some of them.
