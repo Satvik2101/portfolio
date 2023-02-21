@@ -29,6 +29,17 @@ function ignoreFile(file) {
 
     return false;
 }
+
+function fixFileName(file) {
+    //if file name beginwith ./ or /, remove it
+    if (file[0] == '.' && file[1] == '/') {
+        return file.substring(2);
+    }
+    if (file[0] == '/') {
+        return file.substring(1);
+    }
+    return file;
+}
 var addedFiles = fs.readFileSync('./aws/added_files', 'utf-8').toString().split("\n");
 var finalAddedFiles = [];
 var finalChangedFiles = [];
@@ -36,7 +47,8 @@ addedFiles.forEach(function (fileData) {
     if (fileData.length == 0) { return; }
     var isIgnored = ignoreFile(fileData);
     if (!isIgnored) {
-        finalAddedFiles.push(fileData);
+
+        finalAddedFiles.push(fixFileName(fileData));
     }
 });
 // fs.writeFileSync('./aws/added_files', finalAddedFiles.join("\n"));
@@ -59,10 +71,10 @@ changed_files.forEach(function (fileData) {
         if (mode == 'A') {
             console.log('added');
             // fs.appendFileSync('./aws/added_files', file + "\n");
-            finalAddedFiles.push(file);
+            finalAddedFiles.push(fixFileName(file));
         } else {
-            console.log('changed');
-            finalChangedFiles.push(file);
+            console.log(`changed ${fixFileName(file)}`);
+            finalChangedFiles.push(fixFileName(file));
         }
         console.log();
     }
