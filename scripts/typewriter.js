@@ -15,7 +15,6 @@ typewrite = async function () {
   function typeWriter() {
     if (i < finalText.length) {
       text.innerHTML += finalText.charAt(i);
-      // text2.innerHTML += finalText.charAt(i);
       i++;
       setTimeout(typeWriter, speed);
     } else {

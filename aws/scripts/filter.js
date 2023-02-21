@@ -30,16 +30,13 @@ function ignoreFile(file) {
     return false;
 }
 
-function fixFileName(file) {
-    //if file name beginwith ./ or /, remove it
-    if (file[0] == '.' && file[1] == '/') {
-        return file.substring(2);
-    }
-    if (file[0] == '/') {
-        return file.substring(1);
-    }
-    return file;
-}
+// function fixFileName(file) {
+//     //if file doesn't have a / in it, add / in the front
+//     if (file.indexOf('/') == -1) {
+//         file = '/' + file;
+//     }
+//     return file;
+// }
 var addedFiles = fs.readFileSync('./aws/added_files', 'utf-8').toString().split("\n");
 var finalAddedFiles = [];
 var finalChangedFiles = [];
@@ -48,7 +45,7 @@ addedFiles.forEach(function (fileData) {
     var isIgnored = ignoreFile(fileData);
     if (!isIgnored) {
 
-        finalAddedFiles.push(fixFileName(fileData));
+        finalAddedFiles.push(fileData);
     }
 });
 // fs.writeFileSync('./aws/added_files', finalAddedFiles.join("\n"));
@@ -71,10 +68,9 @@ changed_files.forEach(function (fileData) {
         if (mode == 'A') {
             console.log('added');
             // fs.appendFileSync('./aws/added_files', file + "\n");
-            finalAddedFiles.push(fixFileName(file));
+            finalAddedFiles.push(file);
         } else {
-            console.log(`changed ${fixFileName(file)}`);
-            finalChangedFiles.push(fixFileName(file));
+            finalChangedFiles.push(file);
         }
         console.log();
     }
@@ -84,6 +80,12 @@ changed_files.forEach(function (fileData) {
 // fs.writeFileSync('./aws/changed_files', finalChangedFiles.join("\n"));
 var upload = [...finalAddedFiles, ...finalChangedFiles];
 fs.writeFileSync('./aws/upload_files', upload.join(" "));
+// add / to start of all files in finalChangedFiles
+
+for (var i = 0; i < finalChangedFiles.length; i++) {
+    finalChangedFiles[i] = '/' + finalChangedFiles[i];
+}
+
 fs.writeFileSync('./aws/invalidate_files', finalChangedFiles.join(" "));
 //delete added_files and changed_files
 fs.unlinkSync('./aws/added_files');

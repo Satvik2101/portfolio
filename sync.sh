@@ -49,7 +49,7 @@ if [ $d == 1 ]; then
     echo "Dry run. Not uploading to S3"
 else
     for file in $files; do
-        aws s3 cp $file $s3/$file
+        MSYS_NO_PATHCONV=1 aws s3 cp $file $s3/$file
     done
 fi
 
@@ -65,9 +65,11 @@ if [ $d == 1 ]; then
 else
     for invalidation in $invalidations; do
         # echo \"$invalidation\"
-        aws cloudfront create-invalidation --distribution-id $cf --paths //$invalidation
+        MSYS_NO_PATHCONV=1 aws cloudfront create-invalidation --distribution-id $cf --paths $invalidation
     done
 fi
+
+MSYS_NO_PATHCONV=0
 
 # Commit to git, with timestamp
 if [ $d == 1 ]; then
