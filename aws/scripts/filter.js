@@ -73,3 +73,6 @@ changed_files.forEach(function (fileData) {
 var upload = [...finalAddedFiles, ...finalChangedFiles];
 fs.writeFileSync('./aws/upload_files', upload.join(" "));
 fs.writeFileSync('./aws/invalidate_files', finalChangedFiles.join(" "));
+//delete added_files and changed_files
+fs.unlinkSync('./aws/added_files');
+fs.unlinkSync('./aws/changed_files');

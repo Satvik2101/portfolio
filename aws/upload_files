@@ -1,1 +1,1 @@
-sync.sh blah2.html scripts/test.js
+blah2.html scripts/test.js index.html scripts/typewriter.js

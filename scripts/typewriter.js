@@ -1,5 +1,5 @@
 typewrite = async function () {
-  var finalText = "Hi. I'm Satvik.";
+  var finalText = "Hi, I'm Satvik.";
   var i = 0;
   var speed = 50;
   var text = document.getElementById("name_heading");

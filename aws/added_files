@@ -1,4 +1,0 @@
-aws/invalidate_files
-aws/scripts/create.sh
-aws/upload_files
-sync.sh
