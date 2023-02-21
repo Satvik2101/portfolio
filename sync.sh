@@ -21,7 +21,7 @@ while getopts ":fd" opt; do
     esac
 done
 
-echo "f: $f d: $d"
+
 # check for -f flag
 if [ $f == 0 ]; then
     C:/Windows/explorer.exe index.html
@@ -69,6 +69,10 @@ else
 fi
 
 # Commit to git, with timestamp
-
+if [ $d == 1 ]; then
+    echo "Dry run. Not committing to git"
+else
     git add .
     git commit -m "Push to S3 by script commit $(date)"
+    git push -u origin main
+fi
