@@ -48,7 +48,7 @@ var home = `
   <div id="home_section">
 
     <div id="name_and_desig" class="padded_centered">
-      <h1 id="name_heading"></h1>
+      <h1 id="name_heading">> Hi. I'm Satvik Gupta.</h1>
 
       <p id="designation">Software Developer</p>
     </div>

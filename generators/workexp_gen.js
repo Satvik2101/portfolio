@@ -7,15 +7,15 @@ var generateTechStack = require('../helpers/techStackGen.js');
 function generateHtml(company, role, start, end, points, techstack) {
 
   var output = `<div class="workexp_card">
-    <div class="workexp_title">
+    <h2 class="workexp_title">
       ${company}
-    </div>
-    <div class="workexp_subtitle" w>
+    </h2>
+    <h3 class="workexp_subtitle">
       ${role}
-    </div>
-    <div class="workexp_timespan" w>
+    </h3>
+    <h3 class="workexp_timespan">
       ${start} - ${end}
-    </div>
+    </h3>
     <div class="workexp_points">
       <ul>
         <br/>`;
@@ -43,11 +43,11 @@ function generate() {
   <div id="workexp" class="section">
   <div id="workexp_section_start">
 
-  <div class="section_title">
+  <h1 class="section_title">
 
   Where I've Worked
   <span class="separator_line"></span>
-</div>
+</h1>
 I've been lucky enough to be able to work for some amazing companies and organizations. Here are some of them.
   </div>
 

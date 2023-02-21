@@ -21,6 +21,7 @@ while getopts ":fd" opt; do
     esac
 done
 
+./aws/scripts/create.sh
 
 # check for -f flag
 if [ $f == 0 ]; then
@@ -76,3 +77,6 @@ else
     git commit -m "Push to S3 by script commit $(date)"
     git push -u origin main
 fi
+
+#Get last commit hash and save it to aws/last_commit_hash
+git rev-parse HEAD > ./aws/last_commit_hash

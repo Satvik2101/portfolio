@@ -1,12 +1,12 @@
 var data = `
 <div id="contact" class="section">
-    <div class="section_title">
+    <h1 class="section_title">
       Contact Me <span class="separator_line"></span>
-    </div>
+    </h1>
     <br>
     <div id="contact_flex_box">
       <div id="contact_left">
-        <h1> Let's build something great together.</h1>
+        <h2> Let's build something great together.</h2>
 
         <br />
 
@@ -27,7 +27,7 @@ var data = `
 `
 
 function generate() {
-    return data;
+  return data;
 }
 
 module.exports = generate;

@@ -6,6 +6,10 @@
 
 }
 
+#contact_left h2 {
+    font-size: 2rem;
+}
+
 #contact {
     overflow: hidden;
     /* margin-bottom: 10rem; */
