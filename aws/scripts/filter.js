@@ -65,6 +65,9 @@ changed_files.forEach(function (fileData) {
     var isIgnored = ignoreFile(file);
     if (!isIgnored) {
         console.log(file);
+        if (mode == 'D') {
+            return;
+        }
         if (mode == 'A') {
             console.log('added');
             // fs.appendFileSync('./aws/added_files', file + "\n");
