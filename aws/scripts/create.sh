@@ -1,7 +1,7 @@
 node ./generators/index_gen.js
 node ./generators/style_gen.js
 
-isodate=$(date +"%Y-%m-%dT%H:%M:%S%z")
+isodate=$(date -Is)
 echo $isodate
 #update in sitemap.xml
 
