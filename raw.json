@@ -70,7 +70,8 @@
         "Built an admin panel into the app for the administrators to alter membership statuses and view user data.",
         "The app has 100+ downloads on Play Store, with a rating of 5 on both the Play Store and App Store."
       ],
-      "image": "./images/projects/dtu_dce_frat.png"
+      "image": "./images/projects/dtu_dce_frat.png",
+      "image_alt": "Screenshot of the Forum's App"
     }
   ],
   "achievements": [
@@ -128,7 +129,8 @@
         "Set up AWS EC2 as a server for hosting the website, and configured SSL certificates for the domain using Let's Encrypt, and moved the live website to GCP Compute Engine to scale it. Used nginx as a reverse proxy to route requests to the Node.js code.",
         "The website served 400,000 HTTP requests, had 8k unique IP addresses making requests, and 1.5k registered users in a span of 20 days. 2/3rds of the tickets for the event were sold on the website"
       ],
-      "image": "./images/projects/tedx.png"
+      "image": "./images/projects/tedx.png",
+      "image_alt": "Screenshot of TEDxDTU's App and Website"
     }
   ]
 }

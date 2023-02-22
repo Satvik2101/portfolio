@@ -41,7 +41,8 @@ function generatePoints(points) {
 }
 
 
-function generateImage(image, isEven) {
+function generateImage(image, name, alt, isEven) {
+    if (alt == null) alt = name;
     var output = "";
     if (image == null) return output;
     var style = "";
@@ -56,11 +57,11 @@ function generateImage(image, isEven) {
 
     }
     output += `<div class="project_image" style=${style}>
-            <img src='${image}' style=${imgStyle}/>
+            <img src='${image}' style=${imgStyle} alt="${alt}"/>
         </div>`
     return output;
 }
-function generateHtml(name, product, role, techstack, links, points, image, isEven) {
+function generateHtml(name, product, role, techstack, links, points, image, alt, isEven) {
     if (product != null) {
         name = name + "'s"
     }
@@ -93,7 +94,7 @@ function generateHtml(name, product, role, techstack, links, points, image, isEv
     output += generateTechStack(techstack);
     output += `</div>`
     if (image != null) {
-        output += generateImage(image, isEven);
+        output += generateImage(image, name, alt, isEven);
     }
     output += `</div >`
     return output;
@@ -132,8 +133,10 @@ function generate() {
         var points = data[i].points;
         var links = data[i].links;
         var image = data[i].image;
+        var alt = data[i].image_alt;
+        console.log(alt);
 
-        result += generateHtml(name, product, role, techstack, links, points, image, i % 2 == 0);
+        result += generateHtml(name, product, role, techstack, links, points, image, alt, i % 2 == 0);
 
     }
     result += end;

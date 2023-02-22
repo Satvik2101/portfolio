@@ -4,7 +4,7 @@ var home = `
 <div id="arc_reactor">
 <a href="#home" target="_self">
 
-  <img src="./images/arc_reactor.png" />
+  <img src="./images/arc_reactor.png" alt="nav_bar_logo" />
 </a>
 </div>
 <div id="navbar">

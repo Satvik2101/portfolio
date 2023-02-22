@@ -16,7 +16,7 @@ var data = `
         Get in touch with me via email at <a href="mailto:hello@satvikgupta.com"> hello@satvikgupta.com </a>
       </div>
       <div id="contact_right">
-        <img src="./images/Dashatar.png" />
+        <img src="./images/Dashatar.png" alt="Dashatar"/>
       </div>
 
     </div>
