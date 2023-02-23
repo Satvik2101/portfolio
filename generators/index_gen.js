@@ -8,7 +8,11 @@ var start = `<!DOCTYPE html>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Satvik Gupta's Software Developer Portfolio Website." />
+  <meta name="description" content="I'm Satvik Gupta, a Software Developer. This is my Portfolio Website." />
+  <meta property="og:title" content="Satvik Gupta" />
+  <meta property="og:description" content="I'm Satvik Gupta, a Software Developer. This is my Portfolio Website." />
+  <meta property="og:image" content="https://www.satvikgupta.com/images/keyboard.jpg" />
+  <meta property="og:url" content="https://www.satvikgupta.com" />
   <base target="_blank" rel="noreferrer noopener">
   <link rel="canonical" href="https://www.satvikgupta.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
