@@ -11,8 +11,8 @@ var start = `<!DOCTYPE html>
   <meta name="description" content="I'm Satvik Gupta, a Software Developer. This is my Portfolio Website." />
   <meta property="og:title" content="Satvik Gupta" />
   <meta property="og:description" content="I'm Satvik Gupta, a Software Developer. This is my Portfolio Website." />
-  <meta property="og:image" content="https://www.satvikgupta.com/images/keyboard.jpg" />
-  <meta property="og:url" content="https://www.satvikgupta.com" />
+  <meta property="og:image" content="https://www.satvikgupta.com/images/preview.png" />
+  <meta property="og:url" content="https://www.satvikgupta.com" />  
   <base target="_blank" rel="noreferrer noopener">
   <link rel="canonical" href="https://www.satvikgupta.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
