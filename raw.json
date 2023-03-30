@@ -1,4 +1,43 @@
 {
+  "name": "Satvik Gupta",
+  "title": "Software Developer",
+  "location": "New Delhi",
+  "email": "me@satvikgupta.com",
+  "phone": "+91 9910119645",
+  "links": [
+    {
+      "name": "Github",
+      "url": "github.com/Satvik2101"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/satvik-gupta-063033195/"
+    },
+    {
+      "name": "Website",
+      "url": "https://www.satvikgupta.com"
+    }
+  ],
+  "education": [
+    {
+      "name": "B.Tech (Computer Engineering)",
+      "institute": "Delhi Technological University",
+      "year": "2020 - 2024",
+      "score": "9.43 GPA"
+    },
+    {
+      "name": "AISSCE/CBSE (Class XII)",
+      "institute": "GD Goenka Public School",
+      "year": "2020",
+      "score": "95%"
+    },
+    {
+      "name": "AISSCE/CBSE (Class X)",
+      "institute": "GD Goenka Public School",
+      "year": "2018",
+      "score": "96%"
+    }
+  ],
   "workexp": [
     {
       "company": "Coding Ninjas",
@@ -81,17 +120,21 @@
     "Cleared KVPY SA (11th) First Round in 2018"
   ],
   "skills": [
-    "Flutter",
-    "Dart",
-    "C++",
-    "Java",
-    "JavaScript",
-    "Node.js",
-    "Express.js",
-    "SQL",
-    "MongoDB",
-    "Git",
-    "Firebase"
+    [
+      "C++",
+      "Dart",
+      "Java",
+      "JavaScript"
+    ],
+    [
+      "Node.js",
+      "Express.js"
+    ],
+    [
+      "SQL",
+      "MongoDB",
+      "Git"
+    ]
   ],
   "pors": [
     {
