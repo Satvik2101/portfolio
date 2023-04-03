@@ -7,8 +7,8 @@ pagestyle: empty
 
 ---
 
-# Satvik Gupta \hfill \small \href{mailto:me@satvikgupta.com}{me@satvikgupta.com} +91 9910119645
-Software Developer, New Delhi \hfill{}[Github](github.com/Satvik2101) | [LinkedIn](https://www.linkedin.com/in/satvik-gupta-063033195/) | [Website](https://www.satvikgupta.com)
+# Satvik Gupta \hfill \small \href{mailto:me@satvikgupta.com}{me@satvikgupta.com} 
+Software Developer, New Delhi \hfill{}[Website](https://www.satvikgupta.com) | [Github](github.com/Satvik2101) | [LinkedIn](https://www.linkedin.com/in/satvik-gupta-063033195/) | [LeetCode](https://leetcode.com/kbx2157/)
 
 ## EDUCATION
 |                               |             |                                |          |

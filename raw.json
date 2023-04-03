@@ -3,8 +3,12 @@
   "title": "Software Developer",
   "location": "New Delhi",
   "email": "me@satvikgupta.com",
-  "phone": "+91 9910119645",
+  "phone": "",
   "links": [
+    {
+      "name": "Website",
+      "url": "https://www.satvikgupta.com"
+    },
     {
       "name": "Github",
       "url": "github.com/Satvik2101"
@@ -14,8 +18,8 @@
       "url": "https://www.linkedin.com/in/satvik-gupta-063033195/"
     },
     {
-      "name": "Website",
-      "url": "https://www.satvikgupta.com"
+      "name": "LeetCode",
+      "url": "https://leetcode.com/kbx2157/"
     }
   ],
   "education": [

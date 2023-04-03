@@ -54,7 +54,12 @@ if [ $d == 1 ]; then
     echo "Dry run. Not uploading to S3"
 else
     for file in $files; do
-        MSYS_NO_PATHCONV=1 aws s3 cp $file $s3/$file
+        # if file is html file, remove the .html extension and add --content-type text/html
+        if [[ $file == *.html ]]; then
+            MSYS_NO_PATHCONV=1 aws s3 cp $file $s3/${file::-5} --content-type text/html
+        else
+            MSYS_NO_PATHCONV=1 aws s3 cp $file $s3/$file
+        fi
     done
 fi
 

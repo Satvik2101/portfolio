@@ -10,3 +10,8 @@ workexp.html
 .gitignore
 sync.sh
 test.sh
+scripts/create.js
+scripts/personal.tex
+scripts/test.js
+resume.sh
+resume.md

@@ -79,7 +79,7 @@ var home = `
         LinkedIn
       </a>
 
-      <a href="https://drive.google.com/file/d/1QRKsfusGh9-dkz_rBeikaXlxumSY5xkE/view?usp=sharing"
+      <a href="https://www.satvikgupta.com/satvik-gupta-resume.pdf"
         class="profile_link_button" id="resume_button">
         <span id="resume_icon"></span>
         Resume
