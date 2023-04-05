@@ -19,7 +19,7 @@ function generateNav() {
             <a href="/#projects" target="_self">Projects</a>
         </div>
         <div class=" navbar_link" id="notes_link">
-        <a href="/notes.html" target="_self">Notes</a>
+        <a href="/notes" target="_self">Notes</a>
     </div>
         <div class=" navbar_link" id="contacts_link">
             <a href="/#contact" target="_self">Contact</a>
