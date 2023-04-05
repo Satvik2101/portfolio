@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Luxurious+Roman&display=swap');
+
+* {
+    user-select: none;
+}
+
+table {
+
+    width: 100%;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    /* max-width: 70em; */
+
+}
+
+body {
+    padding: 10px;
+    /* max-width: 70em; */
+    margin: 0 auto;
+    flex-wrap: wrap;
+    font-family: 'Gideon Roman', sans-serif;
+    max-height: 100vh;
+}
+
+nav {
+    /* position: sticky; */
+    /* min-width: 50px; */
+    max-width: 270px;
+    /* flex: 1; */
+    font-family: 'Luxurious Roman', sans-serif;
+    max-height: 76vh;
+    overflow-y: auto;
+    padding-right: 10px;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Luxurious Roman', sans-serif;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+.author {
+    text-align: center;
+}
+
+#data {
+    flex: 1;
+    /* flex: 4; */
+    /* max-width: 40em; */
+    overflow-y: auto;
+    max-height: 76vh;
+    padding-left: 1em;
+
+    /* padding-left: 20em; */
+}
+
+img {
+    max-width: 100%;
+}
+
+th,
+table,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+/* Mobile devices */
+@media only screen and (max-width: 600px) {
+    #container {
+        flex-direction: column;
+    }
+
+    nav {
+        max-width: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+
+    #data {
+        max-width: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+}
+
+h5 {
+    font-size: 17px;
+}
