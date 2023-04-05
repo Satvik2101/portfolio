@@ -1,7 +1,7 @@
 const fs = require('fs');
 var navBar = require("../helpers/navGen")();
 
-const notes = ["CN", "DiS", "OOSE"];
+const notes = ["OOSE"];
 
 // Loop through each note in the notes array
 for (let i = 0; i < notes.length; i++) {
@@ -20,13 +20,18 @@ for (let i = 0; i < notes.length; i++) {
         const modifiedData = data.slice(0, bodyStartIndex) + navBar + data.slice(bodyStartIndex);
 
         // Add the PDF link after the author field
-        const headerStartIndex = modifiedData.indexOf('<header>');
-        const headerEndIndex = modifiedData.indexOf('</header>');
-        const header = modifiedData.slice(headerStartIndex, headerEndIndex);
-        const authorEndIndex = header.indexOf('</p>', header.indexOf('class="author"')) + '</p>'.length;
-        const pdfLink = ` <a href="notes/pdfs/${note}.pdf">PDF</a>`;
-        const modifiedHeader = header.slice(0, authorEndIndex) + pdfLink + header.slice(authorEndIndex);
-        const finalData = modifiedData.slice(0, headerStartIndex) + modifiedHeader + modifiedData.slice(headerEndIndex);
+        const navStartIndex = modifiedData.indexOf('<nav');
+        const navEndIndex = modifiedData.indexOf('</nav>');
+
+
+        const nav = modifiedData.slice(navStartIndex, navEndIndex);
+        // console.log(navStartIndex, nav);
+
+        const navStartTagEnd = nav.indexOf('>') + 1;
+        console.log(nav.slice(0, navStartTagEnd));
+        const pdfLink = `<div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/${note}.pdf">Download as PDF</a></div>`;
+        const modifiedNav = nav.slice(0, navStartTagEnd) + pdfLink + nav.slice(navStartTagEnd);
+        const finalData = modifiedData.slice(0, navStartIndex) + modifiedNav + modifiedData.slice(navEndIndex);
 
         // Write the modified HTML file back to disk
         fs.writeFile(htmlPath, finalData, 'utf-8', (err) => {

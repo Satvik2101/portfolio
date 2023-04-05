@@ -10,6 +10,47 @@ body {
     /* width: 100vw; */
 }
 
+header {
+    text-align: center;
+    margin-bottom: 10px
+}
+
+#TOC {
+    padding-top: 10px;
+}
+
+.pdf_link_container {
+    text-align: center;
+    margin: 10px;
+}
+
+.pdf_link {
+    /* position: fixed;
+
+    top: 20px;
+    left: 20px; */
+    /* align-self: center; */
+    margin: 0 10%;
+    box-shadow: 0 0 10px rgb(169, 169, 169);
+    padding: 8px 10px;
+    border-radius: 10px;
+    align-self: center;
+    text-align: center;
+    /* font-size: 20px; */
+    font-weight: bold;
+    background-color: var(--primary);
+    color: white;
+    transition: 0.5s;
+
+    text-decoration: none;
+}
+
+.pdf_link:hover {
+    color: var(--primary);
+    transition: 0.5s;
+    background-color: white;
+}
+
 #navbar {
     margin-right: -10px;
     padding-right: 10px;
@@ -17,6 +58,8 @@ body {
     background-color: rgba(255, 255, 255, 0.596);
     /* font-family: sans-serif; */
 }
+
+
 
 #navbar_text {
     color: var(--primary);
@@ -54,6 +97,26 @@ body {
     max-height: 100vh;
 }
 
+body ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+    outline: none;
+}
+
+
+figcaption {
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Gideon Roman', sans-serif;
+    font-style: italic;
+    color: var(--primary)
+}
+
 nav {
     /* position: sticky; */
     /* min-width: 50px; */
@@ -82,6 +145,7 @@ h1 {
 
 .author {
     text-align: center;
+    margin-bottom: 5px;
 }
 
 #data {
