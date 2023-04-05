@@ -29,10 +29,1800 @@
   <![endif]-->
 </head>
 <body>
+    
+    <div id="navbar" onclick="">
+
+    <div id="navbar_text">
+        .satvik
+    </div>
+    <div id="navbar_links">
+        <div class="navbar_link" id="home_link">
+            <a href="/#home" target="_self">Home</a>
+        </div>
+        <div class="navbar_link" id="workexp_link">
+            <a href="/#workexp" target="_self">
+                Work Experience
+            </a>
+        </div>
+        <div class=" navbar_link" id="projects_link">
+            <a href="/#projects" target="_self">Projects</a>
+        </div>
+        <div class=" navbar_link" id="notes_link">
+        <a href="/notes.html" target="_self">Notes</a>
+    </div>
+        <div class=" navbar_link" id="contacts_link">
+            <a href="/#contact" target="_self">Contact</a>
+        </div>
+      
+        
+    </div>
+</div>
+
 <header id="title-block-header">
 <h1 class="title">Computer Networks</h1>
 <p class="author">Satvik Gupta</p>
 </header><div id="container">
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#introduction" id="toc-introduction">Introduction</a>
+<ul>
+<li><a href="#communication-link"
+id="toc-communication-link">Communication link:</a></li>
+<li><a href="#goals-of-networks" id="toc-goals-of-networks">Goals of
+Networks</a></li>
+<li><a href="#data-communication" id="toc-data-communication">Data
+communication</a>
+<ul>
+<li><a href="#components-of-effective-data-communication"
+id="toc-components-of-effective-data-communication">Components of
+Effective Data Communication</a></li>
+<li><a href="#components-of-data-communication-system"
+id="toc-components-of-data-communication-system">Components of Data
+communication system</a></li>
+<li><a href="#types-of-communication"
+id="toc-types-of-communication">Types of Communication</a></li>
+<li><a href="#physical-structure" id="toc-physical-structure">Physical
+Structure</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#physical-topology" id="toc-physical-topology">Physical
+Topology</a>
+<ul>
+<li><a href="#bus-topology" id="toc-bus-topology">Bus Topology</a></li>
+<li><a href="#ring-topology" id="toc-ring-topology">Ring
+Topology</a></li>
+<li><a href="#star-topology" id="toc-star-topology">Star
+Topology</a></li>
+<li><a href="#mesh-topology" id="toc-mesh-topology">Mesh
+Topology</a></li>
+<li><a href="#tree-topology" id="toc-tree-topology">Tree
+Topology</a></li>
+</ul></li>
+<li><a href="#networks-based-on-geographical-area"
+id="toc-networks-based-on-geographical-area">Networks Based on
+Geographical Area</a></li>
+<li><a href="#osi-model---open-systems-interconnection"
+id="toc-osi-model---open-systems-interconnection">OSI Model - Open
+Systems Interconnection</a>
+<ul>
+<li><a href="#data-in-layers" id="toc-data-in-layers">Data in
+layers:</a></li>
+</ul></li>
+<li><a href="#physical-layer" id="toc-physical-layer">Physical Layer</a>
+<ul>
+<li><a href="#transmission-media"
+id="toc-transmission-media">Transmission Media</a>
+<ul>
+<li><a href="#wiredguided-media"
+id="toc-wiredguided-media"><strong>Wired/Guided Media</strong>:</a></li>
+<li><a href="#wirelessunguided-media"
+id="toc-wirelessunguided-media"><strong>Wireless/Unguided
+Media</strong>:</a></li>
+</ul></li>
+<li><a href="#propagation-methods"
+id="toc-propagation-methods">Propagation Methods</a></li>
+<li><a href="#bands" id="toc-bands">Bands</a></li>
+<li><a href="#switched-networks" id="toc-switched-networks">Switched
+Networks</a></li>
+<li><a href="#network-architecture"
+id="toc-network-architecture">Network Architecture</a></li>
+<li><a href="#types-of-communication-on-the-basis-of-connection"
+id="toc-types-of-communication-on-the-basis-of-connection">Types of
+Communication on the basis of Connection</a>
+<ul>
+<li><a href="#connection-oriented"
+id="toc-connection-oriented">Connection-Oriented</a></li>
+<li><a href="#connectionless"
+id="toc-connectionless">Connectionless</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#tcpip-stack" id="toc-tcpip-stack">TCP/IP Stack</a>
+<ul>
+<li><a href="#internet-protocol-ip"
+id="toc-internet-protocol-ip">Internet Protocol (IP)</a></li>
+<li><a href="#transmission-control-protocol-tcp"
+id="toc-transmission-control-protocol-tcp">Transmission Control Protocol
+(TCP)</a></li>
+<li><a href="#user-datagram-protocol-udp"
+id="toc-user-datagram-protocol-udp">User Datagram Protocol
+(UDP)</a></li>
+</ul></li>
+<li><a href="#data-link-layer" id="toc-data-link-layer">Data Link
+Layer</a>
+<ul>
+<li><a href="#delay" id="toc-delay">Delay</a>
+<ul>
+<li><a href="#transmission-delay"
+id="toc-transmission-delay">Transmission Delay</a></li>
+<li><a href="#propagation-delay" id="toc-propagation-delay">Propagation
+Delay</a></li>
+<li><a href="#queueing-delay" id="toc-queueing-delay">Queueing
+Delay</a></li>
+<li><a href="#processing-delay" id="toc-processing-delay">Processing
+Delay</a></li>
+</ul></li>
+<li><a href="#framing-techniques" id="toc-framing-techniques">Framing
+Techniques</a>
+<ul>
+<li><a href="#character-count" id="toc-character-count">Character
+Count</a></li>
+<li><a href="#flag-character-stuffingbyte-stuffing"
+id="toc-flag-character-stuffingbyte-stuffing">Flag (Character
+Stuffing/Byte Stuffing)</a></li>
+<li><a href="#bit-stuffing" id="toc-bit-stuffing">Bit Stuffing</a></li>
+</ul></li>
+<li><a href="#error-detection-and-control"
+id="toc-error-detection-and-control">Error Detection and Control</a>
+<ul>
+<li><a href="#parity-check" id="toc-parity-check">Parity Check</a></li>
+<li><a href="#hamming-code" id="toc-hamming-code">Hamming Code</a></li>
+<li><a href="#checksum" id="toc-checksum">Checksum</a></li>
+<li><a href="#crc-cyclic-redundancy-check"
+id="toc-crc-cyclic-redundancy-check">CRC (Cyclic Redundancy
+Check)</a></li>
+</ul></li>
+<li><a href="#flow-control" id="toc-flow-control">Flow Control</a>
+<ul>
+<li><a href="#stop-wait-arq-automatic-repeat-request"
+id="toc-stop-wait-arq-automatic-repeat-request">Stop &amp; Wait ARQ
+(Automatic Repeat ReQuest)</a></li>
+<li><a href="#formulas" id="toc-formulas">Formulas</a></li>
+<li><a href="#go-back-n" id="toc-go-back-n">Go Back N</a></li>
+<li><a href="#selective-repeat-sr"
+id="toc-selective-repeat-sr">Selective Repeat (SR)</a></li>
+<li><a href="#data-encoding-techniques"
+id="toc-data-encoding-techniques">Data Encoding Techniques</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#media-access-sublayer"
+id="toc-media-access-sublayer">Media Access Sublayer</a>
+<ul>
+<li><a href="#media-access-control-and-multiple-access-protocols"
+id="toc-media-access-control-and-multiple-access-protocols">Media Access
+Control and Multiple Access Protocols</a></li>
+<li><a href="#random-access-contention-methods"
+id="toc-random-access-contention-methods">Random Access/ Contention
+Methods</a>
+<ul>
+<li><a href="#pure-aloha" id="toc-pure-aloha">Pure Aloha</a></li>
+<li><a href="#slotted-aloha" id="toc-slotted-aloha">Slotted
+Aloha</a></li>
+<li><a href="#csma-carrier-sense-multiple-access"
+id="toc-csma-carrier-sense-multiple-access">CSMA (Carrier Sense Multiple
+Access)</a></li>
+<li><a href="#persistence-methods-for-csma"
+id="toc-persistence-methods-for-csma">Persistence Methods for
+CSMA</a></li>
+<li><a href="#csma-with-collision-detection-csmacd"
+id="toc-csma-with-collision-detection-csmacd">CSMA with Collision
+Detection (CSMA/CD)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#network-layer" id="toc-network-layer">Network Layer</a>
+<ul>
+<li><a href="#classful-addressing" id="toc-classful-addressing">Classful
+Addressing</a>
+<ul>
+<li><a href="#class-a" id="toc-class-a">Class A</a></li>
+<li><a href="#class-b" id="toc-class-b">Class B</a></li>
+<li><a href="#class-c" id="toc-class-c">Class C</a></li>
+<li><a href="#class-d" id="toc-class-d">Class D</a></li>
+<li><a href="#class-e" id="toc-class-e">Class E</a></li>
+</ul></li>
+<li><a href="#classless-addressing"
+id="toc-classless-addressing">Classless Addressing</a>
+<ul>
+<li><a href="#rules-for-classless-addressing"
+id="toc-rules-for-classless-addressing">Rules for Classless
+Addressing</a></li>
+</ul></li>
+<li><a href="#subnetting" id="toc-subnetting">Subnetting</a>
+<ul>
+<li><a href="#subnetting-in-classful-addressing"
+id="toc-subnetting-in-classful-addressing">Subnetting in Classful
+Addressing</a></li>
+<li><a href="#subnetting-in-classless-addressing"
+id="toc-subnetting-in-classless-addressing">Subnetting in Classless
+Addressing</a></li>
+<li><a href="#variable-length-subnet-masking-vlsm"
+id="toc-variable-length-subnet-masking-vlsm">Variable Length Subnet
+Masking (VLSM)</a></li>
+</ul></li>
+<li><a href="#header-formats-for-ip-protocols"
+id="toc-header-formats-for-ip-protocols">Header Formats for IP
+Protocols</a>
+<ul>
+<li><a href="#ipv4-header-format" id="toc-ipv4-header-format">IPv4
+Header Format</a></li>
+<li><a href="#ipv6-header" id="toc-ipv6-header">IPv6 Header</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav><div id="data">
+<h2 id="introduction">Introduction</h2>
+<p><strong>Network</strong>: Connection between objects or a group of
+objects</p>
+<p><strong>Computer network</strong>: A set of communication elements
+connected by communication link.</p>
+<h3 id="communication-link">Communication link:</h3>
+<ul>
+<li><p><strong>Wired</strong>: Optical Fiber, Coaxial Fiber, Twisted
+pair cable.</p></li>
+<li><p><strong>Wireless</strong>: Radio wave, satellite connection,
+microwave.</p></li>
+</ul>
+<h3 id="goals-of-networks">Goals of Networks</h3>
+<ul>
+<li>Efficient resource sharing</li>
+<li>Scalable</li>
+<li>Reliability</li>
+<li>Communication</li>
+<li>Application of Networks</li>
+<li>Remote data access.</li>
+<li>Remote software access.</li>
+<li>Emailing</li>
+<li>FIle transfer</li>
+</ul>
+<h3 id="data-communication">Data communication</h3>
+<p>It is the exchange of data between two or more devices via some
+transmission medium</p>
+<h4 id="components-of-effective-data-communication">Components of
+Effective Data Communication</h4>
+<ul>
+<li>Delivery: The data should be delivered to the destination it was
+intended to.</li>
+<li>Accuracy</li>
+<li>Timeliness</li>
+<li>Jitter free</li>
+</ul>
+<h4 id="components-of-data-communication-system">Components of Data
+communication system</h4>
+<ul>
+<li>Sender</li>
+<li>Receiver</li>
+<li>Message</li>
+<li>Protocols</li>
+<li>Communication/Transmission medium</li>
+</ul>
+<h4 id="types-of-communication">Types of Communication</h4>
+<ul>
+<li>Simplex: Unidirectional communication.</li>
+<li>Half Duplex: Bidirectional communication but only one direction at a
+time.</li>
+<li>Full Duplex: Two simplex connections in opposite directions.</li>
+</ul>
+<h4 id="physical-structure">Physical Structure</h4>
+<ul>
+<li>Point to point</li>
+<li>Multipoint</li>
+</ul>
+<hr />
+<h2 id="physical-topology">Physical Topology</h2>
+<p>It tells how systems are physically connected through links. It is a
+geometric representation of the network.</p>
+<h3 id="bus-topology">Bus Topology</h3>
+<p>Only one connection.</p>
+<figure>
+<img src="../images/cn/bus_topology.png" style="width:30.0%"
+alt="Bus Topology" />
+<figcaption aria-hidden="true">Bus Topology</figcaption>
+</figure>
+<p><strong><em>Advantages</em></strong></p>
+<ul>
+<li>Easy to install</li>
+<li>Cheap</li>
+<li>Easy to expand</li>
+</ul>
+<p><strong><em>Disadvantages</em></strong></p>
+<ul>
+<li>Only one device can transmit at a time, which makes it low
+speed.</li>
+<li>Single point of failure - faulty cable can bring down the whole
+system.</li>
+</ul>
+<h3 id="ring-topology">Ring Topology</h3>
+<figure>
+<img src="../images/cn/ring_topology.png" style="width:30.0%"
+alt="Ring Topology" />
+<figcaption aria-hidden="true">Ring Topology</figcaption>
+</figure>
+<p>Tokens are used to transfer data. Only one system can hold the token
+at a time. Token passing is done.</p>
+<p><strong>*Advantages</strong></p>
+<ul>
+<li>Cheap</li>
+</ul>
+<p><strong><em>Disadvantages</em></strong></p>
+<ul>
+<li>Not easy to install.</li>
+<li>Not easy to expand.</li>
+<li>If one system/one link goes down the entire ring will go down.</li>
+</ul>
+<h3 id="star-topology">Star Topology</h3>
+<p>Uses a central hub.</p>
+<figure>
+<img src="../images/cn/star_topology.png" style="width:30.0%"
+alt="Star Topology" />
+<figcaption aria-hidden="true">Star Topology</figcaption>
+</figure>
+<p><strong>_ Advantages and disadvantages same as of any centralized
+system_</strong> Hub can also be expensive.</p>
+<h3 id="mesh-topology">Mesh Topology</h3>
+<figure>
+<img src="../images/cn/mesh_topology.png" style="width:30.0%"
+alt="Mesh" />
+<figcaption aria-hidden="true">Mesh</figcaption>
+</figure>
+<p><strong><em>Advantages</em></strong></p>
+<ul>
+<li>Less traffic</li>
+<li>No single point of failure</li>
+<li>Messages can be sent directly without any routing</li>
+</ul>
+<p><strong><em>Disadvantages</em></strong></p>
+<ul>
+<li>Cabling cost will be higher</li>
+<li>Maintenance cost will be higher.</li>
+</ul>
+<h3 id="tree-topology">Tree Topology</h3>
+<p>Tree structure.</p>
+<figure>
+<img src="../images/cn/tree_topology.png" style="width:30.0%"
+alt="Tree Topology" />
+<figcaption aria-hidden="true">Tree Topology</figcaption>
+</figure>
+<hr />
+<h2 id="networks-based-on-geographical-area">Networks Based on
+Geographical Area</h2>
+<ul>
+<li>LAN - Local Area Network</li>
+<li>MAN - Metropolitan Area Network</li>
+<li>WAN - Wide Area Network</li>
+</ul>
+<p><strong><em>Differentiate based on cables, cost,
+etc.</em></strong></p>
+<h2 id="osi-model---open-systems-interconnection">OSI Model - Open
+Systems Interconnection</h2>
+<p>Given by ISO.</p>
+<p>The OSI model is a layered framework for the design of network
+systems that allows communication btw all types of computer systems.The
+purpose of OSI model is to facilitate communication btw different
+systems without requiring changes to the logic of underlying hardware
+and software.</p>
+<figure>
+<img src="../images/cn/osi.jpg" style="width:50.0%" alt="OSI" />
+<figcaption aria-hidden="true">OSI</figcaption>
+</figure>
+<h3 id="data-in-layers">Data in layers:</h3>
+<table>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 14%" />
+<col style="width: 5%" />
+<col style="width: 59%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">S.No</th>
+<th style="text-align: center;">Layer</th>
+<th style="text-align: center;">Data</th>
+<th style="text-align: left;">Responsibility</th>
+<th style="text-align: left;">Protocols</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Application Layer</td>
+<td style="text-align: center;">Data</td>
+<td style="text-align: left;">To allow access to network resources</td>
+<td style="text-align: left;">Telnet, SMTP,DNS, HTTP</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Presentation Layer</td>
+<td style="text-align: center;">Data</td>
+<td style="text-align: left;">To translate, encrypt and process the
+data</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Session Layer</td>
+<td style="text-align: center;">Data</td>
+<td style="text-align: left;">To establish, manage and terminate
+session</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Transport Layer</td>
+<td style="text-align: center;">Segment</td>
+<td style="text-align: left;">Process to Process msg delivery, error
+recovery</td>
+<td style="text-align: left;">TCP, UDP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(Port/Socket Address)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Network Layer</td>
+<td style="text-align: center;">Packet</td>
+<td style="text-align: left;">Move packet from source to
+destination.</td>
+<td style="text-align: left;">IP, ARP, RARP, ICMP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(Logical/IP Address)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Data Link Layer</td>
+<td style="text-align: center;">Frame</td>
+<td style="text-align: left;">Hop to hop delivery, organize the
+frames</td>
+<td style="text-align: left;">IEEE 802 Std., TR,PPP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(Physical/MAC Address)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Physical Layer</td>
+<td style="text-align: center;">Bit</td>
+<td style="text-align: left;">Transmit bits over a medium, provide
+mechanical and electrical specification</td>
+<td style="text-align: left;">Transmission media</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ARP</strong> - Address Resolution Protocol - Maps IP to
+MAC.</p>
+<p><strong>RARP</strong> - Reverse Address Resolution Protocol - Maps
+MAC to IP.</p>
+<h2 id="physical-layer">Physical Layer</h2>
+<p>It is responsible for moving physical bits. It defines:</p>
+<ul>
+<li>a transmission medium (wireless/wired)</li>
+<li>types of encoding to be used</li>
+<li>data rate</li>
+<li>synchronization of bits</li>
+<li>physical topology</li>
+</ul>
+<h3 id="transmission-media">Transmission Media</h3>
+<h4 id="wiredguided-media"><strong>Wired/Guided Media</strong>:</h4>
+<ul>
+<li><p>Optical Fiber</p>
+<figure>
+<img src="../images/cn/optical_fibre_transmission.jpeg"
+style="width:30.0%" alt="Transmission through Optical Fiber" />
+<figcaption aria-hidden="true">Transmission through Optical
+Fiber</figcaption>
+</figure></li>
+<li><p>Coaxial Fiber</p>
+<figure>
+<img src="../images/cn/Coaxial-Cable.png" style="width:30.0%"
+alt="Coaxial Fiber" />
+<figcaption aria-hidden="true">Coaxial Fiber</figcaption>
+</figure></li>
+<li><p>Twisted pair cable</p>
+<figure>
+<img src="../images/cn/twisted_pair.jpg" style="width:30.0%"
+alt="Twisted Pair Cable" />
+<figcaption aria-hidden="true">Twisted Pair Cable</figcaption>
+</figure></li>
+<li><p>Unshielded Twisted Pair (USTC)</p>
+<figure>
+<img src="../images/cn/ustc.png" style="width:30.0%" alt="USTC" />
+<figcaption aria-hidden="true">USTC</figcaption>
+</figure></li>
+<li><p>Shielded Twisted Pair (STC)</p>
+<figure>
+<img src="../images/cn/stc.png" style="width:30.0%" alt="STC" />
+<figcaption aria-hidden="true">STC</figcaption>
+</figure></li>
+</ul>
+<h4 id="wirelessunguided-media"><strong>Wireless/Unguided
+Media</strong>:</h4>
+<p>Radio wave, microwave, and infrared</p>
+<p>Electromagnetic Spectrum for Wireless Communication</p>
+<ul>
+<li>3KHz - 300 GHz =&gt; Radio Waves and Microwaves</li>
+<li>300Ghz - 400 THz =&gt; Infrared</li>
+<li>400 THz - 900 Thz =&gt; Light waves (not used for transmission)</li>
+</ul>
+<h3 id="propagation-methods">Propagation Methods</h3>
+<p>Ground, Sky, Line of Sight</p>
+<figure>
+<img src="../images/cn/propagation_methods.jpg" style="width:30.0%"
+alt="Propagation Methods" />
+<figcaption aria-hidden="true">Propagation Methods</figcaption>
+</figure>
+<h3 id="bands">Bands</h3>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 12%" />
+<col style="width: 19%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Band</th>
+<th style="text-align: center;">Range</th>
+<th style="text-align: center;">Propagation</th>
+<th style="text-align: left;">Application</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Very Low Freq.</td>
+<td style="text-align: center;">3-30 KHz</td>
+<td style="text-align: center;">Ground</td>
+<td style="text-align: left;">Long range radio navigation</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Low Freq.</td>
+<td style="text-align: center;">30-300KHz</td>
+<td style="text-align: center;">Ground</td>
+<td style="text-align: left;">Radio and Navigation Locator</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Medium Freq.</td>
+<td style="text-align: center;">300KHz-3MHz</td>
+<td style="text-align: center;">Sky</td>
+<td style="text-align: left;">AM radio</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">High Freq</td>
+<td style="text-align: center;">3-30 MHz</td>
+<td style="text-align: center;">Sky</td>
+<td style="text-align: left;">Citizen Band(Ship/Aircraft
+Communication)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Very High Freq.</td>
+<td style="text-align: center;">30-300 MHz</td>
+<td style="text-align: center;">Sky/Line of Sight</td>
+<td style="text-align: left;">Cellular Phone, Satellite</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Super high freq.</td>
+<td style="text-align: center;">3-30 GHz</td>
+<td style="text-align: center;">Line of Sight</td>
+<td style="text-align: left;">Satellite Communication</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Extremely high freq.</td>
+<td style="text-align: center;">30-300 GHz</td>
+<td style="text-align: center;">Line of Sight</td>
+<td style="text-align: left;">Radar/Satellite Communication</td>
+</tr>
+</tbody>
+</table>
+<p>High Frequencies cannot travel through walls, lower frequencies
+can.</p>
+<p>High Frequency have less distance, lower frequencies have higher
+distance.</p>
+<h3 id="switched-networks">Switched Networks</h3>
+<p>Large networks cannot have all nodes directly connected with each
+other. Therefore, to send data from one node to another, it has to be
+sent through other nodes.</p>
+<p>Suppose there’s a network with many nodes, and node A wants to send
+some data to node B. There are two ways of doing so.</p>
+<ol type="1">
+<li><p><strong>Packet Switching</strong></p>
+<p>Data is divided into small sized packets for transmission. This
+increased efficiency, reduces chances of lost data,etc.</p>
+<p>1.<strong>Virtual Circuit</strong> - Source establishes a (virtual)
+path that the data will follow. Each packet goes through the same
+route.</p>
+<ol start="2" type="1">
+<li><strong>Datagram Switching</strong> - Source doesn’t decide any
+route. It sends each packet to the next nodes. Each node can decide
+where to forward the packets. Each packet may end up taking a different
+route. Packets may be delivered in a different order.</li>
+</ol></li>
+<li><p><strong>Circuit Switching</strong></p>
+<p>A special path is set up for the transmission, and the intermediate
+nodes are already decided before the data transmission takes place.
+There is a dedicated path set up for the transmission of that
+packet.</p></li>
+<li><p><strong>Message Switching</strong> - Entire message is
+transferred between nodes. Each node stores the message, then decides
+where to forward it. This is also called <em>store and
+forward</em>.</p></li>
+</ol>
+<h3 id="network-architecture">Network Architecture</h3>
+<p><strong>Protocol</strong> is an agreement between two communicating
+parties on how the communication is to take place. Includes things like
+format of data, speed, etc.</p>
+<p>Networks are organized as a stack of layers. Each layer offers its
+services to the layer above it (like OSI). Between each two layers there
+is an interface. <strong>Services</strong> are operations a layer
+provides to the layer above it. Protocols are used to implement
+services.</p>
+<p>Set of layers and protocols is called the Network Architecture.</p>
+<p>List of Protocols used by a certain system is called <strong>Protocol
+Stack</strong>. We generally have one protocol per layer.</p>
+<h3 id="types-of-communication-on-the-basis-of-connection">Types of
+Communication on the basis of Connection</h3>
+<h4 id="connection-oriented">Connection-Oriented</h4>
+<ul>
+<li>Similar to telephone.</li>
+<li>Establish a connection, communicate, and then release the
+connection.</li>
+</ul>
+<h4 id="connectionless">Connectionless</h4>
+<ul>
+<li>Like postal system</li>
+<li>Each packet has the destination address,</li>
+<li>Each packet is routed independently through the system.</li>
+</ul>
+<h2 id="tcpip-stack">TCP/IP Stack</h2>
+<h3 id="internet-protocol-ip">Internet Protocol (IP)</h3>
+<ul>
+<li>Hosts can inject packets into any network.</li>
+<li>They will travel to destination independently.</li>
+<li>They may arrive out of order.</li>
+<li>Connectionless.</li>
+<li>Similar to postal service.</li>
+</ul>
+<h3 id="transmission-control-protocol-tcp">Transmission Control Protocol
+(TCP)</h3>
+<ul>
+<li>Transport Layer</li>
+<li>Source and Destination communicate using this.</li>
+<li>It is connection-oriented, reliable. Provides no-error
+delivery.</li>
+<li>Handles flow control</li>
+<li>Converts incoming byte-stream (continuous data like video or large
+amount of text) into discrete messages. Destination’s TCP reassembles
+them.</li>
+</ul>
+<h3 id="user-datagram-protocol-udp">User Datagram Protocol (UDP)</h3>
+<ul>
+<li>Transport Layer</li>
+<li>Connectionless, unreliable</li>
+<li>Faster than TCP.</li>
+</ul>
+<h2 id="data-link-layer">Data Link Layer</h2>
+<h3 id="delay">Delay</h3>
+<h4 id="transmission-delay">Transmission Delay</h4>
+<p>The delay taken for the host to put the data onto the transmission
+line.</p>
+<p><span class="math display">\[ T_t = L/B \]</span></p>
+<p>where <span class="math inline">\(L\)</span> is the size of the data,
+and <span class="math inline">\(B\)</span> is the bandwidth.</p>
+<h4 id="propagation-delay">Propagation Delay</h4>
+<p>Time taken by the last bit of the data to reach the destination
+(after it has been transmitted from host to transmission media at the
+source.)</p>
+<p><span class="math display">\[ T_p = distance/velocity \]</span></p>
+<h4 id="queueing-delay">Queueing Delay</h4>
+<p>Each packet waits in the buffer (at destination) before it is
+processed. The amount of time it waits is known as the queueing
+delay.</p>
+<h4 id="processing-delay">Processing Delay</h4>
+<p>This is the time taken to process the packet. Includes checking
+headers, updating TTL, deciding where to forward it,etc.</p>
+<p>Queueing and Processing delays are generally taken to be zero, unless
+mentioned otherwise.</p>
+<h3 id="framing-techniques">Framing Techniques</h3>
+<p>One of the major issue in framing is to decide how to specify the
+start and end of a frame.</p>
+<p>One way to do this is to use <strong>fixed-size frames</strong>. For
+eg, if we say one frame is 50 bytes, then the destination’s data link
+layer will know that after the first 50 bytes, the next frame has
+begun.</p>
+<p>This can lead to wastage of space. If the data in a frame is only 10
+bytes, we have to add 40 bytes of empty space.</p>
+<p>Thus <strong>variable-sized frames</strong> are more preferred.</p>
+<p>Framing techniques for variable-sized frames are given below.</p>
+<h4 id="character-count">Character Count</h4>
+<p>It involves simply adding the number of characters in a frame to the
+data-link header. Before each frame starts, the number of characters in
+it is present.</p>
+<p>For eg, we have 4 frames with lengths 3,4,2,5 characters
+respectively. Our data would look like:</p>
+<p><code>(3)(frame1)(4)(frame2)(2)(frame3)(5)(frame4)</code></p>
+<p>This isn’t used anymore, because a single bit error in the character
+count could lead to miscalculation of frames. Count variable could also
+only hold a certain limit of number. For e.g, if <code>count</code> was
+specified as an 8-bit number, the maximum value it can hold is <span
+class="math inline">\(2^8-1 = 255\)</span>. If our frame has more than
+255, we would face issues.</p>
+<p>Hence this isn’t used.</p>
+<h4 id="flag-character-stuffingbyte-stuffing">Flag (Character
+Stuffing/Byte Stuffing)</h4>
+<p>We use a special <strong>flag byte</strong> at the start and end of
+each frame. It is fixed so it can be recognized.</p>
+<p>An issue with this is that the flag byte may occur “accidentally” in
+the data itself. This may cause the DLL to assume the frame has ended
+even when it has not.</p>
+<p>To solve this, we use a special <strong>ESC</strong> byte, which is
+also fixed. Accidental flag bytes have the ESC sequence inserted before
+them, to tell the DLL that this FLAG is data and not the end of a
+frame.</p>
+<p>If ESC occurs within the data “accidentally”, we escape it with
+another ESC.</p>
+<h5 id="examples">Examples</h5>
+<p>A Flag B –&gt; A ESC Flag B</p>
+<p>A ESC B –&gt; A ESC ESC B</p>
+<p>A ESC Flag B –&gt; A ESC ESC ESC Flag B</p>
+<p>A ESC ESC B –&gt; A ESC ESC ESC ESC B</p>
+<p><strong>Doesn’t work if the data isn’t 8-bit.</strong></p>
+<h4 id="bit-stuffing">Bit Stuffing</h4>
+<p>A special bit pattern denotes start and end of frames. Generally,
+this is taken to be <code>01111110</code>.</p>
+<p>If the sender encounters the starting of this pattern in the data, it
+adds a 0 or a 1 before it ends so that the pattern never occurs. The
+receiver will do the opposite and remove the <em>stuffed</em> 0s or
+1s.</p>
+<p>For e.g, for <code>01111110</code>,</p>
+<p>If the sender encounters a 0 followed by 5 consecutive 1’s, it adds a
+0 before continuing. This ensures that <code>01111110</code> never
+occurs in the data.</p>
+<p>The receiver will <em>destuff</em> these extra zeroes on its end.</p>
+<p><code>01111110</code> –&gt; <code>011111010</code></p>
+<p><code>011011111111111111110010</code> –&gt;
+<code>011011111011111011111010010</code></p>
+<h3 id="error-detection-and-control">Error Detection and Control</h3>
+<h4 id="parity-check">Parity Check</h4>
+<p>Parity check is the simplest method of detecting errors. It involves
+using a single check bit after or before the frame.</p>
+<p>We count the numbers of 1s and 0s in a particular frame. If it’s odd,
+check bit value is 1. If it’s even, check bit value is 0.</p>
+<p>101011 - Check bit=0 101001 - Check bit=1</p>
+<p>This can only detect single-bit errors. If two bits (a 0 and a 1) are
+flipped, the number of 1s remains the same. 2D parity check is more
+useful. The data is divided into rows and columns. Parity bit is
+calculated for each row and column.</p>
+<pre><code>1 0 1 0 1 | 1
+1 1 0 0 0 | 0
+1 0 1 1 0 | 1
+_ _ _ _ _ |
+1 1 0 1 1 | 0</code></pre>
+<p>The final data becomes</p>
+<pre><code>101011
+110000
+101101
+110110</code></pre>
+<h4 id="hamming-code">Hamming Code</h4>
+<p><strong>Data</strong> - the original data to send</p>
+<p><strong>Redundant bits</strong> - bits that aren’t part of the
+original data. They have been added for error detection and
+correction.</p>
+<p><strong>Codeword</strong> - The final result that is sent to the
+receiver - combination of data and redundant bits.</p>
+<p><strong>Code</strong> is a collection of codewords.</p>
+<p><strong>Hamming Distance</strong> between two strings is the number
+of positions where the symbols are different. Only valid for strings of
+equal length. We will use it for binary numbers.</p>
+<p>For eg, hamming distance btw 101 and 100 is 1 (only last bit is
+different) btw 101 and 110 is 2 (2nd and 3rd bits are different).</p>
+<p><strong>Hamming Distance of a Code</strong> is the minimum hamming
+distance between any two codewords in the code.</p>
+<p>A code with a hamming distance of <span
+class="math inline">\(d\)</span> can <em>detect</em> <span
+class="math inline">\(d-1\)</span> bit errors, and <em>correct</em>
+<span class="math inline">\(\lfloor (d-1)/2 \rfloor\)</span> errors.</p>
+<p>For example, consider a code with the codewords <code>000</code> and
+<code>111</code>. The hamming distance of such a code would be 3. We
+should be able to detect 2-bit errors, and correct 1-bit errors.</p>
+<p>Suppose we were transmitting the codeword <code>000</code> ande
+during transmission bit flips occurred:</p>
+<ul>
+<li><p>If the bit flip resulted in <code>001</code>. We know this is not
+a valid codeword (only <code>000</code> and <code>111</code> are valid),
+so we know an error has occurred.</p>
+<p>The hamming distance between <code>111</code> and <code>001</code> is
+2.</p>
+<p>The hamming distance between <code>000</code> and <code>001</code> is
+1.</p>
+<p>Therefore, we can guess that the original word must have been
+<code>000</code>. Similarly, we would be able to detect and correct
+errors if the bit flip resulted in <code>010</code> or
+<code>100</code>.</p></li>
+<li><p>If the bit flip resulted in <code>011</code> (2-bit error).</p>
+<p>Once again we can see it isn’t a valid codeword, so we are able to
+detect the error.</p>
+<p>But if we try correcting it, we would think that the original
+codeword was <code>111</code>, since the hamming distance of
+(<code>111</code>,<code>011</code>) is less than that of
+(<code>000</code>,<code>011</code>).</p></li>
+<li><p>If the bit flip resulted in <code>111</code> (3-bit error)</p>
+<p>We wouldn’t be able to detect the error, since <code>111</code> is a
+valid codeword.</p></li>
+</ul>
+<p>Thus we saw - we can detect 1-bit and 2-bit errors. We can only
+correct 1-bit errors.</p>
+<p>Hamming Codes can also be used to detect and correct errors in a
+different manner.</p>
+<p>Let’s say we have data of length <span
+class="math inline">\(m\)</span>. First we need to calculate the number
+of redundant bits needed to transmit this.</p>
+<p><span class="math display">\[ m + r+1 \le 2^r \]</span></p>
+<p>The smallest value of <span class="math inline">\(r\)</span>
+satisfying this equation can be used as the number of redundant
+bits.</p>
+<p><strong>Format of the Codeword</strong></p>
+<ul>
+<li>Total number of bits = <span class="math inline">\(n =
+m+r\)</span>.</li>
+<li>The bits at positions <span class="math inline">\(2^0, 2^1, 2^2,
+2^3...\)</span> and so on are <em>check bits</em>.</li>
+<li>The bits in the rest of the positions are data bits.</li>
+<li>Bits are numbered from 1.</li>
+</ul>
+<p><strong>Calculating the values of check bits</strong></p>
+<ul>
+<li><p>Suppose we have m=7. We can see that r=4 will work. Codeword
+length = 7+4=11.</p></li>
+<li><p>Bits at positions 1,2,4,8 are check-bits.</p></li>
+<li><p>Bits at positions 3,5,6,7,9,10,11 are data bits.</p></li>
+</ul>
+<p>Suppose our data is 0100110 (7-bit) Final data will look like:</p>
+<pre><code>_ _ 0 _ 1 0 0 _ 1  1  0
+1 2 3 4 5 6 7 8 9 10 11  </code></pre>
+<p>Write the position number of data bits as sum of powers of 2.</p>
+<p>3 = 1+2</p>
+<p>5 = 1+4</p>
+<p>6 = 2+4</p>
+<p>7 = 1+2+4</p>
+<p>9 = 1+8</p>
+<p>10 = 2+8</p>
+<p>11 = 1+2+8</p>
+<p><strong>To calculate value of check-bit 1:</strong></p>
+<ul>
+<li>Check which equations have <code>1</code> on the RHS.</li>
+<li>Equations for bits 3,5,7 and 9 have <code>1</code> on RHS.</li>
+<li>So, we will do a parity count of bits 3,5,7,9</li>
+</ul>
+<p>Bit 3 = 0</p>
+<p>Bit 5 = 1</p>
+<p>Bit 7 = 0</p>
+<p>Bit 9 = 1</p>
+<ul>
+<li>Parity count = 0 (even number of 1’s). So, the value of check bit 1
+is 0.</li>
+</ul>
+<p><strong>Value of check bit 2:</strong></p>
+<ul>
+<li><p>Equations for 3,6,7,10,11 have 2 on RHS.</p></li>
+<li><p>Parity count:</p>
+<p>Bit 3 -&gt; 0</p>
+<p>Bit 6 -&gt; 0</p>
+<p>Bit 7 -&gt; 0</p>
+<p>Bit 10 -&gt; 1</p>
+<p>Bit 11 -&gt; 0</p>
+<p>Parity Count = 1</p></li>
+<li><p>Value of check bit 2 = 1</p></li>
+</ul>
+<p>Similarly we can do for check-bit 4 and 8</p>
+<p><strong>Check bit 4</strong>:</p>
+<p>Equations : 5,6,7 Parity check : 1,0,0 Parity count = 1</p>
+<p>Value of check-bit 4=1</p>
+<p><strong>Check bit 8</strong></p>
+<p>Equations: 9,10,11 Parity Check: 1,1,0 Parity Count = 1</p>
+<p>Value of check-bit 8 = 1</p>
+<p>Final Codeword:</p>
+<pre><code>_ _ 0 _ 1 0 0 _ 1  1  0
+1 2 3 4 5 6 7 8 9 10 11
+
+becomes
+
+0 1 0 1 1 0 0 1 1  1  0</code></pre>
+<h4 id="checksum">Checksum</h4>
+<ul>
+<li>Sum all the bits in the data word.</li>
+<li>If the checksum goes beyond n bits, add the extra leftmost bits to
+the n rightmost bits. (<strong><em>Wrapping</em></strong>)</li>
+<li>Take 1’s complement of the sum so found. This becomes our
+checksum</li>
+<li>Send the checksum along with the data to the receiver.</li>
+</ul>
+<p>At receiver’s end: - Add all the data received (including the
+checksum) - Perform wrapping if necessary. - The end result should be
+<code>1111....1</code>, i.e, n times 1 - If the end result is anything
+else, it means the data is wrong.</p>
+<p><strong>Example</strong></p>
+<p>Let n=4. We are sending 4-bit data.</p>
+<p>Let the data be 4 numbers : 7,11,12,6.</p>
+<ul>
+<li>Add all the numbers: 7+11+12+6 = 36</li>
+<li>36 cannot be represented in 4-bits, so we perform wrapping.</li>
+</ul>
+<pre><code>36 in binary 100100
+
+Extra bits are the leftmost 2 bits (10)
+
+Take them and add them to the rightmost 4 bits
+
+0100
+  10
+----
+0110
+----
+
+Take 1&#39;s complement
+
+1001
+In decimal = 9</code></pre>
+<p>9 becomes our checksum which we send to the receiver.</p>
+<p>At receiver’s end:</p>
+<p>All the data is added.</p>
+<p>7+11+12+6+9 = 45</p>
+<p>45 cannot be represented in 4-bits, so we will do wrapping</p>
+<pre><code>45 in binary is 101101
+
+Take extra digits - leftmost 2 (10)
+Add to rightmost 4 
+
+1101
+  10
+----
+1111
+----
+</code></pre>
+<p>We received the sum as 1111, so we know our data is correct.</p>
+<h4 id="crc-cyclic-redundancy-check">CRC (Cyclic Redundancy Check)</h4>
+<p>Data - k-bit Codeword - n-bit Divisor - (n-k+1) bits. Divisor should
+be mutually agreed between sender and receiver.</p>
+<ul>
+<li>Add (n-k) <code>0</code>s to the dataword.</li>
+<li>Divide dataword by divisor using <em>modulo-2 division</em>.</li>
+<li>Append the remainder found to the original dataword (without the
+extra zeroes)</li>
+</ul>
+<p>At receiver’s side:</p>
+<ul>
+<li>Perform modulo-2 division of the received code-word and
+divisor.</li>
+<li>If the remainder is 0, the data is correct. Otherwise it’s
+incorrect.</li>
+</ul>
+<h5 id="modulo-2-division">Modulo-2 Division</h5>
+<p>It’s a method of dividing 2 binary numbers.</p>
+<p>It follows the rules and logic of normal division, with subtraction
+step replaced by bitwise XOR.</p>
+<p><img src="../images/cn/crc.jpg" /></p>
+<h3 id="flow-control">Flow Control</h3>
+<p>To make sure receiver receives all the data.</p>
+<h4 id="stop-wait-arq-automatic-repeat-request">Stop &amp; Wait ARQ
+(Automatic Repeat ReQuest)</h4>
+<ul>
+<li><p>Sender sends a frame and waits for ACK (acknowledgement) for the
+frame from receiver.</p></li>
+<li><p>Receiver receives the frame. If the frame is correct, receiver
+sends ACK.</p></li>
+<li><p>If the frame is corrupt, receiver drops the frame and does
+nothing.</p></li>
+<li><p>Sender waits a certain amount of time for ACK from receiver.
+After this, it times out and resends the frame.</p></li>
+<li><p>ACK message may also get lost, then the sender will assume the
+original frame was corrupted or lost. It will retransmit, which means
+the receiver may get duplicate data.</p></li>
+<li><p>To avoid this, frames are numbered.</p></li>
+<li><p>We only need to differentiate between a frame and its immediate
+successor. I.e, we need to differentiate between frame x and x+1. We
+don’t need to differentiate between frame x and x+2.</p>
+<p>x+2 will never be sent unless both x and x+1 have been sent AND
+acknowledged.</p></li>
+<li><p>Therefore, 1 bit sequence number is enough. If the first frame is
+0, the second frame is 1, the third is again 0, and so on.</p></li>
+</ul>
+<p><img src="../images/cn/stopandwait.JPEG" /></p>
+<h4 id="formulas">Formulas</h4>
+<p>Total time taken = Transmission time of data + transmission time of
+ACK + propagation time of data + propagation time of ACK + Queuing delay
++ Processing delay.</p>
+<p><span class="math display">\[ = T_{t(data)} +
+T_{t(ACK)}+T_{P(data)}+T_{P(ACK)} +Delay_{Queue} + Delay_{Processing}
+\]</span></p>
+<p>We take queue delay and processing delay to be 0. As ACK is very
+small, we take transmission time of ACK to be 0.</p>
+<p><span class="math display">\[ = T_{t(data)} + T_{P(data)}+T_{P(ACK)}
+\]</span></p>
+<p>Propagation time of ACK and data will be same.</p>
+<p>Total time = <span class="math inline">\(T_t + 2*T_p\)</span></p>
+<p>Where <span class="math inline">\(T_t\)</span> is transmission time
+of data, and <span class="math inline">\(T_p\)</span> is propagation
+time.</p>
+<p>Efficiency = <span class="math inline">\(\eta\)</span> = Useful Time/
+Total Time</p>
+<p><span class="math display">\[ = \frac{T_t}{T_t+2*T_p} \]</span> <span
+class="math display">\[ = \frac{1}{1+2(\frac{T_p}{T_t})} \]</span> <span
+class="math display">\[ = \frac{1}{1+2a} \]</span></p>
+<p>where a = <span class="math inline">\(T_p/T_t\)</span>.</p>
+<p>Throughput = <span class="math inline">\(\eta\)</span> *
+Bandwidth</p>
+<h4 id="go-back-n">Go Back N</h4>
+<ul>
+<li>Sliding Window Protocol</li>
+<li>Receiver window Size = 1</li>
+<li>Sender Window Size = <span class="math inline">\(2^m-1\)</span></li>
+<li>Sequence numbers for frames – <span
+class="math inline">\([0,1,....2^m-1]\)</span>, 0 and <span
+class="math inline">\(2^m-1\)</span> inclusive.</li>
+<li>Window Size = WS/W</li>
+<li>We send up to W frames at a time, and keep them in memory until the
+receiver ACKs them.</li>
+<li>Receiver only receives one frame at a time.</li>
+<li>Receiver can send a single ACK for many frames. For eg if sender
+sent 7,8,9 and receiver received all, it can simply send ACK 10.</li>
+<li>If receiver receives wrong frame (e.g receiver was waiting for frame
+3 and frame 4 came), or a corrupted frame, it stays silent.</li>
+<li>Sender’s timer will timeout. Sender will resend all frames in the
+window.</li>
+</ul>
+<p>For e.g, if WS=3 and sender has sent 1,2,3,4,5,6 and timer for 3
+times out (1 and 2 ACKed successfully), sender will send 3,4,5
+again.</p>
+<p>Efficiency = <span class="math inline">\(\eta =
+\frac{WS}{1+2a}\)</span></p>
+<p>where <span class="math inline">\(a=T_p/T_t\)</span></p>
+<p><strong>For maximum efficiency (100% usage),</strong></p>
+<ul>
+<li><p>WS = 1+2a</p></li>
+<li><p>No. of bits needed for sequence number = <span
+class="math inline">\(\lceil log(1+2a) \rceil\)</span></p></li>
+</ul>
+<h4 id="selective-repeat-sr">Selective Repeat (SR)</h4>
+<ul>
+<li><p>Only lost/corrupted frames are resent.</p></li>
+<li><p>Sender window size = Receiver Window Size</p></li>
+<li><p>Window Size = <span class="math inline">\(2^m/2\)</span></p></li>
+<li><p>Receiver buffers frames that are within its window range. Others
+are dropped. For e.g, if receiver’s window is waiting for frames 3,4,5
+and sender sends 6, it will be dropped.</p></li>
+<li><p>ACK is only sent after frames are received in order. If receiver
+window is 3,4,5 and we receive 4,5 - 4,5 will be stored and buffered,
+but no ACK will be sent.</p>
+<p>Instead, receiver will send a negative acknowledgement (NACK) for 3 -
+NACK 3.</p></li>
+<li><p>This tells the sender that receiver hasn’t received 3.</p></li>
+<li><p>Sender will resend 3 (only 3).</p></li>
+<li><p>When 3 is received, receiver will send ACK 6.</p></li>
+<li><p>If we had received 3 in the beginning, we would have immediately
+sent ACK 4. This would also make the receiver move its window to
+4,5,6.</p></li>
+</ul>
+<p>Example case:</p>
+<ul>
+<li>Sender window = [3,4,5],6,7. Sender sends 3,4,5.</li>
+<li>Receiver receives 3 and sends ACK 4. 4 is lost. Receiver buffers 5
+and sends NACK 4. Receiver moves its window by 1 to [4,5,6],7.</li>
+<li>As soon as the sender receives ACK 4, it knows receiver has received
+3.</li>
+<li>It will move its window by 1 to [4,5,6],7. As 5 has already been
+sent, sender will now also send 6.</li>
+<li>Sender will receive NACK 4 and resend 4.</li>
+<li>Receiver will receive 6 from sender, and buffer it. Receiver still
+hasn’t received 4. It will send NACK 4.</li>
+<li>Receiver will receive 4 from sender. It has 5,6 so it will send ACK
+7.</li>
+<li>Sender will receive the second NACK and again send 4</li>
+<li>Receiver will receive the 4 (that the sender sent earlier), and
+accept it. 4,5,6 have all been received. Receiver will send ACK 7, and
+move its window to [7,8,9]</li>
+<li>Receiver will receive the second 4 sent by the sender. It will be
+ignored since it’s out of the window.</li>
+<li>Sender will receive ACK 7 and move its window to [7,8,9].</li>
+<li>Transmission will continue as normal from here.</li>
+</ul>
+<figure>
+<img src="../images/cn/sr.png" style="width:60.0%"
+alt="Selective Repeat Example" />
+<figcaption aria-hidden="true">Selective Repeat Example</figcaption>
+</figure>
+<h4 id="data-encoding-techniques">Data Encoding Techniques</h4>
+<h5 id="nrz-unipolar">NRZ-Unipolar</h5>
+<p>1 - +ve</p>
+<p>0 - 0</p>
+<h5 id="nrz-polar">NRZ-Polar</h5>
+<p>1 - +ve</p>
+<p>0 - -ve</p>
+<h5 id="nrz-i">NRZ-I</h5>
+<p>Differential Encoding.</p>
+<p>1 - Signal transition at start (high-to-low or low-to-high)</p>
+<p>0 - No signal transition at start</p>
+<h5 id="manchester">Manchester</h5>
+<p>Always has a mid-bit transition:</p>
+<p>1 - Low to High</p>
+<p>0 - High to Low</p>
+<p>The start of the bit may also have a transition, if needed according
+to the bit’s value.</p>
+<p>For eg, if the bit is 1 (which means we need a low to high transition
+in the middle), and the interval starts with a high value, we will
+transition to low at the start.</p>
+<p>(Eg - Encoding 11)</p>
+<h5 id="differential-manchester">Differential Manchester</h5>
+<p>Mid-bit transition is only for clocking purposes.</p>
+<p>1 - Absence of transition at the start.</p>
+<p>0 - Presence of transition at the start.</p>
+<h5 id="bipolar-encoding">Bipolar Encoding</h5>
+<p>1 - Alternating +1/2, -1/2 voltages</p>
+<p>0 - 0 voltages</p>
+<figure>
+<img src="../images/cn/data_encoding.png"
+alt="Data Encoding Techniques" />
+<figcaption aria-hidden="true">Data Encoding Techniques</figcaption>
+</figure>
+<h2 id="media-access-sublayer">Media Access Sublayer</h2>
+<p>The data link layer is divided into two sublayers.</p>
+<ol type="1">
+<li><strong>Media Access Control (MAC)</strong> - Defines the access
+method for each LAN.</li>
+<li><strong>Logical Link Control (LLC)</strong> - Flow control, Error
+control, etc.</li>
+</ol>
+<p>Framing is handled by both.</p>
+<h3 id="media-access-control-and-multiple-access-protocols">Media Access
+Control and Multiple Access Protocols</h3>
+<p>Handle how multiple nodes can communicate on a single link.</p>
+<h3 id="random-access-contention-methods">Random Access/ Contention
+Methods</h3>
+<ul>
+<li>All nodes are considered equal.</li>
+<li>No scheduled transmission.</li>
+<li>Transmission occurs randomly.</li>
+<li>Nodes compete for access.</li>
+</ul>
+<h4 id="pure-aloha">Pure Aloha</h4>
+<ul>
+<li><p>Each node sends a frame when it has a frame to send.</p></li>
+<li><p>Obviously, we will have collisions in case 2 nodes decide to send
+a frame together.</p></li>
+<li><p>Aloha expects the receiver of the frame to send ACK for the
+frame.</p></li>
+<li><p>Vulnerable time for Aloha is <span
+class="math inline">\(2*T_t\)</span>. This is the time frame in which
+collisions can happen.</p>
+<p>For eg, A sent a frame at 12:05</p>
+<p>Let transmission time = 5 minutes.</p>
+<p>B wants to send a frame. But it cannot send a frame until 12:10,
+because till 12:10 A will be transmitting its frame. A collision will
+occur if B sends before 12:10.</p>
+<p>Similarly, if C had earlier sent a frame anytime after 12:00, A’s
+frame will collide with it.</p>
+<p>Therefore, the vulnerable time is 12:00 - 12:10, which is 10 minutes
+= twice of transmission time.</p></li>
+<li><p>In case a collision occurs, the node waits a random amount of
+time before retransmitting. How much time to wait is explained in the
+flowchart below.</p></li>
+<li><p>Maximum number of attempts are fixed.This value is called <span
+class="math inline">\(K_{max}\)</span> For eg, if max attempts = 15, if
+a node has transmitted the same frame 15 times and always gotten
+collision, it will abort and try again some time later.</p></li>
+<li><p><span class="math inline">\(K_{max}\)</span> is generally set to
+be 15.</p></li>
+</ul>
+<p><strong>Efficiency of Pure Aloha</strong> <span
+class="math display">\[ S = G.e^{-2G} \]</span></p>
+<p>where <span class="math inline">\(G\)</span> is the the average
+number of frames created by the <em>entire system</em> (all nodes
+combined), during the transition time of a single frame.</p>
+<p>For eg, if <span class="math inline">\(T_t\)</span> is 1ms, G is
+number of frames produced per millisecond.</p>
+<p><span class="math inline">\(S_{max}=0.184\)</span> at <span
+class="math inline">\(G=1/2\)</span>.</p>
+<figure>
+<img src="../images/cn/aloha.png" alt="Flowchart for Aloha" />
+<figcaption aria-hidden="true">Flowchart for Aloha</figcaption>
+</figure>
+<p>The procedure of choosing a random number between 0 and <span
+class="math inline">\(2^K-1\)</span>, incrementing the value of K, and
+waiting an amount of time based on R, is called the <strong>backoff
+procedure.</strong></p>
+<h4 id="slotted-aloha">Slotted Aloha</h4>
+<ul>
+<li>Same as Aloha, but time is divided into slots.</li>
+<li>Time is discrete and globally synced (all nodes have same value of
+time)</li>
+<li>Frames can be sent <em>only at the beginning</em> of a time
+slot.</li>
+<li>Vulnerable Time = <span class="math inline">\(T_t\)</span></li>
+</ul>
+<p><strong>Efficiency of Slotted Aloha</strong> <span
+class="math display">\[ S = G.e^{-G} \]</span></p>
+<p><span class="math inline">\(S_{max}=0.368\)</span> at <span
+class="math inline">\(G=1\)</span>.</p>
+<h4 id="csma-carrier-sense-multiple-access">CSMA (Carrier Sense Multiple
+Access)</h4>
+<ul>
+<li>Each node will sense the medium before sending.</li>
+<li>If the medium is idle, send the data. Otherwise wait.</li>
+<li>Collisions may still occur due to propagation delay.</li>
+</ul>
+<p>For e.g, if A sent a frame at 12:01, and propagation time from A to D
+is 2 minutes. If D checks the medium at 12:02, it will find it idle and
+send the frame. A’s frame and D’s frame will then collide.</p>
+<ul>
+<li>Vulnerable time = <span class="math inline">\(T_p\)</span> (Max
+propagation time).</li>
+</ul>
+<h4 id="persistence-methods-for-csma">Persistence Methods for CSMA</h4>
+<p>Persistence methods decide when and how to send data after sensing
+medium.</p>
+<h5 id="persistent">1-Persistent</h5>
+<ul>
+<li>Continuously Sense the medium.</li>
+<li>As soon as the medium is idle, send the data immediately.</li>
+</ul>
+<h5 id="non-persistent">Non-Persistent</h5>
+<ol type="1">
+<li>If medium is idle, send the data immediately.</li>
+<li>If medium busy, wait a random amount of time, then sense the medium
+again and repeat from step 1.</li>
+</ol>
+<ul>
+<li>Less efficient, as the channel may remain idle in the random waiting
+time.</li>
+<li>Less chance of collision.</li>
+</ul>
+<h5 id="p-persistent">P-Persistent</h5>
+<p>Uses a value <span class="math inline">\(p\)</span> that is fixed by
+the network administrator for each node. Different nodes have different
+values of <span class="math inline">\(p\)</span> 1. Continuously check
+medium till idle. 2. If idle: - Generate random number <span
+class="math inline">\(r\)</span> - If <span
+class="math inline">\(r&lt;p\)</span>, then transmit the data. - Else: -
+Wait for a time slot, and then check the line. - If line is idle, go to
+step 2. - If the line is busy, act as if a collision occurred, and
+follow the backoff procedure.</p>
+<h4 id="csma-with-collision-detection-csmacd">CSMA with Collision
+Detection (CSMA/CD)</h4>
+<ul>
+<li>Continue sensing medium for time= <span
+class="math inline">\(2*T_p\)</span> after transmission.</li>
+<li>This will help us sense potential collisions.</li>
+<li>If a collision is detected, the node that detected the collision
+will send a jamming signal to the access medium. After that, backoff
+procedure will be applied.</li>
+<li>Condition to detect collision: <span class="math display">\[
+T_t=2*T_p \]</span> The transmission time for the frame should be long
+enough that we can detect collisions while we are transmitting it.</li>
+<li>Efficiency of CSMA/CD is<span class="math display">\[\eta =
+\frac{1}{1+6.44a}\]</span> where <span
+class="math inline">\(a=T_p/T_t\)</span>.</li>
+</ul>
+<h2 id="network-layer">Network Layer</h2>
+<ul>
+<li>Moves packet from source to destination</li>
+<li>Uses routers, bridges, switches.</li>
+<li>Deals with IP addresses.</li>
+</ul>
+<p>Performs the following functions:</p>
+<ul>
+<li>Routing</li>
+<li>Fragmentation</li>
+<li>Congestion Control</li>
+</ul>
+<p>IP addresses have two parts - network ID, and host ID. Network ID
+represents which network the IP address is part of, i.e, which
+organization controls it. Host ID represents which <em>computer</em> (or
+mobile,printer,etc.) in that network the IP address belongs to.</p>
+<p>For e.g, Google has many servers. They will all have the same Network
+ID, but different Host IDs.</p>
+<h3 id="classful-addressing">Classful Addressing</h3>
+<p>IPv4 addresses were divided into various classes for easier
+addressing purposes.</p>
+<p>An IPv4 address is a 32-bit address. For ease of representation, it
+is divided into 4 octets. Each octet contains 8-bits.</p>
+<p>(8)(8)(8)(8)</p>
+<p>It allows us to write the IP address in the following format -
+192.168.10.1 Here, 192 is the first octet, 168 is the second, and so on.
+All are represented in decimal. This is called Dotted Decimal
+Representation.</p>
+<h4 id="class-a">Class A</h4>
+<p>In this, the first bit of the first octet is always fixed as 0.</p>
+<pre><code>0 _ _ _ _ _ _ _ . (octet 2) . (octet 3) . (octet 4)</code></pre>
+<p>The range of the first octet becomes <code>00000000</code> to
+<code>01111111</code>, i.e. 0 to 127.</p>
+<p>The 1st octet represents the Network ID (7-bits).</p>
+<p>The 2nd, 3rd and 4th octet represent the Host ID (24-bits).</p>
+<p><strong>Number of IP Addresses in Class A</strong> = <span
+class="math inline">\(2^31\)</span>, which is half of all IPv4 Addresses
+in the world.</p>
+<p><strong>Total number of Networks</strong> = <span
+class="math inline">\(2^7-2 = 126\)</span>. Range is [1,126].</p>
+<p>The network IDs 00000000 and 01111111 are reserved and unused. They
+aren’t given to any organization.</p>
+<p><strong>Total number of hosts in each Network</strong> = <span
+class="math inline">\(2^24-2\)</span></p>
+<p>Host with values 0.0.0 and 255.255.255 (first and last hosts) are
+also reserved and unused.</p>
+<p>The host with value 0.0.0 is used to represent the entire network.
+So, for a network with networkID = 28, 28.0.0.0 is used to represent the
+entire network (and not any particular host in the network).</p>
+<p>Host with value 255.255.255 is used to represent Direct Broadcast
+Address. If anyone wants to send a particular message to <em>all</em>
+the hosts in a network, they will use this. For a network with networkID
+=28, 28.255.255.255 represents its direct broadcast address.</p>
+<p><strong>Default Mask</strong> for class A is 255.0.0.0</p>
+<p><strong>For any IP address, performing bitwise AND of the IP Address,
+and the Default Mask for its class will give us the network that IP
+address belongs to</strong>.</p>
+<p>For eg, let the IP address be 28.12.34.1</p>
+<p>First bit of first octet is 0, so we know it’s a class A Address.</p>
+<p>Bitwise AND with 255.0.0.0</p>
+<pre><code>00011100.00001100.00100010.00000001 (28.12.34.1)
+11111111.00000000.00000000.00000000
+-----------------------------------
+00011100.00000000.00000000.00000000
+
+= 28.0.0.0</code></pre>
+<p>28.0.0.0 represents the network that the IP address 28.12.34.1
+belongs to.</p>
+<hr />
+<h4 id="class-b">Class B</h4>
+<p>First octet has first 2 bits fixed as <code>10</code></p>
+<pre><code>1 0 _ _ _ _ _ _ . (octet 2) . (octet 3) . (octet 4)</code></pre>
+<p>First 2 octets represent the Network ID.</p>
+<p>Last 2 octets represent the Host ID.</p>
+<p><strong>Range</strong> is (128-191)</p>
+<p><strong>Number of IP Addresses</strong> = <span
+class="math inline">\(2^30\)</span>, 25% of all IPv4 addresses in the
+world.</p>
+<p><strong>Number of networks</strong> = <span
+class="math inline">\(2^14\)</span></p>
+<p><strong>Number of hosts in each network</strong> = <span
+class="math inline">\(2^16-2 = 65534\)</span></p>
+<p>First and last hosts are excluded here, as they were in class A.</p>
+<p><strong><em>Class A excluded first and last networks also. Class B
+excludes first and last hosts only. All networks in Class B are
+available for use.</em></strong></p>
+<p><strong>Default Mask</strong> - 255.255.0.0.</p>
+<hr />
+<h4 id="class-c">Class C</h4>
+<p>First octet has first 3 bits fixed as <code>110</code></p>
+<pre><code>1 1 0 _ _ _ _ _ . (octet 2) . (octet 3) . (octet 4)</code></pre>
+<p>First 3 octets represent the Network ID.</p>
+<p>Last octet represent the Host ID.</p>
+<p><strong>Range</strong> is (192-223)</p>
+<p><strong>Number of IP Addresses</strong> = <span
+class="math inline">\(2^29\)</span>, 12.5% of all IPv4 addresses in the
+world.</p>
+<p><strong>Number of networks</strong> = <span
+class="math inline">\(2^21\)</span></p>
+<p><strong>Number of hosts in each network</strong> = <span
+class="math inline">\(2^8-2 = 254\)</span></p>
+<p>First and last hosts are excluded here, as they were in class A.</p>
+<p><strong><em>Class A excluded first and last networks also. Class C
+excludes first and last hosts only. All networks in Class C are
+available for use.</em></strong></p>
+<p><strong>Default Mask</strong> - 255.255.255.0.</p>
+<h4 id="class-d">Class D</h4>
+<p>First Octet has first 4 bits reserved as <code>1110</code></p>
+<pre><code>1 1 1 0 _ _ _ _ . (octet 2) . (octet 3) . (octet 4)</code></pre>
+<p><strong>Range</strong> is (224-239)</p>
+<p><strong>Number of IP Addresses</strong> = <span
+class="math inline">\(2^28\)</span></p>
+<p>In class D, all IP addresses are reserved. There is no network ID and
+no host ID.</p>
+<p>These IP addresses are only meant to be used for multicasting, group
+email, broadcasting, etc.</p>
+<hr />
+<h4 id="class-e">Class E</h4>
+<p>First Octet has first 4 bits reserved as <code>1111</code></p>
+<pre><code>1 1 1 1 _ _ _ _ . (octet 2) . (octet 3) . (octet 4)</code></pre>
+<p><strong>Range</strong> is (240-255)</p>
+<p><strong>Number of IP Addresses</strong> = <span
+class="math inline">\(2^28\)</span></p>
+<p>All IP addresses are reserved for military purposes.</p>
+<h3 id="classless-addressing">Classless Addressing</h3>
+<p>This divides 32-bit IP addresses into BlockID and HostID.</p>
+<p>BlockID is similar to NetworkID.</p>
+<p><strong>Format</strong> - x.y.z.w/n</p>
+<p><span class="math inline">\(n\)</span> represents the number of bits
+used to represent the blockID.</p>
+<p>It also represents the number of 1-bits that the mask for this IP
+address should have.</p>
+<p>For e.g - 128.225.1.1/10</p>
+<p>This means the first 10 bits represent the block ID, and rest 22 bits
+specify host ID.</p>
+<p>The mask for this network would be -
+<code>11111111.11000000.00000000.00000000</code>, (10 times 1, then all
+0)</p>
+<p>To find the network, we do bitwise AND of IP address and mask</p>
+<pre><code>10000000.11100001.00000001.00000001
+11111111.11000000.00000000.00000000
+-----------------------------------
+10000000.11000000.00000000.00000000
+
+= 128.192.0.0</code></pre>
+<p>The network that IP address belongs to is 128.192.0.0/10</p>
+<h4 id="rules-for-classless-addressing">Rules for Classless
+Addressing</h4>
+<ul>
+<li><p>Addresses should be contiguous</p></li>
+<li><p>Number of addresses must be in power of 2.</p></li>
+<li><p>1st address of every block must be evenly divisible by block size
+(number of hosts)</p>
+<p>Block Size = number of hosts = <span
+class="math inline">\(2^{32-10}=2^22\)</span> First address of block is
+same as network’s IP address = 128.192.0.0/10 =
+10000000.11000000.00000000.00000000 =
+10000000110000000000000000000000</p>
+<p>We don’t need to divide. We can just check that the last 22 (22 is
+number of bits used to specify host) bits are 0.</p>
+<p>i.e, the 22 least significant bits (LSBs) should be 0, which is true
+in our case.</p></li>
+</ul>
+<h3 id="subnetting">Subnetting</h3>
+<p>Subnetting is the process of dividing a large network into smaller
+<em>subnets</em>. This helps in organization, security, fixing bugs,
+etc.</p>
+<p>An organization may divide it’s network into separate subnets for
+finance department, legal department, etc.</p>
+<p>We do this by dividing the hosts.</p>
+<p><strong><em>NetworkID REMAINS UNCHANGED IN SUBNETTING,
+ALWAYS.</em></strong></p>
+<h4 id="subnetting-in-classful-addressing">Subnetting in Classful
+Addressing</h4>
+<p>Suppose we have a network with the IP <code>200.10.20.0</code>. This
+is a Class C IP address.</p>
+<p>It has a total of 254 hosts. We want to divide it into 2 equal
+subnets.</p>
+<ul>
+<li>Network ID is 200.10.20. This will remain unchanged.</li>
+<li>The last octet is used to specify the host. Let’s say we want 2
+subnets - <span class="math inline">\(S_1\)</span> and <span
+class="math inline">\(S_2\)</span>.</li>
+<li>We will subnet by fixing the first bit in the last octet as either 1
+or 0.</li>
+</ul>
+<h5 id="s_1"><span class="math inline">\(S_1\)</span></h5>
+<p>For the last octet, we will prefix the first bit for <span
+class="math inline">\(S_1\)</span> as <code>1</code>.</p>
+<p><span class="math inline">\(S_1\)</span> will have IP addresses of
+the form <code>200.10.20.1 _ _ _ _ _ _ _</code>.</p>
+<p><strong>Range</strong> =&gt; 200.10.20.128 - 200.10.20.255</p>
+<p><strong>Usable IP addresses</strong> = <span
+class="math inline">\(2^7-2 = 126\)</span></p>
+<p><strong>Network IP address</strong> for <span
+class="math inline">\(S_1\)</span> is 200.10.20.128.</p>
+<p><strong>Broadcast IP address</strong> is 200.10.20.255</p>
+<h5 id="s_2"><span class="math inline">\(S_2\)</span></h5>
+<p>For the last octet, we will prefix the first bit for <span
+class="math inline">\(S_2\)</span> as <code>0</code>.</p>
+<p><span class="math inline">\(S_2\)</span> will have IP addresses of
+the form <code>200.10.20.0 _ _ _ _ _ _ _</code>.</p>
+<p><strong>Range</strong> =&gt; 200.10.20.0 - 200.10.20.127</p>
+<p><strong>Usable IP addresses</strong> = <span
+class="math inline">\(2^7-2 = 126\)</span></p>
+<p><strong>Network IP address</strong> for <span
+class="math inline">\(S_1\)</span> is 200.10.20.0.</p>
+<p><strong>Broadcast IP address</strong> is 200.10.20.127</p>
+<p>Thus, if the network receives a packet meant for 200.10.20.50, it
+will be sent to <span class="math inline">\(S_2\)</span>.</p>
+<p>A packet meant for 200.10.20.165 will be sent to <span
+class="math inline">\(S_1\)</span>.</p>
+<h5 id="subnet-mask">Subnet Mask</h5>
+<p>Since we are indirectly using 1 extra bit to specify Network ID now,
+our subnet mask will also have 1 extra bit added to it.</p>
+<p>Class C’s Subnet mask is 255.255.255.0</p>
+<p>Now, it will be <code>255.255.255.1 _ _ _ _ _ _ _</code>.</p>
+<p>We added 1 in the place where we prefixed an extra bit.</p>
+<p>Subnet mask for our network is now 255.255.255.128</p>
+<hr />
+<p>Our total number of usable IP addresses has become 126+126= 252.
+Earlier, it was 254.</p>
+<p>Due to subnetting, we have lost the use of 2 IP addresses.</p>
+<p><strong>Number of usable IP addresses</strong> = Number Of Original
+Usable IP Addresses - <span class="math inline">\(n*2\)</span></p>
+<p>where <span class="math inline">\(n\)</span> is the number of
+subnets.</p>
+<h4 id="subnetting-in-classless-addressing">Subnetting in Classless
+Addressing</h4>
+<p>The procedure is mostly the same as for subnetting in classful
+addressing. The only extra thing that needs to be done is to change the
+value of <span class="math inline">\(n\)</span>.</p>
+<p>For.eg,</p>
+<p>128.192.0.0/10 - let this be our network.</p>
+<p>First 10 bits specify block. Last 22 bits specify host.</p>
+<p><strong>10000000.11</strong>000000.00000000.00000000. The bold part
+represents block ID.</p>
+<p>To subnet into two equal subnets, we fix the first host-bit.</p>
+<p>Subnet 1 will have IP addresses of the form 10000000.111<em>0</em>_ _
+_ _ ._ _ _ _ _ _ _ _ ._ _ _ _ _ _ _ _. (We prefixed 0)</p>
+<p>Subnet 2 will have IP addresses of the form 10000000.111<em>1</em>_ _
+_ _ ._ _ _ _ _ _ _ _ ._ _ _ _ _ _ _ _. (We prefixed 1)</p>
+<p>To find out IP Addresses for Subnet1 and Subnet2, we will have to
+increase the value of <span class="math inline">\(n\)</span> by 1, since
+now we are using an extra bit to find out block ID.</p>
+<p><strong>Subnet1 IP Address</strong> = 128.192.0.0/11</p>
+<p><strong>Subnet2 IP Address</strong> = 128.224.0.0/11</p>
+<p>Accordingly, mask will be changed.</p>
+<h4 id="variable-length-subnet-masking-vlsm">Variable Length Subnet
+Masking (VLSM)</h4>
+<p>In case we want subnets of different sizes, we use this technique. It
+works for both classless and classful addressing in similar ways. We’ll
+explain using classful here.</p>
+<p>Suppose we have a network with IP 200.10.20.0.</p>
+<p>We want to divide it into 3 networks - <span
+class="math inline">\(S_1,S_2,S_3\)</span>. <span
+class="math inline">\(S_1\)</span> should have 50% of all hosts. <span
+class="math inline">\(S_2\)</span> and <span
+class="math inline">\(S_3\)</span> should have 25% each.</p>
+<p>We will subnet in the following way:</p>
+<h5 id="s_1-1"><span class="math inline">\(S_1\)</span></h5>
+<p><strong>IP Addresses of the form</strong> - 200.10.20.0 _ _ _ _ _ _ _
+(1 bit prefixed)</p>
+<p><strong>Range</strong> - 200.10.20.0 - 200.10.20.127</p>
+<p><strong>Usable IP Addresses</strong> - 126</p>
+<h5 id="s_2-1"><span class="math inline">\(S_2\)</span></h5>
+<p><strong>IP Addresses of the form</strong> - 200.10.20.1 0 _ _ _ _ _ _
+(2 bits prefixed)</p>
+<p><strong>Range</strong> - 200.10.20.128 - 200.10.20.191</p>
+<p><strong>Usable IP Addresses</strong> - 62</p>
+<h5 id="s_3"><span class="math inline">\(S_3\)</span></h5>
+<p><strong>IP Addresses of the form</strong> - 200.10.20.1 1 _ _ _ _ _ _
+(2 bits prefixed)</p>
+<p><strong>Range</strong> - 200.10.20.192 - 200.10.20.255</p>
+<p><strong>Usable IP Addresses</strong> - 62</p>
+<p>For <span class="math inline">\(S_1\)</span>, we prefixed only 1 bit.
+For <span class="math inline">\(S_2\)</span> and <span
+class="math inline">\(S_3\)</span> we prefixed two bits. We can see that
+the <span class="math inline">\(S_1\)</span> has roughly double the
+number of IP addresses that <span class="math inline">\(S_2\)</span> and
+<span class="math inline">\(S_3\)</span> each have.</p>
+<p>We divided the network into two equal halves - <span
+class="math inline">\(S_1\)</span>, and let’s call the other part <span
+class="math inline">\(S&#39;\)</span>.</p>
+<p>Then, we further divided <span class="math inline">\(S&#39;\)</span>
+into <span class="math inline">\(S_2\)</span> and <span
+class="math inline">\(S_3\)</span>.</p>
+<figure>
+<img src="images/cn/subnet.png" alt="VLSM" />
+<figcaption aria-hidden="true">VLSM</figcaption>
+</figure>
+<h3 id="header-formats-for-ip-protocols">Header Formats for IP
+Protocols</h3>
+<p>Whenever a packet is sent using IP (IPv4 or IPv6), it includes data
+(payload), as well as a header. The header doesn’t contain the actual
+data, but it contains metadata such as destination, priority, source,
+etc.</p>
+<h4 id="ipv4-header-format">IPv4 Header Format</h4>
+<ul>
+<li>IPv4 is a <a href="#connectionless">connectionless</a> <a
+href="#switched-networks">datagram</a> service.</li>
+<li>Header size is between 20-60 bytes.</li>
+<li>The total datagram size is at max 64 KB, or 65535 bytes.</li>
+<li>The payload size is maximum 65515 bytes. This happens when the
+header size is 20 bytes. In case the header size is larger than 20, the
+max payload size will be decreased accordingly.</li>
+</ul>
+<figure>
+<img src="../images/cn/ipv4.png" alt="IPv4 Header Format" />
+<figcaption aria-hidden="true">IPv4 Header Format</figcaption>
+</figure>
+<h5 id="ver">VER</h5>
+<ul>
+<li><p>Stands for version. It is a 4-bit value. It contains the value of
+version, i.e, which IP version is being used.</p></li>
+<li><p>Almost all transmissions either use IPv4 or IPv6.</p></li>
+<li><p>Version for IPv4 is 4 = 0100</p></li>
+<li><p>Version for IPv6 is 6 = 0110</p></li>
+</ul>
+<h5 id="hlen">HLEN</h5>
+<ul>
+<li>Contains the header-length.</li>
+<li>4-bit value.</li>
+<li>Uses a factor of 4.</li>
+</ul>
+<p>Header size = HLEN*4.</p>
+<p>As the minimum header size for IPv4 is 20 bytes, HLEN can never be
+0,1,2,3 or 4.</p>
+<h5 id="type-of-service">Type of Service</h5>
+<ul>
+<li>Also known as DSCP (Differentiated Service Code Point)</li>
+<li>8-bit value</li>
+<li>Contains different values specifying the type of service we wish to
+use.</li>
+</ul>
+<p>The 8 bits are:</p>
+<p><code>[P][P][P][D][T][R][C][0]</code></p>
+<p>The first 3 bits (P) are used to set the precedence, or priority of
+the packet.</p>
+<p><em>D - Delay.</em></p>
+<p>0 means normal delay. 1 tells router this packet needs minimal
+delay.</p>
+<p><em>T- Throughput</em></p>
+<p>0 - normal</p>
+<p>1 - maximize</p>
+<p><em>R - Reliability</em></p>
+<p>0 - normal</p>
+<p>1 - maximize</p>
+<p><em>C - Cost</em></p>
+<p>0 - normal</p>
+<p>1 - minimize</p>
+<p>The last value is reserved as 0. It’s fixed for future use.</p>
+<h5 id="total-length">Total Length</h5>
+<p>Contains total length of the packet. 16-bit value.</p>
+<h5 id="ttl-time-to-live">TTL (Time to Live)</h5>
+<ul>
+<li>8-bit value</li>
+<li>Source sets it to max value (255)</li>
+<li>At each node it encounters (router/switch/etc.), the value is
+reduced by 1.</li>
+<li>When it becomes 0, the packet is dropped.</li>
+<li>This helps in case a packet is getting stuck in loops in the
+network, causing congestion.</li>
+</ul>
+<h5 id="protocol">Protocol</h5>
+<ul>
+<li>8-bit</li>
+<li>Tells which protocol is being used, TCP,UDP, etc.</li>
+</ul>
+<h5 id="header-checksum">Header Checksum</h5>
+<ul>
+<li>Contains the checksum value for the header.</li>
+<li>16-bit</li>
+</ul>
+<h5 id="source-ip">Source IP</h5>
+<ul>
+<li>Contains IP address of the source</li>
+<li>32-bit</li>
+</ul>
+<h5 id="destination-ip">Destination IP</h5>
+<ul>
+<li>Contains IP address of destination.</li>
+<li>32-bit</li>
+</ul>
+<hr />
+<p>Fragmentation is done for packets that are larger in size than the
+permitted size.</p>
+<p>The packet is broken down into many smaller packets, then sent over
+the network. It is reassembled at the source.</p>
+<p>The IPv4 header contains values to identify the fragments.</p>
+<h5 id="identification-bits">Identification Bits</h5>
+<p>This is a 16-bit unique packet ID. It identifies a group of fragments
+that belong to a single IP datagram.</p>
+<h5 id="flag">Flag</h5>
+<p>3-bit value.</p>
+<p><code>[R][D][M]</code></p>
+<p>The first bit is reserved as 0.</p>
+<p>The second bit (D) stands for <strong>Do not Fragment</strong>. If
+this bit is 1, no node will try to fragment this bit. But, if some node
+doesn’t allow a packet of a large size, and we set D=1, the node may
+drop that packet altogether.</p>
+<p>The third bit (M) stands for <strong>More Fragments</strong></p>
+<p>If M=0, either this packet is the last packet in its datagram, ot
+it’s the only fragment.</p>
+<p>If M=1, it means more fragments are coming after this packet.</p>
+<h5 id="fragment-offset">Fragment Offset</h5>
+<p>This represents the number of data bytes ahead of this particular
+fragment, i.e, the position of this fragment in the original
+unfragmented datagram.</p>
+<p>It uses a factor of 8.</p>
+<p>I.e, number of bytes ahead = Fragment Offset * 8.</p>
+<p>For eg, if a datagram is broken into 4 fragments of 80 bytes each
+(excluding the header length).</p>
+<p>Fragment offset value for</p>
+<p>1st fragment - 0 (No bytes ahead of it)</p>
+<p>2nd fragment - 10 (80 bytes of data ahead of it. 80/8=10)</p>
+<p>3rd fragment - 20</p>
+<p>4th fragment - 30</p>
+<h5 id="options">Options</h5>
+<p>These contain optional headers and metadata. For example, they may
+be:</p>
+<h6 id="record-route">Record Route</h6>
+<p>Tells the nodes to record the route this packet has taken in the
+header.</p>
+<h6 id="source-routing">Source routing</h6>
+<p>The source defines the route that the packet will take.</p>
+<p>It is of two types.</p>
+<ol type="1">
+<li>Strict - The source defines the exact specific nodes the packet will
+travel through to get to its destination.</li>
+<li>Loose - The source defines only loose requirements, not specific
+exact nodes.</li>
+</ol>
+<p>Users cannot set source routing, only routers are allowed to do
+this.</p>
+<h6 id="padding">Padding</h6>
+<p>This is added in case the header size is not in multiple of 4.</p>
+<p>We need to store the header length in HLEN, which uses a factor of
+4.</p>
+<p>So, if the header length is 21, we will add 3 bytes of padding to
+make it 24. Then HLEN will store 24/4 = 6.</p>
+<h4 id="ipv6-header">IPv6 Header</h4>
+<ul>
+<li>IPv6 uses 128-bit IP addresses instead of 32-bit.</li>
+<li>Only source can fragment packets. Intermediate nodes cannot.</li>
+<li>Header length is fixed at 40 bytes.</li>
+</ul>
+<figure>
+<img src="../images/cn/ipv6.png"
+alt="IPv6 Header. Length of fields written in brackets." />
+<figcaption aria-hidden="true">IPv6 Header. Length of fields written in
+brackets.</figcaption>
+</figure>
+<p><strong>VER</strong> is the same as in IPv4.</p>
+<p><strong>Traffic Type</strong> is the same as Type of Service in
+IPv4.</p>
+<h5 id="flow-label">Flow Label</h5>
+<p>20-bit value.</p>
+<p>For continuous data that travels in a flow, such as video streaming,
+or live updates, we use flow labels. Even large files may be sent using
+flows.</p>
+<p>Intermediate routers use source IP, destination IP and flow label to
+distinguish one flow from another. A source and a destination may have
+multiple flows occurring between them.</p>
+<p>For e.g, if you’re downloading two files together from Google Drive,
+they may be sent through 2 different flows.</p>
+<p>So, we give them different flow labels to help identify which flow is
+which.</p>
+<h5 id="payload-length">Payload Length</h5>
+<p>Length of the payload</p>
+<h5 id="next-header">Next Header</h5>
+<p>IPv6 uses extension headers instead of options. Metadata for routing,
+authentication, fragmentation, etc. are set in special extension
+headers.</p>
+<p>This field is a 8-bit field that contains the type of the extension
+header (if present), that comes immediately after the IPv6 header. Each
+extension header contains its own “Next Header” field. The extension
+headers are thus chained together like this.</p>
+<p><img src="../images/cn/ipv6next.png" /></p>
+<p>In some cases, this field is also used to indicate protocols in upper
+layers, such as TCP or UDP.</p>
+<h5 id="hop-limit">Hop Limit</h5>
+<p>Same as TTL in IPv4 Header</p>
+<p><strong>Source IP</strong> and <strong>Destination IP</strong> are
+128-bit IPv6 addresses for the source and destination respectively.</p>
+<h5 id="extension-headers">Extension Headers</h5>
+<p>Extension headers may be used for many purposes. Some common
+extension headers used in IPv6 are:</p>
+<ul>
+<li>Routing headers, used if source wants to determine the route the
+packet should take.</li>
+<li>Authentication headers, used for security purposes.</li>
+<li>Fragmentation Header, used for fragments.</li>
+<li>Destination options - For data that we want only the destination to
+open, no intermediate routers</li>
+<li>Hop by Hop options, used to specify delivery parameters at each hop
+on the path to the destination.</li>
+</ul>
+<hr />
+<p>Routing Protocols, ARP - better explained through videos.</p>
+</div></div></body>
+</html> <a href="notes/pdfs/CN.pdf">PDF</a></header><div id="container">
 <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#introduction" id="toc-introduction">Introduction</a>
