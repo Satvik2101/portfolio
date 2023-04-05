@@ -1,1294 +1,1455 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Satvik Gupta" />
-  <title>Distributed Systems</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
-  <link rel="stylesheet" href="styles.css" />
-  
-  <!--[if lt IE 9]>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="author" content="Satvik Gupta" />
+    <title>Distributed Systems</title>
+    <style>
+        code {
+            white-space: pre-wrap;
+        }
+
+        span.smallcaps {
+            font-variant: small-caps;
+        }
+
+        div.columns {
+            display: flex;
+            gap: min(4vw, 1.5em);
+        }
+
+        div.column {
+            flex: auto;
+            overflow-x: auto;
+        }
+
+        div.hanging-indent {
+            margin-left: 1.5em;
+            text-indent: -1.5em;
+        }
+
+        ul.task-list {
+            list-style: none;
+        }
+
+        ul.task-list li input[type="checkbox"] {
+            width: 0.8em;
+            margin: 0 0.8em 0.2em -1.6em;
+            vertical-align: middle;
+        }
+
+        .display.math {
+            display: block;
+            text-align: center;
+            margin: 0.5rem auto;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
+
 <body>
-    
+
+
+
+
     <div id="navbar" onclick="">
 
-    <div id="navbar_text">
-        .satvik
-    </div>
-    <div id="navbar_links">
-        <div class="navbar_link" id="home_link">
-            <a href="/#home" target="_self">Home</a>
+        <div id="navbar_text">
+            .satvik
         </div>
-        <div class="navbar_link" id="workexp_link">
-            <a href="/#workexp" target="_self">
-                Work Experience
-            </a>
-        </div>
-        <div class=" navbar_link" id="projects_link">
-            <a href="/#projects" target="_self">Projects</a>
-        </div>
-        <div class=" navbar_link" id="notes_link">
-        <a href="/notes.html" target="_self">Notes</a>
-    </div>
-        <div class=" navbar_link" id="contacts_link">
-            <a href="/#contact" target="_self">Contact</a>
-        </div>
-      
-        
-    </div>
-</div>
+        <div id="navbar_links">
+            <div class="navbar_link" id="home_link">
+                <a href="/#home" target="_self">Home</a>
+            </div>
+            <div class="navbar_link" id="workexp_link">
+                <a href="/#workexp" target="_self">
+                    Work Experience
+                </a>
+            </div>
+            <div class=" navbar_link" id="projects_link">
+                <a href="/#projects" target="_self">Projects</a>
+            </div>
+            <div class=" navbar_link" id="notes_link">
+                <a href="/notes.html" target="_self">Notes</a>
+            </div>
+            <div class=" navbar_link" id="contacts_link">
+                <a href="/#contact" target="_self">Contact</a>
+            </div>
 
-<header id="title-block-header">
-<h1 class="title">Distributed Systems</h1>
-<p class="author">Satvik Gupta</p>
-</header><div id="container">
-<nav id="TOC" role="doc-toc"><div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/DiS.pdf">Download as PDF</a></div>
-<ul>
-<li><a href="#autonomous-systems" id="toc-autonomous-systems">Autonomous
-Systems</a></li>
-<li><a href="#transit-vs-peering" id="toc-transit-vs-peering">Transit vs
-Peering</a>
-<ul>
-<li><a href="#peering" id="toc-peering">Peering</a></li>
-<li><a href="#transit" id="toc-transit">Transit</a></li>
-</ul></li>
-<li><a href="#bgp-hijacking" id="toc-bgp-hijacking">BGP
-Hijacking</a></li>
-<li><a href="#osi-model" id="toc-osi-model">OSI Model</a>
-<ul>
-<li><a href="#the-internet-protocol-suite"
-id="toc-the-internet-protocol-suite">The Internet Protocol
-Suite</a></li>
-</ul></li>
-<li><a href="#application-based-multicasting"
-id="toc-application-based-multicasting">Application Based
-Multicasting</a>
-<ul>
-<li><a href="#starting-a-multicast"
-id="toc-starting-a-multicast">Starting a multicast</a></li>
-</ul></li>
-<li><a href="#lamport-clocks" id="toc-lamport-clocks">Lamport Clocks</a>
-<ul>
-<li><a href="#lamport-algorithm" id="toc-lamport-algorithm">Lamport
-Algorithm</a></li>
-</ul></li>
-<li><a href="#totally-ordered-multicasting"
-id="toc-totally-ordered-multicasting">Totally Ordered Multicasting</a>
-<ul>
-<li><a href="#how-to-solve-this" id="toc-how-to-solve-this">How to solve
-this?</a></li>
-</ul></li>
-<li><a href="#replica-management" id="toc-replica-management">Replica
-Management</a>
-<ul>
-<li><a href="#content-distribution"
-id="toc-content-distribution">Content Distribution</a></li>
-<li><a href="#push-vs-pull-semantics"
-id="toc-push-vs-pull-semantics">Push vs Pull Semantics</a>
-<ul>
-<li><a href="#push" id="toc-push"><strong>Push</strong></a></li>
-<li><a href="#pull" id="toc-pull"><strong>Pull</strong></a></li>
-<li><a href="#hybrid" id="toc-hybrid"><strong>Hybrid</strong></a></li>
-</ul></li>
-</ul></li>
-<li><a href="#epidemic-protocols" id="toc-epidemic-protocols">Epidemic
-Protocols</a>
-<ul>
-<li><a href="#anti-entropy" id="toc-anti-entropy">Anti-Entropy</a></li>
-<li><a href="#gossipping-protocol"
-id="toc-gossipping-protocol">Gossipping Protocol</a></li>
-<li><a href="#deletion-of-data" id="toc-deletion-of-data">Deletion of
-Data</a></li>
-</ul></li>
-<li><a href="#consistency-protocols"
-id="toc-consistency-protocols">Consistency Protocols</a>
-<ul>
-<li><a href="#primary-based" id="toc-primary-based">Primary Based</a>
-<ul>
-<li><a href="#remote-write" id="toc-remote-write">Remote Write</a></li>
-<li><a href="#local-write" id="toc-local-write">Local Write</a>
-<ul>
-<li><a href="#single-copy" id="toc-single-copy">Single Copy</a></li>
-<li><a href="#multiple-copies" id="toc-multiple-copies">Multiple
-Copies</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#replicated-write" id="toc-replicated-write">Replicated
-Write</a>
-<ul>
-<li><a href="#active-replication" id="toc-active-replication">Active
-Replication</a></li>
-<li><a href="#quorums" id="toc-quorums">Quorums</a>
-<ul>
-<li><a href="#giffords-method" id="toc-giffords-method">Gifford’s
-Method</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><a href="#fault-tolerance" id="toc-fault-tolerance">Fault
-Tolerance</a>
-<ul>
-<li><a href="#types-of-failure" id="toc-types-of-failure">Types of
-Failure</a></li>
-<li><a href="#failure-models" id="toc-failure-models">Failure Models</a>
-<ul>
-<li><a href="#crash" id="toc-crash">Crash</a></li>
-<li><a href="#fail-stop" id="toc-fail-stop">Fail-Stop</a></li>
-<li><a href="#fail-safe" id="toc-fail-safe">Fail-Safe</a></li>
-<li><a href="#omission-failure" id="toc-omission-failure">Omission
-Failure</a></li>
-<li><a href="#timing-failure" id="toc-timing-failure">Timing
-Failure</a></li>
-<li><a href="#response-failure" id="toc-response-failure">Response
-Failure</a></li>
-<li><a href="#arbitrary-failure" id="toc-arbitrary-failure">Arbitrary
-Failure</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#security" id="toc-security">Security</a>
-<ul>
-<li><a href="#types-of-cryptosystems"
-id="toc-types-of-cryptosystems">Types of Cryptosystems</a>
-<ul>
-<li><a href="#symmetric" id="toc-symmetric">Symmetric</a></li>
-<li><a href="#asymmetric" id="toc-asymmetric">Asymmetric</a></li>
-</ul></li>
-<li><a href="#hash" id="toc-hash">Hash</a></li>
-<li><a href="#rsa" id="toc-rsa">RSA</a>
-<ul>
-<li><a href="#steps" id="toc-steps">Steps</a></li>
-<li><a href="#usage" id="toc-usage">Usage</a></li>
-<li><a href="#properties-of-rsa" id="toc-properties-of-rsa">Properties
-of RSA</a></li>
-</ul></li>
-<li><a href="#securely-sending-messages-secure-channels"
-id="toc-securely-sending-messages-secure-channels">Securely sending
-messages (Secure Channels)</a>
-<ul>
-<li><a href="#example-using-challenge-response-protocol"
-id="toc-example-using-challenge-response-protocol">Example using
-Challenge-Response Protocol</a>
-<ul>
-<li><a href="#reflection-attack" id="toc-reflection-attack">Reflection
-Attack</a></li>
-</ul></li>
-<li><a href="#mutual-authentication-in-public-key-cryptosystems"
-id="toc-mutual-authentication-in-public-key-cryptosystems">Mutual
-Authentication in Public-Key Cryptosystems</a>
-<ul>
-<li><a href="#example" id="toc-example">Example</a></li>
-</ul></li>
-<li><a href="#digital-signatures" id="toc-digital-signatures">Digital
-Signatures</a>
-<ul>
-<li><a href="#issues-with-this-scheme"
-id="toc-issues-with-this-scheme">Issues with this scheme</a></li>
-<li><a href="#message-digest" id="toc-message-digest">Message
-Digest</a></li>
-</ul></li>
-<li><a href="#diffie-hellman-key-exchange"
-id="toc-diffie-hellman-key-exchange">Diffie-Hellman Key
-Exchange</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav><div id="data">
-<p><strong><em>These notes are by no means comprehensive or
-complete</em></strong></p>
-<p>Nodes on the internet are identified by IP addresses. Data is passed
-from one router to another, moving each packet closer to its
-destination, in the hope that it will ultimately be delivered.</p>
-<p>Each router must regularly be supplied with up-to-date routing
-tables. Individual IP addresses are grouped into prefixes. Autonomous
-Systems (AS) own these prefixes. Routing tables between ASes are
-maintained using Border Gateway Protocol (BGP).</p>
-<h2 id="autonomous-systems">Autonomous Systems</h2>
-<p>An Autonomous System can best be defined as a collection of IP
-routing prefixes, that are under the control of 1 or more network
-operators, on behalf of a single entity or domain, that <strong>present
-a single,common and clearly defined routing policy to the
-Internet</strong>.</p>
-<ul>
-<li>Each AS has a number (ASN).
-<ul>
-<li>There may be ASes without ASNs too. It is possible that an
-organization is running BGP using private AS numbers given by an
-ISP.</li>
-<li>The ISP must have an officially registered ASN. The multiple private
-AS numbers are supported by the ISP.</li>
-<li>The Internet, however, can only see the routing policy of the ISP.
-It’s the ISP’s duty to include the routing policies of the private AS
-numbers in its routing policy.</li>
-</ul></li>
-</ul>
-<h2 id="transit-vs-peering">Transit vs Peering</h2>
-<h3 id="peering">Peering</h3>
-<p>Peering is when two ASes allow free-flow of traffic between them and
-their downstream customers. Peering relations are free of charge. Peers
-cannot see each other’s upstreams.</p>
-<h3 id="transit">Transit</h3>
-<p>Transit is when an AS (provider) agrees to:</p>
-<ul>
-<li>Direct the traffic of another AS(customer) to the internet</li>
-<li>Direct traffic from the Internet to the customer AS.</li>
-</ul>
-<p>A transit fee is charged by the provider to the customer.</p>
-<ul>
-<li><p>The transit provider gives the customer a list of routes that
-belong to other ASes/ISPs that the provider is connected to. The transit
-client can send/receive traffic from those routes through the
-provider.</p></li>
-<li><p>The transit provider also advertises its customers’ routes to its
-connections, so they know that traffic to those routes needs to go via
-the transit provider.</p></li>
-</ul>
-<p>The transit provider may themselves use other transit networks
-too.</p>
-<p>A transit-free network is a network based only on peering. These are
-generally the top-level ASes. They provide transit to smaller ASes, like
-ISPs.</p>
-<p><strong><em>IMPORTANT</em></strong></p>
-<p><strong>A TRANSIT PROVIDER WILL NOT ANNOUNCE A PEER ROUTE TO OTHER
-PEERS, OR TO NETWORKS IT BUYS TRANSIT FROM</strong></p>
-<ul>
-<li>If it did, it would be providing free transit over its network to
-its peers.</li>
-<li>Or worse, buying transit and giving it away for free to peers.</li>
-</ul>
-<figure>
-<img src="../images/dis/transit_vs_peering.png" style="width:50.0%"
-alt="Transit and Peering Example Diagram" />
-<figcaption aria-hidden="true">Transit and Peering Example
-Diagram</figcaption>
-</figure>
-<p>In the above represented network,</p>
-<ul>
-<li>G can see all networks since E,H and D buy transit from it.</li>
-<li>A can see F and customers of F, but it cannot see B through F.</li>
-<li>C can see B through D, but not through F.
-<ul>
-<li>D will want to tell B that it has access to C, to provide more
-incentive to B to buy its transit. After that, it will be obligated to
-let C know that it has access to B, since B bought transit from D.
-Therefore, C will see B through D.</li>
-<li>F will not let C know it has access to B. If it did, F would have to
-pay for C-&gt;F-&gt;B transit.</li>
-</ul></li>
-<li>A can see B through C, but not through F.</li>
-<li>Traffic from C-&gt;H flows through E, but not through D.</li>
-</ul>
-<hr />
-<h2 id="bgp-hijacking">BGP Hijacking</h2>
-<p>BGP was designed without security - it is based on trust. If an AS
-says it controls certain IPs, all its peers will believe it, and route
-app traffic to those IPs, to that AS. Security extensions and
-third-party validations exist, but they’re not widely used.</p>
-<p>An AS may announce an IP it doesn’t own, or claim to have a shorter
-path to it than is already available - even if that “shortest” path
-doesn’t actually exist.</p>
-<p>Generally, ISPs filter BGP traffic. They allow BGP advertisements
-from their downstream networks to contain only valid IP space (i.e, IP
-addresses that the downstream network is known to possess). However,
-hackings have occurred because this isn’t always true.</p>
-<p>If an AS is hacked, this can be exploited. However, this will be
-quickly found out and reversed.</p>
-<hr />
-<h2 id="osi-model">OSI Model</h2>
-<p>Open Systems Interconnection.</p>
-<p>Widely referenced in academic literature, not often used exactly in
-industry. For example, the TCP/IP protocol doesn’t fit neatly on top of
-the OSI model.</p>
-<p>From lowest to highest, the 7 layers are:</p>
-<ol type="1">
-<li><p><strong>Physical Layer</strong></p>
-<p>Deals in bits. Handles transmission and reception of raw bit streams
-over a physical medium.</p></li>
-<li><p><strong>Data Link</strong></p>
-<p>Deals in frames. Transmission of data frames b/w 2 nodes. Handles
-frame sync, errors, QoS, physical addressing, etc.</p>
-<ul>
-<li>Physical Addressing, for e.g, using MAC addresses.</li>
-<li>NOT Network Addressing.</li>
-</ul></li>
-<li><p><strong>Network Layer</strong></p>
-<p>Deals in packets. Handles structuring and managing a multi-node
-network, including addressing, routing,etc.</p></li>
-<li><p><strong>Transport Layer</strong></p>
-<p>Deals in segments/datagrams.</p>
-<p>Handles reliable transmission of data segments b/w points on a
-network. Handles segmentation, acknowledgment, multiplexing, handshakes,
-etc.</p>
-<ul>
-<li>Segmentation is dividing large data into smaller sizes in order to
-match packet size imposed by network layer. This is known as MTU (Max
-Transmission Unit).</li>
-</ul></li>
-<li><p><strong>Session Layer</strong></p>
-<p>Manages communication sessions, i.e, continuous exchange of
-information in the form of multiple back and forth transmissions btw 2
-nodes. Creates the setup and controls the connection. Performs teardown.
-DNS is often put in this layer.</p>
-<p>Logon, name lookup, log off occur here.</p>
-<p>Authentication in FTP is built into session layer.</p></li>
-<li><p><strong>Presentation Layer</strong></p>
-<p>Translates data b/w a network and an application. Includes character
-encoding, data compression and encryption/decryption.</p>
-<p>AKA Syntax layer.</p>
-<p>TLS/SSL is generally considered to be in this layer.</p></li>
-<li><p><strong>Application Layer</strong> High level protocols, such as
-HTTP or FTP. Generally include file sharing, message handling, DB
-access, etc.</p></li>
-</ol>
-<h3 id="the-internet-protocol-suite">The Internet Protocol Suite</h3>
-<p>The Internet Protocol Suite (TCP/IP) is different than the OSI model.
-Many layers are similar, but their differences start after the network
-layer.</p>
-<p>TCP/IP layers don’t fit neatly into OSI layers.</p>
-<p>Layers in TCP/IP suite are:</p>
-<ol type="1">
-<li>Physical</li>
-<li>Data Link</li>
-<li>Network</li>
-<li>Transport</li>
-<li>Application</li>
-</ol>
-<p>TCP/IP doesn’t differentiate between session,presentation and
-application layer.</p>
-<p>This is why it doesn’t fit correctly into OSI.</p>
-<p>For example, TLS is built on top of transport layer such as TCP. But,
-applications generally use it as if it was a transport layer.</p>
-<p>Some mentions of TCP/IP don’t even contain a physical layer. The Data
-Link and Physical layers are merged into a common <em>“Link”</em> layer.
-It is unspecified as if the Link layer does the job of the physical
-layer, or if TCP/IP assumes that physical hardware already exists
-underneath.</p>
-<hr />
-<h2 id="application-based-multicasting">Application Based
-Multicasting</h2>
-<p>Nodes organize themselves into an overlay network that is used to
-spread information. Network routes aren’t involved in group
-membership.</p>
-<h3 id="starting-a-multicast">Starting a multicast</h3>
-<ul>
-<li>Node wanting to start a multicast generates a multicast id <span
-class="math inline"><em>m</em><em>i</em><em>d</em></span>.</li>
-<li>It looks up <span
-class="math inline"><em>s</em><em>u</em><em>c</em><em>c</em>(<em>m</em><em>i</em><em>d</em>)</span>
-- the node responsible for that key. This node is promoted and becomes
-the root of the multicast.</li>
-<li>If P wants to join the multicast, it executes <span
-class="math inline"><em>l</em><em>o</em><em>o</em><em>k</em><em>u</em><em>p</em>(<em>m</em><em>i</em><em>d</em>)</span>.
-This will send a message, from P to <span
-class="math inline"><em>s</em><em>u</em><em>c</em><em>c</em>(<em>m</em><em>i</em><em>d</em>)</span>,
-that P is requesting to join the <span
-class="math inline"><em>m</em><em>i</em><em>d</em></span>
-multicast.</li>
-<li>This request message is sent via routing. While routing, let’s say
-the message comes to node Q.
-<ul>
-<li>If Q has never seen a join request for <span
-class="math inline"><em>m</em><em>i</em><em>d</em></span> before,
-<ul>
-<li>It will become a forwarder for <span
-class="math inline"><em>m</em><em>i</em><em>d</em></span>.</li>
-<li>P becomes a child of Q, and Q forwards P’s join request to
-root.</li>
-</ul></li>
-<li>If Q has seen a join request for <span
-class="math inline"><em>m</em><em>i</em><em>d</em></span> before,
-<ul>
-<li>This means Q will already be a forwarder for <span
-class="math inline"><em>m</em><em>i</em><em>d</em></span>.</li>
-<li>P will become a child of Q, but its join request doesn’t need to be
-forwarded to root anymore, as Q is already a member of the multicast
-tree.</li>
-</ul></li>
-</ul></li>
-<li>P is a forwarder for <span
-class="math inline"><em>m</em><em>i</em><em>d</em></span> by
-definition.</li>
-<li>Messaging is done by sending a multicast message to root via <span
-class="math inline"><em>l</em><em>o</em><em>o</em><em>k</em><em>u</em><em>p</em>(<em>m</em><em>i</em><em>d</em>)</span>.After
-that,root sends the message along the multicast tree.</li>
-</ul>
-<hr />
-<h2 id="lamport-clocks">Lamport Clocks</h2>
-<ul>
-<li><p>If event a happens before event b, it is denoted by <span
-class="math inline"><em>a</em> → <em>b</em></span></p></li>
-<li><p>If a and b occur in the same process, they occur in the order
-they were observed.</p>
-<p>If</p>
-<p><span
-class="math display"><em>T</em>(<em>a</em>) → <em>T</em>(<em>b</em>)</span></p>
-<p>then <span
-class="math display"><em>a</em> → <em>b</em></span></p></li>
-<li><p>If a is the event of sending a message, and b is the event of the
-message being received (by another process),then <span
-class="math inline"><em>a</em> → <em>b</em></span>.</p></li>
-<li><p>If a and b occur in 2 processes that never exchange any messages,
-then</p>
-<p><span class="math display"><em>a</em> → <em>b</em></span></p>
-<p>and</p>
-<p><span class="math display"><em>b</em> → <em>a</em></span></p>
-<p>are both false. This basically means that nothing can be said, and
-nothing needs to be said, about when the events happened, or which one
-happened first.</p></li>
-</ul>
-<h3 id="lamport-algorithm">Lamport Algorithm</h3>
-<ul>
-<li><p>Each process keeps an internal clock, that is incremented between
-2 consecutive events.</p></li>
-<li><p>Let’s say P sends a message that is received by the receiving
-process Q.</p>
-<ul>
-<li>The event of sending the message is <span
-class="math inline"><em>a</em></span>.</li>
-<li>The event of the message being received is <span
-class="math inline"><em>b</em></span></li>
-</ul></li>
-<li><p>The message must also include the time when it was sent, i.e,
-<span class="math inline"><em>T</em>(<em>a</em>)</span>.</p></li>
-<li><p>When the message is received, Q will set its internal clock
-to:</p>
-<p><span
-class="math display"><em>m</em><em>a</em><em>x</em>(<em>T</em>(<em>a</em>)+<em>d</em>,<em>c</em><em>u</em><em>r</em><em>r</em><em>e</em><em>n</em><em>t</em>_<em>c</em><em>l</em><em>o</em><em>c</em><em>k</em>)</span>
-Generally, <span class="math inline"><em>d</em></span> is set to
-1.</p></li>
-</ul>
-<hr />
-<h2 id="totally-ordered-multicasting">Totally Ordered Multicasting</h2>
-<p>Totally ordered multicasting is when events must occur in the same
-order on <em>all</em> nodes.</p>
-<p>For example, consider the following scenario.</p>
-<ul>
-<li><p>A bank has 2 branches, each with their own copy of the database.
-One branch is in Mumbai, another in Delhi.</p></li>
-<li><p>A particular customer has 1000 in his account.</p></li>
-<li><p>Two events occur (nearly) simultaneously in real time:</p>
-<ol type="1">
-<li>Bank HQ at Mumbai issues a 1% increase in amounts of customers, by
-interest or because of any other reason.</li>
-<li>The customer in Delhi deposits 100 in his account.</li>
-</ol></li>
-<li><p>In Mumbai, <span class="math inline">1 → 2</span>.</p>
-<p>The customer’s final bank balance = 1110</p></li>
-<li><p>In Delhi, <span class="math inline">2 → 1</span>.</p>
-<p>The customer’s final bank balance = 1111</p></li>
-</ul>
-<p>This is an inconsistency. The bank will be okay with either amount in
-the customer’s account, but the amount on all nodes should
-<strong><em>match</em></strong> with each other.</p>
-<h3 id="how-to-solve-this">How to solve this?</h3>
-<p>We solve this using totally ordered multicasting. The order of events
-must be the same on all nodes, even if the order is different than the
-real-world order of events. It should just be the same.</p>
-<ul>
-<li>Lamport Clocks are used for this.</li>
-<li>When a process receives a message, it’s stored in a queue ordered by
-timestamp.</li>
-<li>The receiver multicasts an acknowledgement to all nodes.</li>
-<li>Since lamport clocks are being used, <span
-class="math inline"><em>T</em>(<em>a</em><em>c</em><em>k</em>) &gt; <em>T</em>(<em>m</em><em>s</em><em>g</em>)</span>.</li>
-<li>A message will only be delivered to the underlying application if it
-is at the head of the queue and has been acknowledged by <em>all</em>
-other nodes.</li>
-</ul>
-<p>This ensures that all nodes have the same copy of the queue.</p>
-<hr />
-<h2 id="replica-management">Replica Management</h2>
-<p>Replicas are created for servers, to reduce latency and to provide
-resilience. They need to managed efficiently and consistency needs to be
-maintained across all replicas.</p>
-<h3 id="content-distribution">Content Distribution</h3>
-<p>What data should we propagate?</p>
-<ul>
-<li><p>Propagate only notification of an update. Replica servers will
-request the actual data from the main server whenever they need it.</p>
-<ul>
-<li>This is used when writes&gt;reads.</li>
-<li>Needs a properly implemented invalidation protocol.</li>
-</ul></li>
-<li><p>Transfer data from one copy to another.</p>
-<ul>
-<li>Transfers can be aggregated.</li>
-<li>Used when reads &gt;&gt; writes.</li>
-</ul></li>
-<li><p>Propagate the update operation.</p>
-<ul>
-<li>Don’t transfer the data.</li>
-<li>Tell each replica what update to perform.</li>
-<li>Send only parameters for the updates.</li>
-</ul></li>
-</ul>
-<hr />
-<h3 id="push-vs-pull-semantics">Push vs Pull Semantics</h3>
-<h4 id="push"><strong>Push</strong></h4>
-<ul>
-<li><p>Server Based.</p></li>
-<li><p>Updates are propagated to replicas without request.</p></li>
-<li><p>Server has to keep a list of client replicas as well as their
-caches.</p></li>
-</ul>
-<h4 id="pull"><strong>Pull</strong></h4>
-<ul>
-<li><p>Client Based.</p></li>
-<li><p>Client has to explicitly request data.</p></li>
-</ul>
-<h4 id="hybrid"><strong>Hybrid</strong></h4>
-<p>This approach is based on leases.</p>
-<ul>
-<li>Server issues leases to clients.</li>
-<li>While the lease is active, the server will push updates.</li>
-<li>After the lease has expired, the client has to pull updates, or
-request a new lease from the server.</li>
-</ul>
-<hr />
-<p>Expiration Times for the leases can be based on:</p>
-<ul>
-<li><p><strong>Age</strong> - If an object hasn’t changed in a long
-time, it probably won’t change in the future. We can provide a longer
-lease for such an object.</p></li>
-<li><p><strong>Renewal Frequency Based</strong> - If a client requests
-an object more frequently, the expiration time for that client, for that
-object, will be higher.</p></li>
-<li><p><strong>State Based</strong> - If a server has high load, it will
-grant leases with shorter expiry time.</p></li>
-</ul>
-<hr />
-<h2 id="epidemic-protocols">Epidemic Protocols</h2>
-<ul>
-<li>Used to implement eventual consistency.</li>
-<li>Propagate updates to all nodes in as few messages as possible.</li>
-</ul>
-<p>Replicas can be of 3 types in this protocol.</p>
-<ul>
-<li><strong>Inactive</strong> - Holds the update, and is willing and
-able to spread it.</li>
-<li><strong>Susceptible</strong> - Hasn’t received the update yet.</li>
-<li><strong>Removed</strong> - Holds the update, but can’t (or won’t)
-spread it.</li>
-</ul>
-<h3 id="anti-entropy">Anti-Entropy</h3>
-<p>Server P picks another server Q at random. They exchange info using
-one of the following approaches:</p>
-<ul>
-<li>P pulls from Q.</li>
-<li>P pushes to Q.</li>
-<li>P and Q pull and push from each other.</li>
-</ul>
-<p>Pull-based approaches are generally better than push-based. This is
-because a susceptible node may not find any node that is willing to push
-to it. With pull-based approaches, it can pull the new info itself.</p>
-<p>Combination of pull and push has been found to work the best in
-practice.</p>
-<h3 id="gossipping-protocol">Gossipping Protocol</h3>
-<ul>
-<li>P receives update of item x.</li>
-<li>P pushes the update to Q.</li>
-<li>If Q already had the update, P becomes disinterested in spreading it
-further.</li>
-<li>Otherwise, P and Q will both gossip to other servers.</li>
-</ul>
-<p><strong><em>A mix of anti-entropy and gossipping is the
-best</em></strong></p>
-<h3 id="deletion-of-data">Deletion of Data</h3>
-<p>Deletion of data is done through the use of <em>death
-certificates</em>. An item that has been deleted is given a death
-certificate, and these certificates are propagated the same way as
-normal data would be.</p>
-<p>The accumulation of death certificates becomes an issue. If a lot of
-items are deleted everyday, then a lot of storage space will be taken by
-just the death certificates.</p>
-<p>Hence,old death certificates are removed using expiration dates.This
-always runs the risk that there was a node that didn’t receive the death
-certificate.</p>
-<p>A special server can be set up that never removes any death
-certificate. IF a deleted item is seen again (after its death
-certificate has expired), this special server will see it as well. This
-special server will circulate the death certificate once again.</p>
-<hr />
-<h2 id="consistency-protocols">Consistency Protocols</h2>
-<p>Consistency Protocols have the following classification:</p>
-<ul>
-<li><p>Primary Based</p>
-<ul>
-<li><p>Remote Write</p></li>
-<li><p>Local Write</p>
-<ul>
-<li><p>Single Copy</p></li>
-<li><p>Multiple Copies</p></li>
-</ul></li>
-</ul></li>
-<li><p>Replicated Write</p>
-<ul>
-<li><p>Active Replication</p></li>
-<li><p>Quorum Based</p></li>
-</ul></li>
-</ul>
-<figure>
-<img src="../images/dis/consistency_protocols.png"
-alt="Consistency Protocols" />
-<figcaption aria-hidden="true">Consistency Protocols</figcaption>
-</figure>
-<h3 id="primary-based">Primary Based</h3>
-<p>Each data item has a <strong>primary</strong> node, which is the node
-responsible for it.</p>
-<h4 id="remote-write">Remote Write</h4>
-<ul>
-<li>A process wanting to write to a data item <span
-class="math inline"><em>x</em></span> locates <span
-class="math inline"><em>x</em></span>’s primary.</li>
-<li>The update/write is forwarded to the primary.</li>
-<li>The primary will update its local copy, and forward the update to
-the backup/replica servers,</li>
-<li>Replicas will perform the update and send an acknowledgement to the
-primary.</li>
-<li>When all replicas have sent acks, primary will send ack. to the
-initial process.</li>
-</ul>
-<h4 id="local-write">Local Write</h4>
-<p>The status of which node is primary for a particular data item <span
-class="math inline"><em>x</em></span> can change.</p>
-<h5 id="single-copy">Single Copy</h5>
-<p>Only the primary has the data item <span
-class="math inline"><em>x</em></span>. Processes who need <span
-class="math inline"><em>x</em></span> need to request it from the
-primary (for read access). If a process wants to update <span
-class="math inline"><em>x</em></span>:</p>
-<ul>
-<li>It locates the primary and moves <span
-class="math inline"><em>x</em></span> to its own location.</li>
-<li>It becomes the new primary for <span
-class="math inline"><em>x</em></span>.</li>
-</ul>
-<h5 id="multiple-copies">Multiple Copies</h5>
-<p>Multiple copies exist, but one is primary.</p>
-<p>If a process wants to update <span
-class="math inline"><em>x</em></span>:</p>
-<ul>
-<li>It locates the primary and moves <span
-class="math inline"><em>x</em></span> to its own location. It becomes
-the new primary.</li>
-<li>It will perform the update, ask backups to update, and receive ack.
-from the backups.</li>
-</ul>
-<hr />
-<h3 id="replicated-write">Replicated Write</h3>
-<p>In this, writes can be carried out anywhere, not just at the
-primary.</p>
-<h4 id="active-replication">Active Replication</h4>
-<p>A special process carries out updates at each replica.</p>
-<p>A sequencer can be used that assigns a unique ID to each update. Each
-update is then propagated with this unique ID.</p>
-<h4 id="quorums">Quorums</h4>
-<p>Clients must request and acquire permission from multiple replicas
-before a read/write operation.</p>
-<p>For e.g, get the majority vote before reading/writing.</p>
-<p>All processes that vote yes will perform the update and have a newer
-version of the data.</p>
-<p>When reading, majority must say yes and they must all have the same
-version number of the data. This ensures that the client doesn’t request
-the data from a replica that has an older version of the data.</p>
-<h5 id="giffords-method">Gifford’s Method</h5>
-<p>Let the number of votes required to read be <span
-class="math inline"><em>N</em><sub><em>r</em></sub></span> , and the
-number of votes to write be <span
-class="math inline"><em>N</em><sub><em>w</em></sub></span>. Let the
-total number of nodes be <span
-class="math inline"><em>N</em></span>.</p>
-<p>Gifford’s method states that the value of <span
-class="math inline"><em>N</em><sub><em>r</em></sub></span> and <span
-class="math inline"><em>N</em><sub><em>w</em></sub></span> should follow
-the following two rules.</p>
-<ol type="1">
-<li><span
-class="math display"><em>N</em><sub><em>r</em></sub> + <em>N</em><sub><em>w</em></sub> &gt; <em>N</em></span></li>
-<li><span
-class="math display"><em>N</em><sub><em>w</em></sub> &gt; <em>N</em>/2</span></li>
-</ol>
-<p>The first rule prevents read-write conflicts.</p>
-<p>The second rule prevents write-write conflicts.</p>
-<p><strong>A special case of Gifford’s method is </strong>
-<strong><em>Read One Write All</em></strong></p>
-<p><strong>In this, <span
-class="math inline"><em>N</em><sub><em>r</em></sub> = 1</span> and <span
-class="math inline"><em>N</em><sub><em>w</em></sub> = <em>N</em></span></strong></p>
-<p><strong>By ensuring that updates are written to all nodes, we can
-read any one of them and be sure that we have the latest version of the
-data.</strong></p>
-<hr />
-<h2 id="fault-tolerance">Fault Tolerance</h2>
-<p>Fault Tolerance has the following criteria.</p>
-<ol type="1">
-<li><p><strong>Availability</strong> - It measures the degree to which
-the system is up and ready for use at any instant.</p></li>
-<li><p><strong>Reliability</strong> - It measures the degree to which
-the system is ready to use for longer periods of time.</p></li>
-<li><p><strong>Safety</strong> - Nothing catastrophic should happen even
-if the system fails.</p></li>
-<li><p><strong>Maintainability</strong> - The degree to which the system
-can be brought back up in case it fails, and the underlying issue can be
-fixed.</p></li>
-</ol>
-<table>
-<colgroup>
-<col style="width: 42%" />
-<col style="width: 57%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Availability</th>
-<th style="text-align: left;">Reliability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Measures instant readiness of system</td>
-<td style="text-align: left;">Measures readiness of system across long
-periods of time</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Measures the ability of a system to do its
-job if needed</td>
-<td style="text-align: left;">Measures the ability of a system to
-perform its function for some interval, without failure.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Measures the (average) amount of time the
-service was down</td>
-<td style="text-align: left;">Measures the frequency/probability of
-failure</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">A system that goes down one millisecond
-every hour has high availability but low reliability</td>
-<td style="text-align: left;">A system that works perfectly usually, but
-crashes for 2 weeks every August is highly reliable but has only 96%
-availability</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Availability is 1- (1/3600000),
-Reliability(measured as failure rate) is once every hour</td>
-<td style="text-align: left;">Availability is 50/52, Reliability
-(measured as failure rate) is once every year</td>
-</tr>
-</tbody>
-</table>
-<h4 id="types-of-failure">Types of Failure</h4>
-<ol type="1">
-<li><strong>Transient</strong> - One -time.</li>
-<li><strong>Intermittent</strong> - Repeating sometimes.</li>
-<li><strong>Permanent</strong> - Always there.</li>
-</ol>
-<hr />
-<h3 id="failure-models">Failure Models</h3>
-<ol type="1">
-<li>Crash (Fail-Silent)</li>
-<li>Fail-stop</li>
-<li>Fail-safe</li>
-<li>Omission Failure</li>
-<li>Timing failure</li>
-<li>Response Failure</li>
-<li>Arbitrary Failure</li>
-</ol>
-<h4 id="crash">Crash</h4>
-<p>Server halts, but worked correctly until it halts. No response is
-seen from the server after it halts.</p>
-<p>AKA <strong>Fail-Silent</strong></p>
-<h4 id="fail-stop">Fail-Stop</h4>
-<p>Server halts, but worked correctly until it halts. Other servers are
-able to detect it has halted.</p>
-<h4 id="fail-safe">Fail-Safe</h4>
-<p>Server produces junk output, and other processes are able to
-recognize it as junk.</p>
-<h4 id="omission-failure">Omission Failure</h4>
-<p>Server fails to respond to incoming messages.</p>
-<ul>
-<li>Send Omission</li>
-<li>Receive Omission</li>
-<li>Channel Omission</li>
-</ul>
-<h4 id="timing-failure">Timing Failure</h4>
-<p>Server’s response is outside the specified time interval.</p>
-<h4 id="response-failure">Response Failure</h4>
-<p>Incorrect response.</p>
-<ul>
-<li><p>Value Failure - Wrong value</p></li>
-<li><p>State Transition Failure</p>
-<p>Server goes through the wrong flow of control.</p></li>
-</ul>
-<h4 id="arbitrary-failure">Arbitrary Failure</h4>
-<p>Server sends arbitrary data at arbitrary times.</p>
-<hr />
-<h2 id="security">Security</h2>
-<h3 id="types-of-cryptosystems">Types of Cryptosystems</h3>
-<h4 id="symmetric">Symmetric</h4>
-<p>AKA conventional cryptography/shared-key systems/secret-key
-systems.</p>
-<p>Sender and receiver share the same key, which is used both for
-encryption and decryption.</p>
-<p>The shared key must be kept private. Anyone in possession of the key
-can read encrypted messages.</p>
-<p>The notation <span
-class="math inline"><em>K</em><sub><em>a</em>, <em>b</em></sub></span>
-is used to denote a secret-key shared by <span
-class="math inline"><em>A</em></span> and <span
-class="math inline"><em>B</em></span>.</p>
-<h4 id="asymmetric">Asymmetric</h4>
-<p>AKA Public-key cryptography.</p>
-<p>The keys for encryption and decryption are different, but form a
-unique pair. The key for decryption can only decrypt the data encrypted
-with its pair key.</p>
-<p>Key for encryption - <span
-class="math inline"><em>K</em><sub><em>E</em></sub></span>.</p>
-<p>Key for decryption - <span
-class="math inline"><em>K</em><sub><em>D</em></sub></span>.</p>
-<p>One of the keys is made public, and the other one kept private.</p>
-<p>The notation <span
-class="math inline"><em>K</em><sub><em>A</em></sub><sup>+</sup></span>
-is used to denote a public key belonging to <span
-class="math inline"><em>A</em></span>, and <span
-class="math inline"><em>K</em><sub><em>A</em></sub><sup>−</sup></span>
-denotes a private key belonging to <span
-class="math inline"><em>A</em></span>.</p>
-<p>If Bob wants to send a message to Alice, he should encrypt it using
-Alice’s public key. Since Alice is the only person who possessed the
-corresponding private key, only she can decrypt the message.</p>
-<h3 id="hash">Hash</h3>
-<p>A hash function <span class="math inline"><em>H</em></span> takes a
-message <span class="math inline"><em>m</em></span> of arbitrary length,
-and produces a bit-string <span class="math inline"><em>h</em></span>
-having a fixed length.</p>
-<p><span
-class="math display"><em>h</em> = <em>H</em>(<em>m</em>)</span></p>
-<p>By the pigeonhole principle, many inputs can result in the same
-output.</p>
-<p>A good hash function should have the following properties.</p>
-<ul>
-<li>Given <span class="math inline"><em>H</em></span> and <span
-class="math inline"><em>m</em></span>, <span
-class="math inline"><em>h</em></span> should be easy to compute.</li>
-<li>However, given <span class="math inline"><em>H</em></span> and <span
-class="math inline"><em>h</em></span>, <span
-class="math inline"><em>m</em></span> should be computationally
-infeasible to compute.</li>
-</ul>
-<p>i.e, the hash function should be <strong>REPEATABLE</strong> and
-<strong>IRREVERSIBLE (ONE-WAY)</strong>.</p>
-<h3 id="rsa">RSA</h3>
-<p>An asymmetric encryption algorithm named after its inventors -
-Rivest, Shamir and Adleman.</p>
-<p>Based on the fact that prime factorization of very large numbers is a
-difficult and time-consuming process.</p>
-<h4 id="steps">Steps</h4>
-<ol type="1">
-<li><p>Take 2 very large prime numbers - <span
-class="math inline"><em>p</em></span> and <span
-class="math inline"><em>q</em></span>.</p></li>
-<li><p>Calculate <span
-class="math display"><em>n</em> = <em>p</em> * <em>q</em></span> <span
-class="math display"><em>z</em> = (<em>p</em>−1) * (<em>q</em>−1)</span></p></li>
-<li><p>Choose <span class="math inline"><em>d</em></span> such that
-<span class="math inline"><em>d</em></span> is relatively prime to <span
-class="math inline"><em>z</em></span>.</p></li>
-<li><p>Compute <span class="math inline"><em>e</em></span> such
-that</p></li>
-</ol>
-<p><span
-class="math display">(<em>e</em>*<em>d</em>)%<em>z</em> = 1</span></p>
-<p>Now, the number <span class="math inline"><em>d</em></span> can be
-used for decryption, and <span class="math inline"><em>e</em></span> for
-encryption.</p>
-<p>One of these is kept private, and the other is made public.</p>
-<h4 id="usage">Usage</h4>
-<p>Let the message to be sent be <span
-class="math inline"><em>m</em></span>. Here, <span
-class="math inline"><em>m</em></span> is interpreted simply as a binary
-number.</p>
-<ol type="1">
-<li>Divide <span class="math inline"><em>m</em></span> into fixed length
-blocks, <span
-class="math inline"><em>m</em><sub><em>i</em></sub></span>, such
-that:</li>
-</ol>
-<p><span
-class="math display">0 ≤ <em>m</em><sub><em>i</em></sub> ≤ <em>n</em></span></p>
-<p>Each <span class="math inline"><em>m</em><sub><em>i</em></sub></span>
-is also interpreted as a binary number.</p>
-<ol start="2" type="1">
-<li><p>The sender calculates <span
-class="math display"><em>c</em><sub><em>i</em></sub> = (<em>m</em><sub><em>i</em></sub><sup><em>e</em></sup>)%<em>n</em></span>
-All such <span
-class="math inline"><em>c</em><sub><em>i</em></sub></span> are
-calculated and concatenated into a single variable <span
-class="math inline"><em>c</em></span>.</p></li>
-<li><p><span class="math inline"><em>c</em></span> is sent to the
-receiver.</p></li>
-<li><p>The receiver calculates <span
-class="math display"><em>y</em><sub><em>i</em></sub> = (<em>c</em><sub><em>i</em></sub><sup><em>d</em></sup>)%<em>n</em></span></p></li>
-</ol>
-<p>Based on the properties of modulus, and the way we have chosen <span
-class="math inline"><em>e</em></span> and <span
-class="math inline"><em>d</em></span>, we can easily see that <span
-class="math inline"><em>y</em><sub><em>i</em></sub> = <em>m</em><sub><em>i</em></sub>∀<em>i</em></span>.</p>
-<p>This way, the receiver is able to reconstruct the message.</p>
-<h4 id="properties-of-rsa">Properties of RSA</h4>
-<ul>
-<li>RSA is secure because no method exist to (efficiently) find prime
-factors of large numbers.</li>
-<li>RSA itself is also computationally expensive, around 100-1000x
-slower than DES.</li>
-<li>It’s generally used to securely share session keys, and then those
-session keys are used in a (faster) encryption algorithm, such as AES or
-DES.</li>
-</ul>
-<h3 id="securely-sending-messages-secure-channels">Securely sending
-messages (Secure Channels)</h3>
-<p>Securely sending messages has the following problems to solve.</p>
-<ul>
-<li><p><strong>Confidentiality</strong></p>
-<p>No one else other than the intended recipient should be able to read
-the message.</p></li>
-<li><p><strong>Integrity</strong></p>
-<p>The recipient should have a way to be sure that the contents of the
-message weren’t tampered.</p></li>
-<li><p><strong>Authentication</strong></p>
-<p>Both parties should have a way to be confident that they are sending
-messages to the right person.</p></li>
-</ul>
-<h4 id="example-using-challenge-response-protocol">Example using
-Challenge-Response Protocol</h4>
-<p>Alice is denoted by <span class="math inline"><em>A</em></span> and
-Bob by <span class="math inline"><em>B</em></span>. Their shared key is
-denoted by <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>.</p>
-<ol type="1">
-<li>Alice sends her identity to Bob, indicating that she wants to
-communicate with him.</li>
-<li>Bob sends a challenge <span
-class="math inline"><em>R</em><sub><em>B</em></sub></span> to Alice.
-This could be a random number.<br />
-</li>
-<li>Alice encrypts it using their shared key <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
-and sends the result to Bob.</li>
-<li>Bob receives the encrypted message, and decrypts it to check whether
-it contains <span
-class="math inline"><em>R</em><sub><em>B</em></sub></span>. If it does,
-then he knows the person on the other end is Alice, because no one else
-could have encrypted it with <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>.</li>
-</ol>
-<p>Bob has now verified Alice’s identity. But Alice hasn’t verified
-Bob’s.</p>
-<ol start="5" type="1">
-<li>Alice sends a challenge <span
-class="math inline"><em>R</em><sub><em>A</em></sub></span> to Bob. Bob
-must encrypt it with <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
-and send it back to Alice. Alice will decrypt it and verify whether it
-contains <span
-class="math inline"><em>R</em><sub><em>A</em></sub></span>.</li>
-</ol>
-<figure>
-<img src="../images/dis/challenge_response.png"
-alt="Challenge Response Protocol" />
-<figcaption aria-hidden="true">Challenge Response Protocol</figcaption>
-</figure>
-<h5 id="reflection-attack">Reflection Attack</h5>
-<p>Suppose we try to optimize the above approach.</p>
-<p>Alice has to eventually send her challenge to Bob anyway, so she can
-just send her challenge when she’s sending her identity (as part of step
-1).</p>
-<p>Similarly, Bob can return the response to Alice’s challenge, and his
-own challenge, in a single message.</p>
-<figure>
-<img src="../images/dis/challenge_response_insecure.png"
-alt="Optimization of Challenge Response" />
-<figcaption aria-hidden="true">Optimization of Challenge
-Response</figcaption>
-</figure>
-<p>The above protocol can easily be defeated using a
-<strong><em>reflection attack</em></strong>.</p>
-<p><strong>A reflection attack is a way to attack a challenge response
-system which uses the same protocol in both directions.</strong></p>
-<p>We basically try to trick the target into answering its own
-challenge.</p>
-<h6 id="steps-1">Steps</h6>
-<ol type="1">
-<li><p>The attacker initiates a connection to a target.</p></li>
-<li><p>The target attempts to authenticate the attacker by sending it a
-challenge.</p></li>
-<li><p>The attacker opens another connection to the target, and sends
-the target this challenge as its own.</p></li>
-<li><p>The target responds to that challenge.</p></li>
-<li><p>The attacker sends that response back to the target (“reflects”
-it) on the first connection.</p></li>
-</ol>
-<h6 id="example-using-reflection-attack">Example using Reflection
-Attack</h6>
-<p>Chuck wants to pretend to be Alice, and talk to Bob. Chuck does not
-possess the key <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>.
-So, Chuck will trick Bob into encrypting his own challenge and giving it
-to Chuck.</p>
-<ol type="1">
-<li>Chuck sends a message to Bob ,containing Alice’s identity and a
-challenge <span
-class="math inline"><em>R</em><sub><em>C</em></sub></span>. (Message
-1)</li>
-<li>Bob returns his challenge <span
-class="math inline"><em>R</em><sub><em>B</em></sub></span> and his
-answer to Chuck’s challenge, <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>C</em></sub>)</span>.
-(Message 2)</li>
-<li>Chuck needs to prove he is Alice, by encrypting <span
-class="math inline"><em>R</em><sub><em>B</em></sub></span> with <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>,
-and thus return the response <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>B</em></sub>)</span>
-to Bob.</li>
-<li>Chuck opens up a second channel to Bob, but this time he uses <span
-class="math inline"><em>R</em><sub><em>B</em></sub></span> as his
-challenge. He sends <span class="math inline"><em>A</em></span> and
-<span class="math inline"><em>R</em><sub><em>B</em></sub></span> in a
-single message to Bob. (Message 3)</li>
-<li>Bob doesn’t recognize that <span
-class="math inline"><em>R</em><sub><em>B</em></sub></span> is his own
-key, and encrypts it and sends <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>B</em></sub>)</span>
-back to Chuck, with another challenge <span
-class="math inline"><em>R</em><sub><em>B</em><sub>2</sub></sub></span>
-(Message 4)</li>
-<li>Chuck ignores the second channel, including the challenge <span
-class="math inline"><em>R</em><sub><em>B</em><sub>2</sub></sub></span>.
-He sends back <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>B</em></sub>)</span>
-(received from Bob in the second channel), as a response in the first
-channel. (Message 5)</li>
-</ol>
-<figure>
-<img src="../images/dis/reflection_attack.png"
-alt="Reflection Attack" />
-<figcaption aria-hidden="true">Reflection Attack</figcaption>
-</figure>
-<h6 id="mistakes-made">Mistakes Made</h6>
-<ol type="1">
-<li><p>The same protocol was being used in both directions. It is always
-better to use a different challenge for the initiator and the
-responder.</p>
-<p>A basic example would be to make it so that challenges by the
-initiator (Alice/Chuck) are always odd numbers, and by the responder
-(Bob) are always even numbers.</p>
-<p>(However even this approach would be susceptible to a MITM (Man in
-the middle) attack)</p></li>
-<li><p>Bob gave away valuable information in the form of the response
-<span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>C</em></sub>)</span>
-and <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>B</em></sub>)</span>,
-without knowing who he was giving it to.</p>
-<p>This wasn’t violated in the original protocol, where Alice had to
-prove her identity first.</p></li>
-</ol>
-<h4 id="mutual-authentication-in-public-key-cryptosystems">Mutual
-Authentication in Public-Key Cryptosystems</h4>
-<p>This system assumes there is some way to verify everyone’s public
-keys.</p>
-<p>i.e, if Alice wants to check whether a particular message was sent by
-Bob,</p>
-<ul>
-<li>Bob will encrypt it with his private key</li>
-<li>Alice can decrypt it using Bob’s public key, and if the decrypted
-message is meaningful, she will know that Bob has sent it.</li>
-</ul>
-<p>This assumes that Alice has a verified way, of getting Bob’s public
-key, and being absolutely sure that the public key she has
-<em>indeed</em> belongs to Bob.</p>
-<p>Generally, this involves the use of a trusted source, such as a KDC
-(Key Distribution Center), or a CA (Certificate Authority).</p>
-<h5 id="example">Example</h5>
-<p>Alice wants to set up a secure channel with Bob. Both possess each
-other’s public key.</p>
-<ol type="1">
-<li><p>Alice sends a challenge <span
-class="math inline"><em>R</em><sub><em>A</em></sub></span> to Bob,
-encrypted with his public key <span
-class="math inline"><em>K</em><sub><em>B</em></sub><sup>+</sup></span>.
-She knows that only Bob will be able to decrypt this message.</p>
-<p>The message takes the form <span
-class="math inline"><em>K</em><sub><em>B</em></sub><sup>+</sup>(<em>A</em>,<em>R</em><sub><em>A</em></sub>)</span>.</p></li>
-<li><p>When Bob receives the message, he will do the following
-things:</p>
-<ol type="1">
-<li>Decrypt Alice’s message and extract <span
-class="math inline"><em>R</em><sub><em>A</em></sub></span> from it.</li>
-<li>Create his own challenge <span
-class="math inline"><em>R</em><sub><em>B</em></sub></span>.</li>
-<li>Generate a session key <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
-that can be used for further communication (using symmetric
-cryptography).</li>
-<li>Combine all the above 3 things into a single message and encrypt it
-with Alice’s public key, and send it to Alice.</li>
-</ol>
-<p>The final message takes the form <span
-class="math inline"><em>K</em><sub><em>A</em></sub><sup>+</sup>(<em>R</em><sub><em>A</em></sub>,<em>R</em><sub><em>B</em></sub>,<em>K</em><sub><em>A</em>, <em>B</em></sub>)</span></p></li>
-<li><p>Alice encrypts Bob’s challenge (<span
-class="math inline"><em>R</em><sub><em>B</em></sub></span>) with the
-session key <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
-and sends it back to Bob. This lets Bob know that the person on the
-other end is in fact Alice, since only Alice could have decrypted the
-previous message and extracted <span
-class="math inline"><em>R</em><sub><em>B</em></sub></span> and <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
-from it.</p></li>
-<li><p>Alice and Bob communicate further using <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
-for this session. Once the session ends, <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
-is destroyed.</p></li>
-</ol>
-<figure>
-<img src="../images/dis/mutual_public_key_auth.png"
-alt="Mutual Authentication in a Public Key Cryptosystem" />
-<figcaption aria-hidden="true">Mutual Authentication in a Public Key
-Cryptosystem</figcaption>
-</figure>
-<h4 id="digital-signatures">Digital Signatures</h4>
-<p>Confidentiality and Integrity needs to be maintained in secure
-channels.</p>
-<ul>
-<li>Alice needs to be sure that Bob cannot alter a message and claim
-that Alice sent it.</li>
-<li>Bob needs to be able to prove that a message indeed came from Alice,
-and that she cannot deny having sent it.</li>
-</ul>
-<p><strong>Digital Signatures</strong> are used for this. The document
-is signed using the sender’s public key, which uniquely ties the sender
-to the message.</p>
-<ul>
-<li>Alice sends a message <span class="math inline"><em>m</em></span> to
-Bob. She encrypts it with <em>her</em> private key to create a
-<strong><em>signature</em></strong>. The signature and the original
-message are sent to Bob.
-<ul>
-<li>If she wants to keep the message content a secret, she can encrypt
-the entire thing using Bob’s public key.</li>
-<li>The message will then be <span
-class="math inline"><em>K</em><sub><em>B</em></sub><sup>+</sup>(<em>m</em>,<em>K</em><sub><em>A</em></sub><sup>−</sup>(<em>m</em>))</span>,
-where <span
-class="math inline"><em>K</em><sub><em>A</em></sub><sup>−</sup>(<em>m</em>)</span>
-is the signature.</li>
-</ul></li>
-<li>Message arrives at Bob.
-<ul>
-<li>If it’s secret, he first decrypts it using his private key.</li>
-</ul></li>
-<li>He decrypts the signature using Alice’s public key, and matches it
-with <span class="math inline"><em>m</em></span>. If the decrypted
-signature and <span class="math inline"><em>m</em></span> match, then he
-can be sure the message was sent from Alice and is untampered with.</li>
-<li>Alice cannot claim she never sent the message, or sent a different
-message, because Bob has the signed version of <span
-class="math inline"><em>m</em></span>, and only Alice could have signed
-it, since only she possesses her private key.</li>
-<li>Bob cannot claim Alice sent a modified message, because he would
-have to prove that Alice signed the modified message as well.</li>
-</ul>
-<figure>
-<img src="../images/dis/digital_signatures.png"
-alt="Digitally signing messsages" />
-<figcaption aria-hidden="true">Digitally signing messsages</figcaption>
-</figure>
-<h5 id="issues-with-this-scheme">Issues with this scheme</h5>
-<ul>
-<li>This remains valid only as long as Alice’s private key remains
-private. If the key is stolen or leaked, Alice will have to generate a
-new key, and all messages signed using the previous key will then become
-worthless.</li>
-<li>If the message is long, encrypting the entire message may be
-computationally expensive.</li>
-</ul>
-<p>A solution for the second problem is a <strong>message
-digest</strong>.</p>
-<h5 id="message-digest">Message Digest</h5>
-<p>It’s a fixed length string <span
-class="math inline"><em>h</em></span> that’s computed from a message
-<span class="math inline"><em>m</em></span> of arbitrary length, using a
-hash function <span class="math inline"><em>H</em></span>.</p>
-<p>If <span class="math inline"><em>m</em></span> is changed to <span
-class="math inline"><em>m</em>′</span>, then it’s hash <span
-class="math inline"><em>H</em>(<em>m</em>′)</span> will not be the same
-as before (<span class="math inline"><em>H</em>(<em>m</em>)</span>).
-Thus, modifications will easily be detected.</p>
-<p>Instead of signing <span class="math inline"><em>m</em></span>, Alice
-signs <span class="math inline"><em>H</em>(<em>m</em>)</span>, which
-becomes the signature.</p>
-<p>The message sent to Bob is now <span
-class="math inline"><em>K</em><sub><em>B</em></sub><sup>+</sup>(<em>m</em>,<em>K</em><sub><em>A</em></sub><sup>−</sup>(<em>H</em>(<em>m</em>)))</span>,
-where <span
-class="math inline"><em>K</em><sub><em>A</em></sub><sup>−</sup>(<em>H</em>(<em>m</em>))</span>
-is the signature.</p>
-<p>On Bob’s end, Bob will hash the entire message himself, decrypt the
-signature, and compare the hashes. If they match, all is good.</p>
-<figure>
-<img src="../images/dis/digital_signatures_using_digest.png"
-alt="Digitally signing messages using digests" />
-<figcaption aria-hidden="true">Digitally signing messages using
-digests</figcaption>
-</figure>
-<h4 id="diffie-hellman-key-exchange">Diffie-Hellman Key Exchange</h4>
-<p>This is a method for 2 parties to exchange keys without the use of a
-third party.</p>
-<ol type="1">
-<li>Alice and Bob agree on 2 large numbers, <span
-class="math inline"><em>n</em></span> and <span
-class="math inline"><em>g</em></span>. Both numbers can be made
-public.</li>
-<li>Alice chooses a large number <span
-class="math inline"><em>x</em></span> and keeps it private, and Bob
-chooses a large number <span class="math inline"><em>y</em></span>, and
-also keeps it private. Alice does not know <span
-class="math inline"><em>y</em></span> and Bob doesn’t know <span
-class="math inline"><em>x</em></span>.</li>
-<li>Alice sends <span
-class="math inline"><em>g</em><sup><em>x</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em></span>
-to Bob.</li>
-<li>Bob sends <span
-class="math inline"><em>g</em><sup><em>y</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em></span>
-to Alice.</li>
-<li>Alice computes <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
-as: <span
-class="math display"><em>K</em><sub><em>A</em>, <em>B</em></sub> = (<em>g</em><sup><em>y</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em>)<sup><em>x</em></sup> = <em>g</em><sup><em>x</em><em>y</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em></span></li>
-<li>Bob computes <span
-class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
-as: <span
-class="math display"><em>K</em><sub><em>A</em>, <em>B</em></sub> = (<em>g</em><sup><em>x</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em>)<sup><em>y</em></sup> = <em>g</em><sup><em>x</em><em>y</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em></span></li>
-</ol>
-<p>This way both Alice and Bob get the same session key, and no one
-listening from outside will be able to recreate it. This is based on the
-same principle as <a href="#rsa">RSA</a>.</p>
-</div></div></body>
+
+        </div>
+    </div>
+
+    <header id="title-block-header">
+        <h1 class="title">Distributed Systems</h1>
+        <p class="author">Satvik Gupta</p>
+    </header>
+    <div id="container">
+        <nav id="TOC" role="doc-toc">
+            <div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/DiS.pdf">Download as PDF</a></div>
+            <ul>
+                <li><a href="#autonomous-systems" id="toc-autonomous-systems">Autonomous
+                        Systems</a></li>
+                <li><a href="#transit-vs-peering" id="toc-transit-vs-peering">Transit vs
+                        Peering</a>
+                    <ul>
+                        <li><a href="#peering" id="toc-peering">Peering</a></li>
+                        <li><a href="#transit" id="toc-transit">Transit</a></li>
+                    </ul>
+                </li>
+                <li><a href="#bgp-hijacking" id="toc-bgp-hijacking">BGP
+                        Hijacking</a></li>
+                <li><a href="#osi-model" id="toc-osi-model">OSI Model</a>
+                    <ul>
+                        <li><a href="#the-internet-protocol-suite" id="toc-the-internet-protocol-suite">The Internet
+                                Protocol
+                                Suite</a></li>
+                    </ul>
+                </li>
+                <li><a href="#application-based-multicasting" id="toc-application-based-multicasting">Application Based
+                        Multicasting</a>
+                    <ul>
+                        <li><a href="#starting-a-multicast" id="toc-starting-a-multicast">Starting a multicast</a></li>
+                    </ul>
+                </li>
+                <li><a href="#lamport-clocks" id="toc-lamport-clocks">Lamport Clocks</a>
+                    <ul>
+                        <li><a href="#lamport-algorithm" id="toc-lamport-algorithm">Lamport
+                                Algorithm</a></li>
+                    </ul>
+                </li>
+                <li><a href="#totally-ordered-multicasting" id="toc-totally-ordered-multicasting">Totally Ordered
+                        Multicasting</a>
+                    <ul>
+                        <li><a href="#how-to-solve-this" id="toc-how-to-solve-this">How to solve
+                                this?</a></li>
+                    </ul>
+                </li>
+                <li><a href="#replica-management" id="toc-replica-management">Replica
+                        Management</a>
+                    <ul>
+                        <li><a href="#content-distribution" id="toc-content-distribution">Content Distribution</a></li>
+                        <li><a href="#push-vs-pull-semantics" id="toc-push-vs-pull-semantics">Push vs Pull Semantics</a>
+                            <ul>
+                                <li><a href="#push" id="toc-push"><strong>Push</strong></a></li>
+                                <li><a href="#pull" id="toc-pull"><strong>Pull</strong></a></li>
+                                <li><a href="#hybrid" id="toc-hybrid"><strong>Hybrid</strong></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#epidemic-protocols" id="toc-epidemic-protocols">Epidemic
+                        Protocols</a>
+                    <ul>
+                        <li><a href="#anti-entropy" id="toc-anti-entropy">Anti-Entropy</a></li>
+                        <li><a href="#gossipping-protocol" id="toc-gossipping-protocol">Gossipping Protocol</a></li>
+                        <li><a href="#deletion-of-data" id="toc-deletion-of-data">Deletion of
+                                Data</a></li>
+                    </ul>
+                </li>
+                <li><a href="#consistency-protocols" id="toc-consistency-protocols">Consistency Protocols</a>
+                    <ul>
+                        <li><a href="#primary-based" id="toc-primary-based">Primary Based</a>
+                            <ul>
+                                <li><a href="#remote-write" id="toc-remote-write">Remote Write</a></li>
+                                <li><a href="#local-write" id="toc-local-write">Local Write</a>
+                                    <ul>
+                                        <li><a href="#single-copy" id="toc-single-copy">Single Copy</a></li>
+                                        <li><a href="#multiple-copies" id="toc-multiple-copies">Multiple
+                                                Copies</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#replicated-write" id="toc-replicated-write">Replicated
+                                Write</a>
+                            <ul>
+                                <li><a href="#active-replication" id="toc-active-replication">Active
+                                        Replication</a></li>
+                                <li><a href="#quorums" id="toc-quorums">Quorums</a>
+                                    <ul>
+                                        <li><a href="#giffords-method" id="toc-giffords-method">Gifford’s
+                                                Method</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#fault-tolerance" id="toc-fault-tolerance">Fault
+                        Tolerance</a>
+                    <ul>
+                        <li><a href="#types-of-failure" id="toc-types-of-failure">Types of
+                                Failure</a></li>
+                        <li><a href="#failure-models" id="toc-failure-models">Failure Models</a>
+                            <ul>
+                                <li><a href="#crash" id="toc-crash">Crash</a></li>
+                                <li><a href="#fail-stop" id="toc-fail-stop">Fail-Stop</a></li>
+                                <li><a href="#fail-safe" id="toc-fail-safe">Fail-Safe</a></li>
+                                <li><a href="#omission-failure" id="toc-omission-failure">Omission
+                                        Failure</a></li>
+                                <li><a href="#timing-failure" id="toc-timing-failure">Timing
+                                        Failure</a></li>
+                                <li><a href="#response-failure" id="toc-response-failure">Response
+                                        Failure</a></li>
+                                <li><a href="#arbitrary-failure" id="toc-arbitrary-failure">Arbitrary
+                                        Failure</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#security" id="toc-security">Security</a>
+                    <ul>
+                        <li><a href="#types-of-cryptosystems" id="toc-types-of-cryptosystems">Types of Cryptosystems</a>
+                            <ul>
+                                <li><a href="#symmetric" id="toc-symmetric">Symmetric</a></li>
+                                <li><a href="#asymmetric" id="toc-asymmetric">Asymmetric</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#hash" id="toc-hash">Hash</a></li>
+                        <li><a href="#rsa" id="toc-rsa">RSA</a>
+                            <ul>
+                                <li><a href="#steps" id="toc-steps">Steps</a></li>
+                                <li><a href="#usage" id="toc-usage">Usage</a></li>
+                                <li><a href="#properties-of-rsa" id="toc-properties-of-rsa">Properties
+                                        of RSA</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#securely-sending-messages-secure-channels"
+                                id="toc-securely-sending-messages-secure-channels">Securely sending
+                                messages (Secure Channels)</a>
+                            <ul>
+                                <li><a href="#example-using-challenge-response-protocol"
+                                        id="toc-example-using-challenge-response-protocol">Example using
+                                        Challenge-Response Protocol</a>
+                                    <ul>
+                                        <li><a href="#reflection-attack" id="toc-reflection-attack">Reflection
+                                                Attack</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#mutual-authentication-in-public-key-cryptosystems"
+                                        id="toc-mutual-authentication-in-public-key-cryptosystems">Mutual
+                                        Authentication in Public-Key Cryptosystems</a>
+                                    <ul>
+                                        <li><a href="#example" id="toc-example">Example</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#digital-signatures" id="toc-digital-signatures">Digital
+                                        Signatures</a>
+                                    <ul>
+                                        <li><a href="#issues-with-this-scheme" id="toc-issues-with-this-scheme">Issues
+                                                with this scheme</a></li>
+                                        <li><a href="#message-digest" id="toc-message-digest">Message
+                                                Digest</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#diffie-hellman-key-exchange"
+                                        id="toc-diffie-hellman-key-exchange">Diffie-Hellman Key
+                                        Exchange</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="data">
+            <p><strong><em>These notes are by no means comprehensive or
+                        complete</em></strong></p>
+            <p>Nodes on the internet are identified by IP addresses. Data is passed
+                from one router to another, moving each packet closer to its
+                destination, in the hope that it will ultimately be delivered.</p>
+            <p>Each router must regularly be supplied with up-to-date routing
+                tables. Individual IP addresses are grouped into prefixes. Autonomous
+                Systems (AS) own these prefixes. Routing tables between ASes are
+                maintained using Border Gateway Protocol (BGP).</p>
+            <h2 id="autonomous-systems">Autonomous Systems</h2>
+            <p>An Autonomous System can best be defined as a collection of IP
+                routing prefixes, that are under the control of 1 or more network
+                operators, on behalf of a single entity or domain, that <strong>present
+                    a single,common and clearly defined routing policy to the
+                    Internet</strong>.</p>
+            <ul>
+                <li>Each AS has a number (ASN).
+                    <ul>
+                        <li>There may be ASes without ASNs too. It is possible that an
+                            organization is running BGP using private AS numbers given by an
+                            ISP.</li>
+                        <li>The ISP must have an officially registered ASN. The multiple private
+                            AS numbers are supported by the ISP.</li>
+                        <li>The Internet, however, can only see the routing policy of the ISP.
+                            It’s the ISP’s duty to include the routing policies of the private AS
+                            numbers in its routing policy.</li>
+                    </ul>
+                </li>
+            </ul>
+            <h2 id="transit-vs-peering">Transit vs Peering</h2>
+            <h3 id="peering">Peering</h3>
+            <p>Peering is when two ASes allow free-flow of traffic between them and
+                their downstream customers. Peering relations are free of charge. Peers
+                cannot see each other’s upstreams.</p>
+            <h3 id="transit">Transit</h3>
+            <p>Transit is when an AS (provider) agrees to:</p>
+            <ul>
+                <li>Direct the traffic of another AS(customer) to the internet</li>
+                <li>Direct traffic from the Internet to the customer AS.</li>
+            </ul>
+            <p>A transit fee is charged by the provider to the customer.</p>
+            <ul>
+                <li>
+                    <p>The transit provider gives the customer a list of routes that
+                        belong to other ASes/ISPs that the provider is connected to. The transit
+                        client can send/receive traffic from those routes through the
+                        provider.</p>
+                </li>
+                <li>
+                    <p>The transit provider also advertises its customers’ routes to its
+                        connections, so they know that traffic to those routes needs to go via
+                        the transit provider.</p>
+                </li>
+            </ul>
+            <p>The transit provider may themselves use other transit networks
+                too.</p>
+            <p>A transit-free network is a network based only on peering. These are
+                generally the top-level ASes. They provide transit to smaller ASes, like
+                ISPs.</p>
+            <p><strong><em>IMPORTANT</em></strong></p>
+            <p><strong>A TRANSIT PROVIDER WILL NOT ANNOUNCE A PEER ROUTE TO OTHER
+                    PEERS, OR TO NETWORKS IT BUYS TRANSIT FROM</strong></p>
+            <ul>
+                <li>If it did, it would be providing free transit over its network to
+                    its peers.</li>
+                <li>Or worse, buying transit and giving it away for free to peers.</li>
+            </ul>
+            <figure>
+                <img src="../images/dis/transit_vs_peering.png" style="width:50.0%"
+                    alt="Transit and Peering Example Diagram" />
+                <figcaption aria-hidden="true">Transit and Peering Example
+                    Diagram</figcaption>
+            </figure>
+            <p>In the above represented network,</p>
+            <ul>
+                <li>G can see all networks since E,H and D buy transit from it.</li>
+                <li>A can see F and customers of F, but it cannot see B through F.</li>
+                <li>C can see B through D, but not through F.
+                    <ul>
+                        <li>D will want to tell B that it has access to C, to provide more
+                            incentive to B to buy its transit. After that, it will be obligated to
+                            let C know that it has access to B, since B bought transit from D.
+                            Therefore, C will see B through D.</li>
+                        <li>F will not let C know it has access to B. If it did, F would have to
+                            pay for C-&gt;F-&gt;B transit.</li>
+                    </ul>
+                </li>
+                <li>A can see B through C, but not through F.</li>
+                <li>Traffic from C-&gt;H flows through E, but not through D.</li>
+            </ul>
+            <hr />
+            <h2 id="bgp-hijacking">BGP Hijacking</h2>
+            <p>BGP was designed without security - it is based on trust. If an AS
+                says it controls certain IPs, all its peers will believe it, and route
+                app traffic to those IPs, to that AS. Security extensions and
+                third-party validations exist, but they’re not widely used.</p>
+            <p>An AS may announce an IP it doesn’t own, or claim to have a shorter
+                path to it than is already available - even if that “shortest” path
+                doesn’t actually exist.</p>
+            <p>Generally, ISPs filter BGP traffic. They allow BGP advertisements
+                from their downstream networks to contain only valid IP space (i.e, IP
+                addresses that the downstream network is known to possess). However,
+                hackings have occurred because this isn’t always true.</p>
+            <p>If an AS is hacked, this can be exploited. However, this will be
+                quickly found out and reversed.</p>
+            <hr />
+            <h2 id="osi-model">OSI Model</h2>
+            <p>Open Systems Interconnection.</p>
+            <p>Widely referenced in academic literature, not often used exactly in
+                industry. For example, the TCP/IP protocol doesn’t fit neatly on top of
+                the OSI model.</p>
+            <p>From lowest to highest, the 7 layers are:</p>
+            <ol type="1">
+                <li>
+                    <p><strong>Physical Layer</strong></p>
+                    <p>Deals in bits. Handles transmission and reception of raw bit streams
+                        over a physical medium.</p>
+                </li>
+                <li>
+                    <p><strong>Data Link</strong></p>
+                    <p>Deals in frames. Transmission of data frames b/w 2 nodes. Handles
+                        frame sync, errors, QoS, physical addressing, etc.</p>
+                    <ul>
+                        <li>Physical Addressing, for e.g, using MAC addresses.</li>
+                        <li>NOT Network Addressing.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p><strong>Network Layer</strong></p>
+                    <p>Deals in packets. Handles structuring and managing a multi-node
+                        network, including addressing, routing,etc.</p>
+                </li>
+                <li>
+                    <p><strong>Transport Layer</strong></p>
+                    <p>Deals in segments/datagrams.</p>
+                    <p>Handles reliable transmission of data segments b/w points on a
+                        network. Handles segmentation, acknowledgment, multiplexing, handshakes,
+                        etc.</p>
+                    <ul>
+                        <li>Segmentation is dividing large data into smaller sizes in order to
+                            match packet size imposed by network layer. This is known as MTU (Max
+                            Transmission Unit).</li>
+                    </ul>
+                </li>
+                <li>
+                    <p><strong>Session Layer</strong></p>
+                    <p>Manages communication sessions, i.e, continuous exchange of
+                        information in the form of multiple back and forth transmissions btw 2
+                        nodes. Creates the setup and controls the connection. Performs teardown.
+                        DNS is often put in this layer.</p>
+                    <p>Logon, name lookup, log off occur here.</p>
+                    <p>Authentication in FTP is built into session layer.</p>
+                </li>
+                <li>
+                    <p><strong>Presentation Layer</strong></p>
+                    <p>Translates data b/w a network and an application. Includes character
+                        encoding, data compression and encryption/decryption.</p>
+                    <p>AKA Syntax layer.</p>
+                    <p>TLS/SSL is generally considered to be in this layer.</p>
+                </li>
+                <li>
+                    <p><strong>Application Layer</strong> High level protocols, such as
+                        HTTP or FTP. Generally include file sharing, message handling, DB
+                        access, etc.</p>
+                </li>
+            </ol>
+            <h3 id="the-internet-protocol-suite">The Internet Protocol Suite</h3>
+            <p>The Internet Protocol Suite (TCP/IP) is different than the OSI model.
+                Many layers are similar, but their differences start after the network
+                layer.</p>
+            <p>TCP/IP layers don’t fit neatly into OSI layers.</p>
+            <p>Layers in TCP/IP suite are:</p>
+            <ol type="1">
+                <li>Physical</li>
+                <li>Data Link</li>
+                <li>Network</li>
+                <li>Transport</li>
+                <li>Application</li>
+            </ol>
+            <p>TCP/IP doesn’t differentiate between session,presentation and
+                application layer.</p>
+            <p>This is why it doesn’t fit correctly into OSI.</p>
+            <p>For example, TLS is built on top of transport layer such as TCP. But,
+                applications generally use it as if it was a transport layer.</p>
+            <p>Some mentions of TCP/IP don’t even contain a physical layer. The Data
+                Link and Physical layers are merged into a common <em>“Link”</em> layer.
+                It is unspecified as if the Link layer does the job of the physical
+                layer, or if TCP/IP assumes that physical hardware already exists
+                underneath.</p>
+            <hr />
+            <h2 id="application-based-multicasting">Application Based
+                Multicasting</h2>
+            <p>Nodes organize themselves into an overlay network that is used to
+                spread information. Network routes aren’t involved in group
+                membership.</p>
+            <h3 id="starting-a-multicast">Starting a multicast</h3>
+            <ul>
+                <li>Node wanting to start a multicast generates a multicast id <span
+                        class="math inline"><em>m</em><em>i</em><em>d</em></span>.</li>
+                <li>It looks up <span
+                        class="math inline"><em>s</em><em>u</em><em>c</em><em>c</em>(<em>m</em><em>i</em><em>d</em>)</span>
+                    - the node responsible for that key. This node is promoted and becomes
+                    the root of the multicast.</li>
+                <li>If P wants to join the multicast, it executes <span
+                        class="math inline"><em>l</em><em>o</em><em>o</em><em>k</em><em>u</em><em>p</em>(<em>m</em><em>i</em><em>d</em>)</span>.
+                    This will send a message, from P to <span
+                        class="math inline"><em>s</em><em>u</em><em>c</em><em>c</em>(<em>m</em><em>i</em><em>d</em>)</span>,
+                    that P is requesting to join the <span class="math inline"><em>m</em><em>i</em><em>d</em></span>
+                    multicast.</li>
+                <li>This request message is sent via routing. While routing, let’s say
+                    the message comes to node Q.
+                    <ul>
+                        <li>If Q has never seen a join request for <span
+                                class="math inline"><em>m</em><em>i</em><em>d</em></span> before,
+                            <ul>
+                                <li>It will become a forwarder for <span
+                                        class="math inline"><em>m</em><em>i</em><em>d</em></span>.</li>
+                                <li>P becomes a child of Q, and Q forwards P’s join request to
+                                    root.</li>
+                            </ul>
+                        </li>
+                        <li>If Q has seen a join request for <span
+                                class="math inline"><em>m</em><em>i</em><em>d</em></span> before,
+                            <ul>
+                                <li>This means Q will already be a forwarder for <span
+                                        class="math inline"><em>m</em><em>i</em><em>d</em></span>.</li>
+                                <li>P will become a child of Q, but its join request doesn’t need to be
+                                    forwarded to root anymore, as Q is already a member of the multicast
+                                    tree.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>P is a forwarder for <span class="math inline"><em>m</em><em>i</em><em>d</em></span> by
+                    definition.</li>
+                <li>Messaging is done by sending a multicast message to root via <span
+                        class="math inline"><em>l</em><em>o</em><em>o</em><em>k</em><em>u</em><em>p</em>(<em>m</em><em>i</em><em>d</em>)</span>.After
+                    that,root sends the message along the multicast tree.</li>
+            </ul>
+            <hr />
+            <h2 id="lamport-clocks">Lamport Clocks</h2>
+            <ul>
+                <li>
+                    <p>If event a happens before event b, it is denoted by <span
+                            class="math inline"><em>a</em> → <em>b</em></span></p>
+                </li>
+                <li>
+                    <p>If a and b occur in the same process, they occur in the order
+                        they were observed.</p>
+                    <p>If</p>
+                    <p><span class="math display"><em>T</em>(<em>a</em>) → <em>T</em>(<em>b</em>)</span></p>
+                    <p>then <span class="math display"><em>a</em> → <em>b</em></span></p>
+                </li>
+                <li>
+                    <p>If a is the event of sending a message, and b is the event of the
+                        message being received (by another process),then <span
+                            class="math inline"><em>a</em> → <em>b</em></span>.</p>
+                </li>
+                <li>
+                    <p>If a and b occur in 2 processes that never exchange any messages,
+                        then</p>
+                    <p><span class="math display"><em>a</em> → <em>b</em></span></p>
+                    <p>and</p>
+                    <p><span class="math display"><em>b</em> → <em>a</em></span></p>
+                    <p>are both false. This basically means that nothing can be said, and
+                        nothing needs to be said, about when the events happened, or which one
+                        happened first.</p>
+                </li>
+            </ul>
+            <h3 id="lamport-algorithm">Lamport Algorithm</h3>
+            <ul>
+                <li>
+                    <p>Each process keeps an internal clock, that is incremented between
+                        2 consecutive events.</p>
+                </li>
+                <li>
+                    <p>Let’s say P sends a message that is received by the receiving
+                        process Q.</p>
+                    <ul>
+                        <li>The event of sending the message is <span class="math inline"><em>a</em></span>.</li>
+                        <li>The event of the message being received is <span class="math inline"><em>b</em></span></li>
+                    </ul>
+                </li>
+                <li>
+                    <p>The message must also include the time when it was sent, i.e,
+                        <span class="math inline"><em>T</em>(<em>a</em>)</span>.
+                    </p>
+                </li>
+                <li>
+                    <p>When the message is received, Q will set its internal clock
+                        to:</p>
+                    <p><span
+                            class="math display"><em>m</em><em>a</em><em>x</em>(<em>T</em>(<em>a</em>)+<em>d</em>,<em>c</em><em>u</em><em>r</em><em>r</em><em>e</em><em>n</em><em>t</em>_<em>c</em><em>l</em><em>o</em><em>c</em><em>k</em>)</span>
+                        Generally, <span class="math inline"><em>d</em></span> is set to
+                        1.</p>
+                </li>
+            </ul>
+            <hr />
+            <h2 id="totally-ordered-multicasting">Totally Ordered Multicasting</h2>
+            <p>Totally ordered multicasting is when events must occur in the same
+                order on <em>all</em> nodes.</p>
+            <p>For example, consider the following scenario.</p>
+            <ul>
+                <li>
+                    <p>A bank has 2 branches, each with their own copy of the database.
+                        One branch is in Mumbai, another in Delhi.</p>
+                </li>
+                <li>
+                    <p>A particular customer has 1000 in his account.</p>
+                </li>
+                <li>
+                    <p>Two events occur (nearly) simultaneously in real time:</p>
+                    <ol type="1">
+                        <li>Bank HQ at Mumbai issues a 1% increase in amounts of customers, by
+                            interest or because of any other reason.</li>
+                        <li>The customer in Delhi deposits 100 in his account.</li>
+                    </ol>
+                </li>
+                <li>
+                    <p>In Mumbai, <span class="math inline">1 → 2</span>.</p>
+                    <p>The customer’s final bank balance = 1110</p>
+                </li>
+                <li>
+                    <p>In Delhi, <span class="math inline">2 → 1</span>.</p>
+                    <p>The customer’s final bank balance = 1111</p>
+                </li>
+            </ul>
+            <p>This is an inconsistency. The bank will be okay with either amount in
+                the customer’s account, but the amount on all nodes should
+                <strong><em>match</em></strong> with each other.
+            </p>
+            <h3 id="how-to-solve-this">How to solve this?</h3>
+            <p>We solve this using totally ordered multicasting. The order of events
+                must be the same on all nodes, even if the order is different than the
+                real-world order of events. It should just be the same.</p>
+            <ul>
+                <li>Lamport Clocks are used for this.</li>
+                <li>When a process receives a message, it’s stored in a queue ordered by
+                    timestamp.</li>
+                <li>The receiver multicasts an acknowledgement to all nodes.</li>
+                <li>Since lamport clocks are being used, <span
+                        class="math inline"><em>T</em>(<em>a</em><em>c</em><em>k</em>) &gt; <em>T</em>(<em>m</em><em>s</em><em>g</em>)</span>.
+                </li>
+                <li>A message will only be delivered to the underlying application if it
+                    is at the head of the queue and has been acknowledged by <em>all</em>
+                    other nodes.</li>
+            </ul>
+            <p>This ensures that all nodes have the same copy of the queue.</p>
+            <hr />
+            <h2 id="replica-management">Replica Management</h2>
+            <p>Replicas are created for servers, to reduce latency and to provide
+                resilience. They need to managed efficiently and consistency needs to be
+                maintained across all replicas.</p>
+            <h3 id="content-distribution">Content Distribution</h3>
+            <p>What data should we propagate?</p>
+            <ul>
+                <li>
+                    <p>Propagate only notification of an update. Replica servers will
+                        request the actual data from the main server whenever they need it.</p>
+                    <ul>
+                        <li>This is used when writes&gt;reads.</li>
+                        <li>Needs a properly implemented invalidation protocol.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Transfer data from one copy to another.</p>
+                    <ul>
+                        <li>Transfers can be aggregated.</li>
+                        <li>Used when reads &gt;&gt; writes.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Propagate the update operation.</p>
+                    <ul>
+                        <li>Don’t transfer the data.</li>
+                        <li>Tell each replica what update to perform.</li>
+                        <li>Send only parameters for the updates.</li>
+                    </ul>
+                </li>
+            </ul>
+            <hr />
+            <h3 id="push-vs-pull-semantics">Push vs Pull Semantics</h3>
+            <h4 id="push"><strong>Push</strong></h4>
+            <ul>
+                <li>
+                    <p>Server Based.</p>
+                </li>
+                <li>
+                    <p>Updates are propagated to replicas without request.</p>
+                </li>
+                <li>
+                    <p>Server has to keep a list of client replicas as well as their
+                        caches.</p>
+                </li>
+            </ul>
+            <h4 id="pull"><strong>Pull</strong></h4>
+            <ul>
+                <li>
+                    <p>Client Based.</p>
+                </li>
+                <li>
+                    <p>Client has to explicitly request data.</p>
+                </li>
+            </ul>
+            <h4 id="hybrid"><strong>Hybrid</strong></h4>
+            <p>This approach is based on leases.</p>
+            <ul>
+                <li>Server issues leases to clients.</li>
+                <li>While the lease is active, the server will push updates.</li>
+                <li>After the lease has expired, the client has to pull updates, or
+                    request a new lease from the server.</li>
+            </ul>
+            <hr />
+            <p>Expiration Times for the leases can be based on:</p>
+            <ul>
+                <li>
+                    <p><strong>Age</strong> - If an object hasn’t changed in a long
+                        time, it probably won’t change in the future. We can provide a longer
+                        lease for such an object.</p>
+                </li>
+                <li>
+                    <p><strong>Renewal Frequency Based</strong> - If a client requests
+                        an object more frequently, the expiration time for that client, for that
+                        object, will be higher.</p>
+                </li>
+                <li>
+                    <p><strong>State Based</strong> - If a server has high load, it will
+                        grant leases with shorter expiry time.</p>
+                </li>
+            </ul>
+            <hr />
+            <h2 id="epidemic-protocols">Epidemic Protocols</h2>
+            <ul>
+                <li>Used to implement eventual consistency.</li>
+                <li>Propagate updates to all nodes in as few messages as possible.</li>
+            </ul>
+            <p>Replicas can be of 3 types in this protocol.</p>
+            <ul>
+                <li><strong>Inactive</strong> - Holds the update, and is willing and
+                    able to spread it.</li>
+                <li><strong>Susceptible</strong> - Hasn’t received the update yet.</li>
+                <li><strong>Removed</strong> - Holds the update, but can’t (or won’t)
+                    spread it.</li>
+            </ul>
+            <h3 id="anti-entropy">Anti-Entropy</h3>
+            <p>Server P picks another server Q at random. They exchange info using
+                one of the following approaches:</p>
+            <ul>
+                <li>P pulls from Q.</li>
+                <li>P pushes to Q.</li>
+                <li>P and Q pull and push from each other.</li>
+            </ul>
+            <p>Pull-based approaches are generally better than push-based. This is
+                because a susceptible node may not find any node that is willing to push
+                to it. With pull-based approaches, it can pull the new info itself.</p>
+            <p>Combination of pull and push has been found to work the best in
+                practice.</p>
+            <h3 id="gossipping-protocol">Gossipping Protocol</h3>
+            <ul>
+                <li>P receives update of item x.</li>
+                <li>P pushes the update to Q.</li>
+                <li>If Q already had the update, P becomes disinterested in spreading it
+                    further.</li>
+                <li>Otherwise, P and Q will both gossip to other servers.</li>
+            </ul>
+            <p><strong><em>A mix of anti-entropy and gossipping is the
+                        best</em></strong></p>
+            <h3 id="deletion-of-data">Deletion of Data</h3>
+            <p>Deletion of data is done through the use of <em>death
+                    certificates</em>. An item that has been deleted is given a death
+                certificate, and these certificates are propagated the same way as
+                normal data would be.</p>
+            <p>The accumulation of death certificates becomes an issue. If a lot of
+                items are deleted everyday, then a lot of storage space will be taken by
+                just the death certificates.</p>
+            <p>Hence,old death certificates are removed using expiration dates.This
+                always runs the risk that there was a node that didn’t receive the death
+                certificate.</p>
+            <p>A special server can be set up that never removes any death
+                certificate. IF a deleted item is seen again (after its death
+                certificate has expired), this special server will see it as well. This
+                special server will circulate the death certificate once again.</p>
+            <hr />
+            <h2 id="consistency-protocols">Consistency Protocols</h2>
+            <p>Consistency Protocols have the following classification:</p>
+            <ul>
+                <li>
+                    <p>Primary Based</p>
+                    <ul>
+                        <li>
+                            <p>Remote Write</p>
+                        </li>
+                        <li>
+                            <p>Local Write</p>
+                            <ul>
+                                <li>
+                                    <p>Single Copy</p>
+                                </li>
+                                <li>
+                                    <p>Multiple Copies</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Replicated Write</p>
+                    <ul>
+                        <li>
+                            <p>Active Replication</p>
+                        </li>
+                        <li>
+                            <p>Quorum Based</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <figure>
+                <img src="../images/dis/consistency_protocols.png" alt="Consistency Protocols" />
+                <figcaption aria-hidden="true">Consistency Protocols</figcaption>
+            </figure>
+            <h3 id="primary-based">Primary Based</h3>
+            <p>Each data item has a <strong>primary</strong> node, which is the node
+                responsible for it.</p>
+            <h4 id="remote-write">Remote Write</h4>
+            <ul>
+                <li>A process wanting to write to a data item <span class="math inline"><em>x</em></span> locates <span
+                        class="math inline"><em>x</em></span>’s primary.</li>
+                <li>The update/write is forwarded to the primary.</li>
+                <li>The primary will update its local copy, and forward the update to
+                    the backup/replica servers,</li>
+                <li>Replicas will perform the update and send an acknowledgement to the
+                    primary.</li>
+                <li>When all replicas have sent acks, primary will send ack. to the
+                    initial process.</li>
+            </ul>
+            <h4 id="local-write">Local Write</h4>
+            <p>The status of which node is primary for a particular data item <span
+                    class="math inline"><em>x</em></span> can change.</p>
+            <h5 id="single-copy">Single Copy</h5>
+            <p>Only the primary has the data item <span class="math inline"><em>x</em></span>. Processes who need <span
+                    class="math inline"><em>x</em></span> need to request it from the
+                primary (for read access). If a process wants to update <span class="math inline"><em>x</em></span>:</p>
+            <ul>
+                <li>It locates the primary and moves <span class="math inline"><em>x</em></span> to its own location.
+                </li>
+                <li>It becomes the new primary for <span class="math inline"><em>x</em></span>.</li>
+            </ul>
+            <h5 id="multiple-copies">Multiple Copies</h5>
+            <p>Multiple copies exist, but one is primary.</p>
+            <p>If a process wants to update <span class="math inline"><em>x</em></span>:</p>
+            <ul>
+                <li>It locates the primary and moves <span class="math inline"><em>x</em></span> to its own location. It
+                    becomes
+                    the new primary.</li>
+                <li>It will perform the update, ask backups to update, and receive ack.
+                    from the backups.</li>
+            </ul>
+            <hr />
+            <h3 id="replicated-write">Replicated Write</h3>
+            <p>In this, writes can be carried out anywhere, not just at the
+                primary.</p>
+            <h4 id="active-replication">Active Replication</h4>
+            <p>A special process carries out updates at each replica.</p>
+            <p>A sequencer can be used that assigns a unique ID to each update. Each
+                update is then propagated with this unique ID.</p>
+            <h4 id="quorums">Quorums</h4>
+            <p>Clients must request and acquire permission from multiple replicas
+                before a read/write operation.</p>
+            <p>For e.g, get the majority vote before reading/writing.</p>
+            <p>All processes that vote yes will perform the update and have a newer
+                version of the data.</p>
+            <p>When reading, majority must say yes and they must all have the same
+                version number of the data. This ensures that the client doesn’t request
+                the data from a replica that has an older version of the data.</p>
+            <h5 id="giffords-method">Gifford’s Method</h5>
+            <p>Let the number of votes required to read be <span
+                    class="math inline"><em>N</em><sub><em>r</em></sub></span> , and the
+                number of votes to write be <span class="math inline"><em>N</em><sub><em>w</em></sub></span>. Let the
+                total number of nodes be <span class="math inline"><em>N</em></span>.</p>
+            <p>Gifford’s method states that the value of <span
+                    class="math inline"><em>N</em><sub><em>r</em></sub></span> and <span
+                    class="math inline"><em>N</em><sub><em>w</em></sub></span> should follow
+                the following two rules.</p>
+            <ol type="1">
+                <li><span
+                        class="math display"><em>N</em><sub><em>r</em></sub> + <em>N</em><sub><em>w</em></sub> &gt; <em>N</em></span>
+                </li>
+                <li><span class="math display"><em>N</em><sub><em>w</em></sub> &gt; <em>N</em>/2</span></li>
+            </ol>
+            <p>The first rule prevents read-write conflicts.</p>
+            <p>The second rule prevents write-write conflicts.</p>
+            <p><strong>A special case of Gifford’s method is </strong>
+                <strong><em>Read One Write All</em></strong>
+            </p>
+            <p><strong>In this, <span class="math inline"><em>N</em><sub><em>r</em></sub> = 1</span> and <span
+                        class="math inline"><em>N</em><sub><em>w</em></sub> = <em>N</em></span></strong></p>
+            <p><strong>By ensuring that updates are written to all nodes, we can
+                    read any one of them and be sure that we have the latest version of the
+                    data.</strong></p>
+            <hr />
+            <h2 id="fault-tolerance">Fault Tolerance</h2>
+            <p>Fault Tolerance has the following criteria.</p>
+            <ol type="1">
+                <li>
+                    <p><strong>Availability</strong> - It measures the degree to which
+                        the system is up and ready for use at any instant.</p>
+                </li>
+                <li>
+                    <p><strong>Reliability</strong> - It measures the degree to which
+                        the system is ready to use for longer periods of time.</p>
+                </li>
+                <li>
+                    <p><strong>Safety</strong> - Nothing catastrophic should happen even
+                        if the system fails.</p>
+                </li>
+                <li>
+                    <p><strong>Maintainability</strong> - The degree to which the system
+                        can be brought back up in case it fails, and the underlying issue can be
+                        fixed.</p>
+                </li>
+            </ol>
+            <table>
+                <colgroup>
+                    <col style="width: 42%" />
+                    <col style="width: 57%" />
+                </colgroup>
+                <thead>
+                    <tr class="header">
+                        <th style="text-align: left;">Availability</th>
+                        <th style="text-align: left;">Reliability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td style="text-align: left;">Measures instant readiness of system</td>
+                        <td style="text-align: left;">Measures readiness of system across long
+                            periods of time</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: left;">Measures the ability of a system to do its
+                            job if needed</td>
+                        <td style="text-align: left;">Measures the ability of a system to
+                            perform its function for some interval, without failure.</td>
+                    </tr>
+                    <tr class="odd">
+                        <td style="text-align: left;">Measures the (average) amount of time the
+                            service was down</td>
+                        <td style="text-align: left;">Measures the frequency/probability of
+                            failure</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: left;">A system that goes down one millisecond
+                            every hour has high availability but low reliability</td>
+                        <td style="text-align: left;">A system that works perfectly usually, but
+                            crashes for 2 weeks every August is highly reliable but has only 96%
+                            availability</td>
+                    </tr>
+                    <tr class="odd">
+                        <td style="text-align: left;">Availability is 1- (1/3600000),
+                            Reliability(measured as failure rate) is once every hour</td>
+                        <td style="text-align: left;">Availability is 50/52, Reliability
+                            (measured as failure rate) is once every year</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4 id="types-of-failure">Types of Failure</h4>
+            <ol type="1">
+                <li><strong>Transient</strong> - One -time.</li>
+                <li><strong>Intermittent</strong> - Repeating sometimes.</li>
+                <li><strong>Permanent</strong> - Always there.</li>
+            </ol>
+            <hr />
+            <h3 id="failure-models">Failure Models</h3>
+            <ol type="1">
+                <li>Crash (Fail-Silent)</li>
+                <li>Fail-stop</li>
+                <li>Fail-safe</li>
+                <li>Omission Failure</li>
+                <li>Timing failure</li>
+                <li>Response Failure</li>
+                <li>Arbitrary Failure</li>
+            </ol>
+            <h4 id="crash">Crash</h4>
+            <p>Server halts, but worked correctly until it halts. No response is
+                seen from the server after it halts.</p>
+            <p>AKA <strong>Fail-Silent</strong></p>
+            <h4 id="fail-stop">Fail-Stop</h4>
+            <p>Server halts, but worked correctly until it halts. Other servers are
+                able to detect it has halted.</p>
+            <h4 id="fail-safe">Fail-Safe</h4>
+            <p>Server produces junk output, and other processes are able to
+                recognize it as junk.</p>
+            <h4 id="omission-failure">Omission Failure</h4>
+            <p>Server fails to respond to incoming messages.</p>
+            <ul>
+                <li>Send Omission</li>
+                <li>Receive Omission</li>
+                <li>Channel Omission</li>
+            </ul>
+            <h4 id="timing-failure">Timing Failure</h4>
+            <p>Server’s response is outside the specified time interval.</p>
+            <h4 id="response-failure">Response Failure</h4>
+            <p>Incorrect response.</p>
+            <ul>
+                <li>
+                    <p>Value Failure - Wrong value</p>
+                </li>
+                <li>
+                    <p>State Transition Failure</p>
+                    <p>Server goes through the wrong flow of control.</p>
+                </li>
+            </ul>
+            <h4 id="arbitrary-failure">Arbitrary Failure</h4>
+            <p>Server sends arbitrary data at arbitrary times.</p>
+            <hr />
+            <h2 id="security">Security</h2>
+            <h3 id="types-of-cryptosystems">Types of Cryptosystems</h3>
+            <h4 id="symmetric">Symmetric</h4>
+            <p>AKA conventional cryptography/shared-key systems/secret-key
+                systems.</p>
+            <p>Sender and receiver share the same key, which is used both for
+                encryption and decryption.</p>
+            <p>The shared key must be kept private. Anyone in possession of the key
+                can read encrypted messages.</p>
+            <p>The notation <span class="math inline"><em>K</em><sub><em>a</em>, <em>b</em></sub></span>
+                is used to denote a secret-key shared by <span class="math inline"><em>A</em></span> and <span
+                    class="math inline"><em>B</em></span>.</p>
+            <h4 id="asymmetric">Asymmetric</h4>
+            <p>AKA Public-key cryptography.</p>
+            <p>The keys for encryption and decryption are different, but form a
+                unique pair. The key for decryption can only decrypt the data encrypted
+                with its pair key.</p>
+            <p>Key for encryption - <span class="math inline"><em>K</em><sub><em>E</em></sub></span>.</p>
+            <p>Key for decryption - <span class="math inline"><em>K</em><sub><em>D</em></sub></span>.</p>
+            <p>One of the keys is made public, and the other one kept private.</p>
+            <p>The notation <span class="math inline"><em>K</em><sub><em>A</em></sub><sup>+</sup></span>
+                is used to denote a public key belonging to <span class="math inline"><em>A</em></span>, and <span
+                    class="math inline"><em>K</em><sub><em>A</em></sub><sup>−</sup></span>
+                denotes a private key belonging to <span class="math inline"><em>A</em></span>.</p>
+            <p>If Bob wants to send a message to Alice, he should encrypt it using
+                Alice’s public key. Since Alice is the only person who possessed the
+                corresponding private key, only she can decrypt the message.</p>
+            <h3 id="hash">Hash</h3>
+            <p>A hash function <span class="math inline"><em>H</em></span> takes a
+                message <span class="math inline"><em>m</em></span> of arbitrary length,
+                and produces a bit-string <span class="math inline"><em>h</em></span>
+                having a fixed length.</p>
+            <p><span class="math display"><em>h</em> = <em>H</em>(<em>m</em>)</span></p>
+            <p>By the pigeonhole principle, many inputs can result in the same
+                output.</p>
+            <p>A good hash function should have the following properties.</p>
+            <ul>
+                <li>Given <span class="math inline"><em>H</em></span> and <span class="math inline"><em>m</em></span>,
+                    <span class="math inline"><em>h</em></span> should be easy to compute.
+                </li>
+                <li>However, given <span class="math inline"><em>H</em></span> and <span
+                        class="math inline"><em>h</em></span>, <span class="math inline"><em>m</em></span> should be
+                    computationally
+                    infeasible to compute.</li>
+            </ul>
+            <p>i.e, the hash function should be <strong>REPEATABLE</strong> and
+                <strong>IRREVERSIBLE (ONE-WAY)</strong>.
+            </p>
+            <h3 id="rsa">RSA</h3>
+            <p>An asymmetric encryption algorithm named after its inventors -
+                Rivest, Shamir and Adleman.</p>
+            <p>Based on the fact that prime factorization of very large numbers is a
+                difficult and time-consuming process.</p>
+            <h4 id="steps">Steps</h4>
+            <ol type="1">
+                <li>
+                    <p>Take 2 very large prime numbers - <span class="math inline"><em>p</em></span> and <span
+                            class="math inline"><em>q</em></span>.</p>
+                </li>
+                <li>
+                    <p>Calculate <span class="math display"><em>n</em> = <em>p</em> * <em>q</em></span> <span
+                            class="math display"><em>z</em> = (<em>p</em>−1) * (<em>q</em>−1)</span></p>
+                </li>
+                <li>
+                    <p>Choose <span class="math inline"><em>d</em></span> such that
+                        <span class="math inline"><em>d</em></span> is relatively prime to <span
+                            class="math inline"><em>z</em></span>.
+                    </p>
+                </li>
+                <li>
+                    <p>Compute <span class="math inline"><em>e</em></span> such
+                        that</p>
+                </li>
+            </ol>
+            <p><span class="math display">(<em>e</em>*<em>d</em>)%<em>z</em> = 1</span></p>
+            <p>Now, the number <span class="math inline"><em>d</em></span> can be
+                used for decryption, and <span class="math inline"><em>e</em></span> for
+                encryption.</p>
+            <p>One of these is kept private, and the other is made public.</p>
+            <h4 id="usage">Usage</h4>
+            <p>Let the message to be sent be <span class="math inline"><em>m</em></span>. Here, <span
+                    class="math inline"><em>m</em></span> is interpreted simply as a binary
+                number.</p>
+            <ol type="1">
+                <li>Divide <span class="math inline"><em>m</em></span> into fixed length
+                    blocks, <span class="math inline"><em>m</em><sub><em>i</em></sub></span>, such
+                    that:</li>
+            </ol>
+            <p><span class="math display">0 ≤ <em>m</em><sub><em>i</em></sub> ≤ <em>n</em></span></p>
+            <p>Each <span class="math inline"><em>m</em><sub><em>i</em></sub></span>
+                is also interpreted as a binary number.</p>
+            <ol start="2" type="1">
+                <li>
+                    <p>The sender calculates <span
+                            class="math display"><em>c</em><sub><em>i</em></sub> = (<em>m</em><sub><em>i</em></sub><sup><em>e</em></sup>)%<em>n</em></span>
+                        All such <span class="math inline"><em>c</em><sub><em>i</em></sub></span> are
+                        calculated and concatenated into a single variable <span class="math inline"><em>c</em></span>.
+                    </p>
+                </li>
+                <li>
+                    <p><span class="math inline"><em>c</em></span> is sent to the
+                        receiver.</p>
+                </li>
+                <li>
+                    <p>The receiver calculates <span
+                            class="math display"><em>y</em><sub><em>i</em></sub> = (<em>c</em><sub><em>i</em></sub><sup><em>d</em></sup>)%<em>n</em></span>
+                    </p>
+                </li>
+            </ol>
+            <p>Based on the properties of modulus, and the way we have chosen <span
+                    class="math inline"><em>e</em></span> and <span class="math inline"><em>d</em></span>, we can easily
+                see that <span
+                    class="math inline"><em>y</em><sub><em>i</em></sub> = <em>m</em><sub><em>i</em></sub>∀<em>i</em></span>.
+            </p>
+            <p>This way, the receiver is able to reconstruct the message.</p>
+            <h4 id="properties-of-rsa">Properties of RSA</h4>
+            <ul>
+                <li>RSA is secure because no method exist to (efficiently) find prime
+                    factors of large numbers.</li>
+                <li>RSA itself is also computationally expensive, around 100-1000x
+                    slower than DES.</li>
+                <li>It’s generally used to securely share session keys, and then those
+                    session keys are used in a (faster) encryption algorithm, such as AES or
+                    DES.</li>
+            </ul>
+            <h3 id="securely-sending-messages-secure-channels">Securely sending
+                messages (Secure Channels)</h3>
+            <p>Securely sending messages has the following problems to solve.</p>
+            <ul>
+                <li>
+                    <p><strong>Confidentiality</strong></p>
+                    <p>No one else other than the intended recipient should be able to read
+                        the message.</p>
+                </li>
+                <li>
+                    <p><strong>Integrity</strong></p>
+                    <p>The recipient should have a way to be sure that the contents of the
+                        message weren’t tampered.</p>
+                </li>
+                <li>
+                    <p><strong>Authentication</strong></p>
+                    <p>Both parties should have a way to be confident that they are sending
+                        messages to the right person.</p>
+                </li>
+            </ul>
+            <h4 id="example-using-challenge-response-protocol">Example using
+                Challenge-Response Protocol</h4>
+            <p>Alice is denoted by <span class="math inline"><em>A</em></span> and
+                Bob by <span class="math inline"><em>B</em></span>. Their shared key is
+                denoted by <span class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>.</p>
+            <ol type="1">
+                <li>Alice sends her identity to Bob, indicating that she wants to
+                    communicate with him.</li>
+                <li>Bob sends a challenge <span class="math inline"><em>R</em><sub><em>B</em></sub></span> to Alice.
+                    This could be a random number.<br />
+                </li>
+                <li>Alice encrypts it using their shared key <span
+                        class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
+                    and sends the result to Bob.</li>
+                <li>Bob receives the encrypted message, and decrypts it to check whether
+                    it contains <span class="math inline"><em>R</em><sub><em>B</em></sub></span>. If it does,
+                    then he knows the person on the other end is Alice, because no one else
+                    could have encrypted it with <span
+                        class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>.</li>
+            </ol>
+            <p>Bob has now verified Alice’s identity. But Alice hasn’t verified
+                Bob’s.</p>
+            <ol start="5" type="1">
+                <li>Alice sends a challenge <span class="math inline"><em>R</em><sub><em>A</em></sub></span> to Bob. Bob
+                    must encrypt it with <span class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
+                    and send it back to Alice. Alice will decrypt it and verify whether it
+                    contains <span class="math inline"><em>R</em><sub><em>A</em></sub></span>.</li>
+            </ol>
+            <figure>
+                <img src="../images/dis/challenge_response.png" alt="Challenge Response Protocol" />
+                <figcaption aria-hidden="true">Challenge Response Protocol</figcaption>
+            </figure>
+            <h5 id="reflection-attack">Reflection Attack</h5>
+            <p>Suppose we try to optimize the above approach.</p>
+            <p>Alice has to eventually send her challenge to Bob anyway, so she can
+                just send her challenge when she’s sending her identity (as part of step
+                1).</p>
+            <p>Similarly, Bob can return the response to Alice’s challenge, and his
+                own challenge, in a single message.</p>
+            <figure>
+                <img src="../images/dis/challenge_response_insecure.png" alt="Optimization of Challenge Response" />
+                <figcaption aria-hidden="true">Optimization of Challenge
+                    Response</figcaption>
+            </figure>
+            <p>The above protocol can easily be defeated using a
+                <strong><em>reflection attack</em></strong>.
+            </p>
+            <p><strong>A reflection attack is a way to attack a challenge response
+                    system which uses the same protocol in both directions.</strong></p>
+            <p>We basically try to trick the target into answering its own
+                challenge.</p>
+            <h6 id="steps-1">Steps</h6>
+            <ol type="1">
+                <li>
+                    <p>The attacker initiates a connection to a target.</p>
+                </li>
+                <li>
+                    <p>The target attempts to authenticate the attacker by sending it a
+                        challenge.</p>
+                </li>
+                <li>
+                    <p>The attacker opens another connection to the target, and sends
+                        the target this challenge as its own.</p>
+                </li>
+                <li>
+                    <p>The target responds to that challenge.</p>
+                </li>
+                <li>
+                    <p>The attacker sends that response back to the target (“reflects”
+                        it) on the first connection.</p>
+                </li>
+            </ol>
+            <h6 id="example-using-reflection-attack">Example using Reflection
+                Attack</h6>
+            <p>Chuck wants to pretend to be Alice, and talk to Bob. Chuck does not
+                possess the key <span class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>.
+                So, Chuck will trick Bob into encrypting his own challenge and giving it
+                to Chuck.</p>
+            <ol type="1">
+                <li>Chuck sends a message to Bob ,containing Alice’s identity and a
+                    challenge <span class="math inline"><em>R</em><sub><em>C</em></sub></span>. (Message
+                    1)</li>
+                <li>Bob returns his challenge <span class="math inline"><em>R</em><sub><em>B</em></sub></span> and his
+                    answer to Chuck’s challenge, <span
+                        class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>C</em></sub>)</span>.
+                    (Message 2)</li>
+                <li>Chuck needs to prove he is Alice, by encrypting <span
+                        class="math inline"><em>R</em><sub><em>B</em></sub></span> with <span
+                        class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>,
+                    and thus return the response <span
+                        class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>B</em></sub>)</span>
+                    to Bob.</li>
+                <li>Chuck opens up a second channel to Bob, but this time he uses <span
+                        class="math inline"><em>R</em><sub><em>B</em></sub></span> as his
+                    challenge. He sends <span class="math inline"><em>A</em></span> and
+                    <span class="math inline"><em>R</em><sub><em>B</em></sub></span> in a
+                    single message to Bob. (Message 3)
+                </li>
+                <li>Bob doesn’t recognize that <span class="math inline"><em>R</em><sub><em>B</em></sub></span> is his
+                    own
+                    key, and encrypts it and sends <span
+                        class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>B</em></sub>)</span>
+                    back to Chuck, with another challenge <span
+                        class="math inline"><em>R</em><sub><em>B</em><sub>2</sub></sub></span>
+                    (Message 4)</li>
+                <li>Chuck ignores the second channel, including the challenge <span
+                        class="math inline"><em>R</em><sub><em>B</em><sub>2</sub></sub></span>.
+                    He sends back <span
+                        class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>B</em></sub>)</span>
+                    (received from Bob in the second channel), as a response in the first
+                    channel. (Message 5)</li>
+            </ol>
+            <figure>
+                <img src="../images/dis/reflection_attack.png" alt="Reflection Attack" />
+                <figcaption aria-hidden="true">Reflection Attack</figcaption>
+            </figure>
+            <h6 id="mistakes-made">Mistakes Made</h6>
+            <ol type="1">
+                <li>
+                    <p>The same protocol was being used in both directions. It is always
+                        better to use a different challenge for the initiator and the
+                        responder.</p>
+                    <p>A basic example would be to make it so that challenges by the
+                        initiator (Alice/Chuck) are always odd numbers, and by the responder
+                        (Bob) are always even numbers.</p>
+                    <p>(However even this approach would be susceptible to a MITM (Man in
+                        the middle) attack)</p>
+                </li>
+                <li>
+                    <p>Bob gave away valuable information in the form of the response
+                        <span
+                            class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>C</em></sub>)</span>
+                        and <span
+                            class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub>(<em>R</em><sub><em>B</em></sub>)</span>,
+                        without knowing who he was giving it to.
+                    </p>
+                    <p>This wasn’t violated in the original protocol, where Alice had to
+                        prove her identity first.</p>
+                </li>
+            </ol>
+            <h4 id="mutual-authentication-in-public-key-cryptosystems">Mutual
+                Authentication in Public-Key Cryptosystems</h4>
+            <p>This system assumes there is some way to verify everyone’s public
+                keys.</p>
+            <p>i.e, if Alice wants to check whether a particular message was sent by
+                Bob,</p>
+            <ul>
+                <li>Bob will encrypt it with his private key</li>
+                <li>Alice can decrypt it using Bob’s public key, and if the decrypted
+                    message is meaningful, she will know that Bob has sent it.</li>
+            </ul>
+            <p>This assumes that Alice has a verified way, of getting Bob’s public
+                key, and being absolutely sure that the public key she has
+                <em>indeed</em> belongs to Bob.
+            </p>
+            <p>Generally, this involves the use of a trusted source, such as a KDC
+                (Key Distribution Center), or a CA (Certificate Authority).</p>
+            <h5 id="example">Example</h5>
+            <p>Alice wants to set up a secure channel with Bob. Both possess each
+                other’s public key.</p>
+            <ol type="1">
+                <li>
+                    <p>Alice sends a challenge <span class="math inline"><em>R</em><sub><em>A</em></sub></span> to Bob,
+                        encrypted with his public key <span
+                            class="math inline"><em>K</em><sub><em>B</em></sub><sup>+</sup></span>.
+                        She knows that only Bob will be able to decrypt this message.</p>
+                    <p>The message takes the form <span
+                            class="math inline"><em>K</em><sub><em>B</em></sub><sup>+</sup>(<em>A</em>,<em>R</em><sub><em>A</em></sub>)</span>.
+                    </p>
+                </li>
+                <li>
+                    <p>When Bob receives the message, he will do the following
+                        things:</p>
+                    <ol type="1">
+                        <li>Decrypt Alice’s message and extract <span
+                                class="math inline"><em>R</em><sub><em>A</em></sub></span> from it.</li>
+                        <li>Create his own challenge <span class="math inline"><em>R</em><sub><em>B</em></sub></span>.
+                        </li>
+                        <li>Generate a session key <span
+                                class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
+                            that can be used for further communication (using symmetric
+                            cryptography).</li>
+                        <li>Combine all the above 3 things into a single message and encrypt it
+                            with Alice’s public key, and send it to Alice.</li>
+                    </ol>
+                    <p>The final message takes the form <span
+                            class="math inline"><em>K</em><sub><em>A</em></sub><sup>+</sup>(<em>R</em><sub><em>A</em></sub>,<em>R</em><sub><em>B</em></sub>,<em>K</em><sub><em>A</em>, <em>B</em></sub>)</span>
+                    </p>
+                </li>
+                <li>
+                    <p>Alice encrypts Bob’s challenge (<span class="math inline"><em>R</em><sub><em>B</em></sub></span>)
+                        with the
+                        session key <span class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
+                        and sends it back to Bob. This lets Bob know that the person on the
+                        other end is in fact Alice, since only Alice could have decrypted the
+                        previous message and extracted <span class="math inline"><em>R</em><sub><em>B</em></sub></span>
+                        and <span class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
+                        from it.</p>
+                </li>
+                <li>
+                    <p>Alice and Bob communicate further using <span
+                            class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
+                        for this session. Once the session ends, <span
+                            class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
+                        is destroyed.</p>
+                </li>
+            </ol>
+            <figure>
+                <img src="../images/dis/mutual_public_key_auth.png"
+                    alt="Mutual Authentication in a Public Key Cryptosystem" />
+                <figcaption aria-hidden="true">Mutual Authentication in a Public Key
+                    Cryptosystem</figcaption>
+            </figure>
+            <h4 id="digital-signatures">Digital Signatures</h4>
+            <p>Confidentiality and Integrity needs to be maintained in secure
+                channels.</p>
+            <ul>
+                <li>Alice needs to be sure that Bob cannot alter a message and claim
+                    that Alice sent it.</li>
+                <li>Bob needs to be able to prove that a message indeed came from Alice,
+                    and that she cannot deny having sent it.</li>
+            </ul>
+            <p><strong>Digital Signatures</strong> are used for this. The document
+                is signed using the sender’s public key, which uniquely ties the sender
+                to the message.</p>
+            <ul>
+                <li>Alice sends a message <span class="math inline"><em>m</em></span> to
+                    Bob. She encrypts it with <em>her</em> private key to create a
+                    <strong><em>signature</em></strong>. The signature and the original
+                    message are sent to Bob.
+                    <ul>
+                        <li>If she wants to keep the message content a secret, she can encrypt
+                            the entire thing using Bob’s public key.</li>
+                        <li>The message will then be <span
+                                class="math inline"><em>K</em><sub><em>B</em></sub><sup>+</sup>(<em>m</em>,<em>K</em><sub><em>A</em></sub><sup>−</sup>(<em>m</em>))</span>,
+                            where <span
+                                class="math inline"><em>K</em><sub><em>A</em></sub><sup>−</sup>(<em>m</em>)</span>
+                            is the signature.</li>
+                    </ul>
+                </li>
+                <li>Message arrives at Bob.
+                    <ul>
+                        <li>If it’s secret, he first decrypts it using his private key.</li>
+                    </ul>
+                </li>
+                <li>He decrypts the signature using Alice’s public key, and matches it
+                    with <span class="math inline"><em>m</em></span>. If the decrypted
+                    signature and <span class="math inline"><em>m</em></span> match, then he
+                    can be sure the message was sent from Alice and is untampered with.</li>
+                <li>Alice cannot claim she never sent the message, or sent a different
+                    message, because Bob has the signed version of <span class="math inline"><em>m</em></span>, and only
+                    Alice could have signed
+                    it, since only she possesses her private key.</li>
+                <li>Bob cannot claim Alice sent a modified message, because he would
+                    have to prove that Alice signed the modified message as well.</li>
+            </ul>
+            <figure>
+                <img src="../images/dis/digital_signatures.png" alt="Digitally signing messsages" />
+                <figcaption aria-hidden="true">Digitally signing messsages</figcaption>
+            </figure>
+            <h5 id="issues-with-this-scheme">Issues with this scheme</h5>
+            <ul>
+                <li>This remains valid only as long as Alice’s private key remains
+                    private. If the key is stolen or leaked, Alice will have to generate a
+                    new key, and all messages signed using the previous key will then become
+                    worthless.</li>
+                <li>If the message is long, encrypting the entire message may be
+                    computationally expensive.</li>
+            </ul>
+            <p>A solution for the second problem is a <strong>message
+                    digest</strong>.</p>
+            <h5 id="message-digest">Message Digest</h5>
+            <p>It’s a fixed length string <span class="math inline"><em>h</em></span> that’s computed from a message
+                <span class="math inline"><em>m</em></span> of arbitrary length, using a
+                hash function <span class="math inline"><em>H</em></span>.
+            </p>
+            <p>If <span class="math inline"><em>m</em></span> is changed to <span
+                    class="math inline"><em>m</em>′</span>, then it’s hash <span
+                    class="math inline"><em>H</em>(<em>m</em>′)</span> will not be the same
+                as before (<span class="math inline"><em>H</em>(<em>m</em>)</span>).
+                Thus, modifications will easily be detected.</p>
+            <p>Instead of signing <span class="math inline"><em>m</em></span>, Alice
+                signs <span class="math inline"><em>H</em>(<em>m</em>)</span>, which
+                becomes the signature.</p>
+            <p>The message sent to Bob is now <span
+                    class="math inline"><em>K</em><sub><em>B</em></sub><sup>+</sup>(<em>m</em>,<em>K</em><sub><em>A</em></sub><sup>−</sup>(<em>H</em>(<em>m</em>)))</span>,
+                where <span
+                    class="math inline"><em>K</em><sub><em>A</em></sub><sup>−</sup>(<em>H</em>(<em>m</em>))</span>
+                is the signature.</p>
+            <p>On Bob’s end, Bob will hash the entire message himself, decrypt the
+                signature, and compare the hashes. If they match, all is good.</p>
+            <figure>
+                <img src="../images/dis/digital_signatures_using_digest.png"
+                    alt="Digitally signing messages using digests" />
+                <figcaption aria-hidden="true">Digitally signing messages using
+                    digests</figcaption>
+            </figure>
+            <h4 id="diffie-hellman-key-exchange">Diffie-Hellman Key Exchange</h4>
+            <p>This is a method for 2 parties to exchange keys without the use of a
+                third party.</p>
+            <ol type="1">
+                <li>Alice and Bob agree on 2 large numbers, <span class="math inline"><em>n</em></span> and <span
+                        class="math inline"><em>g</em></span>. Both numbers can be made
+                    public.</li>
+                <li>Alice chooses a large number <span class="math inline"><em>x</em></span> and keeps it private, and
+                    Bob
+                    chooses a large number <span class="math inline"><em>y</em></span>, and
+                    also keeps it private. Alice does not know <span class="math inline"><em>y</em></span> and Bob
+                    doesn’t know <span class="math inline"><em>x</em></span>.</li>
+                <li>Alice sends <span
+                        class="math inline"><em>g</em><sup><em>x</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em></span>
+                    to Bob.</li>
+                <li>Bob sends <span
+                        class="math inline"><em>g</em><sup><em>y</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em></span>
+                    to Alice.</li>
+                <li>Alice computes <span class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
+                    as: <span
+                        class="math display"><em>K</em><sub><em>A</em>, <em>B</em></sub> = (<em>g</em><sup><em>y</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em>)<sup><em>x</em></sup> = <em>g</em><sup><em>x</em><em>y</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em></span>
+                </li>
+                <li>Bob computes <span class="math inline"><em>K</em><sub><em>A</em>, <em>B</em></sub></span>
+                    as: <span
+                        class="math display"><em>K</em><sub><em>A</em>, <em>B</em></sub> = (<em>g</em><sup><em>x</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em>)<sup><em>y</em></sup> = <em>g</em><sup><em>x</em><em>y</em></sup> <em>m</em><em>o</em><em>d</em> <em>n</em></span>
+                </li>
+            </ol>
+            <p>This way both Alice and Bob get the same session key, and no one
+                listening from outside will be able to recreate it. This is based on the
+                same principle as <a href="#rsa">RSA</a>.</p>
+        </div>
+    </div>
+</body>
+
 </html>

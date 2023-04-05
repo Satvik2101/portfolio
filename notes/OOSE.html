@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -8,33 +7,12 @@
   <meta name="author" content="Satvik Gupta" />
   <title>Object Oriented Software Engineering</title>
   <style>
-    code {
-      white-space: pre-wrap;
-    }
-
-    span.smallcaps {
-      font-variant: small-caps;
-    }
-
-    div.columns {
-      display: flex;
-      gap: min(4vw, 1.5em);
-    }
-
-    div.column {
-      flex: auto;
-      overflow-x: auto;
-    }
-
-    div.hanging-indent {
-      margin-left: 1.5em;
-      text-indent: -1.5em;
-    }
-
-    ul.task-list {
-      list-style: none;
-    }
-
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
@@ -46,7 +24,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
-
 <body>
     
     <div id="navbar" onclick="">
@@ -77,907 +54,845 @@
     </div>
 </div>
 
-  <header id="title-block-header">
-    <h1 class="title">Object Oriented Software Engineering</h1>
-    <p class="author">Satvik Gupta</p>
-  </header>
-  <div id="container">
-    <nav id="TOC" role="doc-toc"><div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/OOSE.pdf">Download as PDF</a></div>
-      <ul>
-        <li><a href="#object-oriented-software-engineering" id="toc-object-oriented-software-engineering">Object
-            Oriented Software
-            Engineering</a>
-          <ul>
-            <li><a href="#object-oriented" id="toc-object-oriented">Object
-                Oriented</a></li>
-            <li><a href="#software-engineering" id="toc-software-engineering">Software Engineering</a></li>
-          </ul>
-        </li>
-        <li><a href="#software" id="toc-software">Software</a>
-          <ul>
-            <li><a href="#program" id="toc-program">Program</a></li>
-            <li><a href="#documentation" id="toc-documentation">Documentation</a></li>
-            <li><a href="#operating-manual" id="toc-operating-manual">Operating
-                Manual</a></li>
-            <li><a href="#characteristics-of-software" id="toc-characteristics-of-software">Characteristics of
-                Software</a></li>
-          </ul>
-        </li>
-        <li><a href="#object-oriented-basic-concepts" id="toc-object-oriented-basic-concepts">Object Oriented Basic
-            Concepts</a>
-          <ul>
-            <li><a href="#classes" id="toc-classes">Classes</a></li>
-            <li><a href="#objects" id="toc-objects">Objects</a></li>
-            <li><a href="#encapsulation" id="toc-encapsulation">Encapsulation</a></li>
-            <li><a href="#inheritance" id="toc-inheritance">Inheritance</a></li>
-            <li><a href="#polymorphism" id="toc-polymorphism">Polymorphism</a></li>
-            <li><a href="#data-abstraction" id="toc-data-abstraction">Data
-                Abstraction</a></li>
-          </ul>
-        </li>
-        <li><a href="#object-oriented-software-development-oosd"
-            id="toc-object-oriented-software-development-oosd">Object Oriented
-            Software Development (OOSD)</a>
-          <ul>
-            <li><a href="#coadyourdon-methodology" id="toc-coadyourdon-methodology">Coad/Yourdon Methodology</a></li>
-            <li><a href="#rumbaugh-methodology" id="toc-rumbaugh-methodology">Rumbaugh Methodology</a></li>
-            <li><a href="#booch-methodology" id="toc-booch-methodology">Booch
-                Methodology</a>
-              <ul>
-                <li><a href="#macro-process" id="toc-macro-process">Macro
-                    Process</a></li>
-                <li><a href="#micro-process" id="toc-micro-process">Micro
-                    Process</a></li>
-              </ul>
-            </li>
-            <li><a href="#jacobson-methodology" id="toc-jacobson-methodology">Jacobson Methodology</a></li>
-            <li><a href="#oo-modelling-and-uml" id="toc-oo-modelling-and-uml">OO
-                Modelling and UML</a></li>
-            <li><a href="#class-responsibility-collaboration-crc" id="toc-class-responsibility-collaboration-crc">Class,
-                Responsibility,
-                Collaboration (CRC)</a></li>
-          </ul>
-        </li>
-        <li><a href="#process-framework" id="toc-process-framework">Process
-            Framework</a>
-          <ul>
-            <li><a href="#umbrella-activities" id="toc-umbrella-activities">Umbrella
-                Activities</a></li>
-          </ul>
-        </li>
-        <li><a href="#sdlcs" id="toc-sdlcs">SDLCs</a>
-          <ul>
-            <li><a href="#waterfall" id="toc-waterfall">Waterfall</a></li>
-            <li><a href="#prototyping" id="toc-prototyping">Prototyping</a></li>
-            <li><a href="#iterative-enhancement" id="toc-iterative-enhancement">Iterative Enhancement</a></li>
-            <li><a href="#spiral-model" id="toc-spiral-model">Spiral Model</a>
-              <ul>
-                <li><a href="#rounds" id="toc-rounds">Rounds</a></li>
-              </ul>
-            </li>
-            <li><a href="#xp---extreme-programming" id="toc-xp---extreme-programming">XP - Extreme Programming</a></li>
-          </ul>
-        </li>
-        <li><a href="#object-oriented-sdlcs" id="toc-object-oriented-sdlcs">Object Oriented SDLCs</a>
-          <ul>
-            <li><a href="#phases-of-oosdlc" id="toc-phases-of-oosdlc">Phases of
-                OOSDLC</a></li>
-            <li><a href="#fountain-model" id="toc-fountain-model">Fountain
-                Model</a></li>
-            <li><a href="#rational-unified-process" id="toc-rational-unified-process">Rational Unified Process</a>
-              <ul>
-                <li><a href="#features" id="toc-features">Features</a></li>
-                <li><a href="#structure-of-rup" id="toc-structure-of-rup">Structure of
-                    RUP</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <div id="data">
-      <h2 id="object-oriented-software-engineering">Object Oriented Software
-        Engineering</h2>
-      <p>OOSE is a software design technique that is used in software design
-        in Object OrientedP.</p>
-      <p><em>It consists of two terms – object oriented, and software
-          engineering.</em></p>
-      <h3 id="object-oriented">Object Oriented</h3>
-      <p>It is a collection of information that itself act as a singular
-        entity. It allows the user to focus completely on the task rather than
-        on the tools.</p>
-      <p><em>For example – C++, etc.</em></p>
-      <p>With the help of this, reusability as well as abstraction is
-        possible.</p>
-      <p>The necessity of developing a maintaining a large-size, complex, and
-        varied functionalities software system has caused us to look for new
-        approaches of software design and development.</p>
-      <p>The conventional approaches like Waterfall Model may not be very
-        useful due to non-availability of iterations, no provision of reuse, and
-        difficulty in incorporating changing requirements.We may also build
-        every software system from scratch that results into a costly software
-        system, including very high maintenance cost.</p>
-      <p>An object oriented approach may address such issues, that’s why it
-        has become very popular in designing,developing, and maintaining large
-        size software systems. Object oriented approach’s modelling ability
-        helps us to represent the real world situations and visualize them.</p>
-      <h3 id="software-engineering">Software Engineering</h3>
-      <blockquote>
-        <p>It is a profession dedicated to designing, implementing and modifying
-          so that the software is more affordable, maintainable, faster to build,
-          and high quality.</p>
-      </blockquote>
-      <p><em>OR</em></p>
-      <blockquote>
-        <p>The establishment and use of some engineering principles in order to
-          obtain economically developed software that is reliable and works
-          efficiently on real machines.</p>
-      </blockquote>
-      <h2 id="software">Software</h2>
-      <p>It is a combination of programs, documentation and operating
-        manual.</p>
-      <h3 id="program">Program</h3>
-      <p>A certain set of instructions that are written for a specific
-        purpose. It may contain statements to enhance the readability of the
-        program.</p>
-      <h3 id="documentation">Documentation</h3>
-      <p>Documentation is created and used during development. It is used to
-        explain the code, what it does, and why it has been coded in a certain
-        way.</p>
-      <h3 id="operating-manual">Operating Manual</h3>
-      <p>Explains to the customer how the software is to be used. It is
-        delivered along with the software to the customer, at the time of
-        release.</p>
-      <hr />
-      <p>The use of use cases was introduced in Object Oriented
-        Methodology.</p>
-      <h3 id="characteristics-of-software">Characteristics of Software</h3>
-      <p>Bathtub and software curve bs</p>
-      <h2 id="object-oriented-basic-concepts">Object Oriented Basic
-        Concepts</h2>
-      <ol type="1">
-        <li>Classes</li>
-        <li>Objects</li>
-        <li>Data Abstraction</li>
-        <li>Encapsulation</li>
-        <li>Inheritance</li>
-        <li>Polymorphism</li>
-      </ol>
-      <h3 id="classes">Classes</h3>
-      <blockquote>
-        <p>A class represents a template for different objects and describes how
-          these objects are structured internally. Objects of the same class have
-          the same definition, both for the operations, and for the information
-          structures.</p>
-      </blockquote>
-      <p><em>OR</em></p>
-      <blockquote>
-        <p>It is a collection of objects and it doesn’t take any space in
-          memory. It is also called a blueprint, or a logical entity.</p>
-      </blockquote>
-      <p>There are two types:</p>
-      <ul>
-        <li>
-          <p><em>Pre-defined</em></p>
-          <p>Their logic is already written somewhere, and we can use it by
-            importing. For example - Scanner, Console, etc. in Java</p>
-        </li>
-        <li>
-          <p><em>User-defined</em></p>
-          <p>The logic for these classes is defined by the programmer.<br />
-          </p>
-        </li>
-      </ul>
-      <h3 id="objects">Objects</h3>
-      <p>Fundamental entities used to model any system. Anything and
-        everything can be an object. It contains data(attributes) and
-        operations(behaviors).</p>
-      <h3 id="encapsulation">Encapsulation</h3>
-      <blockquote>
-        <p>The wrapping up of data and functions into a single unit. It is also
-          known as information hiding concept.</p>
-      </blockquote>
-      <p>Data is hidden from the outside world. The only way to get and modify
-        the data is through operations that are meant to operate on that data.
-        This helps in minimizing impact of changes in the program.</p>
-      <h3 id="inheritance">Inheritance</h3>
-      <blockquote>
-        <p>Deriving a new class from existing class in such a way that the new
-          class can access all the features and properties of the existing
-          class.</p>
-      </blockquote>
-      <p>The existing class is called parent class, super class, base class.
-        The new class is called child class, subclass, derived class.</p>
-      <h3 id="polymorphism">Polymorphism</h3>
-      <p>The ability of an instruction,message,etc. to take many forms in an
-        object oriented system is called polymorphism.</p>
-      <p>Sender of a stimulus (message) doesn’t need to know the receiver’s
-        class. The receiver can belong to an arbitrary class.</p>
-      <p>Achieved through function overriding.</p>
-      <p>For eg - Superclass OutputDevice, with Subclasses Printer and
-        Monitor. Both have a function called ShowData(). Both implement it
-        differently, and a program calling obj.ShowData() doesn’t need to know
-        whether obj is a Printer or Monitor. As long as it is an OutputDevice,
-        the program can call the function. The behaviour of the function depends
-        on which subclass is being used.</p>
-      <h3 id="data-abstraction">Data Abstraction</h3>
-      <p>Hiding of complexity of data and operations. Irrelevant details are
-        hidden and important details are amplified to the outside world.</p>
-      <h2 id="object-oriented-software-development-oosd">Object Oriented
-        Software Development (OOSD)</h2>
-      <p>The major phases of software development using the object oriented
-        methodology are:</p>
-      <ol type="1">
-        <li>
-          <p><strong>Object Oriented Analysis</strong></p>
-          <p>In this stage, problem is formulated. User Requirements are
-            identified and then a model is built, based upon real world objects.</p>
-          <p>The analysis produces models on how the desired system should
-            function and how it must be developed.</p>
-          <p>The models do not include any implementation details, so that it can
-            be understood by any non-technical application expert.</p>
-        </li>
-        <li>
-          <p><strong>Object Oriented Design</strong></p>
-          <p>Object Oriented Design includes two main stages.</p>
-          <ol type="1">
-            <li>
-              <p><em>System Design</em></p>
-              <p>In this stage, the complete architecture of the desired system is
-                designed. The system is conceived as a set of interacting subsystems,
-                that in turn are composed of a hierarchy of interacting objects, grouped
-                into classes.</p>
-              <p>System Design is done according to both the system analysis model,
-                and proposed system architecture.</p>
-              <p>Here, the emphasis is on the objects comprising the system, rather
-                than the processes in the system.</p>
-            </li>
-            <li>
-              <p><em>Object Design</em></p>
-              <p>In this phase, a design model is developed based on both the models
-                in the system analysis phase and the architecture designed in the system
-                design phase.</p>
-              <p>All the classes required are identified. The designer decides
-                where</p>
-              <ol type="1">
-                <li>
-                  <p>The new classes are to be created from scratch.</p>
-                </li>
-                <li>
-                  <p>Any existing classes can be used in their original
-                    form,or</p>
-                </li>
-                <li>
-                  <p>New classes should be inherited from the existing
-                    classes.</p>
-                </li>
-                <li>
-                  <p>The associations between the identified classes are established
-                    and the hierarchy of the classes are identified.</p>
-                  <p>Besides this, the developer designs the internal details of the
-                    classes, and their associations, i.e, the data structure for each
-                    attribute, and the algorithm for the operations</p>
-                </li>
-              </ol>
-            </li>
-          </ol>
-        </li>
-        <li>
-          <p><strong>Object Oriented Implementation + Testing</strong></p>
-          <p>In this stage, the design model developed in the object design is
-            translated into code in an appropriate programming language or software
-            tool. The databases are created and the specific hardware requirements
-            are ascertained. Once the code is in shape, it is tested using different
-            techniques in order to identify and remove errors from the
-            code.</p>
-        </li>
-      </ol>
-      <figure>
-        <img src="../images/oose/oosd.png" alt="Object Oriented Software Development" />
-        <figcaption aria-hidden="true">Object Oriented Software
-          Development</figcaption>
-      </figure>
-      <h3 id="coadyourdon-methodology">Coad/Yourdon Methodology</h3>
-      <p>Known as Object Oriented Analysis</p>
-      <ol type="1">
-        <li>Identify classes and objects (study environment and document
-          behaviours)</li>
-        <li>Identification of Structures (identify is-a and whole-part
-          relationships)</li>
-        <li>Definition of Subjects (each structure is classified into a
-          subject)</li>
-        <li>Definition of Attributes</li>
-        <li>Definition of Services (methods)</li>
-      </ol>
-      <h3 id="rumbaugh-methodology">Rumbaugh Methodology</h3>
-      <p>Known as Object Modelling Technique (OMT)</p>
-      <ol type="1">
-        <li>
-          <p>Analysis Phase</p>
-          <ol type="1">
-            <li><strong>Object Model</strong> - Static aspects of system</li>
-          </ol>
-          <p>Classes and inheritance relationships are extracted from problem
-            statement.</p>
-          <ol start="2" type="1">
-            <li><strong>Dynamic Model</strong> - Behavioural aspects of object model
-              and describes state of the system</li>
-          </ol>
-          <p>Identifies states and events in classes identified by object
-            model.</p>
-          <ol start="3" type="1">
-            <li><strong>Functional Model</strong> - Represents functional aspects of
-              the system</li>
-          </ol>
-          <p>Depicts functionality of the system by creating data flow
-            diagrams.</p>
-        </li>
-        <li>
-          <p>Sys Design - HLD is developed taking implementation env.,
-            including DBMS,etc. into account.</p>
-        </li>
-        <li>
-          <p>Object Design - Objects are defined in detail. Algorithms and
-            operations defined.</p>
-        </li>
-        <li>
-          <p>Implementation</p>
-        </li>
-      </ol>
-      <h3 id="booch-methodology">Booch Methodology</h3>
-      <p>Object Oriented Design - Combines analysis, design and
-        implementation. Iterative and incremental.</p>
-      <h4 id="macro-process">Macro Process</h4>
-      <p>High Level Process</p>
-      <ol type="1">
-        <li><strong>Establish requirements</strong> - Context diagram,
-          prototypes</li>
-        <li><strong>Analysis Model</strong> - Use case model, identification and
-          prioritization of risks.</li>
-        <li><strong>Design of Architecture</strong></li>
-        <li><strong>Evolution in the form of refinements</strong> -
-          Implementation</li>
-        <li><strong>Maintenance of delivered functionality</strong> - Post
-          deployment activities</li>
-      </ol>
-      <h4 id="micro-process">Micro Process</h4>
-      <p>Lower level process.</p>
-      <ol type="1">
-        <li>Identification of classes and objects</li>
-        <li>Identification of semantics of classes and objects</li>
-        <li>Identification of relationships btw classes and objects</li>
-        <li>Specification of interfaces and implementation of classes and
-          objects</li>
-      </ol>
-      <h3 id="jacobson-methodology">Jacobson Methodology</h3>
-      <p>OOSE methodology, 5 models:</p>
-      <ol type="1">
-        <li><strong>Requirement model</strong> - Gather s/w requirements. Use
-          cases, actors, etc.</li>
-        <li><strong>Analysis model</strong> - Create robust and ideal structure
-          of objects. Identify interface objects, DB related objects, control
-          objects, etc.</li>
-        <li><strong>Design model</strong> - Refine the object w.r.t
-          implementation environment. Objects become <em>blocks</em>.</li>
-        <li><strong>Implementation model</strong> - Implements the objects
-          (blocks) into modules.</li>
-        <li><strong>Test model</strong> - Validate and verify the functionality
-          of the system</li>
-      </ol>
-      <h3 id="oo-modelling-and-uml">OO Modelling and UML</h3>
-      <p>Object oriented modelling - constructing visual models based on real
-        world objects - Helps in understanding problems and developing documents
-        and producing code. - Well understood requirements, robust designs, etc,
-        etc.</p>
-      <p>Most popular methodologies - OOD (Booch), OMT (Rumbaugh), OOSE
-        (Jacobson). All were combined into Unified Modelling Language (UML).</p>
-      <ul>
-        <li>Language for visual modelling</li>
-        <li>Allows specifying, visualizing, constructing and understanding
-          various artifacts of the system.</li>
-        <li>Models static and dynamic aspects of the system.
-          <ul>
-            <li>Static aspects - Objects and their relationships</li>
-            <li>Dynamic - Events, states and object interactions</li>
-          </ul>
-        </li>
-      </ul>
-      <h3 id="class-responsibility-collaboration-crc">Class, Responsibility,
-        Collaboration (CRC)</h3>
-      <ol type="1">
-        <li>Class - Template consisting of attributes and operations</li>
-        <li>Responsibility - Attributes and operations included in a class</li>
-        <li>Collab - Other classes that a class calls to achieve its
-          functionality.</li>
-      </ol>
-      <table>
-        <colgroup>
-          <col style="width: 44%" />
-          <col style="width: 55%" />
-        </colgroup>
-        <thead>
-          <tr class="header">
-            <th style="text-align: center;">Traditional</th>
-            <th style="text-align: center;">OO</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="odd">
-            <td style="text-align: center;">The system is viewed as a collection of
-              processes.</td>
-            <td style="text-align: center;">The system is viewed as a collection of
-              objects.</td>
-          </tr>
-          <tr class="even">
-            <td style="text-align: center;">Data flow diagrams, ER diagrams, data
-              dictionary and structured charts are used to describe the system.</td>
-            <td style="text-align: center;">UML models including use case diagram,
-              class diagram, sequence diagrams, component diagrams, etc. are used to
-              describe the system.</td>
-          </tr>
-          <tr class="odd">
-            <td style="text-align: center;">Reusable source code may not be
-              produced.</td>
-            <td style="text-align: center;">The aim is to produce reusable source
-              code.</td>
-          </tr>
-          <tr class="even">
-            <td style="text-align: center;">Data flow diagrams depicts the processes
-              and attributes.</td>
-            <td style="text-align: center;">Classes are used to describe attributes
-              and functions that operate on these attributes.</td>
-          </tr>
-          <tr class="odd">
-            <td style="text-align: center;">It follows a top-down approach for
-              modelling the system.</td>
-            <td style="text-align: center;">It follows a bottom-up approach for
-              modelling the system.</td>
-          </tr>
-          <tr class="even">
-            <td style="text-align: center;">It is non-iterative.</td>
-            <td style="text-align: center;">It is highly iterative.</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="process-framework">Process Framework</h2>
-      <p>Software Process Framework is a foundation of complete software
-        engineering process. It includes all the umbrella activities.</p>
-      <figure>
-        <img src="../images/oose/process_activities.png" alt="Process Framework" />
-        <figcaption aria-hidden="true">Process Framework</figcaption>
-      </figure>
-      <p>A generic process framework consists of 5 activities:</p>
-      <ol type="1">
-        <li>
-          <p>Communication</p>
-          <p>Requirement Gathering, extensive communication with customer</p>
-        </li>
-        <li>
-          <p>Planning</p>
-          <p>We discuss the technical related tasks, work schedule, risks, and
-            required resources</p>
-        </li>
-        <li>
-          <p>Modelling</p>
-          <p>It is about building representations of things in the real world.</p>
-          <p>In modelling, a product’s model is created in order to better
-            understand requirements</p>
-        </li>
-        <li>
-          <p>Construction</p>
-          <p>In SE, construction is the application of set of procedures that are
-            needed to assemble the product. In this activity, we generate the code
-            and test the product in order to maintain better product.</p>
-        </li>
-        <li>
-          <p>Deployment</p>
-          <p>In this activity, a complete or a non-complete product or software,
-            are presented to the customers to evaluate, and give feedback.</p>
-          <p>On the basis of their feedback, we modify the products to supply a
-            better product.</p>
-        </li>
-      </ol>
-      <h3 id="umbrella-activities">Umbrella Activities</h3>
-      <p>Umbrella Activities are a set of steps or procedures that the SE team
-        follows to maintain the progress, quality, change and risk of the
-        overall development task.</p>
-      <p>SE is a collection of 4 related steps. These steps are presented or
-        accessed in different approaches, in different software process
-        models.</p>
-      <p>These steps of umbrella activities will evolve through the phases of
-        the generic view of SE.</p>
-      <ol type="1">
-        <li>
-          <p><strong>Software Project Tracking and Control</strong></p>
-          <p>Before the actual development begins, a schedule for development of
-            the software is created. Based on that schedule, the development will be
-            done.</p>
-          <p>However, after certain period of time, it is required to review the
-            progress of the development and to find out the actions which are in
-            need to be taken to complete the development,testing etc.</p>
-          <p>The outcome of the review may require the software development to be
-            rescheduled.</p>
-        </li>
-        <li>
-          <p><strong>FTR (Formal Technical Review)</strong></p>
-          <p>SE is done in clusters or modules. After completing each module, it
-            is good practice to review the completed module and find out and remove
-            errors so that the next module can be prevented.</p>
-        </li>
-        <li>
-          <p><strong>SQA</strong></p>
-          <p>The quality of software, such as UX, performance, load handling
-            capacity, etc. should be tested, and make sure it matches predetermined
-            milestones.</p>
-          <p>This reduces the task at the end of the development process. It
-            should be conducted by dedicated teams so that the development can keep
-            going on.</p>
-        </li>
-        <li>
-          <p><strong>SCM (Software Config Mgmt)</strong></p>
-          <p>It’s a set of activities designed to control change by identifying
-            the work products that are likely to change and establish relationships
-            among them.</p>
-          <p>Defining mechanisms for managing different versions of these work
-            products.</p>
-        </li>
-        <li>
-          <p><strong>Document Preparation and Production</strong></p>
-          <p>All the project planning, and other activities, should be documented
-            properly.</p>
-        </li>
-        <li>
-          <p><strong>Reusability Management</strong></p>
-          <p>This includes the packing up of each part of the software project.
-            They can be connected, or any kind of support can be given to them,
-            later to update or upgrade the software at user demand or time
-            demand.</p>
-        </li>
-        <li>
-          <p><strong>Measurement and Metrics</strong></p>
-          <p>This will include all the measurement of every aspect of the software
-            project.</p>
-        </li>
-        <li>
-          <p><strong>Risk Management</strong></p>
-          <p>It is a series of steps that helps a software team to manage and
-            understand uncertainty. It’s a really good idea to identify, assess,
-            estimate its impact, estimate probability of threats, and establish a
-            plan for what to do in case the problem actually occurs.</p>
-        </li>
-      </ol>
-      <p>Often combined in Object Oriented Analysis.</p>
-      <h2 id="sdlcs">SDLCs</h2>
-      <h3 id="waterfall">Waterfall</h3>
-      <p><img src="../images/oose/waterfall.png" /></p>
-      <p><strong>Advantages</strong></p>
-      <ul>
-        <li>Easy to understand</li>
-        <li>Simple to implement</li>
-        <li>Distinct phases</li>
-      </ul>
-      <p><strong>Disadvantages</strong></p>
-      <ul>
-        <li>Large no of documents</li>
-        <li>Requirements freezed at start</li>
-        <li>Working product delivered late</li>
-        <li>Slow, may take years</li>
-        <li>Testing is difficult</li>
-        <li>Real projects rarely sequential</li>
-      </ul>
-      <h3 id="prototyping">Prototyping</h3>
-      <p><img src="../images/oose/prototype.png" /></p>
-      <p><strong>Advantages</strong></p>
-      <ul>
-        <li>Stable requirements</li>
-        <li>High quality system</li>
-        <li>Low cost</li>
-      </ul>
-      <p><strong>Disadvantages</strong></p>
-      <ul>
-        <li>Slower delivery</li>
-      </ul>
-      <h3 id="iterative-enhancement">Iterative Enhancement</h3>
-      <p>Waterfall stages in many cycles</p>
-      <p><img src="../images/oose/iter.png" /></p>
-      <ul>
-        <li>Partial product delivered every cycle</li>
-        <li>Complete product delivered after several cycles</li>
-      </ul>
-      <h3 id="spiral-model">Spiral Model</h3>
-      <p>Risk-based.</p>
-      <p><img src="../images/oose/spiral.png" /></p>
-      <h4 id="rounds">Rounds</h4>
-      <ol type="1">
-        <li>Round 0 - Feasibility study</li>
-        <li>Round 1 - Concept of operation</li>
-        <li>Round 2 - Top level requirement analysis</li>
-        <li>Round 3 - Software design</li>
-        <li>Round 4 - Design, implementation and testing</li>
-      </ol>
-      <h3 id="xp---extreme-programming">XP - Extreme Programming</h3>
-      <p>Agile methodology:</p>
-      <ol type="1">
-        <li>Team cohesiveness</li>
-        <li>Customer is part of the team</li>
-        <li>Requirement changes are accepted</li>
-        <li>Working software produced quickly</li>
-        <li>Progress is measured by working software and not documents</li>
-        <li>Iterative planning instead of iterative development. Plans are
-          changed based on learnings.</li>
-        <li>Distributed leadership</li>
-      </ol>
-      <p><img src="../images/oose/agile.png" /></p>
-      <ol type="1">
-        <li><strong>User Stories</strong> - only contain estimate of time taken
-          for the feature. Requirement details taken from customer at development
-          time.</li>
-        <li><strong>Release planning</strong> -
-          <ul>
-            <li>Developers estimate story time, and customer selects the order of
-              story development.</li>
-            <li>Large stories may be divided into substories.</li>
-            <li>Developer may do exploration (spike) of story</li>
-          </ul>
-        </li>
-        <li><strong>Iteration Planning</strong> - Stories divided into tasks
-          that are handed to developers. Working product released after each
-          iteration.</li>
-        <li><strong>Dev and Unit tests</strong> -
-          <ul>
-            <li>Important tasks chosen by customers and implemented.</li>
-            <li>Pair Programming</li>
-            <li>Refactoring</li>
-            <li>Automated unit tests</li>
-          </ul>
-        </li>
-        <li><strong>Acceptance Testing</strong> - Automated black box acceptance
-          tests are created from user stories. Customer runs and verifies
-          them.</li>
-        <li><strong>Working product Released.</strong></li>
-      </ol>
-      <h2 id="object-oriented-sdlcs">Object Oriented SDLCs</h2>
-      <p>Difference btw Conventional and OOP SDLCs</p>
-      <table>
-        <colgroup>
-          <col style="width: 15%" />
-          <col style="width: 28%" />
-          <col style="width: 55%" />
-        </colgroup>
-        <thead>
-          <tr class="header">
-            <th style="text-align: center;"></th>
-            <th style="text-align: left;">Conventional</th>
-            <th style="text-align: left;">OO</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="odd">
-            <td style="text-align: center;">Methodology</td>
-            <td style="text-align: left;">Functional, process driven</td>
-            <td style="text-align: left;">Object Driven</td>
-          </tr>
-          <tr class="even">
-            <td style="text-align: center;">Requirement</td>
-            <td style="text-align: left;">DFD, ER, Data dictionary</td>
-            <td style="text-align: left;">Use-case approach</td>
-          </tr>
-          <tr class="odd">
-            <td style="text-align: center;">Analysis</td>
-            <td style="text-align: left;">DFD, ER, Data dictionary</td>
-            <td style="text-align: left;">Object identification and description,
-              attribute and function determination</td>
-          </tr>
-          <tr class="even">
-            <td style="text-align: center;">Design</td>
-            <td style="text-align: left;">Structure chart, flowchart,
-              pseudocode</td>
-            <td style="text-align: left;">Class Diagram, Sequence Diagram, Object
-              Diagram, UML</td>
-          </tr>
-          <tr class="odd">
-            <td style="text-align: center;">Implementation &amp; Test</td>
-            <td style="text-align: left;">Implement process, functions</td>
-            <td style="text-align: left;">Implement objects and interactions among
-              objects.</td>
-          </tr>
-          <tr class="even">
-            <td style="text-align: center;">Documentation</td>
-            <td style="text-align: left;">Many documents at the end of each
-              stage</td>
-            <td style="text-align: left;">Document may or may not be produced at the
-              end of each stage</td>
-          </tr>
-        </tbody>
-      </table>
-      <h4 id="phases-of-oosdlc">Phases of OOSDLC</h4>
-      <ol type="1">
-        <li>Object Oriented Requirement Analysis</li>
-        <li>Object Oriented Analysis</li>
-        <li>Object Oriented Design</li>
-        <li>Object Oriented Programming and testing</li>
-      </ol>
-      <h3 id="fountain-model">Fountain Model</h3>
-      <ul>
-        <li>Reusability of source code</li>
-        <li>Like a fountain with ideas and new features flowing from top to
-          bottom</li>
-        <li>Arrows represent iterations</li>
-        <li>Circles represent overlapping phases.</li>
-      </ul>
-      <p><img src="../images/oose/fountain.png" /></p>
-      <h3 id="rational-unified-process">Rational Unified Process</h3>
-      <ul>
-        <li>Adaptable Process Framework</li>
-        <li>Iterative</li>
-        <li>UML</li>
-      </ul>
-      <h4 id="features">Features</h4>
-      <ol type="1">
-        <li><strong>Iterative Dev</strong> - Series of iterations, feedback
-          after each. Helps monitoring schedule and budget.</li>
-        <li><strong>EFfective req. elicitation</strong> - Use case
-          approach.</li>
-        <li><strong>Visual Modelling</strong> - Build (abstracted) models that
-          portray different views of the system. Use UML.</li>
-        <li><strong>Reusable Components</strong> - Develop and use reusable
-          components (independent subsystem that fulfills a clear goal).</li>
-        <li><strong>Ensure quality</strong> - Continuously assess quality. It
-          becomes harder to maintain quality in later stages of development.</li>
-        <li><strong>Change control and management</strong> - Manage and track
-          changes</li>
-        <li><strong>Automated Testing</strong> - Functional as well as
-          non-functional automated testing.</li>
-      </ol>
-      <h4 id="structure-of-rup">Structure of RUP</h4>
-      <p><img src="../images/oose/rup1.png" /></p>
-      <h5 id="static-structure">Static Structure</h5>
-      <p>Describes the process in terms of roles, activities,
-        artifacts,disciplines and workflows.</p>
-      <p><strong>Who</strong>(roles) does <strong>what</strong> (artifacts),
-        <strong>when</strong> (workflows), and
-        <strong>how</strong>(activities).
-      </p>
-      <p>Roles perform activities to produce artifacts.</p>
-      <ul>
-        <li><strong>Roles</strong> describe the position or function of a
-          particular person. One person may have multiple roles.</li>
-        <li><strong>Activities</strong> describe the tasks/work performed by a
-          person in a specific role.</li>
-        <li><strong>Artifacts</strong> are outputs produced during the
-          development, design, etc. phases.They may be final products or inputs to
-          the next phases.</li>
-        <li>Roles are associated with activities.</li>
-        <li>Activities are associated with artifacts.</li>
-        <li><strong>Workflows</strong> consist of a series of activities to
-          produce a particular output.</li>
-        <li><strong>Disciplines</strong> are used to organize a set of
-          activities. RUP consists of 6 major disciplines.
-          <ol type="1">
-            <li>Business Modelling</li>
-            <li>Requirement</li>
-            <li>Analysis &amp; Design</li>
-            <li>Implementation</li>
-            <li>Testing</li>
-            <li>Deployment</li>
-          </ol>
-        </li>
-      </ul>
-      <p><strong>Roles</strong> - Manager, Analyst, Tester, Developer,
-        Designer.</p>
-      <p><strong>Activities</strong> - Review Requirement, Generate use case,
-        Define class, Prepare test plan.</p>
-      <p><strong>Artifacts</strong> - SRS, Use case model, Class model, Design
-        document, Source code, Test plan, user manual.</p>
-      <h5 id="dynamic-structure">Dynamic Structure</h5>
-      <p>Organized along time. It has 4 phases.</p>
-      <ol type="1">
-        <li><strong>Inception</strong></li>
-        <li><strong>Elaboration</strong></li>
-        <li><strong>Construction</strong></li>
-        <li><strong>Transition</strong></li>
-      </ol>
-      <p>These 4 phases run iteratively. Each iteration produces a new version
-        of the software.</p>
-      <p><img src="../images/oose/rup2.png" /></p>
-      <h5 id="inception">Inception</h5>
-      <ul>
-        <li>Initial Stage, non-iterative.</li>
-        <li>How feasible is the project, what are the risks, what are the high
-          level requirements, how long will it take?</li>
-      </ul>
-      <p><strong>Essential Activities:</strong></p>
-      <ul>
-        <li>Scope and boundary of project</li>
-        <li>Cost And schedule</li>
-        <li>Iteration Plan</li>
-        <li>High level risks</li>
-        <li>Significant use cases and actors.</li>
-      </ul>
-      <p><strong>Artifacts produced:</strong></p>
-      <ul>
-        <li>Vision Document</li>
-        <li>Business Model</li>
-        <li>Iteration Plan</li>
-        <li>Initial Use case</li>
-        <li>Prototype</li>
-        <li>Project Glossary</li>
-        <li>Risk Assessment</li>
-        <li>Software Development Plan</li>
-        <li>Software Tools</li>
-      </ul>
-      <h5 id="elaboration">Elaboration</h5>
-      <ul>
-        <li>Most critical phase.</li>
-        <li>Planning and architectural design</li>
-        <li>Elaboration is done for each use case in the current iteration.</li>
-      </ul>
-      <p><strong>Essential Activities</strong>:</p>
-      <ul>
-        <li>Establishment and validation of architectural baselines</li>
-        <li>Design use case model</li>
-        <li>Select components and create policies for their purchase and
-          usage</li>
-        <li>Address significant risks</li>
-        <li>Detailed iteration plan</li>
-        <li>Prototypes</li>
-      </ul>
-      <p><strong>Artifacts produced</strong>:</p>
-      <ul>
-        <li>Updated risk list</li>
-        <li>Use case model</li>
-        <li>Detailed iteration plan</li>
-        <li>Software architecture description document</li>
-        <li>Design and data model</li>
-        <li>Implementation model</li>
-        <li>Development case</li>
-        <li>Test plan</li>
-        <li>Test automation architecture</li>
-      </ul>
-      <h5 id="construction">Construction</h5>
-      <ul>
-        <li>Product constructed on the basis of architecture and design of
-          elaboration phase.</li>
-        <li>Testing also done</li>
-        <li>Remaining requirements determined</li>
-        <li>Deployable product constructed.</li>
-      </ul>
-      <p><strong>Essential Activities</strong>:</p>
-      <ul>
-        <li>Optimize work by avoiding rework and unnecessary coding</li>
-        <li>Assess and verify quality</li>
-        <li>Test all functionality of the system (unit, system and integration
-          test)</li>
-      </ul>
-      <p><strong>Artifacts produced</strong>:-</p>
-      <ul>
-        <li>Software Product</li>
-        <li>Test suite</li>
-        <li>Test plan</li>
-        <li>Documentation manual</li>
-        <li>Deployment plan</li>
-        <li>Design model</li>
-        <li>Implementation model</li>
-        <li>Training material</li>
-        <li>Iteration plan (for transition phase)</li>
-      </ul>
-      <h5 id="transition">Transition</h5>
-      <ul>
-        <li>Usable product of sufficient quality has been produced.</li>
-        <li>Product handed over to customer.</li>
-        <li>Delivering, training users and maintaining software.</li>
-        <li>Beta releases, bug fixes, enhancement releases.</li>
-      </ul>
-      <p><strong>Artifacts produced</strong>:</p>
-      <ul>
-        <li>Product release</li>
-        <li>Beta release report</li>
-        <li>Release notes</li>
-        <li>User Manual</li>
-        <li>Training material</li>
-      </ul>
-    </div>
-  </div>
-</body>
-
+<header id="title-block-header">
+<h1 class="title">Object Oriented Software Engineering</h1>
+<p class="author">Satvik Gupta</p>
+</header><div id="container">
+<nav id="TOC" role="doc-toc"><div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/OOSE.pdf">Download as PDF</a></div>
+<ul>
+<li><a href="#object-oriented-software-engineering"
+id="toc-object-oriented-software-engineering">Object Oriented Software
+Engineering</a>
+<ul>
+<li><a href="#object-oriented" id="toc-object-oriented">Object
+Oriented</a></li>
+<li><a href="#software-engineering"
+id="toc-software-engineering">Software Engineering</a></li>
+</ul></li>
+<li><a href="#software" id="toc-software">Software</a>
+<ul>
+<li><a href="#program" id="toc-program">Program</a></li>
+<li><a href="#documentation"
+id="toc-documentation">Documentation</a></li>
+<li><a href="#operating-manual" id="toc-operating-manual">Operating
+Manual</a></li>
+<li><a href="#characteristics-of-software"
+id="toc-characteristics-of-software">Characteristics of
+Software</a></li>
+</ul></li>
+<li><a href="#object-oriented-basic-concepts"
+id="toc-object-oriented-basic-concepts">Object Oriented Basic
+Concepts</a>
+<ul>
+<li><a href="#classes" id="toc-classes">Classes</a></li>
+<li><a href="#objects" id="toc-objects">Objects</a></li>
+<li><a href="#encapsulation"
+id="toc-encapsulation">Encapsulation</a></li>
+<li><a href="#inheritance" id="toc-inheritance">Inheritance</a></li>
+<li><a href="#polymorphism" id="toc-polymorphism">Polymorphism</a></li>
+<li><a href="#data-abstraction" id="toc-data-abstraction">Data
+Abstraction</a></li>
+</ul></li>
+<li><a href="#object-oriented-software-development-oosd"
+id="toc-object-oriented-software-development-oosd">Object Oriented
+Software Development (OOSD)</a>
+<ul>
+<li><a href="#coadyourdon-methodology"
+id="toc-coadyourdon-methodology">Coad/Yourdon Methodology</a></li>
+<li><a href="#rumbaugh-methodology"
+id="toc-rumbaugh-methodology">Rumbaugh Methodology</a></li>
+<li><a href="#booch-methodology" id="toc-booch-methodology">Booch
+Methodology</a>
+<ul>
+<li><a href="#macro-process" id="toc-macro-process">Macro
+Process</a></li>
+<li><a href="#micro-process" id="toc-micro-process">Micro
+Process</a></li>
+</ul></li>
+<li><a href="#jacobson-methodology"
+id="toc-jacobson-methodology">Jacobson Methodology</a></li>
+<li><a href="#oo-modelling-and-uml" id="toc-oo-modelling-and-uml">OO
+Modelling and UML</a></li>
+<li><a href="#class-responsibility-collaboration-crc"
+id="toc-class-responsibility-collaboration-crc">Class, Responsibility,
+Collaboration (CRC)</a></li>
+</ul></li>
+<li><a href="#process-framework" id="toc-process-framework">Process
+Framework</a>
+<ul>
+<li><a href="#umbrella-activities" id="toc-umbrella-activities">Umbrella
+Activities</a></li>
+</ul></li>
+<li><a href="#sdlcs" id="toc-sdlcs">SDLCs</a>
+<ul>
+<li><a href="#waterfall" id="toc-waterfall">Waterfall</a></li>
+<li><a href="#prototyping" id="toc-prototyping">Prototyping</a></li>
+<li><a href="#iterative-enhancement"
+id="toc-iterative-enhancement">Iterative Enhancement</a></li>
+<li><a href="#spiral-model" id="toc-spiral-model">Spiral Model</a>
+<ul>
+<li><a href="#rounds" id="toc-rounds">Rounds</a></li>
+</ul></li>
+<li><a href="#xp---extreme-programming"
+id="toc-xp---extreme-programming">XP - Extreme Programming</a></li>
+</ul></li>
+<li><a href="#object-oriented-sdlcs"
+id="toc-object-oriented-sdlcs">Object Oriented SDLCs</a>
+<ul>
+<li><a href="#phases-of-oosdlc" id="toc-phases-of-oosdlc">Phases of
+OOSDLC</a></li>
+<li><a href="#fountain-model" id="toc-fountain-model">Fountain
+Model</a></li>
+<li><a href="#rational-unified-process"
+id="toc-rational-unified-process">Rational Unified Process</a>
+<ul>
+<li><a href="#features" id="toc-features">Features</a></li>
+<li><a href="#structure-of-rup" id="toc-structure-of-rup">Structure of
+RUP</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav><div id="data">
+<h2 id="object-oriented-software-engineering">Object Oriented Software
+Engineering</h2>
+<p>OOSE is a software design technique that is used in software design
+in Object OrientedP.</p>
+<p><em>It consists of two terms – object oriented, and software
+engineering.</em></p>
+<h3 id="object-oriented">Object Oriented</h3>
+<p>It is a collection of information that itself act as a singular
+entity. It allows the user to focus completely on the task rather than
+on the tools.</p>
+<p><em>For example – C++, etc.</em></p>
+<p>With the help of this, reusability as well as abstraction is
+possible.</p>
+<p>The necessity of developing a maintaining a large-size, complex, and
+varied functionalities software system has caused us to look for new
+approaches of software design and development.</p>
+<p>The conventional approaches like Waterfall Model may not be very
+useful due to non-availability of iterations, no provision of reuse, and
+difficulty in incorporating changing requirements.We may also build
+every software system from scratch that results into a costly software
+system, including very high maintenance cost.</p>
+<p>An object oriented approach may address such issues, that’s why it
+has become very popular in designing,developing, and maintaining large
+size software systems. Object oriented approach’s modelling ability
+helps us to represent the real world situations and visualize them.</p>
+<h3 id="software-engineering">Software Engineering</h3>
+<blockquote>
+<p>It is a profession dedicated to designing, implementing and modifying
+so that the software is more affordable, maintainable, faster to build,
+and high quality.</p>
+</blockquote>
+<p><em>OR</em></p>
+<blockquote>
+<p>The establishment and use of some engineering principles in order to
+obtain economically developed software that is reliable and works
+efficiently on real machines.</p>
+</blockquote>
+<h2 id="software">Software</h2>
+<p>It is a combination of programs, documentation and operating
+manual.</p>
+<h3 id="program">Program</h3>
+<p>A certain set of instructions that are written for a specific
+purpose. It may contain statements to enhance the readability of the
+program.</p>
+<h3 id="documentation">Documentation</h3>
+<p>Documentation is created and used during development. It is used to
+explain the code, what it does, and why it has been coded in a certain
+way.</p>
+<h3 id="operating-manual">Operating Manual</h3>
+<p>Explains to the customer how the software is to be used. It is
+delivered along with the software to the customer, at the time of
+release.</p>
+<hr />
+<p>The use of use cases was introduced in Object Oriented
+Methodology.</p>
+<h3 id="characteristics-of-software">Characteristics of Software</h3>
+<p>Bathtub and software curve bs</p>
+<h2 id="object-oriented-basic-concepts">Object Oriented Basic
+Concepts</h2>
+<ol type="1">
+<li>Classes</li>
+<li>Objects</li>
+<li>Data Abstraction</li>
+<li>Encapsulation</li>
+<li>Inheritance</li>
+<li>Polymorphism</li>
+</ol>
+<h3 id="classes">Classes</h3>
+<blockquote>
+<p>A class represents a template for different objects and describes how
+these objects are structured internally. Objects of the same class have
+the same definition, both for the operations, and for the information
+structures.</p>
+</blockquote>
+<p><em>OR</em></p>
+<blockquote>
+<p>It is a collection of objects and it doesn’t take any space in
+memory. It is also called a blueprint, or a logical entity.</p>
+</blockquote>
+<p>There are two types:</p>
+<ul>
+<li><p><em>Pre-defined</em></p>
+<p>Their logic is already written somewhere, and we can use it by
+importing. For example - Scanner, Console, etc. in Java</p></li>
+<li><p><em>User-defined</em></p>
+<p>The logic for these classes is defined by the programmer.<br />
+</p></li>
+</ul>
+<h3 id="objects">Objects</h3>
+<p>Fundamental entities used to model any system. Anything and
+everything can be an object. It contains data(attributes) and
+operations(behaviors).</p>
+<h3 id="encapsulation">Encapsulation</h3>
+<blockquote>
+<p>The wrapping up of data and functions into a single unit. It is also
+known as information hiding concept.</p>
+</blockquote>
+<p>Data is hidden from the outside world. The only way to get and modify
+the data is through operations that are meant to operate on that data.
+This helps in minimizing impact of changes in the program.</p>
+<h3 id="inheritance">Inheritance</h3>
+<blockquote>
+<p>Deriving a new class from existing class in such a way that the new
+class can access all the features and properties of the existing
+class.</p>
+</blockquote>
+<p>The existing class is called parent class, super class, base class.
+The new class is called child class, subclass, derived class.</p>
+<h3 id="polymorphism">Polymorphism</h3>
+<p>The ability of an instruction,message,etc. to take many forms in an
+object oriented system is called polymorphism.</p>
+<p>Sender of a stimulus (message) doesn’t need to know the receiver’s
+class. The receiver can belong to an arbitrary class.</p>
+<p>Achieved through function overriding.</p>
+<p>For eg - Superclass OutputDevice, with Subclasses Printer and
+Monitor. Both have a function called ShowData(). Both implement it
+differently, and a program calling obj.ShowData() doesn’t need to know
+whether obj is a Printer or Monitor. As long as it is an OutputDevice,
+the program can call the function. The behaviour of the function depends
+on which subclass is being used.</p>
+<h3 id="data-abstraction">Data Abstraction</h3>
+<p>Hiding of complexity of data and operations. Irrelevant details are
+hidden and important details are amplified to the outside world.</p>
+<h2 id="object-oriented-software-development-oosd">Object Oriented
+Software Development (OOSD)</h2>
+<p>The major phases of software development using the object oriented
+methodology are:</p>
+<ol type="1">
+<li><p><strong>Object Oriented Analysis</strong></p>
+<p>In this stage, problem is formulated. User Requirements are
+identified and then a model is built, based upon real world objects.</p>
+<p>The analysis produces models on how the desired system should
+function and how it must be developed.</p>
+<p>The models do not include any implementation details, so that it can
+be understood by any non-technical application expert.</p></li>
+<li><p><strong>Object Oriented Design</strong></p>
+<p>Object Oriented Design includes two main stages.</p>
+<ol type="1">
+<li><p><em>System Design</em></p>
+<p>In this stage, the complete architecture of the desired system is
+designed. The system is conceived as a set of interacting subsystems,
+that in turn are composed of a hierarchy of interacting objects, grouped
+into classes.</p>
+<p>System Design is done according to both the system analysis model,
+and proposed system architecture.</p>
+<p>Here, the emphasis is on the objects comprising the system, rather
+than the processes in the system.</p></li>
+<li><p><em>Object Design</em></p>
+<p>In this phase, a design model is developed based on both the models
+in the system analysis phase and the architecture designed in the system
+design phase.</p>
+<p>All the classes required are identified. The designer decides
+where</p>
+<ol type="1">
+<li><p>The new classes are to be created from scratch.</p></li>
+<li><p>Any existing classes can be used in their original
+form,or</p></li>
+<li><p>New classes should be inherited from the existing
+classes.</p></li>
+<li><p>The associations between the identified classes are established
+and the hierarchy of the classes are identified.</p>
+<p>Besides this, the developer designs the internal details of the
+classes, and their associations, i.e, the data structure for each
+attribute, and the algorithm for the operations</p></li>
+</ol></li>
+</ol></li>
+<li><p><strong>Object Oriented Implementation + Testing</strong></p>
+<p>In this stage, the design model developed in the object design is
+translated into code in an appropriate programming language or software
+tool. The databases are created and the specific hardware requirements
+are ascertained. Once the code is in shape, it is tested using different
+techniques in order to identify and remove errors from the
+code.</p></li>
+</ol>
+<figure>
+<img src="../images/oose/oosd.png"
+alt="Object Oriented Software Development" />
+<figcaption aria-hidden="true">Object Oriented Software
+Development</figcaption>
+</figure>
+<h3 id="coadyourdon-methodology">Coad/Yourdon Methodology</h3>
+<p>Known as Object Oriented Analysis</p>
+<ol type="1">
+<li>Identify classes and objects (study environment and document
+behaviours)</li>
+<li>Identification of Structures (identify is-a and whole-part
+relationships)</li>
+<li>Definition of Subjects (each structure is classified into a
+subject)</li>
+<li>Definition of Attributes</li>
+<li>Definition of Services (methods)</li>
+</ol>
+<h3 id="rumbaugh-methodology">Rumbaugh Methodology</h3>
+<p>Known as Object Modelling Technique (OMT)</p>
+<ol type="1">
+<li><p>Analysis Phase</p>
+<ol type="1">
+<li><strong>Object Model</strong> - Static aspects of system</li>
+</ol>
+<p>Classes and inheritance relationships are extracted from problem
+statement.</p>
+<ol start="2" type="1">
+<li><strong>Dynamic Model</strong> - Behavioural aspects of object model
+and describes state of the system</li>
+</ol>
+<p>Identifies states and events in classes identified by object
+model.</p>
+<ol start="3" type="1">
+<li><strong>Functional Model</strong> - Represents functional aspects of
+the system</li>
+</ol>
+<p>Depicts functionality of the system by creating data flow
+diagrams.</p></li>
+<li><p>Sys Design - HLD is developed taking implementation env.,
+including DBMS,etc. into account.</p></li>
+<li><p>Object Design - Objects are defined in detail. Algorithms and
+operations defined.</p></li>
+<li><p>Implementation</p></li>
+</ol>
+<h3 id="booch-methodology">Booch Methodology</h3>
+<p>Object Oriented Design - Combines analysis, design and
+implementation. Iterative and incremental.</p>
+<h4 id="macro-process">Macro Process</h4>
+<p>High Level Process</p>
+<ol type="1">
+<li><strong>Establish requirements</strong> - Context diagram,
+prototypes</li>
+<li><strong>Analysis Model</strong> - Use case model, identification and
+prioritization of risks.</li>
+<li><strong>Design of Architecture</strong></li>
+<li><strong>Evolution in the form of refinements</strong> -
+Implementation</li>
+<li><strong>Maintenance of delivered functionality</strong> - Post
+deployment activities</li>
+</ol>
+<h4 id="micro-process">Micro Process</h4>
+<p>Lower level process.</p>
+<ol type="1">
+<li>Identification of classes and objects</li>
+<li>Identification of semantics of classes and objects</li>
+<li>Identification of relationships btw classes and objects</li>
+<li>Specification of interfaces and implementation of classes and
+objects</li>
+</ol>
+<h3 id="jacobson-methodology">Jacobson Methodology</h3>
+<p>OOSE methodology, 5 models:</p>
+<ol type="1">
+<li><strong>Requirement model</strong> - Gather s/w requirements. Use
+cases, actors, etc.</li>
+<li><strong>Analysis model</strong> - Create robust and ideal structure
+of objects. Identify interface objects, DB related objects, control
+objects, etc.</li>
+<li><strong>Design model</strong> - Refine the object w.r.t
+implementation environment. Objects become <em>blocks</em>.</li>
+<li><strong>Implementation model</strong> - Implements the objects
+(blocks) into modules.</li>
+<li><strong>Test model</strong> - Validate and verify the functionality
+of the system</li>
+</ol>
+<h3 id="oo-modelling-and-uml">OO Modelling and UML</h3>
+<p>Object oriented modelling - constructing visual models based on real
+world objects - Helps in understanding problems and developing documents
+and producing code. - Well understood requirements, robust designs, etc,
+etc.</p>
+<p>Most popular methodologies - OOD (Booch), OMT (Rumbaugh), OOSE
+(Jacobson). All were combined into Unified Modelling Language (UML).</p>
+<ul>
+<li>Language for visual modelling</li>
+<li>Allows specifying, visualizing, constructing and understanding
+various artifacts of the system.</li>
+<li>Models static and dynamic aspects of the system.
+<ul>
+<li>Static aspects - Objects and their relationships</li>
+<li>Dynamic - Events, states and object interactions</li>
+</ul></li>
+</ul>
+<h3 id="class-responsibility-collaboration-crc">Class, Responsibility,
+Collaboration (CRC)</h3>
+<ol type="1">
+<li>Class - Template consisting of attributes and operations</li>
+<li>Responsibility - Attributes and operations included in a class</li>
+<li>Collab - Other classes that a class calls to achieve its
+functionality.</li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Traditional</th>
+<th style="text-align: center;">OO</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">The system is viewed as a collection of
+processes.</td>
+<td style="text-align: center;">The system is viewed as a collection of
+objects.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Data flow diagrams, ER diagrams, data
+dictionary and structured charts are used to describe the system.</td>
+<td style="text-align: center;">UML models including use case diagram,
+class diagram, sequence diagrams, component diagrams, etc. are used to
+describe the system.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Reusable source code may not be
+produced.</td>
+<td style="text-align: center;">The aim is to produce reusable source
+code.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Data flow diagrams depicts the processes
+and attributes.</td>
+<td style="text-align: center;">Classes are used to describe attributes
+and functions that operate on these attributes.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">It follows a top-down approach for
+modelling the system.</td>
+<td style="text-align: center;">It follows a bottom-up approach for
+modelling the system.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">It is non-iterative.</td>
+<td style="text-align: center;">It is highly iterative.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="process-framework">Process Framework</h2>
+<p>Software Process Framework is a foundation of complete software
+engineering process. It includes all the umbrella activities.</p>
+<figure>
+<img src="../images/oose/process_activities.png"
+alt="Process Framework" />
+<figcaption aria-hidden="true">Process Framework</figcaption>
+</figure>
+<p>A generic process framework consists of 5 activities:</p>
+<ol type="1">
+<li><p>Communication</p>
+<p>Requirement Gathering, extensive communication with customer</p></li>
+<li><p>Planning</p>
+<p>We discuss the technical related tasks, work schedule, risks, and
+required resources</p></li>
+<li><p>Modelling</p>
+<p>It is about building representations of things in the real world.</p>
+<p>In modelling, a product’s model is created in order to better
+understand requirements</p></li>
+<li><p>Construction</p>
+<p>In SE, construction is the application of set of procedures that are
+needed to assemble the product. In this activity, we generate the code
+and test the product in order to maintain better product.</p></li>
+<li><p>Deployment</p>
+<p>In this activity, a complete or a non-complete product or software,
+are presented to the customers to evaluate, and give feedback.</p>
+<p>On the basis of their feedback, we modify the products to supply a
+better product.</p></li>
+</ol>
+<h3 id="umbrella-activities">Umbrella Activities</h3>
+<p>Umbrella Activities are a set of steps or procedures that the SE team
+follows to maintain the progress, quality, change and risk of the
+overall development task.</p>
+<p>SE is a collection of 4 related steps. These steps are presented or
+accessed in different approaches, in different software process
+models.</p>
+<p>These steps of umbrella activities will evolve through the phases of
+the generic view of SE.</p>
+<ol type="1">
+<li><p><strong>Software Project Tracking and Control</strong></p>
+<p>Before the actual development begins, a schedule for development of
+the software is created. Based on that schedule, the development will be
+done.</p>
+<p>However, after certain period of time, it is required to review the
+progress of the development and to find out the actions which are in
+need to be taken to complete the development,testing etc.</p>
+<p>The outcome of the review may require the software development to be
+rescheduled.</p></li>
+<li><p><strong>FTR (Formal Technical Review)</strong></p>
+<p>SE is done in clusters or modules. After completing each module, it
+is good practice to review the completed module and find out and remove
+errors so that the next module can be prevented.</p></li>
+<li><p><strong>SQA</strong></p>
+<p>The quality of software, such as UX, performance, load handling
+capacity, etc. should be tested, and make sure it matches predetermined
+milestones.</p>
+<p>This reduces the task at the end of the development process. It
+should be conducted by dedicated teams so that the development can keep
+going on.</p></li>
+<li><p><strong>SCM (Software Config Mgmt)</strong></p>
+<p>It’s a set of activities designed to control change by identifying
+the work products that are likely to change and establish relationships
+among them.</p>
+<p>Defining mechanisms for managing different versions of these work
+products.</p></li>
+<li><p><strong>Document Preparation and Production</strong></p>
+<p>All the project planning, and other activities, should be documented
+properly.</p></li>
+<li><p><strong>Reusability Management</strong></p>
+<p>This includes the packing up of each part of the software project.
+They can be connected, or any kind of support can be given to them,
+later to update or upgrade the software at user demand or time
+demand.</p></li>
+<li><p><strong>Measurement and Metrics</strong></p>
+<p>This will include all the measurement of every aspect of the software
+project.</p></li>
+<li><p><strong>Risk Management</strong></p>
+<p>It is a series of steps that helps a software team to manage and
+understand uncertainty. It’s a really good idea to identify, assess,
+estimate its impact, estimate probability of threats, and establish a
+plan for what to do in case the problem actually occurs.</p></li>
+</ol>
+<p>Often combined in Object Oriented Analysis.</p>
+<h2 id="sdlcs">SDLCs</h2>
+<h3 id="waterfall">Waterfall</h3>
+<p><img src="../images/oose/waterfall.png" /></p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Easy to understand</li>
+<li>Simple to implement</li>
+<li>Distinct phases</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Large no of documents</li>
+<li>Requirements freezed at start</li>
+<li>Working product delivered late</li>
+<li>Slow, may take years</li>
+<li>Testing is difficult</li>
+<li>Real projects rarely sequential</li>
+</ul>
+<h3 id="prototyping">Prototyping</h3>
+<p><img src="../images/oose/prototype.png" /></p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Stable requirements</li>
+<li>High quality system</li>
+<li>Low cost</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Slower delivery</li>
+</ul>
+<h3 id="iterative-enhancement">Iterative Enhancement</h3>
+<p>Waterfall stages in many cycles</p>
+<p><img src="../images/oose/iter.png" /></p>
+<ul>
+<li>Partial product delivered every cycle</li>
+<li>Complete product delivered after several cycles</li>
+</ul>
+<h3 id="spiral-model">Spiral Model</h3>
+<p>Risk-based.</p>
+<p><img src="../images/oose/spiral.png" /></p>
+<h4 id="rounds">Rounds</h4>
+<ol type="1">
+<li>Round 0 - Feasibility study</li>
+<li>Round 1 - Concept of operation</li>
+<li>Round 2 - Top level requirement analysis</li>
+<li>Round 3 - Software design</li>
+<li>Round 4 - Design, implementation and testing</li>
+</ol>
+<h3 id="xp---extreme-programming">XP - Extreme Programming</h3>
+<p>Agile methodology:</p>
+<ol type="1">
+<li>Team cohesiveness</li>
+<li>Customer is part of the team</li>
+<li>Requirement changes are accepted</li>
+<li>Working software produced quickly</li>
+<li>Progress is measured by working software and not documents</li>
+<li>Iterative planning instead of iterative development. Plans are
+changed based on learnings.</li>
+<li>Distributed leadership</li>
+</ol>
+<p><img src="../images/oose/agile.png" /></p>
+<ol type="1">
+<li><strong>User Stories</strong> - only contain estimate of time taken
+for the feature. Requirement details taken from customer at development
+time.</li>
+<li><strong>Release planning</strong> -
+<ul>
+<li>Developers estimate story time, and customer selects the order of
+story development.</li>
+<li>Large stories may be divided into substories.</li>
+<li>Developer may do exploration (spike) of story</li>
+</ul></li>
+<li><strong>Iteration Planning</strong> - Stories divided into tasks
+that are handed to developers. Working product released after each
+iteration.</li>
+<li><strong>Dev and Unit tests</strong> -
+<ul>
+<li>Important tasks chosen by customers and implemented.</li>
+<li>Pair Programming</li>
+<li>Refactoring</li>
+<li>Automated unit tests</li>
+</ul></li>
+<li><strong>Acceptance Testing</strong> - Automated black box acceptance
+tests are created from user stories. Customer runs and verifies
+them.</li>
+<li><strong>Working product Released.</strong></li>
+</ol>
+<h2 id="object-oriented-sdlcs">Object Oriented SDLCs</h2>
+<p>Difference btw Conventional and OOP SDLCs</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 28%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: left;">Conventional</th>
+<th style="text-align: left;">OO</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Methodology</td>
+<td style="text-align: left;">Functional, process driven</td>
+<td style="text-align: left;">Object Driven</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Requirement</td>
+<td style="text-align: left;">DFD, ER, Data dictionary</td>
+<td style="text-align: left;">Use-case approach</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Analysis</td>
+<td style="text-align: left;">DFD, ER, Data dictionary</td>
+<td style="text-align: left;">Object identification and description,
+attribute and function determination</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Design</td>
+<td style="text-align: left;">Structure chart, flowchart,
+pseudocode</td>
+<td style="text-align: left;">Class Diagram, Sequence Diagram, Object
+Diagram, UML</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Implementation &amp; Test</td>
+<td style="text-align: left;">Implement process, functions</td>
+<td style="text-align: left;">Implement objects and interactions among
+objects.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Documentation</td>
+<td style="text-align: left;">Many documents at the end of each
+stage</td>
+<td style="text-align: left;">Document may or may not be produced at the
+end of each stage</td>
+</tr>
+</tbody>
+</table>
+<h4 id="phases-of-oosdlc">Phases of OOSDLC</h4>
+<ol type="1">
+<li>Object Oriented Requirement Analysis</li>
+<li>Object Oriented Analysis</li>
+<li>Object Oriented Design</li>
+<li>Object Oriented Programming and testing</li>
+</ol>
+<h3 id="fountain-model">Fountain Model</h3>
+<ul>
+<li>Reusability of source code</li>
+<li>Like a fountain with ideas and new features flowing from top to
+bottom</li>
+<li>Arrows represent iterations</li>
+<li>Circles represent overlapping phases.</li>
+</ul>
+<p><img src="../images/oose/fountain.png" /></p>
+<h3 id="rational-unified-process">Rational Unified Process</h3>
+<ul>
+<li>Adaptable Process Framework</li>
+<li>Iterative</li>
+<li>UML</li>
+</ul>
+<h4 id="features">Features</h4>
+<ol type="1">
+<li><strong>Iterative Dev</strong> - Series of iterations, feedback
+after each. Helps monitoring schedule and budget.</li>
+<li><strong>EFfective req. elicitation</strong> - Use case
+approach.</li>
+<li><strong>Visual Modelling</strong> - Build (abstracted) models that
+portray different views of the system. Use UML.</li>
+<li><strong>Reusable Components</strong> - Develop and use reusable
+components (independent subsystem that fulfills a clear goal).</li>
+<li><strong>Ensure quality</strong> - Continuously assess quality. It
+becomes harder to maintain quality in later stages of development.</li>
+<li><strong>Change control and management</strong> - Manage and track
+changes</li>
+<li><strong>Automated Testing</strong> - Functional as well as
+non-functional automated testing.</li>
+</ol>
+<h4 id="structure-of-rup">Structure of RUP</h4>
+<p><img src="../images/oose/rup1.png" /></p>
+<h5 id="static-structure">Static Structure</h5>
+<p>Describes the process in terms of roles, activities,
+artifacts,disciplines and workflows.</p>
+<p><strong>Who</strong>(roles) does <strong>what</strong> (artifacts),
+<strong>when</strong> (workflows), and
+<strong>how</strong>(activities).</p>
+<p>Roles perform activities to produce artifacts.</p>
+<ul>
+<li><strong>Roles</strong> describe the position or function of a
+particular person. One person may have multiple roles.</li>
+<li><strong>Activities</strong> describe the tasks/work performed by a
+person in a specific role.</li>
+<li><strong>Artifacts</strong> are outputs produced during the
+development, design, etc. phases.They may be final products or inputs to
+the next phases.</li>
+<li>Roles are associated with activities.</li>
+<li>Activities are associated with artifacts.</li>
+<li><strong>Workflows</strong> consist of a series of activities to
+produce a particular output.</li>
+<li><strong>Disciplines</strong> are used to organize a set of
+activities. RUP consists of 6 major disciplines.
+<ol type="1">
+<li>Business Modelling</li>
+<li>Requirement</li>
+<li>Analysis &amp; Design</li>
+<li>Implementation</li>
+<li>Testing</li>
+<li>Deployment</li>
+</ol></li>
+</ul>
+<p><strong>Roles</strong> - Manager, Analyst, Tester, Developer,
+Designer.</p>
+<p><strong>Activities</strong> - Review Requirement, Generate use case,
+Define class, Prepare test plan.</p>
+<p><strong>Artifacts</strong> - SRS, Use case model, Class model, Design
+document, Source code, Test plan, user manual.</p>
+<h5 id="dynamic-structure">Dynamic Structure</h5>
+<p>Organized along time. It has 4 phases.</p>
+<ol type="1">
+<li><strong>Inception</strong></li>
+<li><strong>Elaboration</strong></li>
+<li><strong>Construction</strong></li>
+<li><strong>Transition</strong></li>
+</ol>
+<p>These 4 phases run iteratively. Each iteration produces a new version
+of the software.</p>
+<p><img src="../images/oose/rup2.png" /></p>
+<h5 id="inception">Inception</h5>
+<ul>
+<li>Initial Stage, non-iterative.</li>
+<li>How feasible is the project, what are the risks, what are the high
+level requirements, how long will it take?</li>
+</ul>
+<p><strong>Essential Activities:</strong></p>
+<ul>
+<li>Scope and boundary of project</li>
+<li>Cost And schedule</li>
+<li>Iteration Plan</li>
+<li>High level risks</li>
+<li>Significant use cases and actors.</li>
+</ul>
+<p><strong>Artifacts produced:</strong></p>
+<ul>
+<li>Vision Document</li>
+<li>Business Model</li>
+<li>Iteration Plan</li>
+<li>Initial Use case</li>
+<li>Prototype</li>
+<li>Project Glossary</li>
+<li>Risk Assessment</li>
+<li>Software Development Plan</li>
+<li>Software Tools</li>
+</ul>
+<h5 id="elaboration">Elaboration</h5>
+<ul>
+<li>Most critical phase.</li>
+<li>Planning and architectural design</li>
+<li>Elaboration is done for each use case in the current iteration.</li>
+</ul>
+<p><strong>Essential Activities</strong>:</p>
+<ul>
+<li>Establishment and validation of architectural baselines</li>
+<li>Design use case model</li>
+<li>Select components and create policies for their purchase and
+usage</li>
+<li>Address significant risks</li>
+<li>Detailed iteration plan</li>
+<li>Prototypes</li>
+</ul>
+<p><strong>Artifacts produced</strong>:</p>
+<ul>
+<li>Updated risk list</li>
+<li>Use case model</li>
+<li>Detailed iteration plan</li>
+<li>Software architecture description document</li>
+<li>Design and data model</li>
+<li>Implementation model</li>
+<li>Development case</li>
+<li>Test plan</li>
+<li>Test automation architecture</li>
+</ul>
+<h5 id="construction">Construction</h5>
+<ul>
+<li>Product constructed on the basis of architecture and design of
+elaboration phase.</li>
+<li>Testing also done</li>
+<li>Remaining requirements determined</li>
+<li>Deployable product constructed.</li>
+</ul>
+<p><strong>Essential Activities</strong>:</p>
+<ul>
+<li>Optimize work by avoiding rework and unnecessary coding</li>
+<li>Assess and verify quality</li>
+<li>Test all functionality of the system (unit, system and integration
+test)</li>
+</ul>
+<p><strong>Artifacts produced</strong>:-</p>
+<ul>
+<li>Software Product</li>
+<li>Test suite</li>
+<li>Test plan</li>
+<li>Documentation manual</li>
+<li>Deployment plan</li>
+<li>Design model</li>
+<li>Implementation model</li>
+<li>Training material</li>
+<li>Iteration plan (for transition phase)</li>
+</ul>
+<h5 id="transition">Transition</h5>
+<ul>
+<li>Usable product of sufficient quality has been produced.</li>
+<li>Product handed over to customer.</li>
+<li>Delivering, training users and maintaining software.</li>
+<li>Beta releases, bug fixes, enhancement releases.</li>
+</ul>
+<p><strong>Artifacts produced</strong>:</p>
+<ul>
+<li>Product release</li>
+<li>Beta release report</li>
+<li>Release notes</li>
+<li>User Manual</li>
+<li>Training material</li>
+</ul>
+</div></div></body>
 </html>

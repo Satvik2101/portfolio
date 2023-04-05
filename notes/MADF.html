@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Satvik Gupta" />
+  <title>Mobile And Digital Forensics</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    
+    <div id="navbar" onclick="">
+
+    <div id="navbar_text">
+        .satvik
+    </div>
+    <div id="navbar_links">
+        <div class="navbar_link" id="home_link">
+            <a href="/#home" target="_self">Home</a>
+        </div>
+        <div class="navbar_link" id="workexp_link">
+            <a href="/#workexp" target="_self">
+                Work Experience
+            </a>
+        </div>
+        <div class=" navbar_link" id="projects_link">
+            <a href="/#projects" target="_self">Projects</a>
+        </div>
+        <div class=" navbar_link" id="notes_link">
+        <a href="/notes.html" target="_self">Notes</a>
+    </div>
+        <div class=" navbar_link" id="contacts_link">
+            <a href="/#contact" target="_self">Contact</a>
+        </div>
+      
+        
+    </div>
+</div>
+
+<header id="title-block-header">
+<h1 class="title">Mobile And Digital Forensics</h1>
+<p class="author">Satvik Gupta</p>
+</header><div id="container">
+<nav id="TOC" role="doc-toc"><div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/MADF.pdf">Download as PDF</a></div>
+<ul>
+<li><a href="#risks-created-by-wireless-technology"
+id="toc-risks-created-by-wireless-technology">Risks Created By Wireless
+Technology</a></li>
+<li><a href="#wireless-technologies-in-use"
+id="toc-wireless-technologies-in-use">Wireless Technologies in Use</a>
+<ul>
+<li><a href="#pan-personal-area-network"
+id="toc-pan-personal-area-network">PAN (Personal Area Network)</a>
+<ul>
+<li><a href="#bluetooth" id="toc-bluetooth">Bluetooth</a></li>
+<li><a href="#infrared" id="toc-infrared">Infrared</a></li>
+<li><a href="#ultrawideband-uwb"
+id="toc-ultrawideband-uwb">Ultrawideband (UWB)</a></li>
+<li><a href="#zigbee" id="toc-zigbee">ZigBee</a></li>
+<li><a href="#wireless-usb" id="toc-wireless-usb">Wireless USB</a></li>
+</ul></li>
+<li><a href="#lan" id="toc-lan">LAN</a>
+<ul>
+<li><a href="#section" id="toc-section">802.11</a></li>
+<li><a href="#mhz-packet-radio" id="toc-mhz-packet-radio">900 MHz Packet
+Radio</a></li>
+</ul></li>
+<li><a href="#man" id="toc-man">MAN</a>
+<ul>
+<li><a href="#microwave" id="toc-microwave">Microwave</a></li>
+<li><a href="#free-space-optics" id="toc-free-space-optics">Free Space
+Optics</a></li>
+<li><a href="#ricochet" id="toc-ricochet">Ricochet</a></li>
+<li><a href="#wimax" id="toc-wimax">WiMax</a></li>
+</ul></li>
+<li><a href="#wans" id="toc-wans">WANs</a>
+<ul>
+<li><a href="#satellite" id="toc-satellite">Satellite</a></li>
+<li><a href="#cellular" id="toc-cellular">Cellular</a></li>
+<li><a href="#blackberry" id="toc-blackberry">Blackberry</a></li>
+<li><a href="#paging" id="toc-paging">Paging</a></li>
+<li><a href="#sms" id="toc-sms">SMS</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#wireless-network-security-threats"
+id="toc-wireless-network-security-threats">Wireless Network Security
+Threats</a>
+<ul>
+<li><a href="#eavesdropping"
+id="toc-eavesdropping">Eavesdropping</a></li>
+<li><a href="#traffic-analysis" id="toc-traffic-analysis">Traffic
+Analysis</a></li>
+<li><a href="#data-tampering" id="toc-data-tampering">Data
+Tampering</a></li>
+<li><a href="#masquerading" id="toc-masquerading">Masquerading</a></li>
+<li><a href="#denial-of-service-dos"
+id="toc-denial-of-service-dos">Denial of Service (DoS)</a></li>
+<li><a href="#wireless-client-attacks"
+id="toc-wireless-client-attacks">Wireless Client Attacks</a></li>
+</ul></li>
+<li><a href="#other-issues-with-wireless"
+id="toc-other-issues-with-wireless">Other Issues with Wireless</a>
+<ul>
+<li><a href="#spread-spectrum-isnt-secure"
+id="toc-spread-spectrum-isnt-secure">Spread Spectrum isn’t
+Secure</a></li>
+<li><a href="#ssids-are-not-designed-as-passwords"
+id="toc-ssids-are-not-designed-as-passwords">SSIDs are not designed as
+passwords</a></li>
+<li><a href="#wep-is-weak" id="toc-wep-is-weak">WEP is weak</a>
+<ul>
+<li><a href="#steps-to-attack-wep." id="toc-steps-to-attack-wep.">Steps
+to attack WEP.</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#war-driving" id="toc-war-driving">War Driving</a>
+<ul>
+<li><a href="#war-chalking" id="toc-war-chalking">War Chalking</a></li>
+<li><a href="#war-flying" id="toc-war-flying">War Flying</a></li>
+</ul></li>
+<li><a href="#security-recommendations-vs-reality"
+id="toc-security-recommendations-vs-reality">Security Recommendations vs
+Reality</a></li>
+<li><a href="#section-1" id="toc-section-1"><br />
+</a></li>
+<li><a href="#pda-personal-digital-assistants"
+id="toc-pda-personal-digital-assistants">PDA (Personal Digital
+Assistants)</a>
+<ul>
+<li><a href="#theft-of-the-device" id="toc-theft-of-the-device">Theft of
+the Device</a></li>
+<li><a href="#data-theft" id="toc-data-theft">Data Theft</a></li>
+<li><a href="#mobile-code" id="toc-mobile-code">Mobile Code</a></li>
+<li><a href="#auth-theft" id="toc-auth-theft">Auth Theft</a></li>
+<li><a href="#dos-attacks" id="toc-dos-attacks">DoS Attacks</a></li>
+<li><a href="#session-hijacking" id="toc-session-hijacking">Session
+Hijacking</a></li>
+<li><a href="#providing-security-to-pdas"
+id="toc-providing-security-to-pdas">Providing Security to PDAs</a></li>
+<li><a href="#best-security-practices"
+id="toc-best-security-practices">Best Security Practices</a></li>
+</ul></li>
+</ul>
+</nav><div id="data">
+<h3 id="risks-created-by-wireless-technology">Risks Created By Wireless
+Technology</h3>
+<ol type="1">
+<li>Wireless is shared and uncontrolled.</li>
+<li>Mobile devices are transient. They are always moving around.
+Detecting suspicious activity becomes difficult.</li>
+<li>Ease of use - As wireless is easy to use, people become familiar
+with it and become comfortable and careless with security.</li>
+<li>It’s easier to attack.</li>
+</ol>
+<h2 id="wireless-technologies-in-use">Wireless Technologies in Use</h2>
+<h3 id="pan-personal-area-network">PAN (Personal Area Network)</h3>
+<ul>
+<li>WPANs are used in short distances, &lt;10 m.</li>
+<li>Connect computers and peripherals</li>
+<li>High speed</li>
+</ul>
+<h4 id="bluetooth">Bluetooth</h4>
+<h4 id="infrared">Infrared</h4>
+<ul>
+<li>Line of sight</li>
+<li>Short range (0-2m)</li>
+<li>LoS makes it easy to think it’s secure, but attackers can detect
+reflected light and filter out ambient noise, and gain access to the
+data.</li>
+</ul>
+<h4 id="ultrawideband-uwb">Ultrawideband (UWB)</h4>
+<ul>
+<li>Superfast, wireless.</li>
+<li>Doesn’t use any carrier wave.</li>
+<li>Superfast pulses in timed sequences over a large continuous
+spectrum</li>
+</ul>
+<h4 id="zigbee">ZigBee</h4>
+<ul>
+<li>Home Area Network</li>
+<li>Designed to replace remote controls</li>
+<li>Cost effective, low power</li>
+</ul>
+<h4 id="wireless-usb">Wireless USB</h4>
+<ul>
+<li>10m range</li>
+<li>480 Mbps, upto 1 Gbps in future.</li>
+</ul>
+<h3 id="lan">LAN</h3>
+<p>Wireless Local Area Networks</p>
+<h4 id="section">802.11</h4>
+<ul>
+<li>AKA Wifi</li>
+<li>1-2 Mbps, 2.4 GHz</li>
+</ul>
+<h4 id="mhz-packet-radio">900 MHz Packet Radio</h4>
+<ul>
+<li>Cordless, pagers, medical equipment.</li>
+<li>Interference sometimes happens</li>
+<li>Transports IP based data.</li>
+</ul>
+<h3 id="man">MAN</h3>
+<p>A Metropolitan Area Network is designed to provide broadband
+connectivity to a densely populated area. Could be cities, counties,
+campuses. AKA <em>Last Mile Solutions.</em></p>
+<h4 id="microwave">Microwave</h4>
+<ul>
+<li>P2P,LoS</li>
+<li>AM Radio</li>
+<li>Less cost, Easy to Deploy</li>
+<li>High frequency</li>
+</ul>
+<h4 id="free-space-optics">Free Space Optics</h4>
+<ul>
+<li>Uses lasers instead of radio frequency</li>
+<li>High data rates</li>
+<li>Incorporates security of Fiber optic cables</li>
+<li>Transmits a LoS laser btw two points.</li>
+</ul>
+<h4 id="ricochet">Ricochet</h4>
+<ul>
+<li>Wireless ISP network solution for a particular geographic
+location</li>
+<li>Allows portable clients to move through an area and access
+Internet</li>
+</ul>
+<h4 id="wimax">WiMax</h4>
+<p>Worldwide Interoperability for Microwave Access, 802.16</p>
+<ul>
+<li>2-11 GHz</li>
+<li>Long range</li>
+<li>High throughput ~70 Mbps</li>
+</ul>
+<h3 id="wans">WANs</h3>
+<p>WANs are intended for communications between mobile and fixed devices
+worldwide.</p>
+<h4 id="satellite">Satellite</h4>
+<p>Use radio waves just like other wireless technologies. TElevision,
+GPS&lt; ISPs, etc.</p>
+<h4 id="cellular">Cellular</h4>
+<ul>
+<li><p>Cellular Digital Packet Data (CDPD)</p>
+<p>Uses unused cellular channels to transmit data packets.</p></li>
+<li><p>Global System for Mobile Comm. (GSM)</p>
+<p>Uses narrow band TDMA method to allow 8 simultaneous calls on the
+same radio frequency.</p></li>
+<li><p>3GSM</p>
+<p>Will support multimedia, video, and Internet</p></li>
+<li><p>TDMA</p>
+<p>Each cellular channel is divided into 3 time slots to increase amount
+of data.</p></li>
+</ul>
+<h4 id="blackberry">Blackberry</h4>
+<p>Email, File sharing, Voice and SMS, Calendar, Internet, Attachments,
+etc. btw Blackberry users.</p>
+<h4 id="paging">Paging</h4>
+<h4 id="sms">SMS</h4>
+<hr />
+<h2 id="wireless-network-security-threats">Wireless Network Security
+Threats</h2>
+<h3 id="eavesdropping">Eavesdropping</h3>
+<p>Someone else can read the transmitted information, even from outside
+the building.</p>
+<h3 id="traffic-analysis">Traffic Analysis</h3>
+<p>Patterns of communication and data flow can be monitored and may
+yield information.</p>
+<h3 id="data-tampering">Data Tampering</h3>
+<p>Information can be deleted, or modified via MITM attack.</p>
+<h3 id="masquerading">Masquerading</h3>
+<p>Attacker can impersonate an authorized user and gain access to
+information.</p>
+<h3 id="denial-of-service-dos">Denial of Service (DoS)</h3>
+<p>Attacker can jam frequency channels, using hardware blockers or by
+sending large amount of requests.</p>
+<h3 id="wireless-client-attacks">Wireless Client Attacks</h3>
+<p>Attacker can trick clients into connecting to an unsecured network
+and gain access to the data present on the client machine. The
+compromised client can now also be used to access the internal network
+and the data stored on it.</p>
+<h2 id="other-issues-with-wireless">Other Issues with Wireless</h2>
+<h3 id="spread-spectrum-isnt-secure">Spread Spectrum isn’t Secure</h3>
+<p>Spread Spectrum is a modulation technique used to prevent radio
+jamming.</p>
+<p>In general, spread spectrum has <strong>spreading codes</strong>,
+that can be changed. Without knowing the correct code, it is impossible
+to decipher data sent through the spread spectrum.</p>
+<p>However, the 802.11 standard publicly describes the spreading codes
+so that interoperable 802.11 components can be created. An attacker with
+a radio compliant with 802.11 would be able to connect.</p>
+<h3 id="ssids-are-not-designed-as-passwords">SSIDs are not designed as
+passwords</h3>
+<p>SSID - Service Set Identifier.</p>
+<ul>
+<li>Were initially used to prevent people from connecting to the access
+point (AP) without knowing the SSID.</li>
+<li>However, they should not be relied upon as passwords.</li>
+</ul>
+<h3 id="wep-is-weak">WEP is weak</h3>
+<p>Wired Equivalent Privacy.</p>
+<p>WEP occasionally produces cryptographically weak ciphers.</p>
+<h4 id="steps-to-attack-wep.">Steps to attack WEP.</h4>
+<ol type="1">
+<li><p>Hacker runs Kismet to discover WLANs in the area. He gets its
+SSID, channel number and its BSSID (Basic SSID - the Ethernet
+Address).</p></li>
+<li><p>APs can hide their SSIDs, using an option called SSID
+Cloaking/SSID Broadcast Disable.</p>
+<p>If this is the case, the attacker has to wait for a client to connect
+to the AP (the client and the AP will both disclose the SSID). The
+attacker can also force an already connected client to reconnect. This
+is done by sending a packet to the client, pretending to be from the AP.
+The packet tells the client that they have lost their connection with
+the AP (<strong><em>You are no longer connected</em></strong>). The
+client attempts to reconnect, and exposes the SSID.</p></li>
+<li><p>The attacker puts his wireless card into Monitor mode. The card
+will eavesdrop on the WLAN (even without connecting to it.) He makes the
+card monitor the channel on which the target AP is. All the traffic
+monitored is saved in a <em>capture file.</em></p></li>
+<li><p>WEP uses Initialization Vectors (IVs), which are values used to
+start a cryptographic process. When a certain number of weak IVs have
+been captured, we can determine the WEP key. 125k packets are needed to
+crack 40-bit WEP keys. 200-250k packets for 128-bit WEP keys.</p></li>
+<li><p>If the WLAN is slow, the hacker will need to accelerate the
+attack to capture the right amount of weak IVs. The attacker will inject
+already captured WEP frame back into the network. WEP has no replay
+protection mechanism.</p>
+<p>512 packets injected per second - 10 mins for 40-bit keys, 30 mins
+for 128-bit keys.</p></li>
+<li><p>After sufficient amount of IVs are captured, the attacker runs
+AirCrack, which will attempt to crack and return the WEP key. Once the
+key is known, the attacker can connect to the AP in the same way a
+legitimate client would.</p></li>
+</ol>
+<h2 id="war-driving">War Driving</h2>
+<p>People driving around in a car equipped with wireless gear, looking
+for unsecured wireless network. Generally they try to look for APs that
+are running a certain kind of server behind them, such as important
+security servers or financial servers, etc.</p>
+<p>Sometimes people just do it harmlessly, for e.g, just checking the
+radio environment.</p>
+<h3 id="war-chalking">War Chalking</h3>
+<p>War driving + marking the places with chalk. Different symbols are
+used for open, closed, and WEP APs.</p>
+<h3 id="war-flying">War Flying</h3>
+<p>War driving, but using airplanes,helicopters, etc. instead of cars.
+Due to increased range of wireless networks, hundreds of APs can be
+found in a short trip.</p>
+<h2 id="security-recommendations-vs-reality">Security Recommendations vs
+Reality</h2>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Recommendation</th>
+<th style="text-align: center;">Reality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Turn SSID Broadcasting off</td>
+<td style="text-align: center;">SSIDs can be easily discovered as
+described above.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Use static IP Addresses</td>
+<td style="text-align: center;">Static IP addresses can be found easily
+using traffic analysis</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Turn 128-bit WEP on</td>
+<td style="text-align: center;">WEP can be easily cracked</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Change WEP keys</td>
+<td style="text-align: center;">New keys can be cracked easily</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Enable MAC Address Filtering</td>
+<td style="text-align: center;">Traffic analysis will yield the
+authorized MAC Addresses. WLAN cards can specify their own MAC Address,
+so hackers can just claim to be using an authorized one</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Utilize shared key auth</td>
+<td style="text-align: center;">WEP keys can be cracked</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Use personal firewalls</td>
+<td style="text-align: center;">Hackers may be able to fool you that
+they are a trusted system</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Use SSH/HTTPs</td>
+<td style="text-align: center;">May be vulnerable to MITM sometimes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="section-1"><br />
+</h2>
+
+<h2 id="pda-personal-digital-assistants">PDA (Personal Digital
+Assistants)</h2>
+<p>Common attacks:</p>
+<ol type="1">
+<li>Copying/Stealing information from the device</li>
+<li>Loading malicious code onto the device</li>
+<li>Destroying key files or applications on the device</li>
+</ol>
+<h5 id="trojans">Trojans</h5>
+<p>A program disguised as another program.</p>
+<h5 id="worms">Worms</h5>
+<p>Programs that duplicate themselves over and over, and steal system
+resources in doing so.</p>
+<h5 id="logic-bombs">Logic Bombs</h5>
+<p>Programs within programs that perform certain actions based on a
+trigger event. PDAs can also be carriers of such programs instead of the
+target.</p>
+<h4 id="theft-of-the-device">Theft of the Device</h4>
+<h4 id="data-theft">Data Theft</h4>
+<p>Data can be easily copied from a PDA/Blackberry to a flash card
+within minutes.</p>
+<h4 id="mobile-code">Mobile Code</h4>
+<p>S/w transmitted from server to a local device, and then executed.
+This code may give the attacker access to the data on the PDA.</p>
+<h4 id="auth-theft">Auth Theft</h4>
+<p>Stealing a PDA may lead to auth information being stolen.</p>
+<h4 id="dos-attacks">DoS Attacks</h4>
+<p>Any attack in which an organization is denied access to a resource
+can be termed DoS. For PDAs, anything from mobile code to device theft
+can be considered DoS.</p>
+<h4 id="session-hijacking">Session Hijacking</h4>
+<p>A TCP session can be taken over by an attacker. TCP auth only occurs
+during the start, so an attacker can find ways to do this.</p>
+<h3 id="providing-security-to-pdas">Providing Security to PDAs</h3>
+<ul>
+<li>Use AntiVirus - Norton, Symantec, F-Secure, Kaspersky</li>
+<li>DB Security and Auth</li>
+<li>Faraday Bag - Block all wireless signals to the device</li>
+<li>Encryption - Ccrypt, PDA Secure</li>
+<li>Firewalls - Mobile Firewall Plus</li>
+<li>Password Enforcement - HotSync Security, PDA Defense.</li>
+<li>VPN - VPN 3000, Movian VPN</li>
+</ul>
+<h3 id="best-security-practices">Best Security Practices</h3>
+<ol type="1">
+<li>Define handheld security policy</li>
+<li>Centrally enforce and monitor handheld security</li>
+<li>Enforce use of power-on passwords</li>
+<li>Block unauthorized handheld network activity</li>
+<li>Detect handheld intrusions</li>
+<li>Protect handheld integrity</li>
+<li>Encrypt sensitive data stored on handhelds</li>
+<li>Protect traffic sent/received by handhelds</li>
+<li>Maintain up-to-date anti-virus protection</li>
+<li>Back up frequently</li>
+</ol>
+</div></div></body>
+</html>
