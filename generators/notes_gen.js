@@ -1,7 +1,7 @@
 const fs = require('fs');
 var navBar = require("../helpers/navGen")();
 
-const notes = ["OOSE"];
+const notes = ["OOSE", "CN", "DiS"];
 
 // Loop through each note in the notes array
 for (let i = 0; i < notes.length; i++) {
