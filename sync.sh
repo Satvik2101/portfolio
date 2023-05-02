@@ -75,6 +75,12 @@ if [ $d == 1 ]; then
 else
     for invalidation in $invalidations; do
         # echo \"$invalidation\"
+        # if invalidation is an html file, remove the .html extension
+
+        if [[ $invalidation == *.html ]]; then
+            invalidation=${invalidation::-5}
+            echo $invalidation
+        fi
         MSYS_NO_PATHCONV=1 aws cloudfront create-invalidation --distribution-id $cf --paths $invalidation
     done
 fi

@@ -256,6 +256,17 @@ Protocols</a>
 Header Format</a></li>
 <li><a href="#ipv6-header" id="toc-ipv6-header">IPv6 Header</a></li>
 </ul></li>
+<li><a href="#routing-protocols" id="toc-routing-protocols">Routing
+Protocols</a>
+<ul>
+<li><a href="#distance-vector-routing-dvr"
+id="toc-distance-vector-routing-dvr">Distance Vector Routing
+(DVR)</a></li>
+<li><a href="#link-state-routing" id="toc-link-state-routing">Link State
+Routing</a></li>
+<li><a href="#routing-in-subnets" id="toc-routing-in-subnets">Routing in
+Subnets</a></li>
+</ul></li>
 <li><a href="#network-protocols" id="toc-network-protocols">Network
 Protocols</a>
 <ul>
@@ -293,6 +304,10 @@ Establishment</a></li>
 id="toc-tcp-connection-termination">TCP Connection Termination</a></li>
 <li><a href="#tcp-congestion-control"
 id="toc-tcp-congestion-control">TCP Congestion Control</a></li>
+<li><a href="#wrap-around" id="toc-wrap-around">Wrap-Around</a></li>
+<li><a href="#tcp-window-scaling" id="toc-tcp-window-scaling">TCP Window
+Scaling</a></li>
+<li><a href="#tcp-timers" id="toc-tcp-timers">TCP Timers</a></li>
 </ul></li>
 <li><a href="#udp" id="toc-udp">UDP</a>
 <ul>
@@ -1719,13 +1734,16 @@ delay.</p>
 <p><em>C - Cost</em></p>
 <p>0 - normal</p>
 <p>1 - minimize</p>
-<p>The last value is reserved as 0. It’s fixed for future use.</p>
+<p>The last value is reserved as 0. It’s fixed for future use. Only one
+bit out of D,T,R and C can be 1 in a packet. More than 1 cannot be 1.
+For eg - 0011 is not valid.</p>
 <h5 id="total-length">Total Length</h5>
 <p>Contains total length of the packet. 16-bit value.</p>
 <h5 id="ttl-time-to-live">TTL (Time to Live)</h5>
 <ul>
 <li>8-bit value</li>
-<li>Source sets it to max value (255)</li>
+<li>Source sets it to max value (255), or it can also be set as (max
+number of routers between source and destination)*2.</li>
 <li>At each node it encounters (router/switch/etc.), the value is
 reduced by 1.</li>
 <li>When it becomes 0, the packet is dropped.</li>
@@ -1741,6 +1759,12 @@ network, causing congestion.</li>
 <ul>
 <li>Contains the checksum value for the header.</li>
 <li>16-bit</li>
+<li>Only IP header fields are used while calculating checksum, actual
+data isn’t used. This is because higher level protocols such as TCP and
+UDP use their own checksums for the data, so it isn’t required for IP to
+do it as well.</li>
+<li>Since fields like TTL can change, header checksum is recalculated at
+each router.</li>
 </ul>
 <h5 id="source-ip">Source IP</h5>
 <ul>
@@ -1791,15 +1815,18 @@ unfragmented datagram.</p>
 be:</p>
 <h6 id="record-route">Record Route</h6>
 <p>Tells the nodes to record the route this packet has taken in the
-header.</p>
+header. Can record upto 9 router addresses.</p>
 <h6 id="source-routing">Source routing</h6>
 <p>The source defines the route that the packet will take.</p>
 <p>It is of two types.</p>
 <ol type="1">
 <li>Strict - The source defines the exact specific nodes the packet will
-travel through to get to its destination.</li>
-<li>Loose - The source defines only loose requirements, not specific
-exact nodes.</li>
+travel through to get to its destination. Each router mentioned in the
+list <em>must</em> be visited, and routers that are absent in the list
+<em>must not</em> be visited.</li>
+<li>Loose - The source defines only loose requirements. Routers in the
+list <em>must</em> be visited, but the packet can also visit other
+routers.</li>
 </ol>
 <p>Users cannot set source routing, only routers are allowed to do
 this.</p>
@@ -1867,7 +1894,72 @@ open, no intermediate routers</li>
 on the path to the destination.</li>
 </ul>
 <hr />
-<p>Routing Protocols better explained through videos.</p>
+<h3 id="routing-protocols">Routing Protocols</h3>
+<p>Routing Protocols are used to decide the route a particular packet
+will take to its destination.</p>
+<h4 id="distance-vector-routing-dvr">Distance Vector Routing (DVR)</h4>
+<ul>
+<li>Each node maintains table of minimum distance to <em>every</em>
+other node in the network.</li>
+<li>Table also contains <em>next</em> entry for each node. I.e, if we
+have node A’s table, that contains data about node B,C,D… etc. If
+<em>next</em> value for B is C, that means to get to B from A, we go
+through node C.</li>
+<li>Information is shared only between neighbors (directly connected).
+Each node will share its routing table to its immediate neighbours.</li>
+<li>Update may be <strong>periodic</strong> or
+<strong>triggered</strong>.</li>
+<li>Count to Infinity problem may occur in this.
+<ul>
+<li>Three nodes - X—A—B. X-A = 1, A-B=1, X-A=2</li>
+<li>If link between X and A breaks, then the following problem will
+occur. A will set its distance to X as infinity.</li>
+<li>B will send its routing table to A. A will think B has found another
+path to X with cost 2. It will update its routing table so that
+X-A=2+1=3</li>
+<li>A will send new table to B. B will think the cost to get to X
+(through A) has increased to 3. It will update its table so that
+X-B=4.</li>
+<li>Similarly, B will again send the new table to A. A will update the
+X-A value to 5. This process will continue forever.</li>
+</ul></li>
+<li><strong>Split Horizon</strong> technique is used to solve count to
+infinity.
+<ul>
+<li>If B knows optimum route to X is through A, it will not send X-B
+value to A.</li>
+<li>Taking information from A, and sending it back to A, is what causes
+the loop.’</li>
+<li>A will update the X-A value to infinity. B will send the routing
+table to A (but without the X-B) value. A will not update anything and
+send the new routing table to B. B will change the X-B value to
+infinity.</li>
+</ul></li>
+<li>Bellman Ford is used to calculate distance tables.</li>
+</ul>
+<h4 id="link-state-routing">Link State Routing</h4>
+<ul>
+<li>Router sends information about its neighbors to the entire network
+through flooding.</li>
+<li>Uses Dijsktra to calculate routing tables.</li>
+<li>Hello messages are sent to discover neighbor nodes.</li>
+</ul>
+<h4 id="routing-in-subnets">Routing in Subnets</h4>
+<p>When a data packet arrives at a network that has subnets:</p>
+<ul>
+<li>The router will perform bitwise <em>AND</em> of the destination IP
+in the packet, with all the subnet masks in the network.</li>
+<li>The result of the <em>AND</em> operation will be checked in the
+routing table.</li>
+<li>In case we find a single match in the table, we will send that
+packet to the corresponding interface.</li>
+<li>In case we find more than one match, we will send it to the
+interface with the longest <em>subnet mask</em></li>
+<li>In case we don’t find any match, we send it to the default
+interface.</li>
+<li>In fixed length subnetting all subnets have the same mask, so we
+perform bitwise <em>AND</em> only once.</li>
+</ul>
 <h3 id="network-protocols">Network Protocols</h3>
 <h4 id="arp-address-resolution-protocol">ARP (Address Resolution
 Protocol)</h4>
@@ -1881,6 +1973,25 @@ is the physical address of the device.</li>
 to its MAC Address.</p>
 <p><strong>RARP</strong> (Reverse Address Resolution Protocol) maps MAC
 Address</p>
+<ul>
+<li>If A wants to send a packet to B that is on the same network, it
+needs the link-layer address (physical or MAC address) in order to send
+it over the link.</li>
+<li>A will only know B’s IP address, not MAC address. It sends an ARP
+request.</li>
+<li>ARP request is a broadcast that is sent to all devices on the
+network. The request contains
+<ul>
+<li>A’s IP address</li>
+<li>A’s MAC address</li>
+<li>B’s IP address</li>
+</ul></li>
+<li>The ARP request will be ignored by all nodes except B. B will
+recognize it’s IP address in the request and it will send an ARP
+response packet back to A. The response packet will contain B’s IP and
+MAC addresses. The response packet will be sent <em>only to A</em>, as a
+unicast.</li>
+</ul>
 <h4 id="nat-network-address-translation">NAT (Network Address
 Translation)</h4>
 <ul>
@@ -1999,7 +2110,12 @@ receiver must send back acknowledgement for that data. In most cases
 these days, communication occurs both ways, i.e, if A sends data to B, B
 also sends data to A. Thus, instead of B sending acknowledgements
 separately to A, B will attach the acknowledgement along with the data
-it has to send A.</li>
+it has to send A.
+<ol type="1">
+<li><strong>Needs buffers</strong> - Sending and receiving processes may
+not operate at same speed, therefore TCP needs sender and receiver
+buffers for storage.</li>
+</ol></li>
 </ol>
 <h4 id="tcp-header">TCP Header</h4>
 <figure>
@@ -2125,13 +2241,14 @@ B will send sequence numbers 5001,5002,5003… and so on.</p>
 connection. Client will send server a segment with FIN bit as 1. (Server
 may also choose to close the connection)</p>
 <p>Client will enter <strong>FIN_WAIT_1</strong> state. In this state,
-the client waits for an ACK from the server for this FIN
-segment.</p></li>
+the client waits for an ACK from the server for this FIN segment. This
+is also called <strong>Active Close</strong> state.</p></li>
 <li><p><strong>ACK From Server</strong>- Server will receive the FIN
 segment, and send an ACK to the client. Server now enters a
-<strong>Close Wait</strong> state. Server will release any buffer
-resources, because client has said it doesn’t want to send any more data
-to server. (Server may still have data to send to the client).</p>
+<strong>Close Wait (Passive Close)</strong> state. Server will release
+any buffer resources, because client has said it doesn’t want to send
+any more data to server. (Server may still have data to send to the
+client).</p>
 <p>When the client receives the ACK from server, it enters
 <strong>FIN_WAIT_2</strong> state. In this state, the client is waiting
 for the server to send a segment with FIN bit set as 1 (i.e, client is
@@ -2154,6 +2271,11 @@ will close the connection.</p>
 <p>The amount of time to be waited varies, but it’s generally 30s or 1
 min.</p></li>
 </ol>
+<figure>
+<img src="../images/cn/tcp_state_diagram" alt="TCP State Diagram" />
+<figcaption aria-hidden="true">TCP State Diagram</figcaption>
+</figure>
+<p>Dashed lines are for server, solid for client.</p>
 <h4 id="tcp-congestion-control">TCP Congestion Control</h4>
 <p>Congestion Window is used for congestion control. Size of congestion
 window changes throughout the TCP connection. We first increase it, to
@@ -2186,10 +2308,11 @@ this phase, and we change window size to accommodate it.</p>
 receive an ACK. Congestion in this case is Severe.</p></li>
 <li><p><strong>3-ACK</strong>- Sender receives 3 duplicate ACKs for the
 same segment. Congestion in this case is light.</p>
-<p>For e.g, if sender sent packets 1,2,3 and 4. Receiver received packet
-1 and sent ACK 2. Packet 2 was lost. Receiver received packet 3, and
-again sent ACK 2 (because it hasn’t received packet 2). Receiver
-received packet 4, and again sent ACK 2. Sender will thus receive 3
+<p>For e.g, if sender sent packets 1,2,3,4 and 5. Receiver received
+packet 1 and sent ACK 2 (Original ACK). Packet 2 was lost. Receiver
+received packet 3, and again sent ACK 2 (because it hasn’t received
+packet 2). Receiver received packet 4, and again sent ACK 2. Similarly
+for packet 5. Sender will thus receive 4 ACKS - 1 original, and 3
 duplicate acknowledgments for packet 2.</p></li>
 </ol></li>
 </ol>
@@ -2208,6 +2331,125 @@ if current window size is 16 MSS, slow start threshold will be 8.</li>
 <li>Congestion window is set equal to slow start threshold</li>
 <li>Congestion Avoidance phase is resumed</li>
 </ol>
+<h4 id="wrap-around">Wrap-Around</h4>
+<ul>
+<li>TCP Sequence numbers go from 0 to <span
+class="math inline">\(2^{32}\)</span> .</li>
+<li>This doesn’t mean only 4GB (<span
+class="math inline">\(2^{32}\)</span> bytes) of data can be sent</li>
+<li>After all the sequence numbers are used, and more data needs to be
+sent, sequence numbers can be wrapped around and used from starting</li>
+<li>Time taken to use all the <span
+class="math inline">\(2^{32}\)</span> numbers is called <strong><em>wrap
+around time</em></strong></li>
+</ul>
+<p><strong><em>Wrap Around Time =</em></strong> <span
+class="math inline">\(\frac{2^{32}}{bandwidth}\)</span></p>
+<p><strong>Life Time</strong> of a TCP Segment is 3 minutes or 180
+seconds, i.e, a receiver will have to wait max 3 minutes before it
+receives a segment</p>
+<ul>
+<li>if WAT &gt; LT, no issue</li>
+<li>if LT&gt; WAT, then receiver can receive multiple segments with same
+sequence number. To solve this, additional fields like timestamp are
+used.</li>
+</ul>
+<h4 id="tcp-window-scaling">TCP Window Scaling</h4>
+<ul>
+<li><p>TCP Window Size field is 16-bit, which means the window can only
+be <span class="math inline">\(2^{16}\)</span> bits, or 64KB.</p></li>
+<li><p>This is generally too less for modern applications</p></li>
+<li><p>Using the options headers in TCP, we can specify a scaling
+factor. For e.g, if scaling factor is 3, and the window size is
+specified as 400, then the actual window size will be <span
+class="math inline">\(400*2^3 = 3200\)</span>.</p>
+<p>i.e, <span class="math display">\[ WS_{real} =
+WS_{field\_value}*2^{scale\_factor}\]</span></p></li>
+<li><p>Generally, this is allowed when the <strong>bandwidth delay
+product</strong> is greater than 64KB.</p>
+<p>Bandwidth Delay Product = Bandwidth * RTT</p></li>
+<li><p>Maximum value of scaling factor is 14, i.e, the max window size
+becomes <span class="math inline">\(2^{16} * 2^{14} = 2^{30} =
+1GB\)</span></p></li>
+</ul>
+<p>Sender Window in TCP is calculated using both Receiver Window Size
+and Congestion Window Size. It is chosen as the minimum of both. Sender
+window size being larger than either of those will result in TCP
+retransmission.</p>
+<h4 id="tcp-timers">TCP Timers</h4>
+<h5 id="retransmission-timer">Retransmission Timer</h5>
+<ul>
+<li>TCP start timer after each transmission. If an ACK is not received
+before this timer runs out, the segment is retransmitted.</li>
+<li>The amount of time it waits is called RTO (Retransmission
+Timeout)</li>
+<li>RTO is calculated using RTT, there are many ways to do so.</li>
+</ul>
+<h6 id="measured-rtt-rtt_m">Measured RTT (<span
+class="math inline">\(RTT_m\)</span>)</h6>
+<p>This is the direct measured value of how long it takes for a packet
+being sent and for its ACK to be received.</p>
+<h6 id="smoothed-rtt-rtt_s">Smoothed RTT (<span
+class="math inline">\(RTT_s\)</span>)</h6>
+<p>It is the weighted average of measured RTT, since <span
+class="math inline">\(RTT_m\)</span> can fluctuate.</p>
+<p>It is calculated as:</p>
+<p>After the first measurement, <span class="math inline">\(RTT_s =
+RTT_m\)</span></p>
+<p>After each measurement, <span class="math inline">\(RTT_s =
+(1-t)*RTT_s + t*RTT_m\)</span></p>
+<p>where <span class="math inline">\(t=1/8\)</span> , unless specified.
+<span class="math inline">\(t\)</span> is also sometimes written as
+<span class="math inline">\(\alpha\)</span></p>
+<p><strong>RTO</strong> can be then kept as <span
+class="math inline">\(2*RTT_s\)</span></p>
+<h6 id="deviated-rtt-rtt_d">Deviated RTT (<span
+class="math inline">\(RTT_d\)</span>)</h6>
+<p>It is calculated as:</p>
+<p>After the first measurement, <span class="math inline">\(RTT_d =
+RTT_m/2\)</span></p>
+<p>After each measurement, <span class="math inline">\(RTT_s =
+(1-k)*RTT_s + k*(RTT_m-RTT_s)\)</span></p>
+<p>where <span class="math inline">\(k=1/4\)</span> , unless specified.
+<span class="math inline">\(k\)</span> is also sometimes written as
+<span class="math inline">\(\beta\)</span></p>
+<p><strong>RTO</strong> is then calculated as <span
+class="math inline">\(RTT_s+4*RTT_d\)</span></p>
+<h5 id="time-wait-timer">Time-Wait Timer</h5>
+<ul>
+<li>Takes care of late packets</li>
+<li>Never close a TCP connection immediately. Wait for 2*LT, so that any
+delayed packets can arrive.</li>
+</ul>
+<h5 id="keep-alive-timer">Keep-Alive Timer</h5>
+<ul>
+<li>Used to close idle connections.</li>
+<li>Periodically check connections, and close them if no reply.</li>
+<li>After keep-alive time duration, server will send 10 probe messages
+with gap of 75 seconds. If no reply, the connection is closed.</li>
+<li>Keep-alive time duration is generally 2 hours.</li>
+</ul>
+<h5 id="persistent-timer">Persistent Timer</h5>
+<ul>
+<li>Suppose receiver’s buffer is full, so it sends an ACK to sender with
+window-size=0</li>
+<li>Sender understands that it cannot send more data as receiver buffer
+is full, and it waits.</li>
+<li>Receiver processes the data in buffer and empties it. Now it has
+space, so it sends another ACK to server with window-size = some
+non-zero value. Suppose this ACK gets lost.</li>
+<li>Now, sender is waiting for receiver to empty its buffer, and
+receiver is waiting for sender to send data. This is a
+<strong>deadlock</strong>.</li>
+<li>To prevent this, persistent timer is use. When sender receives a
+packet with window size=0, it will start a persistent timer.</li>
+<li>After that timer goes off, it will send a probe with only 1 byte of
+new data. The receiver will receive this probe and send its new window
+size.</li>
+<li>If the new window size is non-zero, the sender will start
+transmitting data. If it is still zero, the sender will start the
+persistent timer again and wait.</li>
+</ul>
 <h3 id="udp">UDP</h3>
 <p>UDP (User Datagram Protocol) is another transport layer service. It’s
 popular applications include DNS, VoIP, etc.</p>
