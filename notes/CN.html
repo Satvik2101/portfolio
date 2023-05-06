@@ -256,6 +256,12 @@ Protocols</a>
 Header Format</a></li>
 <li><a href="#ipv6-header" id="toc-ipv6-header">IPv6 Header</a></li>
 </ul></li>
+<li><a href="#congestion-control" id="toc-congestion-control">Congestion
+Control</a>
+<ul>
+<li><a href="#leaky-bucket" id="toc-leaky-bucket">Leaky Bucket</a></li>
+<li><a href="#token-bucket" id="toc-token-bucket">Token Bucket</a></li>
+</ul></li>
 <li><a href="#routing-protocols" id="toc-routing-protocols">Routing
 Protocols</a>
 <ul>
@@ -289,6 +295,7 @@ Numbers</a>
 <ul>
 <li><a href="#port-number-types" id="toc-port-number-types">Port Number
 Types</a></li>
+<li><a href="#section" id="toc-section"></a></li>
 </ul></li>
 <li><a href="#tcp-transmission-control-protocol"
 id="toc-tcp-transmission-control-protocol">TCP (Transmission Control
@@ -318,6 +325,100 @@ id="toc-characteristics-1">Characteristics</a></li>
 Applications</a></li>
 </ul></li>
 <li><a href="#tcp-vs-udp" id="toc-tcp-vs-udp">TCP vs UDP</a></li>
+</ul></li>
+<li><a href="#application-layer" id="toc-application-layer">Application
+Layer</a>
+<ul>
+<li><a href="#paradigms" id="toc-paradigms">Paradigms</a></li>
+<li><a href="#file-transferring" id="toc-file-transferring">File
+Transferring</a>
+<ul>
+<li><a href="#ftp-file-transfer-protocol"
+id="toc-ftp-file-transfer-protocol">FTP (File Transfer
+Protocol)</a></li>
+<li><a href="#ftam-file-transfer-access-management"
+id="toc-ftam-file-transfer-access-management">FTAM (File Transfer Access
+Management)</a></li>
+</ul></li>
+<li><a href="#email" id="toc-email">Email</a>
+<ul>
+<li><a href="#smtp" id="toc-smtp">SMTP</a></li>
+<li><a href="#message-access-agents---pop-and-imap"
+id="toc-message-access-agents---pop-and-imap">Message Access Agents -
+POP and IMAP</a></li>
+<li><a href="#mime" id="toc-mime">MIME</a></li>
+<li><a href="#extended-smtp-esmtp-vs-smtp"
+id="toc-extended-smtp-esmtp-vs-smtp">Extended SMTP (ESMTP) vs
+SMTP</a></li>
+</ul></li>
+<li><a href="#dns" id="toc-dns">DNS</a>
+<ul>
+<li><a href="#dns-server-hierarchy" id="toc-dns-server-hierarchy">DNS
+Server Hierarchy</a></li>
+<li><a href="#dns-name-hierarchy" id="toc-dns-name-hierarchy">DNS Name
+Hierarchy</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#session-layer" id="toc-session-layer">Session Layer</a>
+<ul>
+<li><a href="#functions-of-session-layer"
+id="toc-functions-of-session-layer">Functions of Session Layer</a></li>
+<li><a href="#design-issues" id="toc-design-issues">Design
+Issues</a></li>
+<li><a href="#rpc-remote-procedure-call"
+id="toc-rpc-remote-procedure-call">RPC (Remote Procedure Call)</a>
+<ul>
+<li><a href="#issues-in-rpc" id="toc-issues-in-rpc">Issues in
+RPC</a></li>
+</ul></li>
+<li><a href="#types-of-rpc" id="toc-types-of-rpc">Types of RPC</a>
+<ul>
+<li><a href="#synchronous-rpc" id="toc-synchronous-rpc">Synchronous
+RPC</a></li>
+<li><a href="#asynchronous-rpc" id="toc-asynchronous-rpc">Asynchronous
+RPC</a></li>
+<li><a href="#one-way-rpc" id="toc-one-way-rpc">One-Way RPC</a></li>
+<li><a href="#deferred-synchronous-rpc"
+id="toc-deferred-synchronous-rpc">Deferred Synchronous RPC</a></li>
+</ul></li>
+<li><a href="#failure-semantics-in-rpc"
+id="toc-failure-semantics-in-rpc">Failure Semantics in RPC</a></li>
+</ul></li>
+<li><a href="#presentation-layer---security"
+id="toc-presentation-layer---security">Presentation Layer - Security</a>
+<ul>
+<li><a href="#types-of-cryptosystems"
+id="toc-types-of-cryptosystems">Types of Cryptosystems</a>
+<ul>
+<li><a href="#symmetric" id="toc-symmetric">Symmetric</a></li>
+<li><a href="#asymmetric" id="toc-asymmetric">Asymmetric</a></li>
+</ul></li>
+<li><a href="#types-of-ciphers" id="toc-types-of-ciphers">Types of
+Ciphers</a>
+<ul>
+<li><a href="#substitution-ciphers"
+id="toc-substitution-ciphers">Substitution Ciphers</a></li>
+<li><a href="#transposition-ciphers"
+id="toc-transposition-ciphers">Transposition Ciphers</a></li>
+<li><a href="#one-time-pad" id="toc-one-time-pad">One-Time Pad</a></li>
+</ul></li>
+<li><a href="#rsa" id="toc-rsa">RSA</a>
+<ul>
+<li><a href="#steps" id="toc-steps">Steps</a></li>
+<li><a href="#usage" id="toc-usage">Usage</a></li>
+<li><a href="#properties-of-rsa" id="toc-properties-of-rsa">Properties
+of RSA</a></li>
+</ul></li>
+<li><a href="#securely-sending-messages-secure-channels"
+id="toc-securely-sending-messages-secure-channels">Securely sending
+messages (Secure Channels)</a>
+<ul>
+<li><a href="#digital-signatures" id="toc-digital-signatures">Digital
+Signatures</a></li>
+<li><a href="#diffie-hellman-key-exchange"
+id="toc-diffie-hellman-key-exchange">Diffie-Hellman Key
+Exchange</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav><div id="data">
@@ -1894,6 +1995,37 @@ open, no intermediate routers</li>
 on the path to the destination.</li>
 </ul>
 <hr />
+<h3 id="congestion-control">Congestion Control</h3>
+<p>Congestion Control deals with preventing the entire <em>network</em>
+from having too much data transmitting at once. Even if every single
+node is transmitting within their individual limits, the combined flow
+of data may congest the network.</p>
+<p>Two main algorithms for Congestion Control are used - Leaky Bucket
+and Token Bucket.</p>
+<h4 id="leaky-bucket">Leaky Bucket</h4>
+<p>This algorithm simulates a leaky bucket, which is usually implemented
+as a queue. The bucket has an incoming stream of water (data) that can
+have different speeds. There is a hole in the bottom of the bucket that
+is our output stream, which “leaks” water at a constant rate, even if
+the incoming stream is faster than it.</p>
+<p>This ensures that even if the host is sending a lot of data together,
+the network is not congested with it. It is usually implemented as a
+FIFO queue with a fixed output rate.</p>
+<p>If the bucket/queue is full, and more data arrives from the host, it
+will “overflow”,i.e, be lost.</p>
+<p>A drawback is that this fixes a rigid pattern at the output, no
+matter what the pattern of the input is. This is fixed by the token
+bucket approach.</p>
+<h4 id="token-bucket">Token Bucket</h4>
+<p>In this, tokens are added to the bucket at a constant rate. When a
+packet arrives, it takes the corresponding amount of tokens in the
+bucket, and is transmitted. For example, to transmit 1MB data, we need
+1MB of tokens.</p>
+<p>If the bucket doesn’t have 1MB of tokens, the packet must wait, or be
+discarded. If the bucket has &gt;= 1MB of tokens, the packet will take
+as many as it needs (1MB), and be transmitted.</p>
+<p>If the bucket is full, no more tokens are added (i.e, incoming tokens
+are discarded.)</p>
 <h3 id="routing-protocols">Routing Protocols</h3>
 <p>Routing Protocols are used to decide the route a particular packet
 will take to its destination.</p>
@@ -2022,6 +2154,14 @@ port numbers may be used to identify different computers.</p>
 Delivery.</strong> It must deliver the data from the sender application
 (for e.g, a browser) to the receiver application (the server of the
 website the user opened).</p></li>
+<li><p><strong>Segmentation</strong> - Break down the data into smaller
+parts that can be sent over the network, and reassemble it at the
+receiver side.</p></li>
+<li><p><strong>Multiplexing and Demultiplexing</strong> - A single
+device generally only has a single connection to the Internet (or any
+other network). If multiple applications are using that connection,
+multiplexing and demultiplexing of data is done.</p></li>
+<li><p><strong>Connection Management</strong></p></li>
 <li><p><strong>Reliability</strong> - All the data must be delivered to
 the receiver correctly. No lost/corrupted data should be delivered.
 Lost/corrupted data must be detected and resent. <strong>UDP doesn’t
@@ -2036,13 +2176,6 @@ doesn’t provide in-order delivery.</strong></p></li>
 Receiver verifies the checksum that the sender sent.</p></li>
 <li><p><strong>Congestion Control</strong></p></li>
 <li><p><strong>Flow Control</strong></p></li>
-<li><p><strong>Segmentation</strong> - Break down the data into smaller
-parts that can be sent over the network, and reassemble it at the
-receiver side.</p></li>
-<li><p><strong>Multiplexing and Demultiplexing</strong> - A single
-device generally only has a single connection to the Internet (or any
-other network). If multiple applications are using that connection,
-multiplexing and demultiplexing of data is done.</p></li>
 </ul>
 <h3 id="socket-address-and-port-numbers">Socket Address and Port
 Numbers</h3>
@@ -2087,6 +2220,7 @@ guidelines and standards to prevent confusion and clashes.</p>
 <p><strong><em>IP Address is used to differentiate one machine from
 another. Port Numbers are used to differentiate different applications
 on the same machine.</em></strong></p>
+<h4 id="section"></h4>
 <h3 id="tcp-transmission-control-protocol">TCP (Transmission Control
 Protocol)</h3>
 <p>TCP (Transmission Control Protocol) is a popular transport layer
@@ -2536,5 +2670,575 @@ control</td>
 </tr>
 </tbody>
 </table>
+<h2 id="application-layer">Application Layer</h2>
+<p>Enables users (human or s/w) to access the network. It is responsible
+for providing services to the user.</p>
+<h3 id="paradigms">Paradigms</h3>
+<ul>
+<li>Provides services to the user</li>
+<li>To use the internet we need 2 application programs that communicate
+with each other using the application layer.</li>
+<li>Communication uses a logical connection, i.e, the 2 application
+programs assume that there is an imaginary direct connection between
+them. In reality, the communication happens through various layers
+(Transport, Network, Data-Link, etc.)</li>
+</ul>
+<p>There are 2 types:</p>
+<ul>
+<li><strong>Client-Server</strong> - Server program provides service to
+the client program. It is the most popular method today. Server runs
+continuously. Client creates a connection to the server using the
+Internet and requests a particular service.</li>
+<li><strong>Peer to Peer</strong> - Gaining popularity in recent times.
+Both communicating programs have equal responsibility and power. No
+program needs to be always running. A computer can even provide and
+receive services at the same time.</li>
+</ul>
+<h3 id="file-transferring">File Transferring</h3>
+<h4 id="ftp-file-transfer-protocol">FTP (File Transfer Protocol)</h4>
+<ul>
+<li>It’s an application layer protocol used for transferring (uploading
+and downloading) files over the Internet.</li>
+<li>It uses TCP under the hood.</li>
+<li>It solves problems such as different systems having different ways
+of representing and storing files.</li>
+<li>It establishes 2 connections between 2 hosts:
+<ul>
+<li>One connection is used for control information (commands and
+responses). This uses TCP port 21. It remains active during the FTP
+session.</li>
+<li>The other connection is used for actual data transfer. This uses TCP
+port 20. It closes and opens for each file transfer.</li>
+</ul></li>
+</ul>
+<h5 id="security-in-ftp">Security in FTP</h5>
+<ul>
+<li>Security was not a big issue when FTP was created.</li>
+<li>FTP supports passwords, but they are sent unencrypted, therefore
+they can be intercepted.</li>
+<li>Data is also transferred unencrypted.</li>
+<li>SSL (Secure Sockets Layer) can be added to FTP (between FTP and TCP)
+to make it more secure. This makes it SSL-FTP.</li>
+</ul>
+<h4 id="ftam-file-transfer-access-management">FTAM (File Transfer Access
+Management)</h4>
+<ul>
+<li>FTP was created by the Internet standard. FTAM is the OSI
+counterpart to FTP.</li>
+<li>It is a Application Layer protocol that provides access and
+management to a <em>distributed</em> network file system.</li>
+<li>It allows users to access file systems both locally and
+remotely.</li>
+<li>It defines an architecture for a hierarchical file system. Any file
+system that wants to be accessible using FTAM must follow this
+architecture.</li>
+<li>It does not define or create a user interface for accessing such
+file systems. Vendors and users can create their own based on the
+architecture specified.</li>
+<li>It is more similar to Gopher or WWW rather than FTP. FTP only allows
+files, whereas FTAM also allows links to other FTAM directories (like
+WWW does)</li>
+</ul>
+<h3 id="email">Email</h3>
+<ul>
+<li>Used to send messages over the Internet</li>
+<li>Used to be plain text, now can include images, videos, files,
+etc.</li>
+<li>Actual message transfer is done using a message transfer agent
+(MTA). Client must have client MTA to send mail, server must have server
+MTA to receive mail.</li>
+</ul>
+<h4 id="smtp">SMTP</h4>
+<p>SMTP (Simple Mail Transfer Protocol) is the formal protocol that
+defines MTA client and server applications. SMTP defines how commands
+and responses must be sent back and forth. It is used twice, once
+between sender and sender’s mail server, and second between sender’s
+mail server and receiver’s mail server. Mail is transferred in 3 phases
+- Connection Establishment, Mail Transfer, and Connection
+Termination.</p>
+<h5 id="components-of-smtp">Components of SMTP</h5>
+<h6 id="mail-user-agent-mua">Mail User Agent (MUA)</h6>
+<p>Computer application that helps the user in sending and receiving
+email. Eg - outlook, thunderbird.</p>
+<h6 id="mail-submission-agent-msa">Mail submission agent (MSA)</h6>
+<p>Used to send email. It receives email from MUA, and interacts with
+the MTA for sending it.</p>
+<h6 id="mail-transfer-agent-mta">Mail transfer agent (MTA)</h6>
+<p>Transfers email from one system to another using SMTP</p>
+<h6 id="mail-delivery-agent-mda">Mail delivery agent (MDA)</h6>
+<p>Helps deliver email to the local system, put it into appropriate
+mailboxes,filter spam etc. It works before the message hits the user’s
+inbox.</p>
+<h5 id="smtp-commands">SMTP Commands</h5>
+<h6 id="helo">HELO</h6>
+<p>Identifies the user and the full domain name. This is transmitted
+only once per session.</p>
+<h6 id="mail">MAIL</h6>
+<p>Used to initiate transfer of mail</p>
+<h6 id="rcpt">RCPT</h6>
+<p>This command comes immediately after MAIL. Used to identify
+recipient’s full domain name.</p>
+<h6 id="data">DATA</h6>
+<p>Data is transferred line by line</p>
+<h4 id="message-access-agents---pop-and-imap">Message Access Agents -
+POP and IMAP</h4>
+<ul>
+<li>SMTP is not involved in pulling mail to client. It is only a push
+protocol and pushes mail from client to server.</li>
+<li>Message Access Agents such as POP (Post Office Protocol) and IMAP
+(Internet Mail Access Protocol) are used to pull messages from the
+server.</li>
+</ul>
+<h5 id="pop3">POP3</h5>
+<ul>
+<li>Simple and limited.</li>
+<li>Client opens connection to server on port 110. It sends its username
+and password.</li>
+<li>It can access mail messages in delete mode or keep mode. In delete
+mode, once a message is downloaded from the server, the server will
+delete it. The user can keep a local copy. In keep mode, the server side
+copy will be kept intact.</li>
+</ul>
+<h5 id="imap4">IMAP4</h5>
+<ul>
+<li>More powerful and complex.</li>
+<li>User can check email header before downloading the entire
+message.</li>
+<li>User can search email</li>
+<li>Partially downloadable email</li>
+<li>Different mailboxes, folders, hierarchy of folders can be
+created.</li>
+</ul>
+<h4 id="mime">MIME</h4>
+<p>MIME (Multipurpose Internet Mail Extension) is used to extend the
+ability of email.</p>
+<ul>
+<li>Email generally only supports 7-bit ASCII messages.</li>
+<li>MIME allows non-ASCII data, including multimedia, to be sent using
+email.</li>
+<li>MIME transforms non-ASCII data to NVT ASCII and delivers them to
+client MTA. On the receiving side the message is transformed back.</li>
+</ul>
+<h4 id="extended-smtp-esmtp-vs-smtp">Extended SMTP (ESMTP) vs SMTP</h4>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">ESMTP</th>
+<th style="text-align: center;">SMTP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Authentication of sender is done</td>
+<td style="text-align: center;">No authentication is present.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Multimedia can be attached directly</td>
+<td style="text-align: center;">Multimedia can only be attached using
+MIME</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Size of email can be reduced</td>
+<td style="text-align: center;">Email size cannot be reduced</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SSL encryption is done</td>
+<td style="text-align: center;">No encryption</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Transmission opened using EHLO
+command</td>
+<td style="text-align: center;">Transmission opened using HELO
+command.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dns">DNS</h3>
+<p>DNS stands for domain name system. It is used to convert domain
+names, such as google.com, to IP addresses, such as 8.8.8.8. Special DNS
+servers are used for this. Many of them exist due to the large number of
+websites on the internet that need DNS services.</p>
+<h4 id="dns-server-hierarchy">DNS Server Hierarchy</h4>
+<h5 id="root-dns-server">Root DNS Server</h5>
+<p>This is the highest level in the hierarchy. Many of these exist, and
+are operated by very few organizations (around 13). When a root DNS
+server is asked to provide the IP of a website, it doesn’t provide the
+IP directly. Instead, it provides the IP of the correct TLD DNS server
+that will contain the needed website’s IP.</p>
+<h5 id="top-level-domain-tld-dns-server">Top-Level Domain (TLD) DNS
+Server</h5>
+<p>TLDs are used for a particular domain ending - for e.g, .com, .edu,
+.in, etc. Each will have a different TLD server. The TLD will point the
+query towards the correct authoritative DNS server that contains the
+website’s IP.</p>
+<h5 id="authoritative-dns-server">Authoritative DNS Server</h5>
+<p>Authoritative DNS servers contain a broad list of domain names and
+their IP addresses. The authoritative DNS server will return back a
+website’s IP address to us.</p>
+<h4 id="dns-name-hierarchy">DNS Name Hierarchy</h4>
+<p>Suppose we take the domain - www.example.com</p>
+<p>A fully qualified domain name (FQDN) always has a . at the end, even
+if we don’t write it. So our domain becomes www.example.com.</p>
+<p>This can be divided into 4 parts, from right to left.</p>
+<ol type="1">
+<li><strong>The root level domain</strong> - Represented by the dot at
+the end, this is the highest hierarchy level. It is used to denote the
+root level DNS server.</li>
+<li><strong>TLD</strong> - The TLD in our case is <em>com</em></li>
+<li><strong>Second-level domain</strong>- This is the website’s name,
+for e.g a business name. In our case it is <em>example</em></li>
+<li><strong>Sub-domain</strong> - Here, <em>www</em> is a subdomain. We
+can also create more subdomains such as shop.example.com,
+cloud.example.com, images.example.com, etc.</li>
+</ol>
+<h2 id="session-layer">Session Layer</h2>
+<h3 id="functions-of-session-layer">Functions of Session Layer</h3>
+<ul>
+<li>Dialog Control - allow systems to enter into full/half duplex
+dialog</li>
+<li>Managing tokens</li>
+<li>Synchronization</li>
+</ul>
+<h3 id="design-issues">Design Issues</h3>
+<ul>
+<li>Establishing sessions between 2 machines - opening, closing and
+maintaining a semi-permanent dialogue.</li>
+<li>Enhanced services (checkpoints and tokens)</li>
+</ul>
+<h3 id="rpc-remote-procedure-call">RPC (Remote Procedure Call)</h3>
+<p>RPC is a protocol that works in session layer of OSI model, and
+application layer of TCP/IP model.</p>
+<ul>
+<li>RPC is when a client calls a service on a server (or any other
+network computer), as if it is calling a function on its own local
+system.</li>
+<li>Can work on TCP/UDP both, but prefers UDP.</li>
+<li>Uses authentication to verify client’s identity.</li>
+</ul>
+<p>Client -&gt; Client Side API —– RPC ——&gt; Server -&gt; Local
+function call -&gt; Return value to client.</p>
+<ul>
+<li>Client doesn’t see the OSI layers or the network calls. To the
+client, it is simply calling a function.</li>
+<li><strong>Stubs</strong> are used to convert data to different
+formats, as client and server may use different formats for data.</li>
+<li>The client stub takes the parameters for the RPC call and puts them
+into the message. This is called <strong>parameter marshalling</strong>.
+It also puts the name or number of the procedure to be called.</li>
+<li>The receiver stubs receives the message, unpacks it and gives it to
+the receiver application. The receiver application calls the requested
+procedure with the given parameters. The result is packet into a message
+by the receiver stub, and send to the client.</li>
+<li>The client stub receives the response, unpacks it, and gives it back
+to the client application.</li>
+</ul>
+<h4 id="issues-in-rpc">Issues in RPC</h4>
+<ul>
+<li><p><strong>Binding</strong> - How does the client know who to call,
+what the procedure name is, etc.?</p>
+<p>This has 2 solutions:</p>
+<ul>
+<li><strong>Dynamic Binding</strong> - Find the server when RPC is
+called (at runtime)</li>
+<li><strong>Naming and Locating</strong> - Server offering a service
+exports an interface for it, and registers the interface with the
+system. Client must import an interface before communication.</li>
+</ul></li>
+<li><p>Different formats of data - solved by stubs.</p></li>
+<li><p>How to pass parameters - solved by parameter
+marshalling.</p></li>
+</ul>
+<h3 id="types-of-rpc">Types of RPC</h3>
+<h4 id="synchronous-rpc">Synchronous RPC</h4>
+<p>A calls RPC on B - calling process on A is suspended. Information is
+passed as parameters.</p>
+<h4 id="asynchronous-rpc">Asynchronous RPC</h4>
+<p>Client continues executing other commands after RPC request and
+receiving acknowledgment. When it receives the response, it can use
+it.</p>
+<h4 id="one-way-rpc">One-Way RPC</h4>
+<p>Client doesn’t wait for an acknowledgment. This is unreliable since
+the receiver may never have received the RPC request.</p>
+<h4 id="deferred-synchronous-rpc">Deferred Synchronous RPC</h4>
+<p>Client periodically asks(polls) the server if the RPC results are
+available yet.</p>
+<h3 id="failure-semantics-in-rpc">Failure Semantics in RPC</h3>
+<ul>
+<li><strong>Client unable to locate server</strong> - Return error to
+client application.</li>
+<li><strong>Lost request message</strong> - Timeout messages, repeat the
+message if we don’t receive a reply after some time.</li>
+<li><strong>Lost reply</strong> - Same as above.</li>
+<li><strong>Server failure</strong> - Hard to detect if server failed or
+if message was lost. We also don’t know if server failed after
+completing the procedure (but before sending its reply), or if the
+procedure was never executed (server failed before calling it.)</li>
+<li><strong>Client failure</strong> - Client fails before it can receive
+the reply.</li>
+</ul>
+<h2 id="presentation-layer---security">Presentation Layer -
+Security</h2>
+<p>One of the major functions of the presentation layer is security and
+cryptography.</p>
+<h3 id="types-of-cryptosystems">Types of Cryptosystems</h3>
+<h4 id="symmetric">Symmetric</h4>
+<p>AKA conventional cryptography/shared-key systems/secret-key
+systems.</p>
+<p>Sender and receiver share the same key, which is used both for
+encryption and decryption.</p>
+<p>The shared key must be kept private. Anyone in possession of the key
+can read encrypted messages.</p>
+<p>The notation <span class="math inline">\(K_{a,b}\)</span> is used to
+denote a secret-key shared by <span class="math inline">\(A\)</span> and
+<span class="math inline">\(B\)</span>.</p>
+<h4 id="asymmetric">Asymmetric</h4>
+<p>AKA Public-key cryptography.</p>
+<p>The keys for encryption and decryption are different, but form a
+unique pair. The key for decryption can only decrypt the data encrypted
+with its pair key.</p>
+<p>Key for encryption - <span class="math inline">\(K_E\)</span>.</p>
+<p>Key for decryption - <span class="math inline">\(K_D\)</span>.</p>
+<p>One of the keys is made public, and the other one kept private.</p>
+<p>The notation <span class="math inline">\(K_A^+\)</span> is used to
+denote a public key belonging to <span class="math inline">\(A\)</span>,
+and <span class="math inline">\(K_A^-\)</span> denotes a private key
+belonging to <span class="math inline">\(A\)</span>.</p>
+<p>If Bob wants to send a message to Alice, he should encrypt it using
+Alice’s public key. Since Alice is the only person who possessed the
+corresponding private key, only she can decrypt the message.</p>
+<h3 id="types-of-ciphers">Types of Ciphers</h3>
+<p>Ciphers are algorithms used to change <em>plaintext</em> to
+<em>ciphertext</em>. Plaintext is our original information. Ciphertext
+is it’s encrypted form. A cipher does character-to-character, or
+bit-to-bit transformations. A code, on the other hand, transforms entire
+words.</p>
+<h4 id="substitution-ciphers">Substitution Ciphers</h4>
+<p>Each letter is replaced, or substituted, by another letter. It can
+also be done for groups of letters, for e.g, two at a time.</p>
+<p>A simple example is the Caesar cipher, in which the letters of the
+alphabet are shifted a fixed number of positions. For e.g, if we shift
+by 2,</p>
+<p>A becomes C, B becomes D, C becomes E, etc.</p>
+<p>Modern substitution ciphers are much more complex, and tough to
+break.</p>
+<h4 id="transposition-ciphers">Transposition Ciphers</h4>
+<p>In substitution ciphers, we changed the letters/bits, but kept their
+order the same. In transposition ciphers, we will keep the letters the
+same, but change their order.</p>
+<p>One simple transposition cipher is the columnar transposition, shown
+here.</p>
+<figure>
+<img src="../images/cn/transposition_cipher"
+alt="image-20230506141817783" />
+<figcaption aria-hidden="true">image-20230506141817783</figcaption>
+</figure>
+<p>Here, MEGABUCK is the secret key that must not be shared with anyone
+except the receiver. We write the plaintext rowwise, with the number of
+columns being the length of the key.</p>
+<p>We write the ciphertext columnwise. We start with the column whose
+key is lowest. Here, lower is determined by position in alphabet. Thus,
+we write out column A -&gt; B-&gt;C-&gt;E-&gt;G-&gt;K-&gt;M.</p>
+<h4 id="one-time-pad">One-Time Pad</h4>
+<p>This is an unbreakable cipher, but it has its own disadvantages.</p>
+<ul>
+<li><p>Choose a random bit-string as the key.</p></li>
+<li><p>Convert the plaintext into bits, for e.g, using ASCII.</p></li>
+<li><p>XOR the plaintext with the key. This produces the ciphertext,
+which is sent to the receiver.</p></li>
+<li><p>To decrypt, the ciphertext is again XORed with the key, and
+converted back to character form.</p></li>
+<li><p>This is unbreakable, because if a hacker tries to try all
+possible keys, he will receive valid (but wrong) answers.</p>
+<p>For e.g, if the original message is “Hello World”, using the key
+<span class="math inline">\(key_1\)</span>. Suppose the hacker tries to
+XOR the ciphertext using <span class="math inline">\(key_2\)</span>, and
+he receives the message “Good morning”. He will not know whether “Good
+Morning” was the actual message.</p></li>
+<li><p>Major issue with one-time pads is that both sender and receiver
+need to maintain a copy of the key, that can never be lost or changed.
+One key can also not be used a large amount of times, as then hackers
+will get a large amount of data to try to guess the key from.</p></li>
+</ul>
+<h3 id="rsa">RSA</h3>
+<p>An asymmetric encryption algorithm named after its inventors -
+Rivest, Shamir and Adleman.</p>
+<p>Based on the fact that prime factorization of very large numbers is a
+difficult and time-consuming process.</p>
+<h4 id="steps">Steps</h4>
+<ol type="1">
+<li><p>Take 2 very large prime numbers - <span
+class="math inline">\(p\)</span> and <span
+class="math inline">\(q\)</span>.</p></li>
+<li><p>Calculate <span class="math display">\[ n = p * q \]</span> <span
+class="math display">\[ z = (p-1)*(q-1) \]</span></p></li>
+<li><p>Choose <span class="math inline">\(d\)</span> such that <span
+class="math inline">\(d\)</span> is relatively prime to <span
+class="math inline">\(z\)</span>.</p></li>
+<li><p>Compute <span class="math inline">\(e\)</span> such that</p></li>
+</ol>
+<p><span class="math display">\[ (e*d)\%z =1 \]</span></p>
+<p>Now, the number <span class="math inline">\(d\)</span> can be used
+for decryption, and <span class="math inline">\(e\)</span> for
+encryption.</p>
+<p>One of these is kept private, and the other is made public.</p>
+<h4 id="usage">Usage</h4>
+<p>Let the message to be sent be <span class="math inline">\(m\)</span>.
+Here, <span class="math inline">\(m\)</span> is interpreted simply as a
+binary number.</p>
+<ol type="1">
+<li>Divide <span class="math inline">\(m\)</span> into fixed length
+blocks, <span class="math inline">\(m_i\)</span>, such that:</li>
+</ol>
+<p><span class="math display">\[ 0 \le m_i \le n \]</span></p>
+<p>Each <span class="math inline">\(m_i\)</span> is also interpreted as
+a binary number.</p>
+<ol start="2" type="1">
+<li><p>The sender calculates <span class="math display">\[ c_i = (m_i^e)
+\% n \]</span> All such <span class="math inline">\(c_i\)</span> are
+calculated and concatenated into a single variable <span
+class="math inline">\(c\)</span>.</p></li>
+<li><p><span class="math inline">\(c\)</span> is sent to the
+receiver.</p></li>
+<li><p>The receiver calculates <span class="math display">\[ y_i =
+(c_i^d) \% n \]</span></p></li>
+</ol>
+<p>Based on the properties of modulus, and the way we have chosen <span
+class="math inline">\(e\)</span> and <span
+class="math inline">\(d\)</span>, we can easily see that <span
+class="math inline">\(y_i=m_i \forall i\)</span>.</p>
+<p>This way, the receiver is able to reconstruct the message.</p>
+<h4 id="properties-of-rsa">Properties of RSA</h4>
+<ul>
+<li>RSA is secure because no method exist to (efficiently) find prime
+factors of large numbers.</li>
+<li>RSA itself is also computationally expensive, around 100-1000x
+slower than DES.</li>
+<li>It’s generally used to securely share session keys, and then those
+session keys are used in a (faster) encryption algorithm, such as AES or
+DES.</li>
+</ul>
+<h3 id="securely-sending-messages-secure-channels">Securely sending
+messages (Secure Channels)</h3>
+<p>Securely sending messages has the following problems to solve.</p>
+<ul>
+<li><p><strong>Confidentiality</strong></p>
+<p>No one else other than the intended recipient should be able to read
+the message.</p></li>
+<li><p><strong>Integrity</strong></p>
+<p>The recipient should have a way to be sure that the contents of the
+message weren’t tampered.</p></li>
+<li><p><strong>Authentication</strong></p>
+<p>Both parties should have a way to be confident that they are sending
+messages to the right person.</p></li>
+</ul>
+<h4 id="digital-signatures">Digital Signatures</h4>
+<p>Confidentiality and Integrity needs to be maintained in secure
+channels.</p>
+<ul>
+<li>Alice needs to be sure that Bob cannot alter a message and claim
+that Alice sent it.</li>
+<li>Bob needs to be able to prove that a message indeed came from Alice,
+and that she cannot deny having sent it.</li>
+</ul>
+<p><strong>Digital Signatures</strong> are used for this. The document
+is signed using the sender’s public key, which uniquely ties the sender
+to the message.</p>
+<ul>
+<li>Alice sends a message <span class="math inline">\(m\)</span> to Bob.
+She encrypts it with <em>her</em> private key to create a
+<strong><em>signature</em></strong>. The signature and the original
+message are sent to Bob.
+<ul>
+<li>If she wants to keep the message content a secret, she can encrypt
+the entire thing using Bob’s public key.</li>
+<li>The message will then be <span
+class="math inline">\(K_B^+(m,K_A^-(m))\)</span>, where <span
+class="math inline">\(K_A^-(m)\)</span> is the signature.</li>
+</ul></li>
+<li>Message arrives at Bob.
+<ul>
+<li>If it’s secret, he first decrypts it using his private key.</li>
+</ul></li>
+<li>He decrypts the signature using Alice’s public key, and matches it
+with <span class="math inline">\(m\)</span>. If the decrypted signature
+and <span class="math inline">\(m\)</span> match, then he can be sure
+the message was sent from Alice and is untampered with.</li>
+<li>Alice cannot claim she never sent the message, or sent a different
+message, because Bob has the signed version of <span
+class="math inline">\(m\)</span>, and only Alice could have signed it,
+since only she possesses her private key.</li>
+<li>Bob cannot claim Alice sent a modified message, because he would
+have to prove that Alice signed the modified message as well.</li>
+</ul>
+<figure>
+<img src="../images/obs/digital_signatures.png"
+alt="Digitally signing messsages" />
+<figcaption aria-hidden="true">Digitally signing messsages</figcaption>
+</figure>
+<h5 id="issues-with-this-scheme">Issues with this scheme</h5>
+<ul>
+<li>This remains valid only as long as Alice’s private key remains
+private. If the key is stolen or leaked, Alice will have to generate a
+new key, and all messages signed using the previous key will then become
+worthless.</li>
+<li>If the message is long, encrypting the entire message may be
+computationally expensive.</li>
+</ul>
+<p>A solution for the second problem is a <strong>message
+digest</strong>.</p>
+<h5 id="message-digest">Message Digest</h5>
+<p>It’s a fixed length string <span class="math inline">\(h\)</span>
+that’s computed from a message <span class="math inline">\(m\)</span> of
+arbitrary length, using a hash function <span
+class="math inline">\(H\)</span>.</p>
+<p>If <span class="math inline">\(m\)</span> is changed to <span
+class="math inline">\(m&#39;\)</span>, then it’s hash <span
+class="math inline">\(H(m&#39;)\)</span> will not be the same as before
+(<span class="math inline">\(H(m)\)</span>). Thus, modifications will
+easily be detected.</p>
+<p>Instead of signing <span class="math inline">\(m\)</span>, Alice
+signs <span class="math inline">\(H(m)\)</span>, which becomes the
+signature.</p>
+<p>The message sent to Bob is now <span
+class="math inline">\(K_B^+(m,K_A^-(H(m)))\)</span>, where <span
+class="math inline">\(K_A^-(H(m))\)</span> is the signature.</p>
+<p>On Bob’s end, Bob will hash the entire message himself, decrypt the
+signature, and compare the hashes. If they match, all is good.</p>
+<figure>
+<img src="../images/obs/digital_signatures_using_digest.png"
+alt="Digitally signing messages using digests" />
+<figcaption aria-hidden="true">Digitally signing messages using
+digests</figcaption>
+</figure>
+<h4 id="diffie-hellman-key-exchange">Diffie-Hellman Key Exchange</h4>
+<p>This is a method for 2 parties to exchange keys without the use of a
+third party.</p>
+<ol type="1">
+<li>Alice and Bob agree on 2 large numbers, <span
+class="math inline">\(n\)</span> and <span
+class="math inline">\(g\)</span>. Both numbers can be made public.</li>
+<li>Alice chooses a large number <span class="math inline">\(x\)</span>
+and keeps it private, and Bob chooses a large number <span
+class="math inline">\(y\)</span>, and also keeps it private. Alice does
+not know <span class="math inline">\(y\)</span> and Bob doesn’t know
+<span class="math inline">\(x\)</span>.</li>
+<li>Alice sends <span class="math inline">\(g^x\;mod\;n\)</span> to
+Bob.</li>
+<li>Bob sends <span class="math inline">\(g^y\;mod\;n\)</span> to
+Alice.</li>
+<li>Alice computes <span class="math inline">\(K_{A,B}\)</span> as:
+<span class="math display">\[ K_{A,B} = (g^y\;mod\;n)^x = g^{xy}\; mod
+\; n\]</span></li>
+<li>Bob computes <span class="math inline">\(K_{A,B}\)</span> as: <span
+class="math display">\[ K_{A,B} = (g^x\;mod\;n)^y = g^{xy}\; mod \;
+n\]</span></li>
+</ol>
+<p>This way both Alice and Bob get the same session key, and no one
+listening from outside will be able to recreate it. This is based on the
+same principle as <a href="#rsa">RSA</a>.</p>
 </div></div></body>
 </html>
