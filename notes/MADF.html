@@ -20,6 +20,9 @@
     }
   </style>
   <link rel="stylesheet" href="styles.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -156,6 +159,64 @@ Hijacking</a></li>
 id="toc-providing-security-to-pdas">Providing Security to PDAs</a></li>
 <li><a href="#best-security-practices"
 id="toc-best-security-practices">Best Security Practices</a></li>
+</ul></li>
+<li><a href="#sms-security-issues" id="toc-sms-security-issues">SMS
+Security Issues</a>
+<ul>
+<li><a href="#availability-issues"
+id="toc-availability-issues">Availability Issues</a></li>
+<li><a href="#confidentiality-issues"
+id="toc-confidentiality-issues">Confidentiality Issues</a></li>
+<li><a href="#integrity-issues" id="toc-integrity-issues">Integrity
+Issues</a></li>
+<li><a href="#other-security-issues"
+id="toc-other-security-issues">Other Security Issues</a></li>
+<li><a href="#sms-spamming" id="toc-sms-spamming">SMS Spamming</a></li>
+</ul></li>
+<li><a href="#mobile-phone-forensics"
+id="toc-mobile-phone-forensics">Mobile Phone Forensics</a>
+<ul>
+<li><a href="#crime-in-mobile-phones"
+id="toc-crime-in-mobile-phones">Crime in Mobile Phones</a></li>
+<li><a href="#sources-of-evidence" id="toc-sources-of-evidence">Sources
+of Evidence</a></li>
+<li><a href="#forensic-procedures" id="toc-forensic-procedures">Forensic
+Procedures</a>
+<ul>
+<li><a href="#general-principles" id="toc-general-principles">General
+Principles</a></li>
+<li><a href="#training-and-competence"
+id="toc-training-and-competence">Training and Competence</a></li>
+<li><a href="#analysis-procedure" id="toc-analysis-procedure">Analysis
+Procedure</a></li>
+<li><a href="#preserving-data-and-isolating-from-network"
+id="toc-preserving-data-and-isolating-from-network">Preserving data and
+isolating from network</a></li>
+<li><a href="#identify-the-phone" id="toc-identify-the-phone">Identify
+the phone</a></li>
+<li><a href="#examine-sim-card-and-memory"
+id="toc-examine-sim-card-and-memory">Examine SIM Card and
+Memory</a></li>
+</ul></li>
+<li><a href="#sim-card" id="toc-sim-card">SIM Card</a></li>
+<li><a href="#files-present-in-sim-card"
+id="toc-files-present-in-sim-card">Files Present in SIM Card</a>
+<ul>
+<li><a href="#imsi" id="toc-imsi">IMSI</a></li>
+<li><a href="#iccid" id="toc-iccid">ICCID</a></li>
+<li><a href="#location-information-file-and-bcch-file"
+id="toc-location-information-file-and-bcch-file">Location Information
+File and BCCH File</a></li>
+<li><a href="#sms-storage-file" id="toc-sms-storage-file">SMS Storage
+File</a></li>
+<li><a href="#contact-list" id="toc-contact-list">Contact List</a></li>
+<li><a href="#outgoing-calls" id="toc-outgoing-calls">Outgoing
+Calls</a></li>
+</ul></li>
+<li><a href="#device-data" id="toc-device-data">Device Data</a></li>
+<li><a href="#evidence-in-operators-network"
+id="toc-evidence-in-operators-network">Evidence in Operator’s
+Network</a></li>
 </ul></li>
 </ul>
 </nav><div id="data">
@@ -474,5 +535,420 @@ during the start, so an attacker can find ways to do this.</p>
 <li>Maintain up-to-date anti-virus protection</li>
 <li>Back up frequently</li>
 </ol>
+<h2 id="sms-security-issues">SMS Security Issues</h2>
+<p>SMS is a store and forward service. The SMS is stored in a server
+first, before being forwarded to the receiver. This is necessary in case
+the receiver’s mobile phone is out of coverage or switched off when the
+SMS is sent.</p>
+<ul>
+<li><strong>SMC</strong> - Short Message Center. This is where the SMSes
+are sent to be stored, before they are forwarded.</li>
+<li><strong>SME</strong> - Short Message Entity. This is an application
+or program that generates an SMS message. It can be a mobile phone, a
+computer, or a service network.</li>
+<li><strong>GMSC</strong> - Gateway Short Message Service (Actual full
+form is Gateway Mobile Switching Center)- acts as an interface between
+different networks. It uses the HLR (Home location register) to
+determine the recipient’s network, and forwards the message there.</li>
+</ul>
+<h3 id="availability-issues">Availability Issues</h3>
+<ul>
+<li>Many attacks try to create a DoS scenario.</li>
+<li>They may send thousands of messages to a particular user, using
+software or the Internet. If it is an older device, it’s memory will
+fill up and it will be unable to accept more messages.</li>
+<li>With modern devices, the recipient will have difficulty identifying
+which SMSes are real and meant for him, and which are fake.</li>
+<li>The attacker may trick the OS/device into blocking actions until the
+SMSes are deleted. These messages usually contain special characters or
+symbols, long names, or do not follow standard structure for an SMS
+message.</li>
+<li>Silent DoS is also possible, where the phone works normally but
+doesn’t receive any SMS.</li>
+<li>Continuous messaging can also drain the battery.</li>
+<li>DoS can be done by installing a fake base station, or a jamming
+device that makes the user unable to send or receive SMSes.</li>
+<li>Sometimes DoS can happen without any attack on the system, for e.g,
+on holidays when millions of SMSes are sent together which causes delay
+and overload in the system.</li>
+</ul>
+<h3 id="confidentiality-issues">Confidentiality Issues</h3>
+<ul>
+<li><p>Encryption for SMS/Voice calls are usually done between the phone
+and the provider network (if done at all). Once in the network, the data
+is unencrypted. Employees of the provider may have access to
+it.</p></li>
+<li><p>An attacker can hack an employee’s mobile phone to gain access to
+the network and view other people’s SMSes.</p></li>
+<li><p>Fake base stations can also be used by attackers to intercept and
+read SMSes. The attacker can also forward the SMS to the actual
+recipient to avoid any suspicion, using various techniques to hide his
+identity (SMS Masquerading)</p></li>
+<li><p>Even without knowing the content of SMS we can learn about the
+user’s habits, such as when they switch their phone off and when they
+switch it on. A switched off phone will not receive an SMS, and the SMS
+will be marked as <em>delivered</em> only after the phone is switched
+on.</p>
+<p>Attackers usually send <em>invisible</em> messages for this purpose,
+which do not show anything on the screen and don’t show any notification
+either.</p></li>
+<li><p>Mobile operators are sometimes required to share details of SMSes
+viewed and sent by a person for law enforcement. Even without operator’s
+help, there are ways to view deleted messages from a device.</p></li>
+</ul>
+<h3 id="integrity-issues">Integrity Issues</h3>
+<p>Integrity issues are those relating to an SMS’s content being
+changed, or the sender is pretending to be someone else.</p>
+<ul>
+<li><strong>SMS Spoofing</strong> is when a sender masquerades as
+another sender. Using the internet we can send messages in bulk using a
+number of our choice. Since this can be abused, operators now ask for
+some alphabets to be added in the ID along with digits. To combat this,
+fraudsters are using O instead of 0 and I instead of 1. The catalog’s
+functionality can also be exploited, as the catalog only matches the
+last 4 digits. So, an attacker sending a message using AA5483 will be
+matched by a catalog containing an entry for 88885483</li>
+<li>Attackers can also connect directly to a messaging center and use
+spoofing techniques to hide their identity, and pretend to be someone
+else. We can check if the number of the SMS, and the country of the
+message center match. For e.g, if the number is from Greece, but the
+message center is from Japan, we can figure out something is wrong.
+Timestamps can also be used, since message centers timestamp using their
+local time. If a message arrives from an Indian number , to an Indian
+receiver, with a timestamp of 2 hours before, we can guess that
+something is wrong (since it should have the same timestamp as the
+current time)</li>
+<li>Cipher can be used to change phone settings, such as turning
+ciphering indicator on or off.</li>
+<li>Special binary messages can also be sent using SMS. They don’t
+appear to the user, but go directly to the phone or SIM card. OTA
+updates of software were done using this method, but this can also be
+exploited by hackers.</li>
+</ul>
+<h3 id="other-security-issues">Other Security Issues</h3>
+<ul>
+<li>SMSes that can be modified/deleted later, but stay in the same
+memory location. Their initial use was for stuff like news, stocks,
+weather, where the SMS’s content would change daily and the user
+wouldn’t have to wait for a new SMS to arrive. They can obviously be
+misused.</li>
+<li>SMSes that show on the screen directly without any warning (flash
+SMS), without the user going into messages. These make the user think
+these are from the provider and hackers can trick users into calling
+certain numbers or paying money, etc.</li>
+<li>SMSes can be used to influence outcome of contests or voting
+procedures that allow SMS. Bulk messages can be sent for a particular
+participant.</li>
+</ul>
+<h3 id="sms-spamming">SMS Spamming</h3>
+<ul>
+<li>Spam is unsolicited commercial messages from unknown senders.</li>
+<li>Spam is profitable and can be completely anonymous.</li>
+<li>Internet sites allowing users to download free ringtones ask for
+their phone number, then sell that phone number to spammers.</li>
+<li>SMS spam filtering is more difficult than email spam filtering
+because SMSes are short so we have less information. ML algorithms such
+as Bayesian networks have proven effective.</li>
+<li>Techniques of protecting SMSC from spam sometimes use blacklisted
+words, which ends up blocking legitimate messages containing those
+words. Challenge/response protocols have been suggested.</li>
+<li>Many providers allow users to report spam, or stop SMS service
+altogether. Some also allow SMS aliases. Only messages sent to the alias
+are delivered, those sent to the number aren’t.</li>
+</ul>
+<p>A promising scheme is shown below.</p>
+<figure>
+<img src="../images/madf/sms_filter" alt="image-20230509195001350" />
+<figcaption aria-hidden="true">image-20230509195001350</figcaption>
+</figure>
+<ol type="1">
+<li>Originator’s phone number and the SMSC used are compared. If the
+originator sent a message earlier using a different SMSC, the message is
+marked as suspicious.</li>
+<li>SMSC and originator country is checked and compared.</li>
+<li>SenderId is checked. Non-numerical IDs have a greater chance of
+being spam.</li>
+<li>Timezone is checked. If the sender and receiver country are same,
+but the timestamp from SMSC is more than 1 minute ahead, the message is
+suspicoius.</li>
+<li>Keyword blacklist.</li>
+<li>HTTP links are checked.</li>
+<li>SMS Protocol is checked (TP-PID). Some SMSes, such as silent SMSes,
+which get deleted upon reception. The application notifies the user of
+such SMSes, even though it has been deleted.</li>
+</ol>
+<h2 id="mobile-phone-forensics">Mobile Phone Forensics</h2>
+<h3 id="crime-in-mobile-phones">Crime in Mobile Phones</h3>
+<ul>
+<li>Communication method for criminal activity</li>
+<li>Device theft</li>
+<li>Harassment calls</li>
+<li>Mobile phones can be used as a detonation mechanism</li>
+<li>Telecommunication fraud</li>
+<li>Identity theft</li>
+<li>Industrial espionage (using data stored on the device, or using the
+device as a bug)</li>
+</ul>
+<h3 id="sources-of-evidence">Sources of Evidence</h3>
+<p>We can find evidence on a mobile device in the following places</p>
+<ul>
+<li>Phone catalog/contacts</li>
+<li>Call history</li>
+<li>SMS/MMS</li>
+<li>Photographs and videos</li>
+<li>Emails</li>
+<li>Calendar</li>
+<li>Reminders</li>
+<li>Browser history</li>
+<li>Documents</li>
+<li>GPS information</li>
+<li>Memos/Reminders/To-do-lists</li>
+</ul>
+<p>Data can remain in places even after it has been deleted.</p>
+<h3 id="forensic-procedures">Forensic Procedures</h3>
+<p>When dealing with digital evidence,</p>
+<ul>
+<li>All general forensic principles must be applied.</li>
+<li>Actions taken on digital evidence should not change it</li>
+<li>Only trained people should be able to access the evidence in its
+original form</li>
+<li>All activity done on a device, such as seizure,storage, transfer
+must be documented.</li>
+<li>All processes performed on the device must also be recorded. A third
+party must be able to examine these processes.</li>
+</ul>
+<h4 id="general-principles">General Principles</h4>
+<ul>
+<li>Maintain data integrity</li>
+<li>Document and photograph everything on the scene</li>
+<li>All actions done on the device or to the device must be documented
+and must be available for audit.</li>
+<li>The mobile phone’s screen should be photographed as it was
+found.</li>
+<li>Evidence should not be altered.</li>
+<li>Analysts should be trained.</li>
+<li>Each evidence holder is responsible for anything that happens to
+it.</li>
+<li>Procedures should be completed as quickly as possible.</li>
+</ul>
+<h4 id="training-and-competence">Training and Competence</h4>
+<ul>
+<li>All involved people should be trained to perform and document
+actions.</li>
+<li>Different people will need different training. E.g, police officer
+needs to know how to properly secure and seize the phone. Analyst needs
+to know how to get the data from the phone without changing it.</li>
+<li>Involved people should keep themselves updated with latest
+technology and research.</li>
+<li>Practice with the same kind of device and software first.</li>
+<li>Head office must maintain constant communication with analysts and
+provide guidance.</li>
+</ul>
+<h4 id="analysis-procedure">Analysis Procedure</h4>
+<ul>
+<li>We want to know the <em>who, when, where,why</em>. Data is examined,
+including application files, timeline is established for events, and
+hidden data is also looked for.</li>
+<li>We try to avoid any data loss.</li>
+<li>First thing to do is to ensure the phone is isolated from the
+network.</li>
+<li>If the phone is on, memory and SIM card is examined first.</li>
+<li>If the phone is off and the owner doesn’t reveal the pincode, we
+need to ask for help from the provider.</li>
+<li>Each step should be photographed or videoed, even in the case of
+automatic data analysis.</li>
+<li>If the phone was deactivated, SIM analysis takes place first.
+Activating the phone may cause change in data, such as in Location Area
+Information file. If we place a different SIM, we may lose data such as
+call history.</li>
+</ul>
+<h4 id="preserving-data-and-isolating-from-network">Preserving data and
+isolating from network</h4>
+<ul>
+<li>Only qualified software should be used.</li>
+<li>If the phone is not compatible with specialized software, test the
+methods on a test phone first before executing it on the real
+device.</li>
+<li>New data from the network, such as phone calls, emails, SMSes, etc.
+must be avoided. They an also be used to delete or modify the data on
+the device. Therefore, we need to isolate the device from the
+network.</li>
+<li>Best solution is to use a Faraday cage.</li>
+<li>Phone should be charged constantly to avoid it turning off. We need
+to avoid any signal entering the phone using the charging cable. This is
+done by placing a power source inside the Faraday cage</li>
+<li>Jammers can also be used instead of Faraday cages.</li>
+<li>In modern phones we can also use flight mode.</li>
+<li>We can collaborate with the network to disable network access to the
+phone. We can also use a special SIM that activates the device but
+doesn’t allow network access. This may lead to loss of data such as call
+logs.</li>
+</ul>
+<h4 id="identify-the-phone">Identify the phone</h4>
+<ul>
+<li>Try to identify it visually</li>
+<li>Look up different mobile phones’ photographs online</li>
+<li>Take out the battery and see the IMEI and MAC address, and identify
+using those.
+<ul>
+<li>Typing *#06## also reveals the IMEI</li>
+</ul></li>
+<li>User manuals and characteristics of the phone must be studied, so we
+know what kind of data loss is possible. Test device is still
+recommended,</li>
+<li>Use manufacturer’s cables instead of local ones. Connecting via WiFi
+and Bluetooth should be avoided as it will write data to the phone’s
+memory.</li>
+</ul>
+<h4 id="examine-sim-card-and-memory">Examine SIM Card and Memory</h4>
+<ul>
+<li>Get PIN for phone and sim from user. If user doesn’t cooperate,
+contact provider.</li>
+<li>User should not be allowed to touch the phone</li>
+<li>SIM provides access to its data through its own microcontroller,
+therefore it cannot be cloned. The analysis has to take place on the
+original SIM card.</li>
+<li>Hashes are used to check if two sets of files are identical or
+not.</li>
+<li>The process must be filmed.</li>
+<li>Extracting the sim generally involved removing the battery, which
+may lead to loss in data. In these cases, the data in the mobile must be
+analyzed before the SIM card.</li>
+<li>After extraction of data with automated tools, manual extraction
+must also be done to find data that the software missed.</li>
+<li>Extracted evidence must be verified, such as with the network
+operator.</li>
+</ul>
+<h3 id="sim-card">SIM Card</h3>
+<ul>
+<li>Cannot be cloned</li>
+<li>Contains EEPROM memory</li>
+<li>SIM is protected by 4 or 6-digit PIN that the user can set. After 3
+wrong entries of PIN, the SIM will lock itself. To unlock it, we need a
+PUK (Pin Unblocking Key), which is an 8-digit key. After 10 unsuccessful
+entries of PUK, the SIM card will become unusable.</li>
+<li>PUK and PIN are both initially set by the SIM manufacturer, but the
+user can change them.</li>
+<li>ADM code is known only to the manufacturer, and it provides complete
+access to all data as well as their modification.</li>
+</ul>
+<h3 id="files-present-in-sim-card">Files Present in SIM Card</h3>
+<ul>
+<li>Files are present in directories and subdirectories, similar to in
+computers.</li>
+<li>MF stands for Master File and represents the root directory. DF
+(Dedicated File) are subdirectories. EF (Elementary File) are the actual
+files.</li>
+<li>Some files can be read without any authentication. Some need the SIM
+PIN. The most important files need the ADM code which only the provider
+has.</li>
+</ul>
+<p>SIM contains many files such as:</p>
+<ul>
+<li>Card’s serial number</li>
+<li>List of providers and their names</li>
+<li>Default network</li>
+<li>Default language</li>
+<li>Contacts</li>
+<li>Messages</li>
+<li>Settings for messages</li>
+<li>List of last outgoing calls</li>
+<li>Temporary identity (IMSI-TMSI) (International Mobile Subscriber
+Identity - Temporary Mobile Subscriber Identity)</li>
+<li>Coarse location (Location Area Identifier)</li>
+<li>Control Channels (BCCH)</li>
+<li>Current Encryption Key (<span
+class="math inline">\(K_c\)</span>)</li>
+</ul>
+<p>Around 100 files are present, but each provider can also add their
+own files. Users generally can’t access or delete these files, which
+makes them important.</p>
+<h4 id="imsi">IMSI</h4>
+<p>International Mobile Subscriber Identity (15-digit number) is used to
+uniquely identify the SIM internationally.</p>
+<p>It consists of MCC + MNC + MSIN.</p>
+<p>MCC - Mobile Country Code (3-digit). MNC - Mobile Network Code
+(2-digit , 3-digit for USA and Canada). MSIN is 10 digit (9 in
+USA/Canada)</p>
+<h4 id="iccid">ICCID</h4>
+<p>Integrated Circuit Card Identifier. It is a unique serial number that
+is printed on the plastic wrapping of the card. It identifies the actual
+printed circuit.</p>
+<p>It consists of :</p>
+<p>89 + MCC + MNC + Serial Number</p>
+<p>89 is fixed and represents that this circuit (the SIM) is used for
+telecommunication.</p>
+<h4 id="location-information-file-and-bcch-file">Location Information
+File and BCCH File</h4>
+<ul>
+<li>LIF (Location Information File) stores the last TMSI and last LAI.
+TMSI is a temporary identity that is used for security purposes, so we
+don’t transmit the permanent identity of the user again and again.</li>
+<li>LAI = MCC + MNC + LAC (Location Area Code)</li>
+<li>LAC gives a wide area which can have many phones.</li>
+<li>BCCH list stores the current BCCH and its six neighboring channels.
+By combining BCCH and LAC information we can get a better idea of where
+the phone was.</li>
+</ul>
+<h4 id="sms-storage-file">SMS Storage File</h4>
+<p>Modern SIMs can store SMS, usually upto 35. The first byte of each
+SMS storage slot tells the message’s status.</p>
+<p>00000000 - Empty Slot</p>
+<p>00000001 - Read incoming message</p>
+<p>00000011 - Unread incoming message</p>
+<p>00000101 - Outgoing message that has been sent</p>
+<p>00000111 - Outgoing message which hasn’t been sent.</p>
+<p>If a message is deleted by the user, usually the first byte’s last
+bit is changed to 0, which marks the slot as empty. But the actual
+content of the slots aren’t changed. So, by reading data directly, we
+can sometimes get old messages that the user thinks have been
+deleted.</p>
+<p>Another file stores SMS Settings, such as the default alphabet,
+message center number, etc.</p>
+<h4 id="contact-list">Contact List</h4>
+<p>SIM Cards can store contacts. Old SIMs stored upto 100, newer ones
+offer 250. When a contact is deleted, the slot is filled with binary
+“1”, so deleted contacts cannot be recovered. But slots are assigned in
+order, so if we find an empty slot between slot 34 and 36, we can assume
+there was a contact in slot 35 that has been deleted.</p>
+<h4 id="outgoing-calls">Outgoing Calls</h4>
+<p>SIMs can store the last 10 dialled numbers. Most manufacturers prefer
+to use the phone’s memory of this. SIM doesn’t store incoming calls,
+only outgoing.</p>
+<h3 id="device-data">Device Data</h3>
+<ul>
+<li>Contains messages, emails, IMEI, call logs, contacts, pictures,
+application files, etc.</li>
+<li>Deleted information can be recovered from the depths of memory.</li>
+<li>Data should be recovered without altering</li>
+<li>Memory can be cloned, unlike with SIM</li>
+<li>Official and unofficial tools exist for memory cloning.</li>
+</ul>
+<p>Issues :</p>
+<ul>
+<li>Hard to detect whether there have been changes in memory during our
+procedures</li>
+<li>During memory dumps, positions of files may change</li>
+<li>Searching for information in large memory dumps is difficult and
+time consuming</li>
+<li>Phones may have encrypted memory</li>
+</ul>
+<p>External memory dumps, that use hardware, can be used. In this, the
+memory circuits are desoldered from the phone. This ensures no changes
+occur while doing memory dump. This is less used because we may damage
+the whole memory while performing desoldering.</p>
+<p>External memory cards may be present in the device. Extracting data
+from these is fairly easy.</p>
+<h3 id="evidence-in-operators-network">Evidence in Operator’s
+Network</h3>
+<p>The SIM card operator may also have evidence in their database.</p>
+<ul>
+<li>Call logs</li>
+<li>SMS exchanged</li>
+<li>HLR keeps data about IMSI, SIM serial number, PIN and PUK code,
+etc.</li>
+<li>Call Detail Records (CDR) have all information about the numbers
+called - date, duration,etc.</li>
+</ul>
 </div></div></body>
 </html>
