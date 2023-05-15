@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Satvik Gupta" />
-  <title>Computer Networks</title>
+  <title>Computer Networks - Important Topics Only</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -59,17 +59,13 @@
 </div>
 
 <header id="title-block-header">
-<h1 class="title">Computer Networks</h1>
+<h1 class="title">Computer Networks - Important Topics Only</h1>
 <p class="author">Satvik Gupta</p>
 </header><div id="container">
-<nav id="TOC" role="doc-toc"><div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/CN.pdf">Download as PDF</a></div>
+<nav id="TOC" role="doc-toc"><div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/CN_Short.pdf">Download as PDF</a></div>
 <ul>
 <li><a href="#introduction" id="toc-introduction">Introduction</a>
 <ul>
-<li><a href="#communication-link"
-id="toc-communication-link">Communication link:</a></li>
-<li><a href="#goals-of-networks" id="toc-goals-of-networks">Goals of
-Networks</a></li>
 <li><a href="#data-communication" id="toc-data-communication">Data
 communication</a>
 <ul>
@@ -81,8 +77,6 @@ id="toc-components-of-data-communication-system">Components of Data
 communication system</a></li>
 <li><a href="#types-of-communication"
 id="toc-types-of-communication">Types of Communication</a></li>
-<li><a href="#physical-structure" id="toc-physical-structure">Physical
-Structure</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#physical-topology" id="toc-physical-topology">Physical
@@ -98,9 +92,6 @@ Topology</a></li>
 <li><a href="#tree-topology" id="toc-tree-topology">Tree
 Topology</a></li>
 </ul></li>
-<li><a href="#networks-based-on-geographical-area"
-id="toc-networks-based-on-geographical-area">Networks Based on
-Geographical Area</a></li>
 <li><a href="#osi-model---open-systems-interconnection"
 id="toc-osi-model---open-systems-interconnection">OSI Model - Open
 Systems Interconnection</a>
@@ -110,22 +101,8 @@ layers:</a></li>
 </ul></li>
 <li><a href="#physical-layer" id="toc-physical-layer">Physical Layer</a>
 <ul>
-<li><a href="#transmission-media"
-id="toc-transmission-media">Transmission Media</a>
-<ul>
-<li><a href="#wiredguided-media"
-id="toc-wiredguided-media"><strong>Wired/Guided Media</strong>:</a></li>
-<li><a href="#wirelessunguided-media"
-id="toc-wirelessunguided-media"><strong>Wireless/Unguided
-Media</strong>:</a></li>
-</ul></li>
-<li><a href="#propagation-methods"
-id="toc-propagation-methods">Propagation Methods</a></li>
-<li><a href="#bands" id="toc-bands">Bands</a></li>
 <li><a href="#switched-networks" id="toc-switched-networks">Switched
 Networks</a></li>
-<li><a href="#network-architecture"
-id="toc-network-architecture">Network Architecture</a></li>
 <li><a href="#types-of-communication-on-the-basis-of-connection"
 id="toc-types-of-communication-on-the-basis-of-connection">Types of
 Communication on the basis of Connection</a>
@@ -136,17 +113,6 @@ id="toc-connection-oriented">Connection-Oriented</a></li>
 id="toc-connectionless">Connectionless</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#tcpip-stack" id="toc-tcpip-stack">TCP/IP Stack</a>
-<ul>
-<li><a href="#internet-protocol-ip"
-id="toc-internet-protocol-ip">Internet Protocol (IP)</a></li>
-<li><a href="#transmission-control-protocol-tcp"
-id="toc-transmission-control-protocol-tcp">Transmission Control Protocol
-(TCP)</a></li>
-<li><a href="#user-datagram-protocol-udp"
-id="toc-user-datagram-protocol-udp">User Datagram Protocol
-(UDP)</a></li>
-</ul></li>
 <li><a href="#data-link-layer" id="toc-data-link-layer">Data Link
 Layer</a>
 <ul>
@@ -156,16 +122,10 @@ Layer</a>
 id="toc-transmission-delay">Transmission Delay</a></li>
 <li><a href="#propagation-delay" id="toc-propagation-delay">Propagation
 Delay</a></li>
-<li><a href="#queueing-delay" id="toc-queueing-delay">Queueing
-Delay</a></li>
-<li><a href="#processing-delay" id="toc-processing-delay">Processing
-Delay</a></li>
 </ul></li>
 <li><a href="#framing-techniques" id="toc-framing-techniques">Framing
 Techniques</a>
 <ul>
-<li><a href="#character-count" id="toc-character-count">Character
-Count</a></li>
 <li><a href="#flag-character-stuffingbyte-stuffing"
 id="toc-flag-character-stuffingbyte-stuffing">Flag (Character
 Stuffing/Byte Stuffing)</a></li>
@@ -174,9 +134,6 @@ Stuffing/Byte Stuffing)</a></li>
 <li><a href="#error-detection-and-control"
 id="toc-error-detection-and-control">Error Detection and Control</a>
 <ul>
-<li><a href="#parity-check" id="toc-parity-check">Parity Check</a></li>
-<li><a href="#hamming-code" id="toc-hamming-code">Hamming Code</a></li>
-<li><a href="#checksum" id="toc-checksum">Checksum</a></li>
 <li><a href="#crc-cyclic-redundancy-check"
 id="toc-crc-cyclic-redundancy-check">CRC (Cyclic Redundancy
 Check)</a></li>
@@ -256,12 +213,6 @@ Protocols</a>
 Header Format</a></li>
 <li><a href="#ipv6-header" id="toc-ipv6-header">IPv6 Header</a></li>
 </ul></li>
-<li><a href="#congestion-control" id="toc-congestion-control">Congestion
-Control</a>
-<ul>
-<li><a href="#leaky-bucket" id="toc-leaky-bucket">Leaky Bucket</a></li>
-<li><a href="#token-bucket" id="toc-token-bucket">Token Bucket</a></li>
-</ul></li>
 <li><a href="#routing-protocols" id="toc-routing-protocols">Routing
 Protocols</a>
 <ul>
@@ -270,18 +221,6 @@ id="toc-distance-vector-routing-dvr">Distance Vector Routing
 (DVR)</a></li>
 <li><a href="#link-state-routing" id="toc-link-state-routing">Link State
 Routing</a></li>
-<li><a href="#routing-in-subnets" id="toc-routing-in-subnets">Routing in
-Subnets</a></li>
-</ul></li>
-<li><a href="#network-protocols" id="toc-network-protocols">Network
-Protocols</a>
-<ul>
-<li><a href="#arp-address-resolution-protocol"
-id="toc-arp-address-resolution-protocol">ARP (Address Resolution
-Protocol)</a></li>
-<li><a href="#nat-network-address-translation"
-id="toc-nat-network-address-translation">NAT (Network Address
-Translation)</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#transport-layer" id="toc-transport-layer">Transport
@@ -295,7 +234,6 @@ Numbers</a>
 <ul>
 <li><a href="#port-number-types" id="toc-port-number-types">Port Number
 Types</a></li>
-<li><a href="#section" id="toc-section"></a></li>
 </ul></li>
 <li><a href="#tcp-transmission-control-protocol"
 id="toc-tcp-transmission-control-protocol">TCP (Transmission Control
@@ -311,9 +249,6 @@ Establishment</a></li>
 id="toc-tcp-connection-termination">TCP Connection Termination</a></li>
 <li><a href="#tcp-congestion-control"
 id="toc-tcp-congestion-control">TCP Congestion Control</a></li>
-<li><a href="#wrap-around" id="toc-wrap-around">Wrap-Around</a></li>
-<li><a href="#tcp-window-scaling" id="toc-tcp-window-scaling">TCP Window
-Scaling</a></li>
 <li><a href="#tcp-timers" id="toc-tcp-timers">TCP Timers</a></li>
 </ul></li>
 <li><a href="#udp" id="toc-udp">UDP</a>
@@ -336,9 +271,6 @@ Transferring</a>
 <li><a href="#ftp-file-transfer-protocol"
 id="toc-ftp-file-transfer-protocol">FTP (File Transfer
 Protocol)</a></li>
-<li><a href="#ftam-file-transfer-access-management"
-id="toc-ftam-file-transfer-access-management">FTAM (File Transfer Access
-Management)</a></li>
 </ul></li>
 <li><a href="#email" id="toc-email">Email</a>
 <ul>
@@ -346,10 +278,6 @@ Management)</a></li>
 <li><a href="#message-access-agents---pop-and-imap"
 id="toc-message-access-agents---pop-and-imap">Message Access Agents -
 POP and IMAP</a></li>
-<li><a href="#mime" id="toc-mime">MIME</a></li>
-<li><a href="#extended-smtp-esmtp-vs-smtp"
-id="toc-extended-smtp-esmtp-vs-smtp">Extended SMTP (ESMTP) vs
-SMTP</a></li>
 </ul></li>
 <li><a href="#dns" id="toc-dns">DNS</a>
 <ul>
@@ -371,18 +299,6 @@ id="toc-rpc-remote-procedure-call">RPC (Remote Procedure Call)</a>
 <li><a href="#issues-in-rpc" id="toc-issues-in-rpc">Issues in
 RPC</a></li>
 </ul></li>
-<li><a href="#types-of-rpc" id="toc-types-of-rpc">Types of RPC</a>
-<ul>
-<li><a href="#synchronous-rpc" id="toc-synchronous-rpc">Synchronous
-RPC</a></li>
-<li><a href="#asynchronous-rpc" id="toc-asynchronous-rpc">Asynchronous
-RPC</a></li>
-<li><a href="#one-way-rpc" id="toc-one-way-rpc">One-Way RPC</a></li>
-<li><a href="#deferred-synchronous-rpc"
-id="toc-deferred-synchronous-rpc">Deferred Synchronous RPC</a></li>
-</ul></li>
-<li><a href="#failure-semantics-in-rpc"
-id="toc-failure-semantics-in-rpc">Failure Semantics in RPC</a></li>
 </ul></li>
 <li><a href="#presentation-layer---security"
 id="toc-presentation-layer---security">Presentation Layer - Security</a>
@@ -400,7 +316,6 @@ Ciphers</a>
 id="toc-substitution-ciphers">Substitution Ciphers</a></li>
 <li><a href="#transposition-ciphers"
 id="toc-transposition-ciphers">Transposition Ciphers</a></li>
-<li><a href="#one-time-pad" id="toc-one-time-pad">One-Time Pad</a></li>
 </ul></li>
 <li><a href="#rsa" id="toc-rsa">RSA</a>
 <ul>
@@ -415,37 +330,11 @@ messages (Secure Channels)</a>
 <ul>
 <li><a href="#digital-signatures" id="toc-digital-signatures">Digital
 Signatures</a></li>
-<li><a href="#diffie-hellman-key-exchange"
-id="toc-diffie-hellman-key-exchange">Diffie-Hellman Key
-Exchange</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav><div id="data">
 <h2 id="introduction">Introduction</h2>
-<p><strong>Network</strong>: Connection between objects or a group of
-objects</p>
-<p><strong>Computer network</strong>: A set of communication elements
-connected by communication link.</p>
-<h3 id="communication-link">Communication link:</h3>
-<ul>
-<li><p><strong>Wired</strong>: Optical Fiber, Coaxial Fiber, Twisted
-pair cable.</p></li>
-<li><p><strong>Wireless</strong>: Radio wave, satellite connection,
-microwave.</p></li>
-</ul>
-<h3 id="goals-of-networks">Goals of Networks</h3>
-<ul>
-<li>Efficient resource sharing</li>
-<li>Scalable</li>
-<li>Reliability</li>
-<li>Communication</li>
-<li>Application of Networks</li>
-<li>Remote data access.</li>
-<li>Remote software access.</li>
-<li>Emailing</li>
-<li>FIle transfer</li>
-</ul>
 <h3 id="data-communication">Data communication</h3>
 <p>It is the exchange of data between two or more devices via some
 transmission medium</p>
@@ -473,11 +362,6 @@ communication system</h4>
 <li>Half Duplex: Bidirectional communication but only one direction at a
 time.</li>
 <li>Full Duplex: Two simplex connections in opposite directions.</li>
-</ul>
-<h4 id="physical-structure">Physical Structure</h4>
-<ul>
-<li>Point to point</li>
-<li>Multipoint</li>
 </ul>
 <hr />
 <h2 id="physical-topology">Physical Topology</h2>
@@ -511,7 +395,7 @@ alt="Ring Topology" />
 </figure>
 <p>Tokens are used to transfer data. Only one system can hold the token
 at a time. Token passing is done.</p>
-<p><strong>*Advantages</strong></p>
+<p><strong>Advantages</strong></p>
 <ul>
 <li>Cheap</li>
 </ul>
@@ -528,8 +412,8 @@ at a time. Token passing is done.</p>
 alt="Star Topology" />
 <figcaption aria-hidden="true">Star Topology</figcaption>
 </figure>
-<p><strong>_ Advantages and disadvantages same as of any centralized
-system_</strong> Hub can also be expensive.</p>
+<p><strong><em>Advantages and disadvantages same as of any centralized
+system</em></strong> Hub can also be expensive.</p>
 <h3 id="mesh-topology">Mesh Topology</h3>
 <figure>
 <img src="../images/cn/mesh_topology.png" width="200" alt="Mesh" />
@@ -553,24 +437,9 @@ system_</strong> Hub can also be expensive.</p>
 alt="Tree Topology" />
 <figcaption aria-hidden="true">Tree Topology</figcaption>
 </figure>
-<hr />
-<h2 id="networks-based-on-geographical-area">Networks Based on
-Geographical Area</h2>
-<ul>
-<li>LAN - Local Area Network</li>
-<li>MAN - Metropolitan Area Network</li>
-<li>WAN - Wide Area Network</li>
-</ul>
-<p><strong><em>Differentiate based on cables, cost,
-etc.</em></strong></p>
 <h2 id="osi-model---open-systems-interconnection">OSI Model - Open
 Systems Interconnection</h2>
 <p>Given by ISO.</p>
-<p>The OSI model is a layered framework for the design of network
-systems that allows communication btw all types of computer systems.The
-purpose of OSI model is to facilitate communication btw different
-systems without requiring changes to the logic of underlying hardware
-and software.</p>
 <figure>
 <img src="../images/cn/osi.jpg" width="400" alt="OSI" />
 <figcaption aria-hidden="true">OSI</figcaption>
@@ -685,121 +554,6 @@ MAC to IP.</p>
 <li>synchronization of bits</li>
 <li>physical topology</li>
 </ul>
-<h3 id="transmission-media">Transmission Media</h3>
-<h4 id="wiredguided-media"><strong>Wired/Guided Media</strong>:</h4>
-<ul>
-<li><p>Optical Fiber</p>
-<figure>
-<img src="../images/cn/optical_fibre_transmission.jpeg"
-style="width:30.0%" alt="Transmission through Optical Fiber" />
-<figcaption aria-hidden="true">Transmission through Optical
-Fiber</figcaption>
-</figure></li>
-<li><p>Coaxial Fiber</p>
-<figure>
-<img src="../images/cn/Coaxial-Cable.png" style="width:30.0%"
-alt="Coaxial Fiber" />
-<figcaption aria-hidden="true">Coaxial Fiber</figcaption>
-</figure></li>
-<li><p>Twisted pair cable</p>
-<figure>
-<img src="../images/cn/twisted_pair.jpg" style="width:30.0%"
-alt="Twisted Pair Cable" />
-<figcaption aria-hidden="true">Twisted Pair Cable</figcaption>
-</figure></li>
-<li><p>Unshielded Twisted Pair (USTC)</p>
-<figure>
-<img src="../images/cn/ustc.png" style="width:30.0%" alt="USTC" />
-<figcaption aria-hidden="true">USTC</figcaption>
-</figure></li>
-<li><p>Shielded Twisted Pair (STC)</p>
-<figure>
-<img src="../images/cn/stc.png" style="width:30.0%" alt="STC" />
-<figcaption aria-hidden="true">STC</figcaption>
-</figure></li>
-</ul>
-<h4 id="wirelessunguided-media"><strong>Wireless/Unguided
-Media</strong>:</h4>
-<p>Radio wave, microwave, and infrared</p>
-<p>Electromagnetic Spectrum for Wireless Communication</p>
-<ul>
-<li>3KHz - 300 GHz =&gt; Radio Waves and Microwaves</li>
-<li>300Ghz - 400 THz =&gt; Infrared</li>
-<li>400 THz - 900 Thz =&gt; Light waves (not used for transmission)</li>
-</ul>
-<h3 id="propagation-methods">Propagation Methods</h3>
-<p>Ground, Sky, Line of Sight</p>
-<figure>
-<img src="../images/cn/propagation_methods.jpg" width="200"
-alt="Propagation Methods" />
-<figcaption aria-hidden="true">Propagation Methods</figcaption>
-</figure>
-<h3 id="bands">Bands</h3>
-<table>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 12%" />
-<col style="width: 19%" />
-<col style="width: 46%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Band</th>
-<th style="text-align: center;">Range</th>
-<th style="text-align: center;">Propagation</th>
-<th style="text-align: left;">Application</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Very Low Freq.</td>
-<td style="text-align: center;">3-30 KHz</td>
-<td style="text-align: center;">Ground</td>
-<td style="text-align: left;">Long range radio navigation</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Low Freq.</td>
-<td style="text-align: center;">30-300KHz</td>
-<td style="text-align: center;">Ground</td>
-<td style="text-align: left;">Radio and Navigation Locator</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Medium Freq.</td>
-<td style="text-align: center;">300KHz-3MHz</td>
-<td style="text-align: center;">Sky</td>
-<td style="text-align: left;">AM radio</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">High Freq</td>
-<td style="text-align: center;">3-30 MHz</td>
-<td style="text-align: center;">Sky</td>
-<td style="text-align: left;">Citizen Band(Ship/Aircraft
-Communication)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Very High Freq.</td>
-<td style="text-align: center;">30-300 MHz</td>
-<td style="text-align: center;">Sky/Line of Sight</td>
-<td style="text-align: left;">Cellular Phone, Satellite</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Super high freq.</td>
-<td style="text-align: center;">3-30 GHz</td>
-<td style="text-align: center;">Line of Sight</td>
-<td style="text-align: left;">Satellite Communication</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Extremely high freq.</td>
-<td style="text-align: center;">30-300 GHz</td>
-<td style="text-align: center;">Line of Sight</td>
-<td style="text-align: left;">Radar/Satellite Communication</td>
-</tr>
-</tbody>
-</table>
-<p>High Frequencies cannot travel through walls, lower frequencies
-can.</p>
-<p>High Frequency have less distance, lower frequencies have higher
-distance.</p>
 <h3 id="switched-networks">Switched Networks</h3>
 <p>Large networks cannot have all nodes directly connected with each
 other. Therefore, to send data from one node to another, it has to be
@@ -810,10 +564,10 @@ some data to node B. There are two ways of doing so.</p>
 <li><p><strong>Packet Switching</strong></p>
 <p>Data is divided into small sized packets for transmission. This
 increased efficiency, reduces chances of lost data,etc.</p>
-<p>1.<strong>Virtual Circuit</strong> - Source establishes a (virtual)
+<ol type="1">
+<li><strong>Virtual Circuit</strong> - Source establishes a (virtual)
 path that the data will follow. Each packet goes through the same
-route.</p>
-<ol start="2" type="1">
+route.</li>
 <li><strong>Datagram Switching</strong> - Source doesn’t decide any
 route. It sends each packet to the next nodes. Each node can decide
 where to forward the packets. Each packet may end up taking a different
@@ -829,18 +583,6 @@ transferred between nodes. Each node stores the message, then decides
 where to forward it. This is also called <em>store and
 forward</em>.</p></li>
 </ol>
-<h3 id="network-architecture">Network Architecture</h3>
-<p><strong>Protocol</strong> is an agreement between two communicating
-parties on how the communication is to take place. Includes things like
-format of data, speed, etc.</p>
-<p>Networks are organized as a stack of layers. Each layer offers its
-services to the layer above it (like OSI). Between each two layers there
-is an interface. <strong>Services</strong> are operations a layer
-provides to the layer above it. Protocols are used to implement
-services.</p>
-<p>Set of layers and protocols is called the Network Architecture.</p>
-<p>List of Protocols used by a certain system is called <strong>Protocol
-Stack</strong>. We generally have one protocol per layer.</p>
 <h3 id="types-of-communication-on-the-basis-of-connection">Types of
 Communication on the basis of Connection</h3>
 <h4 id="connection-oriented">Connection-Oriented</h4>
@@ -855,33 +597,6 @@ connection.</li>
 <li>Each packet has the destination address,</li>
 <li>Each packet is routed independently through the system.</li>
 </ul>
-<h2 id="tcpip-stack">TCP/IP Stack</h2>
-<h3 id="internet-protocol-ip">Internet Protocol (IP)</h3>
-<ul>
-<li>Hosts can inject packets into any network.</li>
-<li>They will travel to destination independently.</li>
-<li>They may arrive out of order.</li>
-<li>Connectionless.</li>
-<li>Similar to postal service.</li>
-</ul>
-<h3 id="transmission-control-protocol-tcp">Transmission Control Protocol
-(TCP)</h3>
-<ul>
-<li>Transport Layer</li>
-<li>Source and Destination communicate using this.</li>
-<li>It is connection-oriented, reliable. Provides no-error
-delivery.</li>
-<li>Handles flow control</li>
-<li>Converts incoming byte-stream (continuous data like video or large
-amount of text) into discrete messages. Destination’s TCP reassembles
-them.</li>
-</ul>
-<h3 id="user-datagram-protocol-udp">User Datagram Protocol (UDP)</h3>
-<ul>
-<li>Transport Layer</li>
-<li>Connectionless, unreliable</li>
-<li>Faster than TCP.</li>
-</ul>
 <h2 id="data-link-layer">Data Link Layer</h2>
 <h3 id="delay">Delay</h3>
 <h4 id="transmission-delay">Transmission Delay</h4>
@@ -895,40 +610,9 @@ and <span class="math inline">\(B\)</span> is the bandwidth.</p>
 (after it has been transmitted from host to transmission media at the
 source.)</p>
 <p><span class="math display">\[ T_p = distance/velocity \]</span></p>
-<h4 id="queueing-delay">Queueing Delay</h4>
-<p>Each packet waits in the buffer (at destination) before it is
-processed. The amount of time it waits is known as the queueing
-delay.</p>
-<h4 id="processing-delay">Processing Delay</h4>
-<p>This is the time taken to process the packet. Includes checking
-headers, updating TTL, deciding where to forward it,etc.</p>
-<p>Queueing and Processing delays are generally taken to be zero, unless
-mentioned otherwise.</p>
 <h3 id="framing-techniques">Framing Techniques</h3>
 <p>One of the major issue in framing is to decide how to specify the
 start and end of a frame.</p>
-<p>One way to do this is to use <strong>fixed-size frames</strong>. For
-eg, if we say one frame is 50 bytes, then the destination’s data link
-layer will know that after the first 50 bytes, the next frame has
-begun.</p>
-<p>This can lead to wastage of space. If the data in a frame is only 10
-bytes, we have to add 40 bytes of empty space.</p>
-<p>Thus <strong>variable-sized frames</strong> are more preferred.</p>
-<p>Framing techniques for variable-sized frames are given below.</p>
-<h4 id="character-count">Character Count</h4>
-<p>It involves simply adding the number of characters in a frame to the
-data-link header. Before each frame starts, the number of characters in
-it is present.</p>
-<p>For eg, we have 4 frames with lengths 3,4,2,5 characters
-respectively. Our data would look like:</p>
-<p><code>(3)(frame1)(4)(frame2)(2)(frame3)(5)(frame4)</code></p>
-<p>This isn’t used anymore, because a single bit error in the character
-count could lead to miscalculation of frames. Count variable could also
-only hold a certain limit of number. For e.g, if <code>count</code> was
-specified as an 8-bit number, the maximum value it can hold is <span
-class="math inline">\(2^8-1 = 255\)</span>. If our frame has more than
-255, we would face issues.</p>
-<p>Hence this isn’t used.</p>
 <h4 id="flag-character-stuffingbyte-stuffing">Flag (Character
 Stuffing/Byte Stuffing)</h4>
 <p>We use a special <strong>flag byte</strong> at the start and end of
@@ -964,204 +648,6 @@ occurs in the data.</p>
 <p><code>011011111111111111110010</code> –&gt;
 <code>011011111011111011111010010</code></p>
 <h3 id="error-detection-and-control">Error Detection and Control</h3>
-<h4 id="parity-check">Parity Check</h4>
-<p>Parity check is the simplest method of detecting errors. It involves
-using a single check bit after or before the frame.</p>
-<p>We count the numbers of 1s and 0s in a particular frame. If it’s odd,
-check bit value is 1. If it’s even, check bit value is 0.</p>
-<p>101011 - Check bit=0 101001 - Check bit=1</p>
-<p>This can only detect single-bit errors. If two bits (a 0 and a 1) are
-flipped, the number of 1s remains the same. 2D parity check is more
-useful. The data is divided into rows and columns. Parity bit is
-calculated for each row and column.</p>
-<pre><code>1 0 1 0 1 | 1
-1 1 0 0 0 | 0
-1 0 1 1 0 | 1
-_ _ _ _ _ |
-1 1 0 1 1 | 0</code></pre>
-<p>The final data becomes</p>
-<pre><code>101011
-110000
-101101
-110110</code></pre>
-<h4 id="hamming-code">Hamming Code</h4>
-<p><strong>Data</strong> - the original data to send</p>
-<p><strong>Redundant bits</strong> - bits that aren’t part of the
-original data. They have been added for error detection and
-correction.</p>
-<p><strong>Codeword</strong> - The final result that is sent to the
-receiver - combination of data and redundant bits.</p>
-<p><strong>Code</strong> is a collection of codewords.</p>
-<p><strong>Hamming Distance</strong> between two strings is the number
-of positions where the symbols are different. Only valid for strings of
-equal length. We will use it for binary numbers.</p>
-<p>For eg, hamming distance btw 101 and 100 is 1 (only last bit is
-different) btw 101 and 110 is 2 (2nd and 3rd bits are different).</p>
-<p><strong>Hamming Distance of a Code</strong> is the minimum hamming
-distance between any two codewords in the code.</p>
-<p>A code with a hamming distance of <span
-class="math inline">\(d\)</span> can <em>detect</em> <span
-class="math inline">\(d-1\)</span> bit errors, and <em>correct</em>
-<span class="math inline">\(\lfloor (d-1)/2 \rfloor\)</span> errors.</p>
-<p>For example, consider a code with the codewords <code>000</code> and
-<code>111</code>. The hamming distance of such a code would be 3. We
-should be able to detect 2-bit errors, and correct 1-bit errors.</p>
-<p>Suppose we were transmitting the codeword <code>000</code> ande
-during transmission bit flips occurred:</p>
-<ul>
-<li><p>If the bit flip resulted in <code>001</code>. We know this is not
-a valid codeword (only <code>000</code> and <code>111</code> are valid),
-so we know an error has occurred.</p>
-<p>The hamming distance between <code>111</code> and <code>001</code> is
-2.</p>
-<p>The hamming distance between <code>000</code> and <code>001</code> is
-1.</p>
-<p>Therefore, we can guess that the original word must have been
-<code>000</code>. Similarly, we would be able to detect and correct
-errors if the bit flip resulted in <code>010</code> or
-<code>100</code>.</p></li>
-<li><p>If the bit flip resulted in <code>011</code> (2-bit error).</p>
-<p>Once again we can see it isn’t a valid codeword, so we are able to
-detect the error.</p>
-<p>But if we try correcting it, we would think that the original
-codeword was <code>111</code>, since the hamming distance of
-(<code>111</code>,<code>011</code>) is less than that of
-(<code>000</code>,<code>011</code>).</p></li>
-<li><p>If the bit flip resulted in <code>111</code> (3-bit error)</p>
-<p>We wouldn’t be able to detect the error, since <code>111</code> is a
-valid codeword.</p></li>
-</ul>
-<p>Thus we saw - we can detect 1-bit and 2-bit errors. We can only
-correct 1-bit errors.</p>
-<p>Hamming Codes can also be used to detect and correct errors in a
-different manner.</p>
-<p>Let’s say we have data of length <span
-class="math inline">\(m\)</span>. First we need to calculate the number
-of redundant bits needed to transmit this.</p>
-<p><span class="math display">\[ m + r+1 \le 2^r \]</span></p>
-<p>The smallest value of <span class="math inline">\(r\)</span>
-satisfying this equation can be used as the number of redundant
-bits.</p>
-<p><strong>Format of the Codeword</strong></p>
-<ul>
-<li>Total number of bits = <span class="math inline">\(n =
-m+r\)</span>.</li>
-<li>The bits at positions <span class="math inline">\(2^0, 2^1, 2^2,
-2^3...\)</span> and so on are <em>check bits</em>.</li>
-<li>The bits in the rest of the positions are data bits.</li>
-<li>Bits are numbered from 1.</li>
-</ul>
-<p><strong>Calculating the values of check bits</strong></p>
-<ul>
-<li><p>Suppose we have m=7. We can see that r=4 will work. Codeword
-length = 7+4=11.</p></li>
-<li><p>Bits at positions 1,2,4,8 are check-bits.</p></li>
-<li><p>Bits at positions 3,5,6,7,9,10,11 are data bits.</p></li>
-</ul>
-<p>Suppose our data is 0100110 (7-bit) Final data will look like:</p>
-<pre><code>_ _ 0 _ 1 0 0 _ 1  1  0
-1 2 3 4 5 6 7 8 9 10 11  </code></pre>
-<p>Write the position number of data bits as sum of powers of 2.</p>
-<p>3 = 1+2</p>
-<p>5 = 1+4</p>
-<p>6 = 2+4</p>
-<p>7 = 1+2+4</p>
-<p>9 = 1+8</p>
-<p>10 = 2+8</p>
-<p>11 = 1+2+8</p>
-<p><strong>To calculate value of check-bit 1:</strong></p>
-<ul>
-<li>Check which equations have <code>1</code> on the RHS.</li>
-<li>Equations for bits 3,5,7 and 9 have <code>1</code> on RHS.</li>
-<li>So, we will do a parity count of bits 3,5,7,9</li>
-</ul>
-<p>Bit 3 = 0</p>
-<p>Bit 5 = 1</p>
-<p>Bit 7 = 0</p>
-<p>Bit 9 = 1</p>
-<ul>
-<li>Parity count = 0 (even number of 1’s). So, the value of check bit 1
-is 0.</li>
-</ul>
-<p><strong>Value of check bit 2:</strong></p>
-<ul>
-<li><p>Equations for 3,6,7,10,11 have 2 on RHS.</p></li>
-<li><p>Parity count:</p>
-<p>Bit 3 -&gt; 0</p>
-<p>Bit 6 -&gt; 0</p>
-<p>Bit 7 -&gt; 0</p>
-<p>Bit 10 -&gt; 1</p>
-<p>Bit 11 -&gt; 0</p>
-<p>Parity Count = 1</p></li>
-<li><p>Value of check bit 2 = 1</p></li>
-</ul>
-<p>Similarly we can do for check-bit 4 and 8</p>
-<p><strong>Check bit 4</strong>:</p>
-<p>Equations : 5,6,7 Parity check : 1,0,0 Parity count = 1</p>
-<p>Value of check-bit 4=1</p>
-<p><strong>Check bit 8</strong></p>
-<p>Equations: 9,10,11 Parity Check: 1,1,0 Parity Count = 1</p>
-<p>Value of check-bit 8 = 1</p>
-<p>Final Codeword:</p>
-<pre><code>_ _ 0 _ 1 0 0 _ 1  1  0
-1 2 3 4 5 6 7 8 9 10 11
-
-becomes
-
-0 1 0 1 1 0 0 1 1  1  0</code></pre>
-<h4 id="checksum">Checksum</h4>
-<ul>
-<li>Sum all the bits in the data word.</li>
-<li>If the checksum goes beyond n bits, add the extra leftmost bits to
-the n rightmost bits. (<strong><em>Wrapping</em></strong>)</li>
-<li>Take 1’s complement of the sum so found. This becomes our
-checksum</li>
-<li>Send the checksum along with the data to the receiver.</li>
-</ul>
-<p>At receiver’s end: - Add all the data received (including the
-checksum) - Perform wrapping if necessary. - The end result should be
-<code>1111....1</code>, i.e, n times 1 - If the end result is anything
-else, it means the data is wrong.</p>
-<p><strong>Example</strong></p>
-<p>Let n=4. We are sending 4-bit data.</p>
-<p>Let the data be 4 numbers : 7,11,12,6.</p>
-<ul>
-<li>Add all the numbers: 7+11+12+6 = 36</li>
-<li>36 cannot be represented in 4-bits, so we perform wrapping.</li>
-</ul>
-<pre><code>36 in binary 100100
-
-Extra bits are the leftmost 2 bits (10)
-
-Take them and add them to the rightmost 4 bits
-
-0100
-  10
-----
-0110
-----
-
-Take 1&#39;s complement
-
-1001
-In decimal = 9</code></pre>
-<p>9 becomes our checksum which we send to the receiver.</p>
-<p>At receiver’s end:</p>
-<p>All the data is added.</p>
-<p>7+11+12+6+9 = 45</p>
-<p>45 cannot be represented in 4-bits, so we will do wrapping</p>
-<pre><code>45 in binary is 101101
-
-Take extra digits - leftmost 2 (10)
-Add to rightmost 4 
-
-1101
-  10
-----
-1111
-----
-</code></pre>
-<p>We received the sum as 1111, so we know our data is correct.</p>
 <h4 id="crc-cyclic-redundancy-check">CRC (Cyclic Redundancy Check)</h4>
 <p>Data - k-bit Codeword - n-bit Divisor - (n-k+1) bits. Divisor should
 be mutually agreed between sender and receiver.</p>
@@ -1188,49 +674,33 @@ step replaced by bitwise XOR.</p>
 <h4 id="stop-wait-arq-automatic-repeat-request">Stop &amp; Wait ARQ
 (Automatic Repeat ReQuest)</h4>
 <ul>
-<li><p>Sender sends a frame and waits for ACK (acknowledgement) for the
-frame from receiver.</p></li>
-<li><p>Receiver receives the frame. If the frame is correct, receiver
-sends ACK.</p></li>
-<li><p>If the frame is corrupt, receiver drops the frame and does
-nothing.</p></li>
-<li><p>Sender waits a certain amount of time for ACK from receiver.
-After this, it times out and resends the frame.</p></li>
-<li><p>ACK message may also get lost, then the sender will assume the
+<li>Sender sends a frame and waits for ACK (acknowledgement) for the
+frame from receiver.</li>
+<li>Receiver receives the frame. If the frame is correct, receiver sends
+ACK.</li>
+<li>If the frame is corrupt, receiver drops the frame and does
+nothing.</li>
+<li>Sender waits a certain amount of time for ACK from receiver. After
+this, it times out and resends the frame.</li>
+<li>ACK message may also get lost, then the sender will assume the
 original frame was corrupted or lost. It will retransmit, which means
-the receiver may get duplicate data.</p></li>
-<li><p>To avoid this, frames are numbered.</p></li>
-<li><p>We only need to differentiate between a frame and its immediate
-successor. I.e, we need to differentiate between frame x and x+1. We
-don’t need to differentiate between frame x and x+2.</p>
-<p>x+2 will never be sent unless both x and x+1 have been sent AND
-acknowledged.</p></li>
-<li><p>Therefore, 1 bit sequence number is enough. If the first frame is
-0, the second frame is 1, the third is again 0, and so on.</p></li>
+the receiver may get duplicate data.</li>
+<li>To avoid this, frames are numbered.
+<ul>
+<li>We only need to differentiate between a frame and its immediate
+successor. I.e, we need to differentiate between frame x and x+1.
+Therefore, 1 bit sequence number is enough. If the first frame is 0, the
+second frame is 1, the third is again 0, and so on.</li>
+</ul></li>
 </ul>
-<p><img src="../images/cn/stopandwait.JPEG" /></p>
 <h4 id="formulas">Formulas</h4>
-<p>Total time taken = Transmission time of data + transmission time of
-ACK + propagation time of data + propagation time of ACK + Queuing delay
-+ Processing delay.</p>
-<p><span class="math display">\[ = T_{t(data)} +
-T_{t(ACK)}+T_{P(data)}+T_{P(ACK)} +Delay_{Queue} + Delay_{Processing}
-\]</span></p>
-<p>We take queue delay and processing delay to be 0. As ACK is very
-small, we take transmission time of ACK to be 0.</p>
-<p><span class="math display">\[ = T_{t(data)} + T_{P(data)}+T_{P(ACK)}
-\]</span></p>
-<p>Propagation time of ACK and data will be same.</p>
-<p>Total time = <span class="math inline">\(T_t + 2*T_p\)</span></p>
-<p>Where <span class="math inline">\(T_t\)</span> is transmission time
-of data, and <span class="math inline">\(T_p\)</span> is propagation
-time.</p>
 <p>Efficiency = <span class="math inline">\(\eta\)</span> = Useful Time/
-Total Time</p>
-<p><span class="math display">\[ = \frac{T_t}{T_t+2*T_p} \]</span> <span
-class="math display">\[ = \frac{1}{1+2(\frac{T_p}{T_t})} \]</span> <span
-class="math display">\[ = \frac{1}{1+2a} \]</span></p>
+Total Time <span class="math display">\[ =
+\frac{1}{1+2(\frac{T_p}{T_t})} \]</span> <span class="math display">\[ =
+\frac{1}{1+2a} \]</span></p>
 <p>where a = <span class="math inline">\(T_p/T_t\)</span>.</p>
+<p>where <span class="math inline">\(T_p\)</span> is propagation time
+and <span class="math inline">\(T_t\)</span> is transmissiontime</p>
 <p>Throughput = <span class="math inline">\(\eta\)</span> *
 Bandwidth</p>
 <h4 id="go-back-n">Go Back N</h4>
@@ -1285,28 +755,6 @@ sent ACK 4. This would also make the receiver move its window to
 4,5,6.</p></li>
 </ul>
 <p>Example case:</p>
-<ul>
-<li>Sender window = [3,4,5],6,7. Sender sends 3,4,5.</li>
-<li>Receiver receives 3 and sends ACK 4. 4 is lost. Receiver buffers 5
-and sends NACK 4. Receiver moves its window by 1 to [4,5,6],7.</li>
-<li>As soon as the sender receives ACK 4, it knows receiver has received
-3.</li>
-<li>It will move its window by 1 to [4,5,6],7. As 5 has already been
-sent, sender will now also send 6.</li>
-<li>Sender will receive NACK 4 and resend 4.</li>
-<li>Receiver will receive 6 from sender, and buffer it. Receiver still
-hasn’t received 4. It will send NACK 4.</li>
-<li>Receiver will receive 4 from sender. It has 5,6 so it will send ACK
-7.</li>
-<li>Sender will receive the second NACK and again send 4</li>
-<li>Receiver will receive the 4 (that the sender sent earlier), and
-accept it. 4,5,6 have all been received. Receiver will send ACK 7, and
-move its window to [7,8,9]</li>
-<li>Receiver will receive the second 4 sent by the sender. It will be
-ignored since it’s out of the window.</li>
-<li>Sender will receive ACK 7 and move its window to [7,8,9].</li>
-<li>Transmission will continue as normal from here.</li>
-</ul>
 <figure>
 <img src="../images/cn/sr.png" style="width:60.0%"
 alt="Selective Repeat Example" />
@@ -1414,8 +862,6 @@ procedure.</strong></p>
 <h4 id="slotted-aloha">Slotted Aloha</h4>
 <ul>
 <li>Same as Aloha, but time is divided into slots.</li>
-<li>Time is discrete and globally synced (all nodes have same value of
-time)</li>
 <li>Frames can be sent <em>only at the beginning</em> of a time
 slot.</li>
 <li>Vulnerable Time = <span class="math inline">\(T_t\)</span></li>
@@ -1460,13 +906,23 @@ time.</li>
 <h5 id="p-persistent">P-Persistent</h5>
 <p>Uses a value <span class="math inline">\(p\)</span> that is fixed by
 the network administrator for each node. Different nodes have different
-values of <span class="math inline">\(p\)</span> 1. Continuously check
-medium till idle. 2. If idle: - Generate random number <span
-class="math inline">\(r\)</span> - If <span
-class="math inline">\(r&lt;p\)</span>, then transmit the data. - Else: -
-Wait for a time slot, and then check the line. - If line is idle, go to
-step 2. - If the line is busy, act as if a collision occurred, and
-follow the backoff procedure.</p>
+values of <span class="math inline">\(p\)</span></p>
+<ol type="1">
+<li>Continuously check medium till idle.</li>
+<li>If idle:
+<ul>
+<li>Generate random number <span class="math inline">\(r\)</span></li>
+<li>If <span class="math inline">\(r&lt;p\)</span>, then transmit the
+data.</li>
+<li>Else:
+<ul>
+<li>Wait for a time slot, and then check the line.</li>
+<li>If line is idle, go to step 2.</li>
+<li>If the line is busy, act as if a collision occurred, and follow the
+backoff procedure.</li>
+</ul></li>
+</ul></li>
+</ol>
 <h4 id="csma-with-collision-detection-csmacd">CSMA with Collision
 Detection (CSMA/CD)</h4>
 <ul>
@@ -1919,16 +1375,6 @@ be:</p>
 header. Can record upto 9 router addresses.</p>
 <h6 id="source-routing">Source routing</h6>
 <p>The source defines the route that the packet will take.</p>
-<p>It is of two types.</p>
-<ol type="1">
-<li>Strict - The source defines the exact specific nodes the packet will
-travel through to get to its destination. Each router mentioned in the
-list <em>must</em> be visited, and routers that are absent in the list
-<em>must not</em> be visited.</li>
-<li>Loose - The source defines only loose requirements. Routers in the
-list <em>must</em> be visited, but the packet can also visit other
-routers.</li>
-</ol>
 <p>Users cannot set source routing, only routers are allowed to do
 this.</p>
 <h6 id="padding">Padding</h6>
@@ -1956,14 +1402,11 @@ IPv4.</p>
 <p>20-bit value.</p>
 <p>For continuous data that travels in a flow, such as video streaming,
 or live updates, we use flow labels. Even large files may be sent using
-flows.</p>
-<p>Intermediate routers use source IP, destination IP and flow label to
-distinguish one flow from another. A source and a destination may have
-multiple flows occurring between them.</p>
+flows. A source and a destination may have multiple flows occurring
+between them.</p>
 <p>For e.g, if you’re downloading two files together from Google Drive,
-they may be sent through 2 different flows.</p>
-<p>So, we give them different flow labels to help identify which flow is
-which.</p>
+they may be sent through 2 different flows. So, we give them different
+flow labels to help identify which flow is which.</p>
 <h5 id="payload-length">Payload Length</h5>
 <p>Length of the payload</p>
 <h5 id="next-header">Next Header</h5>
@@ -1989,43 +1432,7 @@ extension headers used in IPv6 are:</p>
 packet should take.</li>
 <li>Authentication headers, used for security purposes.</li>
 <li>Fragmentation Header, used for fragments.</li>
-<li>Destination options - For data that we want only the destination to
-open, no intermediate routers</li>
-<li>Hop by Hop options, used to specify delivery parameters at each hop
-on the path to the destination.</li>
 </ul>
-<hr />
-<h3 id="congestion-control">Congestion Control</h3>
-<p>Congestion Control deals with preventing the entire <em>network</em>
-from having too much data transmitting at once. Even if every single
-node is transmitting within their individual limits, the combined flow
-of data may congest the network.</p>
-<p>Two main algorithms for Congestion Control are used - Leaky Bucket
-and Token Bucket.</p>
-<h4 id="leaky-bucket">Leaky Bucket</h4>
-<p>This algorithm simulates a leaky bucket, which is usually implemented
-as a queue. The bucket has an incoming stream of water (data) that can
-have different speeds. There is a hole in the bottom of the bucket that
-is our output stream, which “leaks” water at a constant rate, even if
-the incoming stream is faster than it.</p>
-<p>This ensures that even if the host is sending a lot of data together,
-the network is not congested with it. It is usually implemented as a
-FIFO queue with a fixed output rate.</p>
-<p>If the bucket/queue is full, and more data arrives from the host, it
-will “overflow”,i.e, be lost.</p>
-<p>A drawback is that this fixes a rigid pattern at the output, no
-matter what the pattern of the input is. This is fixed by the token
-bucket approach.</p>
-<h4 id="token-bucket">Token Bucket</h4>
-<p>In this, tokens are added to the bucket at a constant rate. When a
-packet arrives, it takes the corresponding amount of tokens in the
-bucket, and is transmitted. For example, to transmit 1MB data, we need
-1MB of tokens.</p>
-<p>If the bucket doesn’t have 1MB of tokens, the packet must wait, or be
-discarded. If the bucket has &gt;= 1MB of tokens, the packet will take
-as many as it needs (1MB), and be transmitted.</p>
-<p>If the bucket is full, no more tokens are added (i.e, incoming tokens
-are discarded.)</p>
 <h3 id="routing-protocols">Routing Protocols</h3>
 <p>Routing Protocols are used to decide the route a particular packet
 will take to its destination.</p>
@@ -2033,10 +1440,6 @@ will take to its destination.</p>
 <ul>
 <li>Each node maintains table of minimum distance to <em>every</em>
 other node in the network.</li>
-<li>Table also contains <em>next</em> entry for each node. I.e, if we
-have node A’s table, that contains data about node B,C,D… etc. If
-<em>next</em> value for B is C, that means to get to B from A, we go
-through node C.</li>
 <li>Information is shared only between neighbors (directly connected).
 Each node will share its routing table to its immediate neighbours.</li>
 <li>Update may be <strong>periodic</strong> or
@@ -2055,18 +1458,6 @@ X-B=4.</li>
 <li>Similarly, B will again send the new table to A. A will update the
 X-A value to 5. This process will continue forever.</li>
 </ul></li>
-<li><strong>Split Horizon</strong> technique is used to solve count to
-infinity.
-<ul>
-<li>If B knows optimum route to X is through A, it will not send X-B
-value to A.</li>
-<li>Taking information from A, and sending it back to A, is what causes
-the loop.’</li>
-<li>A will update the X-A value to infinity. B will send the routing
-table to A (but without the X-B) value. A will not update anything and
-send the new routing table to B. B will change the X-B value to
-infinity.</li>
-</ul></li>
 <li>Bellman Ford is used to calculate distance tables.</li>
 </ul>
 <h4 id="link-state-routing">Link State Routing</h4>
@@ -2076,77 +1467,6 @@ through flooding.</li>
 <li>Uses Dijsktra to calculate routing tables.</li>
 <li>Hello messages are sent to discover neighbor nodes.</li>
 </ul>
-<h4 id="routing-in-subnets">Routing in Subnets</h4>
-<p>When a data packet arrives at a network that has subnets:</p>
-<ul>
-<li>The router will perform bitwise <em>AND</em> of the destination IP
-in the packet, with all the subnet masks in the network.</li>
-<li>The result of the <em>AND</em> operation will be checked in the
-routing table.</li>
-<li>In case we find a single match in the table, we will send that
-packet to the corresponding interface.</li>
-<li>In case we find more than one match, we will send it to the
-interface with the longest <em>subnet mask</em></li>
-<li>In case we don’t find any match, we send it to the default
-interface.</li>
-<li>In fixed length subnetting all subnets have the same mask, so we
-perform bitwise <em>AND</em> only once.</li>
-</ul>
-<h3 id="network-protocols">Network Protocols</h3>
-<h4 id="arp-address-resolution-protocol">ARP (Address Resolution
-Protocol)</h4>
-<ul>
-<li>Each device (computer, phone, printer,etc.) on a network has an IP
-Address as well as a MAC Address.</li>
-<li>The IP Address identifies the device on the network. The MAC Address
-is the physical address of the device.</li>
-</ul>
-<p><strong>ARP</strong> maps a device’s IP Addresses (Logical Address)
-to its MAC Address.</p>
-<p><strong>RARP</strong> (Reverse Address Resolution Protocol) maps MAC
-Address</p>
-<ul>
-<li>If A wants to send a packet to B that is on the same network, it
-needs the link-layer address (physical or MAC address) in order to send
-it over the link.</li>
-<li>A will only know B’s IP address, not MAC address. It sends an ARP
-request.</li>
-<li>ARP request is a broadcast that is sent to all devices on the
-network. The request contains
-<ul>
-<li>A’s IP address</li>
-<li>A’s MAC address</li>
-<li>B’s IP address</li>
-</ul></li>
-<li>The ARP request will be ignored by all nodes except B. B will
-recognize it’s IP address in the request and it will send an ARP
-response packet back to A. The response packet will contain B’s IP and
-MAC addresses. The response packet will be sent <em>only to A</em>, as a
-unicast.</li>
-</ul>
-<h4 id="nat-network-address-translation">NAT (Network Address
-Translation)</h4>
-<ul>
-<li>Translates Public IP to Private IP, and vice-versa.</li>
-<li>Due to lack of IPv4 addresses, we separated an organization’s public
-IP from its private IP.</li>
-</ul>
-<p>For e.g, an organization has 100 different computers, that all need
-to connect to the Internet. Instead of giving them 100 public IPs, we
-give the organization a single public IP.</p>
-<p>Each of the 100 hosts is then given a <em>private</em> IP.</p>
-<p>For example:</p>
-<p><strong>Organization’s Public IP</strong> - 192.20.20.0</p>
-<p><strong>Private IPs in the Organization</strong> - 10.0.0.1,
-10.0.0.2, 10.0.03, etc.</p>
-<p>We attach a NAT (Network Address Translator) to the organization’s
-network. Generally this is part of the router.</p>
-<p>NAT translators will translate a private IP to a public IP, so that
-the computer can access the Internet, or other networks. It can send
-data to the Internet, and receive data from the Internet.</p>
-<p>When sending data, the NAT will translate private IP to public IP.
-When receiving data, it will translate public to private IP. Different
-port numbers may be used to identify different computers.</p>
 <h2 id="transport-layer">Transport Layer</h2>
 <h3 id="responsibilities">Responsibilities</h3>
 <ul>
@@ -2167,11 +1487,8 @@ the receiver correctly. No lost/corrupted data should be delivered.
 Lost/corrupted data must be detected and resent. <strong>UDP doesn’t
 provide reliability.</strong></p></li>
 <li><p><strong>Order</strong> - Data must be sent in order. If the data
-was broken down into 4 parts, they must arrive in the correct order.</p>
-<p>It is possible that the network layer sends them out of order - for
-e.g, 2,3,1,4. The Transport layer must correct the order before
-delivering the complete data to the Application Layer. <strong>UDP
-doesn’t provide in-order delivery.</strong></p></li>
+was broken down into 4 parts, they must arrive in the correct order.
+<strong>UDP doesn’t provide in-order delivery.</strong></p></li>
 <li><p><strong>Error Control</strong> - Checksums are used for this.
 Receiver verifies the checksum that the sender sent.</p></li>
 <li><p><strong>Congestion Control</strong></p></li>
@@ -2194,12 +1511,10 @@ applications cannot listen on port 3000 at the same time.</p>
 <ol type="1">
 <li><p><strong>Well Known/System Ports</strong> - These are the ports
 for most commonly used networking tasks. For example, a web-server will
-always listen for HTTP requests on Port 80, and HTTPS on port 443. An
-email server will always listen on port 25 for SMTP (Simple Mail
-Transfer Protocol) requests. Assigning fixed numbers makes it easier to
-handle common tasks. Typing www.google.com in a browser is the same as
-typing www.google.com:443, because the browser knows that the standard
-port for HTTPS is 443.</p>
+always listen for HTTP requests on Port 80, and HTTPS on port 443.
+Typing www.google.com in a browser is the same as typing
+www.google.com:443, because the browser knows that the standard port for
+HTTPS is 443.</p>
 <p>Range for these is 0-1023.</p></li>
 <li><p><strong>Registered/User Ports</strong> - Organizations and
 Applications can have specific ports reserved for their use. They can
@@ -2213,14 +1528,9 @@ generally assign it any random port number that is currently not in
 use.</p>
 <p>Range for these is 49152-65535</p></li>
 </ol>
-<p>Registered, and even well-known ports can be used for other tasks.
-For example, you can still run an email server on Port 80. You can also
-use Port 3074 for something other than Xbox Live. These are simply
-guidelines and standards to prevent confusion and clashes.</p>
 <p><strong><em>IP Address is used to differentiate one machine from
 another. Port Numbers are used to differentiate different applications
 on the same machine.</em></strong></p>
-<h4 id="section"></h4>
 <h3 id="tcp-transmission-control-protocol">TCP (Transmission Control
 Protocol)</h3>
 <p>TCP (Transmission Control Protocol) is a popular transport layer
@@ -2244,12 +1554,10 @@ receiver must send back acknowledgement for that data. In most cases
 these days, communication occurs both ways, i.e, if A sends data to B, B
 also sends data to A. Thus, instead of B sending acknowledgements
 separately to A, B will attach the acknowledgement along with the data
-it has to send A.
-<ol type="1">
+it has to send A.</li>
 <li><strong>Needs buffers</strong> - Sending and receiving processes may
 not operate at same speed, therefore TCP needs sender and receiver
 buffers for storage.</li>
-</ol></li>
 </ol>
 <h4 id="tcp-header">TCP Header</h4>
 <figure>
@@ -2266,8 +1574,7 @@ fields. It’s size can vary from 20-60 bytes.</p>
 <p>Each segment is given a sequence number based on the data sent before
 it. When a TCP connection is established, a random sequence number is
 generated.</p>
-<p>For e.g, let the initial sequence number be 500. (For now, ignore the
-increase in sequence number during the 3-way handshake)</p>
+<p>For e.g, let the initial sequence number be 500.</p>
 <p>Let’s say A sends B 200 bytes of data, in 4 segments of size 50
 bytes. The sequence number will be 500 for the first segment, 550 for
 the second segment, 600 for the third, and so on.</p>
@@ -2311,7 +1618,7 @@ end should have this value set.</p>
 <p>Specifies the size of the receiver’s window, i.e, the current amount
 of data it is willing to receive. A will tell its window size to B, and
 B will tell its window size to A.</p>
-<h5 id="checksum-1">Checksum</h5>
+<h5 id="checksum">Checksum</h5>
 <p>Used for error-checking.</p>
 <h5 id="urgent-field">Urgent Field</h5>
 <p>If the segment contains urgent data, this field tells <em>where</em>
@@ -2465,51 +1772,6 @@ if current window size is 16 MSS, slow start threshold will be 8.</li>
 <li>Congestion window is set equal to slow start threshold</li>
 <li>Congestion Avoidance phase is resumed</li>
 </ol>
-<h4 id="wrap-around">Wrap-Around</h4>
-<ul>
-<li>TCP Sequence numbers go from 0 to <span
-class="math inline">\(2^{32}\)</span> .</li>
-<li>This doesn’t mean only 4GB (<span
-class="math inline">\(2^{32}\)</span> bytes) of data can be sent</li>
-<li>After all the sequence numbers are used, and more data needs to be
-sent, sequence numbers can be wrapped around and used from starting</li>
-<li>Time taken to use all the <span
-class="math inline">\(2^{32}\)</span> numbers is called <strong><em>wrap
-around time</em></strong></li>
-</ul>
-<p><strong><em>Wrap Around Time =</em></strong> <span
-class="math inline">\(\frac{2^{32}}{bandwidth}\)</span></p>
-<p><strong>Life Time</strong> of a TCP Segment is 3 minutes or 180
-seconds, i.e, a receiver will have to wait max 3 minutes before it
-receives a segment</p>
-<ul>
-<li>if WAT &gt; LT, no issue</li>
-<li>if LT&gt; WAT, then receiver can receive multiple segments with same
-sequence number. To solve this, additional fields like timestamp are
-used.</li>
-</ul>
-<h4 id="tcp-window-scaling">TCP Window Scaling</h4>
-<ul>
-<li><p>TCP Window Size field is 16-bit, which means the window can only
-be <span class="math inline">\(2^{16}\)</span> bits, or 64KB.</p></li>
-<li><p>This is generally too less for modern applications</p></li>
-<li><p>Using the options headers in TCP, we can specify a scaling
-factor. For e.g, if scaling factor is 3, and the window size is
-specified as 400, then the actual window size will be <span
-class="math inline">\(400*2^3 = 3200\)</span>.</p>
-<p>i.e, <span class="math display">\[ WS_{real} =
-WS_{field\_value}*2^{scale\_factor}\]</span></p></li>
-<li><p>Generally, this is allowed when the <strong>bandwidth delay
-product</strong> is greater than 64KB.</p>
-<p>Bandwidth Delay Product = Bandwidth * RTT</p></li>
-<li><p>Maximum value of scaling factor is 14, i.e, the max window size
-becomes <span class="math inline">\(2^{16} * 2^{14} = 2^{30} =
-1GB\)</span></p></li>
-</ul>
-<p>Sender Window in TCP is calculated using both Receiver Window Size
-and Congestion Window Size. It is chosen as the minimum of both. Sender
-window size being larger than either of those will result in TCP
-retransmission.</p>
 <h4 id="tcp-timers">TCP Timers</h4>
 <h5 id="retransmission-timer">Retransmission Timer</h5>
 <ul>
@@ -2519,36 +1781,6 @@ before this timer runs out, the segment is retransmitted.</li>
 Timeout)</li>
 <li>RTO is calculated using RTT, there are many ways to do so.</li>
 </ul>
-<h6 id="measured-rtt-rtt_m">Measured RTT (<span
-class="math inline">\(RTT_m\)</span>)</h6>
-<p>This is the direct measured value of how long it takes for a packet
-being sent and for its ACK to be received.</p>
-<h6 id="smoothed-rtt-rtt_s">Smoothed RTT (<span
-class="math inline">\(RTT_s\)</span>)</h6>
-<p>It is the weighted average of measured RTT, since <span
-class="math inline">\(RTT_m\)</span> can fluctuate.</p>
-<p>It is calculated as:</p>
-<p>After the first measurement, <span class="math inline">\(RTT_s =
-RTT_m\)</span></p>
-<p>After each measurement, <span class="math inline">\(RTT_s =
-(1-t)*RTT_s + t*RTT_m\)</span></p>
-<p>where <span class="math inline">\(t=1/8\)</span> , unless specified.
-<span class="math inline">\(t\)</span> is also sometimes written as
-<span class="math inline">\(\alpha\)</span></p>
-<p><strong>RTO</strong> can be then kept as <span
-class="math inline">\(2*RTT_s\)</span></p>
-<h6 id="deviated-rtt-rtt_d">Deviated RTT (<span
-class="math inline">\(RTT_d\)</span>)</h6>
-<p>It is calculated as:</p>
-<p>After the first measurement, <span class="math inline">\(RTT_d =
-RTT_m/2\)</span></p>
-<p>After each measurement, <span class="math inline">\(RTT_s =
-(1-k)*RTT_s + k*(RTT_m-RTT_s)\)</span></p>
-<p>where <span class="math inline">\(k=1/4\)</span> , unless specified.
-<span class="math inline">\(k\)</span> is also sometimes written as
-<span class="math inline">\(\beta\)</span></p>
-<p><strong>RTO</strong> is then calculated as <span
-class="math inline">\(RTT_s+4*RTT_d\)</span></p>
 <h5 id="time-wait-timer">Time-Wait Timer</h5>
 <ul>
 <li>Takes care of late packets</li>
@@ -2712,33 +1944,8 @@ port 20. It closes and opens for each file transfer.</li>
 </ul></li>
 </ul>
 <h5 id="security-in-ftp">Security in FTP</h5>
-<ul>
-<li>Security was not a big issue when FTP was created.</li>
-<li>FTP supports passwords, but they are sent unencrypted, therefore
-they can be intercepted.</li>
-<li>Data is also transferred unencrypted.</li>
-<li>SSL (Secure Sockets Layer) can be added to FTP (between FTP and TCP)
-to make it more secure. This makes it SSL-FTP.</li>
-</ul>
-<h4 id="ftam-file-transfer-access-management">FTAM (File Transfer Access
-Management)</h4>
-<ul>
-<li>FTP was created by the Internet standard. FTAM is the OSI
-counterpart to FTP.</li>
-<li>It is a Application Layer protocol that provides access and
-management to a <em>distributed</em> network file system.</li>
-<li>It allows users to access file systems both locally and
-remotely.</li>
-<li>It defines an architecture for a hierarchical file system. Any file
-system that wants to be accessible using FTAM must follow this
-architecture.</li>
-<li>It does not define or create a user interface for accessing such
-file systems. Vendors and users can create their own based on the
-architecture specified.</li>
-<li>It is more similar to Gopher or WWW rather than FTP. FTP only allows
-files, whereas FTAM also allows links to other FTAM directories (like
-WWW does)</li>
-</ul>
+<p>SSL (Secure Sockets Layer) can be added to FTP (between FTP and TCP)
+to make it more secure. This makes it SSL-FTP.</p>
 <h3 id="email">Email</h3>
 <ul>
 <li>Used to send messages over the Internet</li>
@@ -2756,30 +1963,6 @@ between sender and sender’s mail server, and second between sender’s
 mail server and receiver’s mail server. Mail is transferred in 3 phases
 - Connection Establishment, Mail Transfer, and Connection
 Termination.</p>
-<h5 id="components-of-smtp">Components of SMTP</h5>
-<h6 id="mail-user-agent-mua">Mail User Agent (MUA)</h6>
-<p>Computer application that helps the user in sending and receiving
-email. Eg - outlook, thunderbird.</p>
-<h6 id="mail-submission-agent-msa">Mail submission agent (MSA)</h6>
-<p>Used to send email. It receives email from MUA, and interacts with
-the MTA for sending it.</p>
-<h6 id="mail-transfer-agent-mta">Mail transfer agent (MTA)</h6>
-<p>Transfers email from one system to another using SMTP</p>
-<h6 id="mail-delivery-agent-mda">Mail delivery agent (MDA)</h6>
-<p>Helps deliver email to the local system, put it into appropriate
-mailboxes,filter spam etc. It works before the message hits the user’s
-inbox.</p>
-<h5 id="smtp-commands">SMTP Commands</h5>
-<h6 id="helo">HELO</h6>
-<p>Identifies the user and the full domain name. This is transmitted
-only once per session.</p>
-<h6 id="mail">MAIL</h6>
-<p>Used to initiate transfer of mail</p>
-<h6 id="rcpt">RCPT</h6>
-<p>This command comes immediately after MAIL. Used to identify
-recipient’s full domain name.</p>
-<h6 id="data">DATA</h6>
-<p>Data is transferred line by line</p>
 <h4 id="message-access-agents---pop-and-imap">Message Access Agents -
 POP and IMAP</h4>
 <ul>
@@ -2809,54 +1992,6 @@ message.</li>
 <li>Different mailboxes, folders, hierarchy of folders can be
 created.</li>
 </ul>
-<h4 id="mime">MIME</h4>
-<p>MIME (Multipurpose Internet Mail Extension) is used to extend the
-ability of email.</p>
-<ul>
-<li>Email generally only supports 7-bit ASCII messages.</li>
-<li>MIME allows non-ASCII data, including multimedia, to be sent using
-email.</li>
-<li>MIME transforms non-ASCII data to NVT ASCII and delivers them to
-client MTA. On the receiving side the message is transformed back.</li>
-</ul>
-<h4 id="extended-smtp-esmtp-vs-smtp">Extended SMTP (ESMTP) vs SMTP</h4>
-<table>
-<colgroup>
-<col style="width: 47%" />
-<col style="width: 52%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">ESMTP</th>
-<th style="text-align: center;">SMTP</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Authentication of sender is done</td>
-<td style="text-align: center;">No authentication is present.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Multimedia can be attached directly</td>
-<td style="text-align: center;">Multimedia can only be attached using
-MIME</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Size of email can be reduced</td>
-<td style="text-align: center;">Email size cannot be reduced</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">SSL encryption is done</td>
-<td style="text-align: center;">No encryption</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Transmission opened using EHLO
-command</td>
-<td style="text-align: center;">Transmission opened using HELO
-command.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="dns">DNS</h3>
 <p>DNS stands for domain name system. It is used to convert domain
 names, such as google.com, to IP addresses, such as 8.8.8.8. Special DNS
@@ -2952,34 +2087,6 @@ system. Client must import an interface before communication.</li>
 <li><p>How to pass parameters - solved by parameter
 marshalling.</p></li>
 </ul>
-<h3 id="types-of-rpc">Types of RPC</h3>
-<h4 id="synchronous-rpc">Synchronous RPC</h4>
-<p>A calls RPC on B - calling process on A is suspended. Information is
-passed as parameters.</p>
-<h4 id="asynchronous-rpc">Asynchronous RPC</h4>
-<p>Client continues executing other commands after RPC request and
-receiving acknowledgment. When it receives the response, it can use
-it.</p>
-<h4 id="one-way-rpc">One-Way RPC</h4>
-<p>Client doesn’t wait for an acknowledgment. This is unreliable since
-the receiver may never have received the RPC request.</p>
-<h4 id="deferred-synchronous-rpc">Deferred Synchronous RPC</h4>
-<p>Client periodically asks(polls) the server if the RPC results are
-available yet.</p>
-<h3 id="failure-semantics-in-rpc">Failure Semantics in RPC</h3>
-<ul>
-<li><strong>Client unable to locate server</strong> - Return error to
-client application.</li>
-<li><strong>Lost request message</strong> - Timeout messages, repeat the
-message if we don’t receive a reply after some time.</li>
-<li><strong>Lost reply</strong> - Same as above.</li>
-<li><strong>Server failure</strong> - Hard to detect if server failed or
-if message was lost. We also don’t know if server failed after
-completing the procedure (but before sending its reply), or if the
-procedure was never executed (server failed before calling it.)</li>
-<li><strong>Client failure</strong> - Client fails before it can receive
-the reply.</li>
-</ul>
 <h2 id="presentation-layer---security">Presentation Layer -
 Security</h2>
 <p>One of the major functions of the presentation layer is security and
@@ -3042,27 +2149,6 @@ columns being the length of the key.</p>
 <p>We write the ciphertext columnwise. We start with the column whose
 key is lowest. Here, lower is determined by position in alphabet. Thus,
 we write out column A -&gt; B-&gt;C-&gt;E-&gt;G-&gt;K-&gt;M.</p>
-<h4 id="one-time-pad">One-Time Pad</h4>
-<p>This is an unbreakable cipher, but it has its own disadvantages.</p>
-<ul>
-<li><p>Choose a random bit-string as the key.</p></li>
-<li><p>Convert the plaintext into bits, for e.g, using ASCII.</p></li>
-<li><p>XOR the plaintext with the key. This produces the ciphertext,
-which is sent to the receiver.</p></li>
-<li><p>To decrypt, the ciphertext is again XORed with the key, and
-converted back to character form.</p></li>
-<li><p>This is unbreakable, because if a hacker tries to try all
-possible keys, he will receive valid (but wrong) answers.</p>
-<p>For e.g, if the original message is “Hello World”, using the key
-<span class="math inline">\(key_1\)</span>. Suppose the hacker tries to
-XOR the ciphertext using <span class="math inline">\(key_2\)</span>, and
-he receives the message “Good morning”. He will not know whether “Good
-Morning” was the actual message.</p></li>
-<li><p>Major issue with one-time pads is that both sender and receiver
-need to maintain a copy of the key, that can never be lost or changed.
-One key can also not be used a large amount of times, as then hackers
-will get a large amount of data to try to guess the key from.</p></li>
-</ul>
 <h3 id="rsa">RSA</h3>
 <p>An asymmetric encryption algorithm named after its inventors -
 Rivest, Shamir and Adleman.</p>
@@ -3214,31 +2300,5 @@ alt="Digitally signing messages using digests" />
 <figcaption aria-hidden="true">Digitally signing messages using
 digests</figcaption>
 </figure>
-<h4 id="diffie-hellman-key-exchange">Diffie-Hellman Key Exchange</h4>
-<p>This is a method for 2 parties to exchange keys without the use of a
-third party.</p>
-<ol type="1">
-<li>Alice and Bob agree on 2 large numbers, <span
-class="math inline">\(n\)</span> and <span
-class="math inline">\(g\)</span>. Both numbers can be made public.</li>
-<li>Alice chooses a large number <span class="math inline">\(x\)</span>
-and keeps it private, and Bob chooses a large number <span
-class="math inline">\(y\)</span>, and also keeps it private. Alice does
-not know <span class="math inline">\(y\)</span> and Bob doesn’t know
-<span class="math inline">\(x\)</span>.</li>
-<li>Alice sends <span class="math inline">\(g^x\;mod\;n\)</span> to
-Bob.</li>
-<li>Bob sends <span class="math inline">\(g^y\;mod\;n\)</span> to
-Alice.</li>
-<li>Alice computes <span class="math inline">\(K_{A,B}\)</span> as:
-<span class="math display">\[ K_{A,B} = (g^y\;mod\;n)^x = g^{xy}\; mod
-\; n\]</span></li>
-<li>Bob computes <span class="math inline">\(K_{A,B}\)</span> as: <span
-class="math display">\[ K_{A,B} = (g^x\;mod\;n)^y = g^{xy}\; mod \;
-n\]</span></li>
-</ol>
-<p>This way both Alice and Bob get the same session key, and no one
-listening from outside will be able to recreate it. This is based on the
-same principle as <a href="#rsa">RSA</a>.</p>
 </div></div></body>
 </html>
