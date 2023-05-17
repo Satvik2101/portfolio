@@ -1,5 +1,7 @@
 node ./generators/index_gen.js
 node ./generators/style_gen.js
+node ./helpers/addAnalytics.js
+# node ./helpers/minifyHtml.js
 
 # isodate=$(date -Is)
 # echo $isodate
