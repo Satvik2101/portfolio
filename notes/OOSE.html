@@ -159,6 +159,117 @@ id="toc-rational-unified-process">Rational Unified Process</a>
 RUP</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#software-requirements"
+id="toc-software-requirements">Software Requirements</a>
+<ul>
+<li><a href="#characteristics-of-a-good-requirement"
+id="toc-characteristics-of-a-good-requirement">Characteristics of a Good
+Requirement</a></li>
+<li><a href="#identification-of-stakeholders"
+id="toc-identification-of-stakeholders">Identification of
+Stakeholders</a>
+<ul>
+<li><a href="#internal-people-of-customers-organization"
+id="toc-internal-people-of-customers-organization">Internal People of
+Customer’s Organization</a></li>
+<li><a href="#external-people-of-customers-organization"
+id="toc-external-people-of-customers-organization">External People of
+Customer’s Organization</a></li>
+<li><a href="#internal-people-of-developers-organization"
+id="toc-internal-people-of-developers-organization">Internal People of
+Developer’s Organization</a></li>
+<li><a href="#external-people-of-developers-organization"
+id="toc-external-people-of-developers-organization">External People of
+Developer’s Organization</a></li>
+</ul></li>
+<li><a href="#functional-vs-non-functional-requirements"
+id="toc-functional-vs-non-functional-requirements">Functional vs
+Non-Functional Requirements</a>
+<ul>
+<li><a href="#functional" id="toc-functional">Functional</a></li>
+<li><a href="#non-functional"
+id="toc-non-functional">Non-Functional</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#requirement-elicitation-techniques"
+id="toc-requirement-elicitation-techniques">Requirement Elicitation
+Techniques</a>
+<ul>
+<li><a href="#interviews" id="toc-interviews">Interviews</a></li>
+<li><a href="#brainstorming" id="toc-brainstorming">Brainstorming</a>
+<ul>
+<li><a href="#facilitated-application-specification-technique-fast"
+id="toc-facilitated-application-specification-technique-fast">Facilitated
+Application Specification Technique (FAST)</a></li>
+<li><a href="#guidelines" id="toc-guidelines">Guidelines</a></li>
+<li><a href="#preparation" id="toc-preparation">Preparation</a></li>
+<li><a href="#activities" id="toc-activities">Activities</a></li>
+</ul></li>
+<li><a href="#prototyping-1" id="toc-prototyping-1">Prototyping</a></li>
+</ul></li>
+<li><a href="#use-case-approach" id="toc-use-case-approach">Use Case
+Approach</a>
+<ul>
+<li><a href="#terms" id="toc-terms">Terms</a></li>
+<li><a href="#relationships-between-use-cases"
+id="toc-relationships-between-use-cases">Relationships between Use
+Cases</a>
+<ul>
+<li><a href="#extend-relationship" id="toc-extend-relationship">Extend
+Relationship</a></li>
+<li><a href="#include-relationship"
+id="toc-include-relationship">Include Relationship</a></li>
+</ul></li>
+<li><a href="#use-case-description" id="toc-use-case-description">Use
+Case Description</a></li>
+<li><a href="#scenario-diagrams" id="toc-scenario-diagrams">Scenario
+Diagrams</a></li>
+</ul></li>
+<li><a href="#object-oriented-analysis"
+id="toc-object-oriented-analysis">Object Oriented Analysis</a>
+<ul>
+<li><a href="#classes-1" id="toc-classes-1">Classes</a>
+<ul>
+<li><a href="#entity-classes" id="toc-entity-classes">Entity
+Classes</a></li>
+<li><a href="#interface-classes" id="toc-interface-classes">Interface
+Classes</a></li>
+<li><a href="#control-class" id="toc-control-class">Control
+Class</a></li>
+</ul></li>
+<li><a href="#relationships-between-classes"
+id="toc-relationships-between-classes">Relationships between
+Classes</a></li>
+<li><a href="#class-diagram" id="toc-class-diagram">Class
+Diagram</a></li>
+</ul></li>
+<li><a href="#sequence-diagrams" id="toc-sequence-diagrams">Sequence
+Diagrams</a>
+<ul>
+<li><a href="#centralized-vs-decentralized-control-structures"
+id="toc-centralized-vs-decentralized-control-structures">Centralized vs
+Decentralized Control Structures</a></li>
+</ul></li>
+<li><a href="#collaboration-diagrams"
+id="toc-collaboration-diagrams">Collaboration Diagrams</a></li>
+<li><a href="#oo-design" id="toc-oo-design">OO-Design</a>
+<ul>
+<li><a href="#identification-of-operations"
+id="toc-identification-of-operations">Identification of
+Operations</a></li>
+<li><a href="#detailed-design-and-software-design-document"
+id="toc-detailed-design-and-software-design-document">Detailed Design
+and Software Design Document</a></li>
+<li><a href="#generation-of-test-cases-from-use-cases"
+id="toc-generation-of-test-cases-from-use-cases">Generation of Test
+Cases from Use Cases</a>
+<ul>
+<li><a href="#terminology" id="toc-terminology">Terminology</a></li>
+</ul></li>
+<li><a href="#oo-design-principles-for-software-quality"
+id="toc-oo-design-principles-for-software-quality">OO Design Principles
+for Software Quality</a></li>
+</ul></li>
 </ul>
 </nav><div id="data">
 <h2 id="object-oriented-software-engineering">Object Oriented Software
@@ -445,6 +556,7 @@ Collaboration (CRC)</h3>
 <li>Collab - Other classes that a class calls to achieve its
 functionality.</li>
 </ol>
+<p>​</p>
 <table>
 <colgroup>
 <col style="width: 44%" />
@@ -901,6 +1013,593 @@ test)</li>
 <li>Release notes</li>
 <li>User Manual</li>
 <li>Training material</li>
+</ul>
+<h2 id="software-requirements">Software Requirements</h2>
+<p>A requirement is defined as a condition or capability to which a
+system must conform. It describes the “what” of the system, not
+“how”.</p>
+<h3 id="characteristics-of-a-good-requirement">Characteristics of a Good
+Requirement</h3>
+<ul>
+<li>Correct</li>
+<li>Unambiguous</li>
+<li>Complete</li>
+<li>Consistent</li>
+<li>Verifiable</li>
+<li>Traceable</li>
+<li>Modifiable</li>
+<li>Clear</li>
+<li>Feasible</li>
+<li>Necessary</li>
+<li>Understandable</li>
+</ul>
+<h3 id="identification-of-stakeholders">Identification of
+Stakeholders</h3>
+<p>Every person who is affected by the system (directly or indirectly)
+is a stakeholder.</p>
+<h4 id="internal-people-of-customers-organization">Internal People of
+Customer’s Organization</h4>
+<p>This can be both customers and users. Customers are those who ask for
+the software to be developed, request changes, approve the software, and
+also pay for the system. Users are those who use the system after it has
+been deployed. Customer’s preferences are given more importance compared
+to user.</p>
+<h4 id="external-people-of-customers-organization">External People of
+Customer’s Organization</h4>
+<p>Includes consultants, domain experts, maintenance people, etc.</p>
+<h4 id="internal-people-of-developers-organization">Internal People of
+Developer’s Organization</h4>
+<p>Everyone involved in the development of the system - developers,
+programmers, testers, project managers, graphic designers, etc.</p>
+<h4 id="external-people-of-developers-organization">External People of
+Developer’s Organization</h4>
+<p>Any external people involved in the development of the software.
+Domain experts, consultants, third party testers, etc.</p>
+<h3 id="functional-vs-non-functional-requirements">Functional vs
+Non-Functional Requirements</h3>
+<h4 id="functional">Functional</h4>
+<ul>
+<li>They describe what the software will do.</li>
+<li>They’re also called product features.</li>
+<li>They tell what the customer expects from the system.</li>
+<li>Sometimes they specify what the software should not do.</li>
+</ul>
+<h4 id="non-functional">Non-Functional</h4>
+<ul>
+<li>They tell about the quality of the software.</li>
+<li>Describe how well the software does what it’s supposed to do.</li>
+<li>Include stuff like reliability, usability, maintainability,
+availability, etc.</li>
+<li>Also called quality attributes.</li>
+</ul>
+<h2 id="requirement-elicitation-techniques">Requirement Elicitation
+Techniques</h2>
+<p>Techniques to understand what exactly the customer wants, i.e, to
+translate vague wants of customers into concrete requirements that can
+be formalized and written down.</p>
+<h3 id="interviews">Interviews</h3>
+<ul>
+<li><p>Easy and simple technique</p></li>
+<li><p>Can be formal or informal (Structured/non-structured)</p></li>
+<li><p>Informal has free flow of discussion.</p></li>
+<li><p>A questionnaire may be given to the stakeholders before the
+interview. We can ask any questions in the questionnaire, and get
+clarifications and remove ambiguities during the interview.</p>
+<figure>
+<img src="../images/oose/interview" alt="Structured Interview" />
+<figcaption aria-hidden="true">Structured Interview</figcaption>
+</figure></li>
+<li><p>Based on discussion with each stakeholder, we prepare a list of
+requirements of each stakeholder</p></li>
+<li><p>We then combine all the captured requirements , remove
+redundancies, inconsistencies and ambiguities.</p></li>
+</ul>
+<h3 id="brainstorming">Brainstorming</h3>
+<ul>
+<li>Group discussion</li>
+<li>Various levels of stakeholders may be present together</li>
+<li>Projectors, whiteboards should be there. Free flow is encouraged and
+criticism is not allowed.</li>
+<li>Creativity is encouraged.</li>
+<li>Facilitator is there who handles conflicts, bias, etc.</li>
+<li>Ideas are written down in simple way so everyone can understand
+them. Incomplete ideas are also written so they can be discussed
+later.</li>
+<li>IRD (Initial Requirement Document) is generated from this.</li>
+</ul>
+<h4
+id="facilitated-application-specification-technique-fast">Facilitated
+Application Specification Technique (FAST)</h4>
+<ul>
+<li>Team-oriented approach similar to brainstorming.</li>
+<li>Customers and developers work together to finalize requirements.
+Facilitator manages everything.</li>
+<li>Facilitator may be customer, developer or outsider.</li>
+</ul>
+<h4 id="guidelines">Guidelines</h4>
+<ul>
+<li>Conducted at neutral site.</li>
+<li>Rules should be created and given to everyone in advance.</li>
+<li>Free flow of ideas</li>
+<li>Facilitator gives overview of the project.</li>
+<li>Something like projector, stickers, charts, whiteboard, etc. should
+be present so everyone can see all the ideas.</li>
+<li>Long debates and criticism should be avoided.</li>
+</ul>
+<h4 id="preparation">Preparation</h4>
+<p>Each member needs to create the following things</p>
+<ul>
+<li>Objects
+<ul>
+<li>that are part of the environment of the system</li>
+<li>that are produced by the system</li>
+<li>that are used by the system</li>
+</ul></li>
+<li>Services that interact with the objects</li>
+<li>Constraints (size, cost)</li>
+<li>Performance criteria (speed, accuracy)</li>
+</ul>
+<h4 id="activities">Activities</h4>
+<ul>
+<li>Each member presents their lists</li>
+<li>A group is created to create a consolidated list</li>
+<li>The consolidated list is presented and further discussions happen
+under the facilitator’s directions. Changes may be made to the list</li>
+<li>Few small groups may be created to draft mini-specifications</li>
+<li>Each subteam presents the mini-specs to all the FAST attendees.
+Discussions and changes happen.</li>
+<li>List of issues is prepared</li>
+<li>Validation criteria is decided for each requirement,i.e, how will we
+check that this requirement has been fulfilled</li>
+<li>Subteam creates the final draft for the specification. Final draft
+is prepared using inputs of all the meetings and stakeholders.</li>
+</ul>
+<h3 id="prototyping-1">Prototyping</h3>
+<ul>
+<li>Prototyping is rapid development of a system for the purpose of
+understanding the requirements</li>
+<li>Expensive</li>
+<li>Simplified version (prototype) of the system is created and shown to
+the customers</li>
+<li>Feedback and views is taken.</li>
+<li>Helps understand requirements</li>
+<li>Prototype should be discarded, but experience and feedback gained
+while developing it should be used when creating the actual system.</li>
+<li>Should be developed quickly. Internal structure of the prototype is
+not very important.</li>
+</ul>
+<h2 id="use-case-approach">Use Case Approach</h2>
+<ul>
+<li>Generally for OO systems</li>
+<li>Describes only functional requirements</li>
+<li>Use case describes who does what with the system, for what goal. It
+may include alternate flows.</li>
+<li>Doesn’t consider or care about internal details of the system.</li>
+</ul>
+<h3 id="terms">Terms</h3>
+<ul>
+<li><strong>Use case</strong> - structured outline for description of
+requirement, written in natural language.</li>
+<li><strong>Use case scenario</strong> - Instance of a use case.
+Represents a path through a use case. A use case may contain many such
+paths.</li>
+<li><strong>Use case diagram</strong> - Graphical Representation of a
+use case.</li>
+<li><strong>Actors</strong> - Actors is someone/something that interacts
+with the system, but lies outside the system.</li>
+</ul>
+<h3 id="relationships-between-use-cases">Relationships between Use
+Cases</h3>
+<h4 id="extend-relationship">Extend Relationship</h4>
+<ul>
+<li>Used to model an alternative/special path of the use case that may
+not always occur.</li>
+<li>Extends the functionality of the use case.</li>
+</ul>
+<p>Used in the following way</p>
+<ul>
+<li>Normal use case occurs, till the special condition occurs for new
+use case</li>
+<li>New use case is inserted and executed</li>
+<li>After new use case finishes, the normal use case resumes.</li>
+</ul>
+<p>For e.g, a student returns a book to the library. It is possible that
+the book is late. In that case, we will need to calculate the fine for
+the book. Therefore, the <strong>Return Book</strong> use case will be
+extended by <strong>Calculate Fine</strong> Use case.</p>
+<p><img src="../images/oose/extenduc.png" /></p>
+<h4 id="include-relationship">Include Relationship</h4>
+<p>Repeated functionalities in many use cases can be modelled into
+include relationship, using a singe use case.</p>
+<p>For e.g, many use cases may require the <strong>Print</strong>
+function, so it can be converted into a separate use case and
+<em>included</em> in the other use cases.</p>
+<p><img src="../images/oose/includeuc.png" /></p>
+<h3 id="use-case-description">Use Case Description</h3>
+<p>Should contain :</p>
+<ul>
+<li>Use Case Title</li>
+<li>Brief Description</li>
+<li>Actors involved</li>
+<li>Flow of events
+<ul>
+<li>Basic Flow</li>
+<li>Alternate Flow</li>
+</ul></li>
+<li>Special Requirement</li>
+<li>Precondition</li>
+<li>Postcondition</li>
+<li>Extension point (related use cases)</li>
+</ul>
+<h3 id="scenario-diagrams">Scenario Diagrams</h3>
+<p>Scenario is a particular path through the use case. In scenario
+diagrams:</p>
+<ul>
+<li>Basic flow is represented using straight lines.</li>
+<li>Alternate flows represented using curved lines</li>
+<li>Preconditions checked at the start, postconditions at the end.</li>
+</ul>
+<figure>
+<img src="../images/obs/image-20230518170450511.png"
+alt="Scenario Diagram" />
+<figcaption aria-hidden="true">Scenario Diagram</figcaption>
+</figure>
+<h2 id="object-oriented-analysis">Object Oriented Analysis</h2>
+<p>Identifies and defines the real world objects that are involved in
+interaction with the system.</p>
+<h3 id="classes-1">Classes</h3>
+<p>Class is a collection of objects with common attributes and
+operations. It is a template that groups attributes and operations
+together.</p>
+<h4 id="entity-classes">Entity Classes</h4>
+<ul>
+<li>Persist longer in the system.</li>
+<li>Stored and maintained for a long time</li>
+<li>Contain information needed to complete a task</li>
+<li>AKA domain classes.</li>
+<li>May be used in multiple use cases.</li>
+</ul>
+<figure>
+<img src="../images/obs/entityclass.png" alt="Entity Class" />
+<figcaption aria-hidden="true">Entity Class</figcaption>
+</figure>
+<h4 id="interface-classes">Interface Classes</h4>
+<ul>
+<li>Handle interaction in the system.</li>
+<li>Provide interface between actors and the system.</li>
+<li>AKA boundary classes.</li>
+<li>Used to model windows, buttons, etc.</li>
+<li>Interface class usually lasts while the use case is active.</li>
+<li>Generally we need an interface class for each use case. Use cases
+may also have more than one interface class.</li>
+<li>Dependent on surroundings/environment of the system. Entity and
+control classes are not dependent on environment or surroundings.</li>
+</ul>
+<figure>
+<img src="../images/obs/interfaceclass.png" alt="Interface Class" />
+<figcaption aria-hidden="true">Interface Class</figcaption>
+</figure>
+<h4 id="control-class">Control Class</h4>
+<ul>
+<li>Coordinate and manage entity and interface classes.</li>
+<li>Puts together things so that a use case can be completed.</li>
+<li>Represents dynamics of the system.</li>
+<li>Handles tasks and sequence of events.</li>
+<li>A control object is created when the use case starts and is deleted
+when the use case finishes.</li>
+<li>Generally, each use case should have its own control class.</li>
+</ul>
+<figure>
+<img src="../images/obs/controlclass.png" alt="Control Class" />
+<figcaption aria-hidden="true">Control Class</figcaption>
+</figure>
+<h3 id="relationships-between-classes">Relationships between
+Classes</h3>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 51%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Relationship</th>
+<th>Description</th>
+<th>Notation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Association</td>
+<td>Structural connection, usually bidirectional. Shows that two classes
+are linked in some way. May also have a name associated with it. For
+e.g, IssueBookController <em>manages</em> Transaction. <em>manages</em>
+is an association with a name.</td>
+<td><img src="../images/obs/association.png" alt="Association" /></td>
+</tr>
+<tr class="even">
+<td>Aggregation</td>
+<td>Shows whole-part relationship, i.e, class B is part of class A. E.g
+- Book is part of Library. In the notation, the diamond should represent
+the library, i.e, the <em>whole</em> part.</td>
+<td><img src="../images/obs/aggreg.png" alt="Aggregation" /></td>
+</tr>
+<tr class="odd">
+<td>Composition</td>
+<td>Composition is strong aggregation. In composition, class B is part
+of Class A, and <em>only Class A</em>. It cannot belong to another
+class, say C. In aggregation, a class can belong to/be part of 2
+classes. For e.g, book can be part of Library as well as Computer
+Department. But Computer Department can belong to only one
+University.</td>
+<td><img src="../images/obs/composition.png" alt="Composition" /></td>
+</tr>
+<tr class="even">
+<td>Dependency</td>
+<td>Unidirectional - represents that a class depends on another class.
+It means that one class is affected by changes in the other class,
+because it uses that class. If class A depends on class B, we show
+dependency through a dotted arrow from A to B.</td>
+<td><img src="../images/obs/dependency.png" alt="Dependency" /></td>
+</tr>
+<tr class="odd">
+<td>Generalization</td>
+<td>Relationship between parent and child class. Represents inheritance
+(is a) relationships. For example, Professor is an Employee,
+SecurityGuard is an Employee, Clerk is an Employee, etc. Represented by
+an arrow from child class towards parent class.</td>
+<td><img src="../images/obs/gen.png" alt="Generalization" /></td>
+</tr>
+</tbody>
+</table>
+<h3 id="class-diagram">Class Diagram</h3>
+<p>Class diagrams should contain details about each classes as well as
+the relationships between them. For each class, we need to write:</p>
+<ul>
+<li>the class name</li>
+<li>Type (entity/interface/control)</li>
+<li>Attributes and their types</li>
+<li>Operations</li>
+</ul>
+<figure>
+<img src="../images/obs/class_diagram.png"
+alt="Class Diagram Example" />
+<figcaption aria-hidden="true">Class Diagram Example</figcaption>
+</figure>
+<p>The numbers on the relationships represent <em>multiplicity</em>.
+Represents how many instances of A are related to how many instances of
+B.</p>
+<p>For e.g, One IssueBookController is associated with only one Book.
+Vice versa, one Book is only associated with one
+IssueBookController.</p>
+<p>A Member can have multiple transactions (one member can issue many
+books). In our example,</p>
+<ul>
+<li>Student can have 0-5 transactions</li>
+<li>Faculty can have 0-10 transactions</li>
+<li>Employee can have 0-10 transactions</li>
+</ul>
+<p>But, each transaction is associated with only one member. Here, we
+know member can be of many types (student,faculty,employee), so we
+specify it using +student, +faculty, +employee.</p>
+<h2 id="sequence-diagrams">Sequence Diagrams</h2>
+<ul>
+<li><p><strong>Objects</strong> are shown in rectangles.</p></li>
+<li><p>Lifetime/Lifeline of the object goes down along the y-axis. It
+represents the amount of time the object is alive in the use
+case.</p></li>
+<li><p><strong>Focus of control</strong> is represented by a vertical
+rectangle. It shows the time period for which an object is performing a
+specific event. An object may have multiple such focuses of control
+during the use case. <img
+src="../images/obs/image-20230518211858116.png"
+alt="Focus of Control being represented by a rectangle. The dotted line shows the lifeline" /></p></li>
+<li><p><strong>Messages</strong> are information or commands passed from
+one object to another. They are represented using arrows.</p>
+<ul>
+<li><p><strong>Simple Messages</strong> are interactions that may not be
+a procedure call. <img src="../images/obs/image-20230518212015684.png"
+alt="Simple Message" /></p></li>
+<li><p><strong>Synchronous Messages</strong> are those in which the
+sending object waits for a response from receiving object.</p>
+<figure>
+<img src="../images/obs/image-20230518212401402.png"
+alt="Synchronous Message" />
+<figcaption aria-hidden="true">Synchronous Message</figcaption>
+</figure></li>
+<li><p><strong>Asynchronous Messages</strong> are those in which the
+sender doesn’t wait for a response.</p>
+<figure>
+<img src="../images/obs/image-20230518212422339.png"
+alt="Asynchronous Message" />
+<figcaption aria-hidden="true">Asynchronous Message</figcaption>
+</figure></li>
+<li><p><strong>Procedure call</strong> - Method call <img
+src="../images/obs/image-20230518212439837.png"
+alt="Procedure Call" /></p></li>
+<li><p><strong>Return Message</strong> - Return value for an incoming
+message. It’s not necessary that a message always has a return
+message.</p>
+<figure>
+<img src="../images/obs/image-20230518212453328.png"
+alt="Return Message" />
+<figcaption aria-hidden="true">Return Message</figcaption>
+</figure></li>
+</ul></li>
+</ul>
+<h3 id="centralized-vs-decentralized-control-structures">Centralized vs
+Decentralized Control Structures</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Centralized</th>
+<th>Decentralized</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Controlling object responsible for flow of messages and order of
+events.</td>
+<td>Participating objects can communicate with each other without any
+controlling object.</td>
+</tr>
+<tr class="even">
+<td>Better because any change means only controller needs to be
+changed.</td>
+<td>Better when messages are strongly coupled with each other.</td>
+</tr>
+<tr class="odd">
+<td>Allows new operations to be added easily</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Parts of functionality can be reused</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><img src="../images/obs/image-20230518213758495.png"
+alt="Centralized" /></td>
+<td><img src="../images/obs/image-20230518213813432.png"
+alt="Decentralized" /></td>
+</tr>
+</tbody>
+</table>
+<p>Extended use cases can also be added to sequence diagrams easily.</p>
+<figure>
+<img src="../images/obs/sd_Page_1.jpg"
+alt="Sequence Diagram Example - Return Book" />
+<figcaption aria-hidden="true">Sequence Diagram Example - Return
+Book</figcaption>
+</figure>
+<figure>
+<img src="../images/obs/sd_Page_2.jpg"
+alt="Sequence Diagram of Return Book with another use case (calculate fine) added to it" />
+<figcaption aria-hidden="true">Sequence Diagram of Return Book with
+another use case (calculate fine) added to it</figcaption>
+</figure>
+<h2 id="collaboration-diagrams">Collaboration Diagrams</h2>
+<p>They are similar to sequence diagrams. Objects are shown as
+rectangles, and actors using stick figures. Classes are shown using the
+representation for that particular type of class (entity,
+interface,control).They don’t show events being time ordered. Messages
+are shown using arrows. Objects that interact with each other are
+connected by links (straight lines). One link can be used to pass many
+messages.</p>
+<p>The time for which the object is alive, or till when it’s
+participating in some event, is not shown.</p>
+<p>Events are ordered using numbers written next to the message.</p>
+<p>Return messages are shown using dotted arrows.</p>
+<figure>
+<img src="../images/obs/collabd.jpg"
+alt="Collaboration Diagram for Return book" />
+<figcaption aria-hidden="true">Collaboration Diagram for Return
+book</figcaption>
+</figure>
+<h2 id="oo-design">OO-Design</h2>
+<p>Consists of the following steps.</p>
+<ol type="1">
+<li>Sequence and Collaboration Diagrams</li>
+<li>Refinement of classes and relationships - if we need additional
+features, or need to change existing features, we should do so
+here.</li>
+<li>Identify operations</li>
+<li>Create detailed class diagram - Use the refined classes,
+relationships and identified operations to create a new detailed class
+diagram.</li>
+<li>Detailed design</li>
+<li>Software Design Document</li>
+<li>Generation of test cases from use cases</li>
+</ol>
+<h3 id="identification-of-operations">Identification of Operations</h3>
+<p>We create a table for our system. It includes:</p>
+<ul>
+<li>the various classes</li>
+<li>the operations inside each class</li>
+<li>Parameters for each operation</li>
+<li>Parameter type for each operation</li>
+<li>Return value and return type for each operation</li>
+<li>Description for the operation</li>
+</ul>
+<p>For example,</p>
+<figure>
+<img src="../images/obs/idop.jpg" alt="Identification of Operations" />
+<figcaption aria-hidden="true">Identification of Operations</figcaption>
+</figure>
+<h3 id="detailed-design-and-software-design-document">Detailed Design
+and Software Design Document</h3>
+<p>We create a detailed design for each class separately. It should
+include:</p>
+<ul>
+<li>Class Name</li>
+<li>Class Type</li>
+<li>Description</li>
+<li>Attributes along with their types</li>
+<li>Operations, along with their parameters, type of each parameter, and
+return type of the operation itself.</li>
+</ul>
+<h3 id="generation-of-test-cases-from-use-cases">Generation of Test
+Cases from Use Cases</h3>
+<p>It is a five step process</p>
+<ol type="1">
+<li>Create use case scenario matrix</li>
+<li>Identify variables in a use case</li>
+<li>Identify different input states of each variable</li>
+<li>Design test case matrix</li>
+<li>Assign actual values to input variables.</li>
+</ol>
+<h4 id="terminology">Terminology</h4>
+<ul>
+<li><strong>Test Case</strong> executes one particular path of the
+program, or verifies a requirement.</li>
+<li><strong>Test suite</strong> - Set of test cases.</li>
+<li><strong>Test coverage</strong> - how much of the system to the test
+cases evaluate (50%, 70%, etc.)</li>
+<li><strong>Test result</strong> - A repository where all results of
+tests are kept.</li>
+</ul>
+<p>For each test case, we need to show:</p>
+<ul>
+<li>Test Case ID</li>
+<li>Scenario name and description</li>
+<li>All the variables, along with their input state (valid or
+invalid)</li>
+<li>Expected output</li>
+<li>Remarks</li>
+</ul>
+<p>When we get to step 5 (assigning actual values), the input state
+(Valid/invalid) is replaced with actual values.</p>
+<p>On running the test, we also add another column - <strong>Actual
+Output</strong>. This should be the same as the Expected Output.</p>
+<p>For e.g, for the use case issue book:</p>
+<p><img src="../images/obs/image-20230518225616730.png" /></p>
+<p>This is the scenario diagram. Scenario matrix will be as shown:</p>
+<figure>
+<img src="../images/obs/image-20230518225718704.png"
+alt="Scenario Matrix" />
+<figcaption aria-hidden="true">Scenario Matrix</figcaption>
+</figure>
+<p>Test Case Matrix will be as shown:</p>
+<p><img src="../images/obs/tcm_Page_1.jpg" /></p>
+<p>Putting actual values, it will look like:</p>
+<p><img src="../images/obs/tcm_Page_2.jpg" /></p>
+<h3 id="oo-design-principles-for-software-quality">OO Design Principles
+for Software Quality</h3>
+<ul>
+<li><strong>Cohesion</strong> - should be high</li>
+<li><strong>Coupling</strong> - should be low</li>
+<li><strong>Design clarity</strong> - Design should be implemented
+correctly, concisely, unambiguously and consistently. Names of the
+classes, attributes, operations should convey their
+meaning/purpose.</li>
+<li><strong>Class Hierarchy Depth</strong> - Unnecessary use of
+inheritance/generalization should be avoided.</li>
+<li><strong>Simple Classes and Objects</strong> - Classes shouldn’t have
+too many attributes/operations. Class definition should be simple clear
+and understandable.</li>
 </ul>
 </div></div></body>
 </html>
