@@ -308,6 +308,33 @@ Classes</a></li>
 <li><a href="#class-diagram" id="toc-class-diagram">Class
 Diagram</a></li>
 </ul></li>
+<li><a href="#sequence-diagrams" id="toc-sequence-diagrams">Sequence
+Diagrams</a>
+<ul>
+<li><a href="#centralized-vs-decentralized-control-structures"
+id="toc-centralized-vs-decentralized-control-structures">Centralized vs
+Decentralized Control Structures</a></li>
+</ul></li>
+<li><a href="#collaboration-diagrams"
+id="toc-collaboration-diagrams">Collaboration Diagrams</a></li>
+<li><a href="#oo-design" id="toc-oo-design">OO-Design</a>
+<ul>
+<li><a href="#identification-of-operations"
+id="toc-identification-of-operations">Identification of
+Operations</a></li>
+<li><a href="#detailed-design-and-software-design-document"
+id="toc-detailed-design-and-software-design-document">Detailed Design
+and Software Design Document</a></li>
+<li><a href="#generation-of-test-cases-from-use-cases"
+id="toc-generation-of-test-cases-from-use-cases">Generation of Test
+Cases from Use Cases</a>
+<ul>
+<li><a href="#terminology" id="toc-terminology">Terminology</a></li>
+</ul></li>
+<li><a href="#oo-design-principles-for-software-quality"
+id="toc-oo-design-principles-for-software-quality">OO Design Principles
+for Software Quality</a></li>
+</ul></li>
 <li><a href="#good-programming-practices"
 id="toc-good-programming-practices">Good Programming Practices</a></li>
 <li><a href="#software-testing" id="toc-software-testing">Software
@@ -362,6 +389,12 @@ Testing</a></li>
 </nav><div id="data">
 <h2 id="object-oriented-software-engineering">Object Oriented Software
 Engineering</h2>
+<blockquote>
+<p>Many of the images and tables used in this document have been taken
+from Object Oriented Software Engineering by Yogesh Singh,Ruchika
+Malhotra. Please support their efforts by buying a copy <a
+href="https://www.amazon.in/Object-Oriented-Software-Engineering-Yogesh-Singh-ebook/dp/B00K7YGMA6/ref=sr_1_1?keywords=object-oriented+software+engineering+yogesh+singh&amp;qid=1684509240&amp;sprefix=yogesh+singh+obje%2Caps%2C249&amp;sr=8-1">here.</a></p>
+</blockquote>
 <p><em>It consists of two terms – object oriented, and software
 engineering.</em></p>
 <h3 id="object-oriented">Object Oriented</h3>
@@ -1443,6 +1476,225 @@ the relationships between them. For each class, we need to write:</p>
 <li>Type (entity/interface/control)</li>
 <li>Attributes and their types</li>
 <li>Operations</li>
+</ul>
+<h2 id="sequence-diagrams">Sequence Diagrams</h2>
+<ul>
+<li><p><strong>Objects</strong> are shown in rectangles.</p></li>
+<li><p>Lifetime/Lifeline of the object goes down along the y-axis. It
+represents the amount of time the object is alive in the use
+case.</p></li>
+<li><p><strong>Focus of control</strong> is represented by a vertical
+rectangle. It shows the time period for which an object is performing a
+specific event. An object may have multiple such focuses of control
+during the use case. <img
+src="../images/obs/image-20230518211858116.png"
+alt="Focus of Control being represented by a rectangle. The dotted line shows the lifeline" /></p></li>
+<li><p><strong>Messages</strong> are information or commands passed from
+one object to another. They are represented using arrows.</p>
+<ul>
+<li><p><strong>Simple Messages</strong> are interactions that may not be
+a procedure call. <img src="../images/obs/image-20230518212015684.png"
+alt="Simple Message" /></p></li>
+<li><p><strong>Synchronous Messages</strong> are those in which the
+sending object waits for a response from receiving object.</p>
+<figure>
+<img src="../images/obs/image-20230518212401402.png"
+alt="Synchronous Message" />
+<figcaption aria-hidden="true">Synchronous Message</figcaption>
+</figure></li>
+<li><p><strong>Asynchronous Messages</strong> are those in which the
+sender doesn’t wait for a response.</p>
+<figure>
+<img src="../images/obs/image-20230518212422339.png"
+alt="Asynchronous Message" />
+<figcaption aria-hidden="true">Asynchronous Message</figcaption>
+</figure></li>
+<li><p><strong>Procedure call</strong> - Method call <img
+src="../images/obs/image-20230518212439837.png"
+alt="Procedure Call" /></p></li>
+<li><p><strong>Return Message</strong> - Return value for an incoming
+message. It’s not necessary that a message always has a return
+message.</p>
+<figure>
+<img src="../images/obs/image-20230518212453328.png"
+alt="Return Message" />
+<figcaption aria-hidden="true">Return Message</figcaption>
+</figure></li>
+</ul></li>
+</ul>
+<h3 id="centralized-vs-decentralized-control-structures">Centralized vs
+Decentralized Control Structures</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Centralized</th>
+<th>Decentralized</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Controlling object responsible for flow of messages and order of
+events.</td>
+<td>Participating objects can communicate with each other without any
+controlling object.</td>
+</tr>
+<tr class="even">
+<td>Better because any change means only controller needs to be
+changed.</td>
+<td>Better when messages are strongly coupled with each other.</td>
+</tr>
+<tr class="odd">
+<td>Allows new operations to be added easily</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Parts of functionality can be reused</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><img src="../images/obs/image-20230518213758495.png"
+alt="Centralized" /></td>
+<td><img src="../images/obs/image-20230518213813432.png"
+alt="Decentralized" /></td>
+</tr>
+</tbody>
+</table>
+<p>Extended use cases can also be added to sequence diagrams easily.</p>
+<figure>
+<img src="../images/obs/sd_Page_1.jpg"
+alt="Sequence Diagram Example - Return Book" />
+<figcaption aria-hidden="true">Sequence Diagram Example - Return
+Book</figcaption>
+</figure>
+<figure>
+<img src="../images/obs/sd_Page_2.jpg"
+alt="Sequence Diagram of Return Book with another use case (calculate fine) added to it" />
+<figcaption aria-hidden="true">Sequence Diagram of Return Book with
+another use case (calculate fine) added to it</figcaption>
+</figure>
+<h2 id="collaboration-diagrams">Collaboration Diagrams</h2>
+<p>They are similar to sequence diagrams. Objects are shown as
+rectangles, and actors using stick figures. Classes are shown using the
+representation for that particular type of class (entity,
+interface,control).They don’t show events being time ordered. Messages
+are shown using arrows. Objects that interact with each other are
+connected by links (straight lines). One link can be used to pass many
+messages.</p>
+<p>The time for which the object is alive, or till when it’s
+participating in some event, is not shown.</p>
+<p>Events are ordered using numbers written next to the message.</p>
+<p>Return messages are shown using dotted arrows.</p>
+<figure>
+<img src="../images/obs/collabd.jpg"
+alt="Collaboration Diagram for Return book" />
+<figcaption aria-hidden="true">Collaboration Diagram for Return
+book</figcaption>
+</figure>
+<h2 id="oo-design">OO-Design</h2>
+<p>Consists of the following steps.</p>
+<ol type="1">
+<li>Sequence and Collaboration Diagrams</li>
+<li>Refinement of classes and relationships - if we need additional
+features, or need to change existing features, we should do so
+here.</li>
+<li>Identify operations</li>
+<li>Create detailed class diagram - Use the refined classes,
+relationships and identified operations to create a new detailed class
+diagram.</li>
+<li>Detailed design</li>
+<li>Software Design Document</li>
+<li>Generation of test cases from use cases</li>
+</ol>
+<h3 id="identification-of-operations">Identification of Operations</h3>
+<p>We create a table for our system. It includes:</p>
+<ul>
+<li>the various classes</li>
+<li>the operations inside each class</li>
+<li>Parameters for each operation</li>
+<li>Parameter type for each operation</li>
+<li>Return value and return type for each operation</li>
+<li>Description for the operation</li>
+</ul>
+<p>For example,</p>
+<figure>
+<img src="../images/obs/idop.jpg" alt="Identification of Operations" />
+<figcaption aria-hidden="true">Identification of Operations</figcaption>
+</figure>
+<h3 id="detailed-design-and-software-design-document">Detailed Design
+and Software Design Document</h3>
+<p>We create a detailed design for each class separately. It should
+include:</p>
+<ul>
+<li>Class Name</li>
+<li>Class Type</li>
+<li>Description</li>
+<li>Attributes along with their types</li>
+<li>Operations, along with their parameters, type of each parameter, and
+return type of the operation itself.</li>
+</ul>
+<h3 id="generation-of-test-cases-from-use-cases">Generation of Test
+Cases from Use Cases</h3>
+<p>It is a five step process</p>
+<ol type="1">
+<li>Create use case scenario matrix</li>
+<li>Identify variables in a use case</li>
+<li>Identify different input states of each variable</li>
+<li>Design test case matrix</li>
+<li>Assign actual values to input variables.</li>
+</ol>
+<h4 id="terminology">Terminology</h4>
+<ul>
+<li><strong>Test Case</strong> executes one particular path of the
+program, or verifies a requirement.</li>
+<li><strong>Test suite</strong> - Set of test cases.</li>
+<li><strong>Test coverage</strong> - how much of the system to the test
+cases evaluate (50%, 70%, etc.)</li>
+<li><strong>Test result</strong> - A repository where all results of
+tests are kept.</li>
+</ul>
+<p>For each test case, we need to show:</p>
+<ul>
+<li>Test Case ID</li>
+<li>Scenario name and description</li>
+<li>All the variables, along with their input state (valid or
+invalid)</li>
+<li>Expected output</li>
+<li>Remarks</li>
+</ul>
+<p>When we get to step 5 (assigning actual values), the input state
+(Valid/invalid) is replaced with actual values.</p>
+<p>On running the test, we also add another column - <strong>Actual
+Output</strong>. This should be the same as the Expected Output.</p>
+<p>For e.g, for the use case issue book:</p>
+<p><img src="../images/obs/image-20230518225616730.png" /></p>
+<p>This is the scenario diagram. Scenario matrix will be as shown:</p>
+<figure>
+<img src="../images/obs/image-20230518225718704.png"
+alt="Scenario Matrix" />
+<figcaption aria-hidden="true">Scenario Matrix</figcaption>
+</figure>
+<p>Test Case Matrix will be as shown:</p>
+<p><img src="../images/obs/tcm_Page_1.jpg" /></p>
+<p>Putting actual values, it will look like:</p>
+<p><img src="../images/obs/tcm_Page_2.jpg" /></p>
+<h3 id="oo-design-principles-for-software-quality">OO Design Principles
+for Software Quality</h3>
+<ul>
+<li><strong>Cohesion</strong> - should be high</li>
+<li><strong>Coupling</strong> - should be low</li>
+<li><strong>Design clarity</strong> - Design should be implemented
+correctly, concisely, unambiguously and consistently. Names of the
+classes, attributes, operations should convey their
+meaning/purpose.</li>
+<li><strong>Class Hierarchy Depth</strong> - Unnecessary use of
+inheritance/generalization should be avoided.</li>
+<li><strong>Simple Classes and Objects</strong> - Classes shouldn’t have
+too many attributes/operations. Class definition should be simple clear
+and understandable.</li>
 </ul>
 <h2 id="good-programming-practices">Good Programming Practices</h2>
 <ul>
