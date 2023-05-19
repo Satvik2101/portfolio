@@ -18,8 +18,73 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {  background-color: #f8f8f8; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ef2929; } /* Alert */
+    code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #c4a000; } /* Attribute */
+    code span.bn { color: #0000cf; } /* BaseN */
+    code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4e9a06; } /* Char */
+    code span.cn { color: #000000; } /* Constant */
+    code span.co { color: #8f5902; font-style: italic; } /* Comment */
+    code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+    code span.dt { color: #204a87; } /* DataType */
+    code span.dv { color: #0000cf; } /* DecVal */
+    code span.er { color: #a40000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #0000cf; } /* Float */
+    code span.fu { color: #000000; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+    code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+    code span.ot { color: #8f5902; } /* Other */
+    code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+    code span.sc { color: #000000; } /* SpecialChar */
+    code span.ss { color: #4e9a06; } /* SpecialString */
+    code span.st { color: #4e9a06; } /* String */
+    code span.va { color: #000000; } /* Variable */
+    code span.vs { color: #4e9a06; } /* VerbatimString */
+    code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="styles.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -243,39 +308,60 @@ Classes</a></li>
 <li><a href="#class-diagram" id="toc-class-diagram">Class
 Diagram</a></li>
 </ul></li>
-<li><a href="#sequence-diagrams" id="toc-sequence-diagrams">Sequence
-Diagrams</a>
+<li><a href="#good-programming-practices"
+id="toc-good-programming-practices">Good Programming Practices</a></li>
+<li><a href="#software-testing" id="toc-software-testing">Software
+Testing</a>
 <ul>
-<li><a href="#centralized-vs-decentralized-control-structures"
-id="toc-centralized-vs-decentralized-control-structures">Centralized vs
-Decentralized Control Structures</a></li>
+<li><a href="#verification-techniques"
+id="toc-verification-techniques">Verification Techniques</a>
+<ul>
+<li><a href="#peer-reviews" id="toc-peer-reviews">Peer Reviews</a></li>
+<li><a href="#walkthrough" id="toc-walkthrough">Walkthrough</a></li>
+<li><a href="#inspections" id="toc-inspections">Inspections</a></li>
+<li><a href="#checklist" id="toc-checklist">Checklist</a></li>
 </ul></li>
-<li><a href="#collaboration-diagrams"
-id="toc-collaboration-diagrams">Collaboration Diagrams</a></li>
-<li><a href="#oo-design" id="toc-oo-design">OO-Design</a>
-<ul>
-<li><a href="#identification-of-operations"
-id="toc-identification-of-operations">Identification of
-Operations</a></li>
-<li><a href="#detailed-design-and-software-design-document"
-id="toc-detailed-design-and-software-design-document">Detailed Design
-and Software Design Document</a></li>
-<li><a href="#generation-of-test-cases-from-use-cases"
-id="toc-generation-of-test-cases-from-use-cases">Generation of Test
-Cases from Use Cases</a>
-<ul>
-<li><a href="#terminology" id="toc-terminology">Terminology</a></li>
 </ul></li>
-<li><a href="#oo-design-principles-for-software-quality"
-id="toc-oo-design-principles-for-software-quality">OO Design Principles
-for Software Quality</a></li>
+<li><a href="#functional-testing" id="toc-functional-testing">Functional
+Testing</a>
+<ul>
+<li><a href="#boundary-value-analysis"
+id="toc-boundary-value-analysis">Boundary Value Analysis</a>
+<ul>
+<li><a href="#robustness-testing" id="toc-robustness-testing">Robustness
+Testing</a></li>
+<li><a href="#worst-case-testing" id="toc-worst-case-testing">Worst Case
+Testing</a></li>
+<li><a href="#robust-worst-case" id="toc-robust-worst-case">Robust Worst
+Case</a></li>
+</ul></li>
+<li><a href="#equivalence-class-testing"
+id="toc-equivalence-class-testing">Equivalence Class Testing</a></li>
+</ul></li>
+<li><a href="#structural-testing" id="toc-structural-testing">Structural
+Testing</a>
+<ul>
+<li><a href="#path-testing" id="toc-path-testing">Path Testing</a></li>
+</ul></li>
+<li><a href="#class-testing" id="toc-class-testing">Class
+Testing</a></li>
+<li><a href="#mutation-testing" id="toc-mutation-testing">Mutation
+Testing</a></li>
+<li><a href="#levels-of-testing" id="toc-levels-of-testing">Levels of
+Testing</a>
+<ul>
+<li><a href="#unit-test" id="toc-unit-test">Unit Test</a></li>
+<li><a href="#integration-test" id="toc-integration-test">Integration
+Test</a></li>
+<li><a href="#system-testing" id="toc-system-testing">System
+Testing</a></li>
+<li><a href="#acceptance-testing" id="toc-acceptance-testing">Acceptance
+Testing</a></li>
 </ul></li>
 </ul>
 </nav><div id="data">
 <h2 id="object-oriented-software-engineering">Object Oriented Software
 Engineering</h2>
-<p>OOSE is a software design technique that is used in software design
-in Object OrientedP.</p>
 <p><em>It consists of two terms – object oriented, and software
 engineering.</em></p>
 <h3 id="object-oriented">Object Oriented</h3>
@@ -1297,57 +1383,54 @@ when the use case finishes.</li>
 Classes</h3>
 <table>
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 51%" />
-<col style="width: 36%" />
+<col style="width: 58%" />
+<col style="width: 41%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Relationship</th>
-<th>Description</th>
+<th>Name and Description</th>
 <th>Notation</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Association</td>
-<td>Structural connection, usually bidirectional. Shows that two classes
-are linked in some way. May also have a name associated with it. For
-e.g, IssueBookController <em>manages</em> Transaction. <em>manages</em>
-is an association with a name.</td>
+<td><strong>Association</strong> is a structural connection, usually
+bidirectional. Shows that two classes are linked in some way. May also
+have a name associated with it. For e.g, IssueBookController
+<em>manages</em> Transaction. <em>manages</em> is an association with a
+name.</td>
 <td><img src="../images/obs/association.png" alt="Association" /></td>
 </tr>
 <tr class="even">
-<td>Aggregation</td>
-<td>Shows whole-part relationship, i.e, class B is part of class A. E.g
-- Book is part of Library. In the notation, the diamond should represent
-the library, i.e, the <em>whole</em> part.</td>
+<td><strong>Aggregation</strong> shows a whole-part relationship, i.e,
+class B is part of class A. E.g - Book is part of Library. In the
+notation, the diamond should represent the library, i.e, the
+<em>whole</em> part.</td>
 <td><img src="../images/obs/aggreg.png" alt="Aggregation" /></td>
 </tr>
 <tr class="odd">
-<td>Composition</td>
-<td>Composition is strong aggregation. In composition, class B is part
-of Class A, and <em>only Class A</em>. It cannot belong to another
-class, say C. In aggregation, a class can belong to/be part of 2
-classes. For e.g, book can be part of Library as well as Computer
+<td><strong>Composition</strong> is strong aggregation. In composition,
+class B is part of Class A, and <em>only Class A</em>. It cannot belong
+to another class, say C. In aggregation, a class can belong to/be part
+of 2 classes. For e.g, book can be part of Library as well as Computer
 Department. But Computer Department can belong to only one
 University.</td>
 <td><img src="../images/obs/composition.png" alt="Composition" /></td>
 </tr>
 <tr class="even">
-<td>Dependency</td>
-<td>Unidirectional - represents that a class depends on another class.
-It means that one class is affected by changes in the other class,
-because it uses that class. If class A depends on class B, we show
-dependency through a dotted arrow from A to B.</td>
+<td><strong>Dependency</strong> - represents that a class depends on
+another class. Unidirectional. It means that one class is affected by
+changes in the other class, because it uses that class. If class A
+depends on class B, we show dependency through a dotted arrow from A to
+B.</td>
 <td><img src="../images/obs/dependency.png" alt="Dependency" /></td>
 </tr>
 <tr class="odd">
-<td>Generalization</td>
-<td>Relationship between parent and child class. Represents inheritance
-(is a) relationships. For example, Professor is an Employee,
-SecurityGuard is an Employee, Clerk is an Employee, etc. Represented by
-an arrow from child class towards parent class.</td>
+<td><strong>Generalization</strong> - Relationship between parent and
+child class. Represents inheritance (is a) relationships. For example,
+Professor is an Employee, SecurityGuard is an Employee, Clerk is an
+Employee, etc. Represented by an arrow from child class towards parent
+class.</td>
 <td><img src="../images/obs/gen.png" alt="Generalization" /></td>
 </tr>
 </tbody>
@@ -1361,245 +1444,416 @@ the relationships between them. For each class, we need to write:</p>
 <li>Attributes and their types</li>
 <li>Operations</li>
 </ul>
-<figure>
-<img src="../images/obs/class_diagram.png"
-alt="Class Diagram Example" />
-<figcaption aria-hidden="true">Class Diagram Example</figcaption>
-</figure>
-<p>The numbers on the relationships represent <em>multiplicity</em>.
-Represents how many instances of A are related to how many instances of
-B.</p>
-<p>For e.g, One IssueBookController is associated with only one Book.
-Vice versa, one Book is only associated with one
-IssueBookController.</p>
-<p>A Member can have multiple transactions (one member can issue many
-books). In our example,</p>
+<h2 id="good-programming-practices">Good Programming Practices</h2>
 <ul>
-<li>Student can have 0-5 transactions</li>
-<li>Faculty can have 0-10 transactions</li>
-<li>Employee can have 0-10 transactions</li>
+<li>Meaningful variable names</li>
+<li>Documentation</li>
+<li>Use global data rarely.</li>
+<li>Use consistent formatting</li>
+<li>Use error messages</li>
+<li>Complicated if statements must be avoided. Keep nesting of if
+statements to minimum.</li>
 </ul>
-<p>But, each transaction is associated with only one member. Here, we
-know member can be of many types (student,faculty,employee), so we
-specify it using +student, +faculty, +employee.</p>
-<h2 id="sequence-diagrams">Sequence Diagrams</h2>
-<ul>
-<li><p><strong>Objects</strong> are shown in rectangles.</p></li>
-<li><p>Lifetime/Lifeline of the object goes down along the y-axis. It
-represents the amount of time the object is alive in the use
-case.</p></li>
-<li><p><strong>Focus of control</strong> is represented by a vertical
-rectangle. It shows the time period for which an object is performing a
-specific event. An object may have multiple such focuses of control
-during the use case. <img
-src="../images/obs/image-20230518211858116.png"
-alt="Focus of Control being represented by a rectangle. The dotted line shows the lifeline" /></p></li>
-<li><p><strong>Messages</strong> are information or commands passed from
-one object to another. They are represented using arrows.</p>
-<ul>
-<li><p><strong>Simple Messages</strong> are interactions that may not be
-a procedure call. <img src="../images/obs/image-20230518212015684.png"
-alt="Simple Message" /></p></li>
-<li><p><strong>Synchronous Messages</strong> are those in which the
-sending object waits for a response from receiving object.</p>
-<figure>
-<img src="../images/obs/image-20230518212401402.png"
-alt="Synchronous Message" />
-<figcaption aria-hidden="true">Synchronous Message</figcaption>
-</figure></li>
-<li><p><strong>Asynchronous Messages</strong> are those in which the
-sender doesn’t wait for a response.</p>
-<figure>
-<img src="../images/obs/image-20230518212422339.png"
-alt="Asynchronous Message" />
-<figcaption aria-hidden="true">Asynchronous Message</figcaption>
-</figure></li>
-<li><p><strong>Procedure call</strong> - Method call <img
-src="../images/obs/image-20230518212439837.png"
-alt="Procedure Call" /></p></li>
-<li><p><strong>Return Message</strong> - Return value for an incoming
-message. It’s not necessary that a message always has a return
-message.</p>
-<figure>
-<img src="../images/obs/image-20230518212453328.png"
-alt="Return Message" />
-<figcaption aria-hidden="true">Return Message</figcaption>
-</figure></li>
-</ul></li>
-</ul>
-<h3 id="centralized-vs-decentralized-control-structures">Centralized vs
-Decentralized Control Structures</h3>
+<h2 id="software-testing">Software Testing</h2>
+<p>Testing is the process of executing a program with the intent of
+finding faults. It’s the process of verifying the outcomes of every
+phase of development and validating the program by executing it with the
+intention of finding faults.</p>
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 45%" />
+<col style="width: 54%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Centralized</th>
-<th>Decentralized</th>
+<th>Verification</th>
+<th>Validation</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Controlling object responsible for flow of messages and order of
-events.</td>
-<td>Participating objects can communicate with each other without any
-controlling object.</td>
+<td>Process of reviewing documents and programs with the intention of
+finding faults.</td>
+<td>Process of evaluating a system at the end of development to see if
+it satisfies the requirements.</td>
 </tr>
 <tr class="even">
-<td>Better because any change means only controller needs to be
-changed.</td>
-<td>Better when messages are strongly coupled with each other.</td>
+<td>Static Testing</td>
+<td>Dynamic testing</td>
 </tr>
 <tr class="odd">
-<td>Allows new operations to be added easily</td>
-<td></td>
+<td>Program Not Executed</td>
+<td>Program is executed</td>
 </tr>
 <tr class="even">
-<td>Parts of functionality can be reused</td>
-<td></td>
+<td>Inspections, walkthroughs, reviews.</td>
+<td>Black/White box testing, non-functional testing</td>
 </tr>
 <tr class="odd">
-<td><img src="../images/obs/image-20230518213758495.png"
-alt="Centralized" /></td>
-<td><img src="../images/obs/image-20230518213813432.png"
-alt="Decentralized" /></td>
+<td>Before validation</td>
+<td>After verification</td>
+</tr>
+<tr class="even">
+<td>Prevention of Errors</td>
+<td>Detection of Errors</td>
+</tr>
+<tr class="odd">
+<td>Are we building the product right?</td>
+<td>Are we building the right product</td>
+</tr>
+<tr class="even">
+<td>About the process</td>
+<td>About the product.</td>
 </tr>
 </tbody>
 </table>
-<p>Extended use cases can also be added to sequence diagrams easily.</p>
-<figure>
-<img src="../images/obs/sd_Page_1.jpg"
-alt="Sequence Diagram Example - Return Book" />
-<figcaption aria-hidden="true">Sequence Diagram Example - Return
-Book</figcaption>
-</figure>
-<figure>
-<img src="../images/obs/sd_Page_2.jpg"
-alt="Sequence Diagram of Return Book with another use case (calculate fine) added to it" />
-<figcaption aria-hidden="true">Sequence Diagram of Return Book with
-another use case (calculate fine) added to it</figcaption>
-</figure>
-<h2 id="collaboration-diagrams">Collaboration Diagrams</h2>
-<p>They are similar to sequence diagrams. Objects are shown as
-rectangles, and actors using stick figures. Classes are shown using the
-representation for that particular type of class (entity,
-interface,control).They don’t show events being time ordered. Messages
-are shown using arrows. Objects that interact with each other are
-connected by links (straight lines). One link can be used to pass many
-messages.</p>
-<p>The time for which the object is alive, or till when it’s
-participating in some event, is not shown.</p>
-<p>Events are ordered using numbers written next to the message.</p>
-<p>Return messages are shown using dotted arrows.</p>
-<figure>
-<img src="../images/obs/collabd.jpg"
-alt="Collaboration Diagram for Return book" />
-<figcaption aria-hidden="true">Collaboration Diagram for Return
-book</figcaption>
-</figure>
-<h2 id="oo-design">OO-Design</h2>
-<p>Consists of the following steps.</p>
-<ol type="1">
-<li>Sequence and Collaboration Diagrams</li>
-<li>Refinement of classes and relationships - if we need additional
-features, or need to change existing features, we should do so
-here.</li>
-<li>Identify operations</li>
-<li>Create detailed class diagram - Use the refined classes,
-relationships and identified operations to create a new detailed class
-diagram.</li>
-<li>Detailed design</li>
-<li>Software Design Document</li>
-<li>Generation of test cases from use cases</li>
-</ol>
-<h3 id="identification-of-operations">Identification of Operations</h3>
-<p>We create a table for our system. It includes:</p>
+<h3 id="verification-techniques">Verification Techniques</h3>
+<h4 id="peer-reviews">Peer Reviews</h4>
 <ul>
-<li>the various classes</li>
-<li>the operations inside each class</li>
-<li>Parameters for each operation</li>
-<li>Parameter type for each operation</li>
-<li>Return value and return type for each operation</li>
-<li>Description for the operation</li>
+<li>Simple, old and informal</li>
+<li>Applicable to every document and program</li>
+<li>We give the document/program to someone else and ask them to review
+it and find faults (if any)</li>
+<li>Faults may be reported using a formal report or verbally.</li>
+<li>Effective for small size documents/programs.</li>
 </ul>
-<p>For example,</p>
-<figure>
-<img src="../images/obs/idop.jpg" alt="Identification of Operations" />
-<figcaption aria-hidden="true">Identification of Operations</figcaption>
-</figure>
-<h3 id="detailed-design-and-software-design-document">Detailed Design
-and Software Design Document</h3>
-<p>We create a detailed design for each class separately. It should
-include:</p>
+<h4 id="walkthrough">Walkthrough</h4>
 <ul>
-<li>Class Name</li>
-<li>Class Type</li>
-<li>Description</li>
-<li>Attributes along with their types</li>
-<li>Operations, along with their parameters, type of each parameter, and
-return type of the operation itself.</li>
+<li>Group activity</li>
+<li>More formal</li>
+<li>Author presents the document/program to a group of 2-7 people.</li>
+<li>No prior preparation is expected.</li>
+<li>Group can ask questions and make observations, etc. Observations are
+discussed and changes are suggested.</li>
+<li>The author prepares a detailed report as per changes.</li>
 </ul>
-<h3 id="generation-of-test-cases-from-use-cases">Generation of Test
-Cases from Use Cases</h3>
-<p>It is a five step process</p>
-<ol type="1">
-<li>Create use case scenario matrix</li>
-<li>Identify variables in a use case</li>
-<li>Identify different input states of each variable</li>
-<li>Design test case matrix</li>
-<li>Assign actual values to input variables.</li>
-</ol>
-<h4 id="terminology">Terminology</h4>
+<h4 id="inspections">Inspections</h4>
 <ul>
-<li><strong>Test Case</strong> executes one particular path of the
-program, or verifies a requirement.</li>
-<li><strong>Test suite</strong> - Set of test cases.</li>
-<li><strong>Test coverage</strong> - how much of the system to the test
-cases evaluate (50%, 70%, etc.)</li>
-<li><strong>Test result</strong> - A repository where all results of
-tests are kept.</li>
+<li>Formal, systematic and effective.</li>
+<li>AKA formal review, formal technical review, etc.</li>
+<li>Group of 3-6 people is there. An independent presenter prepares and
+understands the document and presents it. The group is given the
+document earlier and given time to prepare for the inspection.</li>
+<li>Impartial moderator (a senior person) should be the head of the
+group.</li>
+<li>The meeting is recorded.</li>
+<li>Observations, suggestions, potential faults, etc, are taken and
+noted.</li>
+<li>Checklist may be used.</li>
+<li>Moderator prepares a report and circulates it to participants.
+People may suggest changes in the report.</li>
 </ul>
-<p>For each test case, we need to show:</p>
+<h4 id="checklist">Checklist</h4>
+<p>Checklist contains important information that a particular document
+must contain. We can verify the document against our checklist.</p>
+<p>It helps identifying duplicate information, missing information, and
+wrong information.</p>
+<p>Every document may have a different checklist.</p>
+<p>E.g.</p>
 <ul>
-<li>Test Case ID</li>
-<li>Scenario name and description</li>
-<li>All the variables, along with their input state (valid or
-invalid)</li>
-<li>Expected output</li>
-<li>Remarks</li>
+<li>SRS
+<ul>
+<li>Are objectives properly stated?</li>
+<li>Is SRS approved by customer?</li>
+<li>Is layout of screens well designed?</li>
+<li>Has IEEE standard been followed?</li>
+<li>Are major functions stated?</li>
+</ul></li>
+<li>OO Analysis
+<ul>
+<li>Are all types of classes identified?</li>
+<li>Is any class missing?</li>
+<li>Are relationships between classes identified correctly?</li>
+<li>Are classes well named?</li>
+</ul></li>
+<li>OO Design
+<ul>
+<li>Are all objects in diagrams identified correctly?</li>
+<li>Are interaction diagrams present for each use case?</li>
+<li>Are all messages passing correct parameters?</li>
+</ul></li>
 </ul>
-<p>When we get to step 5 (assigning actual values), the input state
-(Valid/invalid) is replaced with actual values.</p>
-<p>On running the test, we also add another column - <strong>Actual
-Output</strong>. This should be the same as the Expected Output.</p>
-<p>For e.g, for the use case issue book:</p>
-<p><img src="../images/obs/image-20230518225616730.png" /></p>
-<p>This is the scenario diagram. Scenario matrix will be as shown:</p>
-<figure>
-<img src="../images/obs/image-20230518225718704.png"
-alt="Scenario Matrix" />
-<figcaption aria-hidden="true">Scenario Matrix</figcaption>
-</figure>
-<p>Test Case Matrix will be as shown:</p>
-<p><img src="../images/obs/tcm_Page_1.jpg" /></p>
-<p>Putting actual values, it will look like:</p>
-<p><img src="../images/obs/tcm_Page_2.jpg" /></p>
-<h3 id="oo-design-principles-for-software-quality">OO Design Principles
-for Software Quality</h3>
+<p>etc.</p>
+<h2 id="functional-testing">Functional Testing</h2>
 <ul>
-<li><strong>Cohesion</strong> - should be high</li>
-<li><strong>Coupling</strong> - should be low</li>
-<li><strong>Design clarity</strong> - Design should be implemented
-correctly, concisely, unambiguously and consistently. Names of the
-classes, attributes, operations should convey their
-meaning/purpose.</li>
-<li><strong>Class Hierarchy Depth</strong> - Unnecessary use of
-inheritance/generalization should be avoided.</li>
-<li><strong>Simple Classes and Objects</strong> - Classes shouldn’t have
-too many attributes/operations. Class definition should be simple clear
-and understandable.</li>
+<li>Checks functionality of the system.</li>
+<li>Inputs are given and observed output is compared to expected
+output.</li>
+<li>Program is treated as a black box. Only functionality is tested, not
+internals.</li>
+</ul>
+<h3 id="boundary-value-analysis">Boundary Value Analysis</h3>
+<ul>
+<li>Focuses on values close to the boundary of the input domain, because
+those tests have more chances of failing.</li>
+<li>Checks
+<ul>
+<li>Min value</li>
+<li>Max value</li>
+<li>Just above min value</li>
+<li>Just below max value</li>
+<li>Avg value</li>
+</ul></li>
+</ul>
+<p>For e.g, for two inputs <span class="math inline">\(100 \le a \le
+1000\)</span> and <span class="math inline">\(200 \le b \le
+1200\)</span>, boundary value test cases are:</p>
+<table>
+<thead>
+<tr class="header">
+<th>S.No</th>
+<th>a</th>
+<th>b</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>100</td>
+<td>700</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>101</td>
+<td>700</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>550</td>
+<td>700</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>999</td>
+<td>700</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>1000</td>
+<td>700</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>550</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>550</td>
+<td>201</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>550</td>
+<td>1199</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>550</td>
+<td>1200</td>
+</tr>
+</tbody>
+</table>
+<p>Only tests a single fault at once. i.e, a and b both won’t
+simultaneously have boundary conditions. Total number of cases = <span
+class="math inline">\(4n+1\)</span>.</p>
+<h4 id="robustness-testing">Robustness Testing</h4>
+<p>Also tests <em>just below minimum</em> and <em>just above
+maximum</em>, as well as all the test cases tested in boundary value.
+The program should identify these values as invalid.</p>
+<p>Total number of cases = <span class="math inline">\(6n+1\)</span></p>
+<blockquote>
+<p><em>Reference : Object Oriented Software Engineering - Yogesh
+Singh,Ruchika Malhotra.</em></p>
+</blockquote>
+<h4 id="worst-case-testing">Worst Case Testing</h4>
+<p>We don’t assume single fault here. Many failures can occur together.
+Any combination of inputs may have:</p>
+<ul>
+<li>min value</li>
+<li>max value</li>
+<li>just above min</li>
+<li>just below max</li>
+<li>average value</li>
+</ul>
+<p>Total number of cases = <span class="math inline">\(5^n\)</span></p>
+<h4 id="robust-worst-case">Robust Worst Case</h4>
+<p>We add <em>just below min</em> and <em>just above max</em> to worst
+case testing. Total number of cases = <span
+class="math inline">\(7^n\)</span>.</p>
+<h3 id="equivalence-class-testing">Equivalence Class Testing</h3>
+<ul>
+<li>Divide input domain into many classes (groups). Any test case in the
+class should be equivalent to testing the entire class.</li>
+<li>For e.g, for a,b example above, create classes :
+<ul>
+<li><span class="math inline">\(I_1 = \{ 100 \le a \le 1000 \; and \;
+200 \le b \le 1200 \}\)</span>. (a and b both valid)</li>
+<li><span class="math inline">\(I_2 = \{ 100 \le a \le 1000 \; and \; b
+&lt; 200 \}\)</span>. (a valid b invalid)</li>
+<li><span class="math inline">\(I_3 = \{ 100 \le a \le 1000 \; and \; b
+&gt; 1200 \}\)</span>. (a valid b invalid)</li>
+<li><span class="math inline">\(I_4 = \{ a &lt; 100 \; and \; 200 \le b
+\le 1200 \}\)</span>. (a invalid b valid)</li>
+<li><span class="math inline">\(I_5 = \{ a&gt; 1000 \; and \; 200 \le b
+\le 1200 \}\)</span>. (a invalid b both valid)</li>
+<li>Similarly 4 more cases will be there when both inputs are invalid
+(a&lt;100,b&lt;200),
+(a&gt;1000,b&lt;200),(a&lt;100,b&gt;1200),(a&gt;1000,b&gt;1200)</li>
+</ul></li>
+</ul>
+<h2 id="structural-testing">Structural Testing</h2>
+<p>The entire program is evaluated. We go into the internal structure of
+the program to test it. This is white box testing.</p>
+<h3 id="path-testing">Path Testing</h3>
+<ul>
+<li>For each line in the code, draw a node. Connect it to the next line.
+Do the same for loops.</li>
+<li>For if conditions create branches.</li>
+<li>Merge lines that don’t have branching into a single node.</li>
+</ul>
+<p>Eg:</p>
+<p>Code:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode default"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>1. int a;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>2. input(a);</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>3. print(&quot;you entered&quot;,a);</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>4. if (a%2==0)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>5. {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>6.   print(&quot;a is even&quot;);</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>7. }</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>8.else</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>9. {</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>10. print(&quot;a is odd&quot;);</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>11. }</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>12. print(&quot;Goodbye&quot;)</span></code></pre></div>
+<p>The graph will look like:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>      |</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>      v </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>      |</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      v</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="dv">3</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      | </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      v</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="dv">4</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">/</span>   \</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>   <span class="dv">5</span>     <span class="dv">8</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>   |     |</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>   v     v</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>   <span class="dv">6</span>     <span class="dv">9</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>   |     |</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>   v     v</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>   <span class="dv">7</span>     <span class="dv">10</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>   |     |</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>   v     v</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>   <span class="dv">12</span><span class="op">&lt;</span><span class="co">--11</span></span></code></pre></div>
+<p>Remove sequential nodes.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    S</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    |</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    v</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    N1</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    |   </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    v</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    N2</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">/</span>   \</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a> N3   N4</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  \   <span class="op">/</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    N5</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    |   </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    v</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    N6</span></code></pre></div>
+<p>This is the final DD graph</p>
+<p><strong>Independent Paths</strong> in DD graphs are paths that
+introduces at least one new node or edge in its sequence.</p>
+<p><strong>Cyclomatic number</strong>= max number of independent
+paths.</p>
+<p>It depends only on the decision structure of G. Addition/removal of
+functional statements doesn’t affect cyclomatic number.</p>
+<p>V(G) = Cyclomatic Number = e-n+2P</p>
+<p>e = edges</p>
+<p>n= nodes</p>
+<p>P = number of connected components</p>
+<p>V(G)= number of regions of program graph.</p>
+<p>For activity diagrams,</p>
+<p>V(G) = Transitions - activities/branches + 2P</p>
+<h2 id="class-testing">Class Testing</h2>
+<ul>
+<li>Done by developers who coded the class</li>
+<li>Each operation is tested</li>
+<li>Stubs or drivers may be written to execute the test.</li>
+<li>Instances of classes are created and tested.</li>
+<li>Unspecified behaviour cannot be tested, so it should never be
+implemented.</li>
+<li>Testing is done by identifying pre and post conditions for each
+operation in the class, and testing if they are valid on execution.</li>
+</ul>
+<h2 id="mutation-testing">Mutation Testing</h2>
+<ul>
+<li>We make small changes to the program, such as replacing &lt; by
+&lt;= , changing (a+b) to (b+c), removing a line, adding a line,
+changing public to private,etc. Only one small change is made
+(Generally)</li>
+<li>Changed programs are called mutants</li>
+<li>We run all our test cases against the mutants.</li>
+<li>If the mutant fails <em>any</em> test case, it is a killed mutant.
+If the mutant passes all test cases, it is a live mutant.</li>
+<li>We calculate mutation score as <span
+class="math inline">\(\frac{Mutants\_Killed}{Total\_Mutants}\)</span></li>
+<li>Mutation score should be as high as possible.</li>
+<li>For every live mutant, we add a new test case to the test suite that
+will ensure the mutant is killed.</li>
+</ul>
+<h2 id="levels-of-testing">Levels of Testing</h2>
+<h3 id="unit-test">Unit Test</h3>
+<ul>
+<li>Testing a single class or operation of the class.</li>
+<li>Generally we choose a class as a unit.</li>
+<li>Testing classes that have parents is done by <em>flattening</em> the
+class, which means merging the parent class and child class. This is
+done so we can test the attributes and operations present in the parent
+class. Flattening must be undone after testing.</li>
+<li>Instance of class is created and operations are called with
+appropriate parameters.</li>
+</ul>
+<h3 id="integration-test">Integration Test</h3>
+<ul>
+<li>Test various combinations of different units.</li>
+<li>We don’t have hierarchical control structure in OO systems, so
+top-down, bottom-up integration testing isn’t valid here.</li>
+<li>Integration testing in OO systems is basically interclass
+testing.</li>
+<li>The most popular way is thread based testing. We integrate classes
+that work together to respond to some input. Such classes make up a
+thread. There can be many threads. Expected vs Observed output of each
+thread is calculated and compared.</li>
+<li>Another way is to test basic and alternative flow of each use case.
+A path may require one or more classes.</li>
+<li>Third way is cluster testing. Classes are combined to show one
+collaboration.</li>
+</ul>
+<h3 id="system-testing">System Testing</h3>
+<ul>
+<li>Performed after unit and integration testing.</li>
+<li>The software is tested with its environment.</li>
+<li>System = s/w + h/w + other associated parts.</li>
+<li>Non-functional requirements are also tested here.</li>
+</ul>
+<h3 id="acceptance-testing">Acceptance Testing</h3>
+<ul>
+<li>This is carried out by customers.</li>
+<li>May be adhoc or systematic.</li>
+<li>If software isn’t developed for particular systems, we identify
+potential customers and perform testing.
+<ul>
+<li>If the testing is done at the developer’s site under their
+supervision, in a closed environment, this is called alpha testing.</li>
+<li>Another approach is giving the software to limited amount of people
+and asking them to use it. This is beta testing.</li>
+</ul></li>
 </ul>
 </div></div></body>
 </html>
