@@ -8,12 +8,12 @@ pagestyle: empty
 ---
 
 # Satvik Gupta \hfill \small \href{mailto:me@satvikgupta.com}{me@satvikgupta.com} 
-Software Developer, New Delhi \hfill{}[Website](https://www.satvikgupta.com) | [Github](github.com/Satvik2101) | [LinkedIn](https://www.linkedin.com/in/satvik-gupta-063033195/) | [LeetCode](https://leetcode.com/kbx2157/)
+Software Developer, New Delhi \hfill{}[Website](https://www.satvikgupta.com) | [Github](https://www.github.com/Satvik2101) | [LinkedIn](https://www.linkedin.com/in/satvik-gupta-063033195/) | [LeetCode](https://leetcode.com/kbx2157/)
 
 ## EDUCATION
 |                               |             |                                |          |
 | :---------------------------: | :---------: | :----------------------------: | :------: |
-| B.Tech (Computer Engineering) | 2020 - 2024 | Delhi Technological University | 9.43 GPA|
+| B.Tech (Computer Engineering) | 2020 - 2024 | Delhi Technological University | 9.48 GPA|
 | AISSCE/CBSE (Class XII) | 2020 | GD Goenka Public School | 95%|
 | AISSCE/CBSE (Class X) | 2018 | GD Goenka Public School | 96%|
 
@@ -23,21 +23,32 @@ Software Developer, New Delhi \hfill{}[Website](https://www.satvikgupta.com) | [
 
 ---
 
+### ***Software Engineer Intern***, Salesforce, Hyderabad - \textcolor{gray}{Spring Boot | Golang | Temporal} \Date{May 2023 - July 2023}
+
+- Contributed to the Workspace Engineering team to design and integrate a fault-tolerant, versatile, and extensible Notification System. The system efficiently sends Slack notifications to users, keeping them well-informed about crucial events within their workspaces.
+- Utilized Spring Boot and Slack Bolt SDK to create a secure and authenticated REST API for the notification system, ensuring seamless communication with Slack.
+- Developed a command-line interface (CLI) using Golang and the Cobra library to enable users to trigger notifications on command completion, streamlining their workflow.
+- Conducted an in-depth exploration of Temporal, a powerful workflow orchestration engine. Leveraged its capabilities to build resumable, recoverable, and fault-tolerant workflows for scheduling notifications with precision and reliability.
+
 ### ***Technical Content Writer Intern***, Coding Ninjas, Delhi  \Date{Sept 2022 - Dec 2022}
 
-- Consistently delivered 3 blogs a week with minimal delays, writing an average of 1.8k words per blog, along with illustrative images and diagrams.
-- Researched and wrote articles on topics such as Akamai, AWS, test automation tools such as Katalon and ReadyAPI, etc.
-- Worked with software such as AWS, Postman,Puppet, etc. - installing and writing code for them in order to write tutorial articles about them.
+- Researched and wrote articles on prominent software and tools, including AWS, Postman, Maven, and Puppet.
+- Authored 36 comprehensive articles, averaging 1.8k words, on various technical topics, covering DSA, Cryptography, Shell Scripts, and more.
+- Demonstrated consistency in delivering three blogs per week with minimal delays, accompanied by illustrative images and diagrams.
+- Gained hands-on experience with the mentioned software, installing and writing code for tutorials to provide practical insights. ]
 
 ### ***App Developer Intern***, IIT-Delhi, Delhi - \textcolor{gray}{Flutter | SQLite | Arduino} \Date{Dec 2021 - March 2022}
 
-- Single-handedly designed and authored an Android app using Flutter SDK. The application receives, stores, displays and exports ECG data received from Arduino-based hardware. 
-- The app utilizes SQLite as a local database and hashes the user's pin code using SHA-256.
+- Single-handedly designed and authored an Android app using Flutter SDK. The application receives, stores, displays, and exports ECG data received from Arduino-based hardware.
+- Implemented secure data storage with SQLite as a local database and enhanced user data protection by utilizing SHA-256 hashing for the pin code.
+- Utilized Flutter's responsive design capabilities to ensure the app's seamless user experience across various screen sizes and orientations.
+- Collaborated with a PhD student to integrate Bluetooth communication between the app and the Arduino-based device, enabling seamless data transmission.
 
 ### ***Flutter Developer Intern***, CRIS, Ministry of Railways, Delhi - \textcolor{gray}{Flutter} \Date{Aug 2021 - Oct 2021}
 
-- Created the structural layout for multilingual support in the app. The app currently supports 2 languages, extendible to any number without any programming effort.
-- Pushed for and assisted in migration to null-safe version of Flutter, resulting in a 40% drop in compile time and a 30% drop in startup time, with many other noticeable performance improvements.
+- Revamped and implemented captivating UI improvements for multiple app pages, serving as the foundation for consistent and visually appealing user experiences throughout the application.
+- Engineered a robust structural layout to seamlessly support multiple languages within the app. Currently, the app accommodates 2 languages effortlessly, with the potential for further expansion without additional programming efforts.
+- Advocated for and actively contributed to the migration of the app to the null-safe version of Flutter. This migration resulted in an impressive 40% reduction in compile time and a 30% decrease in startup time, delivering a noticeable boost in overall performance.
 
 ## PROJECTS
 
@@ -45,11 +56,11 @@ Software Developer, New Delhi \hfill{}[Website](https://www.satvikgupta.com) | [
 
 ### ***DTU-DCE Fraternity Forum's Flutter App*** - \textcolor{gray}{Flutter | JWT | REST |} [App Store](https://apps.apple.com/in/app/dtu-dce-fraternity-forum/id1601864796) | [Play Store](https://play.google.com/store/apps/details?id=org.dtudcefraternity.mobile.app)
 
-- Directed a team of 3 developers and architected, developed and coded an app for DTU-DCE Fraternity Forum from scratch using Flutter, with full integration with REST API with server.
-- Co-ordinated with backend team to develop and test new API endpoints. Also coordinated with Resume partner Resumod, who provide free membership of Resumod to forum members.
-- Integrated authentication support with JWT authentication tokens for registered users. 
-- Built an admin panel into the app for the administrators to alter membership statuses and view user data.
-- The app has 100+ downloads on Play Store, with a rating of 5 on both the Play Store and App Store.
+- Led a team of 3 developers and spearheaded the end-to-end development of a dynamic app for DTU-DCE Fraternity Forum using Flutter. The app seamlessly integrates with a REST API server, providing a comprehensive platform for the forum members.
+- Collaborated closely with the backend team to design and implement new API endpoints, ensuring smooth data flow and seamless communication between the app and the server.
+- Implemented robust user authentication support using JWT authentication tokens, ensuring secure access for registered users and safeguarding user data.
+- Developed an intuitive admin panel within the app, empowering administrators to manage membership statuses and access user data efficiently.
+- Successfully launched the app on Play Store and App Store, achieving 100+ downloads and earning a top rating of 5 on both platforms, reflecting the app's exceptional user experience.
 
 ## ACHIEVEMENTS AND AWARDS
 
@@ -67,10 +78,11 @@ Software Developer, New Delhi \hfill{}[Website](https://www.satvikgupta.com) | [
 ### ***Head of Tech Team***, TEDxDTU, [Github](https://github.com/TEDxDTU) | [Website](https://tedxdtu.in/) | [Play Store](https://play.google.com/store/apps/details?id=in.tedxdtu.flutter_app&pli=1) \Date{Dec 2021 - Present}
 \textbf{\textcolor{gray}{Flutter | Firebase Auth | Firestore | MongoDB | Mongoose | AWS | GCP}}
 
-- Led the development of the mobile app in Flutter, and oversaw the development of the Website in Next.js
-- Contributed extensively to the backend code in Node.js
-- Set up AWS EC2 as a server for hosting the website, and configured SSL certificates for the domain using Let's Encrypt, and moved the live website to GCP Compute Engine to scale it. Used nginx as a reverse proxy to route requests to the Node.js code.
-- The website served 400,000 HTTP requests, had 8k unique IP addresses making requests, and 1.5k registered users in a span of 20 days. 2/3rds of the tickets for the event were sold on the website
+- Led the development of a dynamic mobile app using Flutter and oversaw the creation of a responsive website with Next.js, delivering a seamless cross-platform experience for users.
+- Made substantial contributions to the backend codebase, utilizing Node.js to enhance the platform's functionality and performance.
+- Successfully set up and configured AWS EC2 as a server for hosting the website. Implemented SSL certificates using Let's Encrypt to ensure secure communication and later migrated the live website to GCP Compute Engine for scalable performance.
+- Utilized nginx as a reverse proxy to efficiently route requests to the Node.js backend.
+- Witnessed remarkable user engagement within a short span of 20 days, with the website serving 400,000 HTTP requests, accommodating 8k unique IP addresses, and garnering 1.5k registered users. Notably, 2/3rds of the event tickets were sold on the website, attesting to its impact and success.
 
 
 *This Resume was generated by a [script](https://github.com/Satvik2101/resume_creator).*

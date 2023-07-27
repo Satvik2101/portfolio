@@ -1,7 +1,7 @@
 f=0; # if f flag is passed, then index.html isn't 
      # shown to the user before the rest of the script continues
 
-d=0;# if d flag is passed, then this is a dry-run. 
+d=0; # if d flag is passed, then this is a dry-run. 
     # The script will not commit to git, or upload to S3, or invalidate CloudFront
     # index.html, styles.css , invalidate_files, upload_files will
     # still be created
