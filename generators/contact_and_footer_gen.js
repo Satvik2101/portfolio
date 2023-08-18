@@ -21,9 +21,8 @@ var data = `
 
     </div>
   </div>
-  <footer>
-    Built with <i class="fas fa-heart"></i> by Satvik Gupta
-  </footer>
+  <footer> Built <i class="fa-solid fa-code"></i> by Satvik Gupta </footer>
+
 `
 
 function generate() {

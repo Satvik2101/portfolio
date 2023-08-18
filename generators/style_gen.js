@@ -3,7 +3,7 @@ var fs = require('fs');
 var stylesheet = '';
 
 //read all files in styles folder
-fs.readdirSync('styles').forEach(file => {
+fs.readdirSync('styles_helpers').forEach(file => {
     // console.log(file)
     filedata = fs.readFileSync("./styles/" + file, 'utf-8');
     stylesheet += filedata;
