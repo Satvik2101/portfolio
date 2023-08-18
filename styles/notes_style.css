@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Luxurious+Roman&family=Roboto+Slab&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "../styles.css";
 
+@import "./navbar_light.css";
+
 html {
     max-height: 100vh;
 }
@@ -156,23 +158,6 @@ h1 {
 .pdf_link:hover {
     color: var(--primary);
     transition: 0.5s;
-}
-
-#navbar {
-    margin-right: -10px;
-    padding-right: 10px;
-    padding-left: 10px;
-    background-color: rgba(255, 255, 255, 0.596);
-}
-
-#navbar_text {
-    color: var(--primary);
-    text-shadow: 0 0 10px rgb(255, 255, 255);
-}
-
-#navbar_links a {
-    text-shadow: 0px 0px 10px rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
 }
 
 
