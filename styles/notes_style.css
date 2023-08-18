@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Luxurious+Roman&family=Roboto+Slab&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import "../styles_manual.css";
+@import "../styles.css";
 
 html {
     max-height: 100vh;

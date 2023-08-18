@@ -17,6 +17,7 @@ for (let i = 0; i < notes.length; i++) {
 
         //add ontouchmove="" to the html tag
         data = data.replace('<html', '<html ontouchmove=""');
+        data = data.replace("styles.css", "../styles/notes_style.css")
 
         // Add the navBar after the <body> tag
         const bodyStartIndex = data.indexOf('<body>') + '<body>'.length;
@@ -28,7 +29,7 @@ for (let i = 0; i < notes.length; i++) {
 
 
         const nav = modifiedData.slice(navStartIndex, navEndIndex);
-        // console.log(navStartIndex, nav);
+        // console.log(navStartIndex, nav)
 
         const navStartTagEnd = nav.indexOf('>') + 1;
         console.log(nav.slice(0, navStartTagEnd));

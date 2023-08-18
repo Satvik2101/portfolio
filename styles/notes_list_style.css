@@ -1,4 +1,5 @@
-@import "./styles_manual.css";
+/* This is the styles.css for the /notes.html file */
+@import "../styles.css";
 
 body {
     display: flex;
