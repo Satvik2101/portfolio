@@ -150,7 +150,7 @@ function attachListeners() {
         cell.addEventListener("input", () => {
             if (cell.innerHTML == "") {
                 clearCell(cell);
-            } else if (cell.style.backgroundColor == "white") {
+            } else if (cell.style.backgroundColor == "white" || cell.style.backgroundColor == "") {
                 setCellColor(cell, manualColor);
             }
         });

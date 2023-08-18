@@ -49,6 +49,7 @@ button {
 
 .tt-slot {
     border-radius: 3px;
+    padding: 5px;
 }
 
 button:active {
