@@ -150,6 +150,7 @@ function test() {
 
 //if any cell in the table becomes empty, set its color to white
 //and remove the text from it
+
 function clearCell(cell) {
     cell.style.backgroundColor = "white";
     cell.innerHTML = "";
