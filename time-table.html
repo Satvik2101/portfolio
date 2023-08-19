@@ -42,11 +42,18 @@
     <h1> Time Table Creator</h1>
 
 
+    <p>
+        Enter slot (E1, E2,etc.) and the subject name. The time table will be created automatically. You can edit the
+        table cells to add more details,or to remove a subject from a slot. Save a screenshot of the time table when
+        done for easy access!
+    </p>
+    <br />
+
     <div class="inputs">
         <input type="text" id="slotInput" placeholder="Enter slot here">
         <input type="text" id="subjectInput" placeholder="Enter subject name here"
             title="Subject name. Try to use abbreviations if the name is long, so that it fits in the time table.">
-        <button>Add</button>
+        <button id="add_button">Add</button>
     </div>
     <table id="time-table">
         <tr>
@@ -231,8 +238,31 @@
 
 
     </table>
+    <br />
+    <div id="ical_section">
+
+        <div id="ical_text">
+            <p>
+                To download the time table, click on the download button below. The time table will be downloaded in
+                .ics
+                format.
+            </p>
+            <p>
+                You can add this .ics file to your calendar app (Google Calendar, Outlook, etc.) for easy availability
+                on
+                all
+                your devices.
+            </p>
+        </div>
+        <div>
+
+            <button id="ical_button">Download</button>
+        </div>
+    </div>
+
     <footer> Built <i class="fa-solid fa-code"></i> by Satvik Gupta </footer>
-    <script src="./time-table/create_tt.js"> </script>
+    <script src="./time-table/fill_tt.js"> </script>
+    <script src="./time-table/create_ics.js"></script>
 </body>
 
 </html>

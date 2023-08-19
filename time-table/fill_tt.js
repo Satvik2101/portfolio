@@ -104,7 +104,7 @@ function setSubj(slot, subject) {
 
 const slotInput = document.getElementById("slotInput");
 const subjectInput = document.getElementById("subjectInput");
-const addButton = document.querySelector("button");
+const addButton = document.querySelector("#add_button");
 
 addButton.addEventListener("click", () => {
     var slot = slotInput.value;
@@ -129,10 +129,23 @@ addButton.addEventListener("click", () => {
 });
 
 function test() {
-    for (var i = 1; i <= 10; i++) {
-        var slot = "E" + i;
-        setSubj(slot, slot);
-    }
+
+    const subjects = [
+        ["E1", "RL"],
+        ["E2", "CG"],
+        ["E3", "INS"],
+        ["E4", "NLP"],
+        ["E5", "ProbStats"],
+        ["E6", "Neural Networks"],
+        ["E7", "ML"],
+        ["E8", "CN"],
+        ["E9", "OS"],
+        ["E10", "DBMS"],
+    ]
+
+    subjects.forEach(subj => {
+        setSubj(subj[0], subj[1]);
+    });
 }
 
 //if any cell in the table becomes empty, set its color to white
@@ -158,4 +171,4 @@ function attachListeners() {
 
 }
 
-attachListeners();
+attachListeners(); 
