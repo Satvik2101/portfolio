@@ -122,7 +122,7 @@ addButton.addEventListener("click", () => {
         return;
     }
     if (slot[0] == 'e') {
-        slot = "E" + slot[1];
+        slot = "E" + slot.slice(1)
     }
     setSubj(slot, subject);
 
