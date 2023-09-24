@@ -98,9 +98,55 @@ id="toc-incremental-updates">Incremental Updates</a></li>
 id="toc-non-stationary-problems">Non-stationary problems</a></li>
 <li><a href="#optimal-initial-values"
 id="toc-optimal-initial-values">Optimal Initial Values</a></li>
-<li><a href="#section" id="toc-section"></a></li>
 <li><a href="#gradient-bandit-algorithms"
 id="toc-gradient-bandit-algorithms">Gradient Bandit Algorithms</a></li>
+</ul></li>
+<li><a href="#markov-decision-process-mdp"
+id="toc-markov-decision-process-mdp">Markov Decision Process (MDP)</a>
+<ul>
+<li><a href="#policy-and-value-functions"
+id="toc-policy-and-value-functions">Policy and Value Functions</a>
+<ul>
+<li><a href="#state-value-function"
+id="toc-state-value-function">State-Value Function</a></li>
+<li><a href="#action-value-function"
+id="toc-action-value-function">Action-Value Function</a></li>
+</ul></li>
+<li><a href="#bellman-equations" id="toc-bellman-equations">Bellman
+Equations</a>
+<ul>
+<li><a href="#bellman-equation-state-value-fn"
+id="toc-bellman-equation-state-value-fn">Bellman Equation for <span
+class="math inline">\(v_{\pi}\)</span></a></li>
+<li><a href="#bellman-equation-for-q_pi"
+id="toc-bellman-equation-for-q_pi">Bellman Equation for <span
+class="math inline">\(q_{\pi}\)</span></a></li>
+</ul></li>
+<li><a href="#optimal-policies-and-optimal-value-functions"
+id="toc-optimal-policies-and-optimal-value-functions">Optimal Policies
+and Optimal Value Functions</a>
+<ul>
+<li><a href="#bellman-optimality-equations"
+id="toc-bellman-optimality-equations">Bellman Optimality
+Equations</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dynamic-programming" id="toc-dynamic-programming">Dynamic
+Programming</a>
+<ul>
+<li><a href="#policy-evaluation" id="toc-policy-evaluation">Policy
+Evaluation</a></li>
+<li><a href="#policy-improvement" id="toc-policy-improvement">Policy
+Improvement</a></li>
+<li><a href="#policy-iteration" id="toc-policy-iteration">Policy
+Iteration</a></li>
+<li><a href="#value-iteration" id="toc-value-iteration">Value
+Iteration</a></li>
+<li><a href="#asynchronous-dp" id="toc-asynchronous-dp">Asynchronous
+DP</a></li>
+<li><a href="#generalized-policy-iteration"
+id="toc-generalized-policy-iteration">Generalized Policy
+Iteration</a></li>
 </ul></li>
 </ul>
 </nav><div id="data">
@@ -280,7 +326,6 @@ exploration temporarily (during the start). If rewards keep changing, it
 cannot do anything at a later stage in the problem.</li>
 <li>More like a simple trick instead of a very useful method.</li>
 </ul>
-<h4 id="section"></h4>
 <h4 id="gradient-bandit-algorithms">Gradient Bandit Algorithms</h4>
 <ul>
 <li>Instead of estimated values, each action is given a
@@ -310,5 +355,324 @@ rewards received until (and including) time-step <span
 class="math inline">\(t\)</span>. If the reward received in current step
 is higher than the average, the preference for <span
 class="math inline">\(A_t\)</span> goes up, otherwise it goes down.</p>
+<h2 id="markov-decision-process-mdp">Markov Decision Process (MDP)</h2>
+<ul>
+<li>At each state <span class="math inline">\(S_t\)</span> , the agent
+will perform an action <span class="math inline">\(A_t\)</span>, for
+which it will receive a reward <span
+class="math inline">\(R_{t+1}\)</span> and find itself in the next state
+(<span class="math inline">\(S_{t+1}\)</span>)</li>
+<li>In finite MDPs, set of states, actions, rewards all have a finite
+number of values. So, we can define probability values for all states
+and actions, i.e</li>
+</ul>
+<p><span class="math display">\[
+p(s&#39;,r | s,a) = Pr\{S_t=s&#39;,R_t=r | S_{t-1},A_{t-1}=a\}
+\]</span></p>
+<p><span class="math inline">\(p\)</span> defines the probability of
+receiving reward <span class="math inline">\(r\)</span> and getting to a
+new state <span class="math inline">\(s&#39;\)</span>, by performing
+action <span class="math inline">\(a\)</span> on a previous state <span
+class="math inline">\(s\)</span>.</p>
+<ul>
+<li><p>Sum of <span class="math inline">\(p\)</span> for all <span
+class="math inline">\(s&#39;\)</span> and <span
+class="math inline">\(r\)</span> is 1.</p></li>
+<li><p>In MARKOV processes, the current state and action is enough to
+completely characterize the environment. I.e, the reward received and
+next state only depend on the current state and action performed, not on
+any previous state.</p>
+<ul>
+<li>The state must include all information about the past that can make
+a difference to the agent’s decision making in the future.</li>
+<li>Such states are said to possess the <strong>Markov
+Property</strong></li>
+</ul></li>
+</ul>
+<h3 id="policy-and-value-functions">Policy and Value Functions</h3>
+<h4 id="state-value-function">State-Value Function</h4>
+<ul>
+<li>Expected return when starting in <span
+class="math inline">\(s\)</span>, and following a policy <span
+class="math inline">\(\pi\)</span> .</li>
+</ul>
+<figure>
+<img src="../images/obs/state-value-function.png"
+alt="State-Value Function Equation" />
+<figcaption aria-hidden="true">State-Value Function
+Equation</figcaption>
+</figure>
+<h4 id="action-value-function">Action-Value Function</h4>
+<ul>
+<li>Expected return when taking action <span
+class="math inline">\(a\)</span> in state <span
+class="math inline">\(s\)</span>, and following policy <span
+class="math inline">\(\pi\)</span>.</li>
+</ul>
+<figure>
+<img src="../images/obs/action-value-function.png"
+alt="Action-Value Function Equation" />
+<figcaption aria-hidden="true">Action-Value Function
+Equation</figcaption>
+</figure>
+<h3 id="bellman-equations">Bellman Equations</h3>
+<p>We can see that, <span class="math display">\[
+v_{\pi}(s) = \sum_a \pi(a|s)q_{\pi}(s,a)
+\]</span></p>
+<p><span class="math display">\[
+q_{\pi}(s,a) = \sum_{s&#39;,r} p(s&#39;,r|s,a)(r+\gamma v_{\pi}(s&#39;))
+\]</span></p>
+<p>Combining these two equations, we get</p>
+<h4 id="bellman-equation-state-value-fn">Bellman Equation for <span
+class="math inline">\(v_{\pi}\)</span></h4>
+<p><span class="math display">\[
+v_{\pi}(s) = \sum_a \pi(a|s)\sum_{s&#39;,r} p(s&#39;,r|s,a)(r+\gamma
+v_{\pi}(s&#39;))
+\]</span></p>
+<p>(Note that the 2 summations are <strong>NOT</strong> independent of
+each other.)</p>
+<h4 id="bellman-equation-for-q_pi">Bellman Equation for <span
+class="math inline">\(q_{\pi}\)</span></h4>
+<p><span class="math display">\[
+q   _{\pi}(s,a) = \sum_{s&#39;,r} p(s&#39;,r|s,a)(r+\gamma\sum_{a&#39;}
+\pi(a&#39;|s&#39;)q_{\pi}(s&#39;,a&#39;))
+\]</span></p>
+<h3 id="optimal-policies-and-optimal-value-functions">Optimal Policies
+and Optimal Value Functions</h3>
+<ul>
+<li>A policy is optimal if it gives better return than all other
+policies, for all states.
+<ul>
+<li>i.e <span class="math inline">\(\pi \ge \pi &#39;\)</span> if and
+only if <span class="math inline">\(v_{\pi}(s) \ge v_{\pi &#39;}(s)
+\forall s\)</span></li>
+</ul></li>
+<li>An optimal policy, that is better or as good as all other policies,
+always exists.</li>
+<li>Such policies (there may be more than one) are denoted by <span
+class="math inline">\(\pi_*\)</span></li>
+<li>All optimal policies have the same state-value function <span
+class="math inline">\(v_*\)</span>. It is defined as:</li>
+</ul>
+<p><span class="math display">\[
+v_*(s) = \max_{\pi}v_{\pi}(s), \forall s
+\]</span></p>
+<ul>
+<li>They also share the same optimal action-value function <span
+class="math inline">\(q_*\)</span></li>
+</ul>
+<p><span class="math display">\[
+q_*(s,a) = \max_{\pi}q_{\pi}(s,a), \forall s,a
+\]</span></p>
+<h4 id="bellman-optimality-equations">Bellman Optimality Equations</h4>
+<p>Intuitively, the best value of a state is equal to the expected
+return of the best action from that state. I.e,</p>
+<p><span class="math display">\[
+v_*(s) = \max_{a}q_{\pi_*}(s,a)
+\]</span> Expanding and using the recursive formula, we get</p>
+<h5 id="bellman-optimality-equation-for-v_">Bellman Optimality Equation
+for <span class="math inline">\(v_*\)</span></h5>
+<p><span class="math display">\[
+v_*(s)= \max_a \sum_{s&#39;,r}p(s&#39;,r|s,a)[r+\gamma v_*(s&#39;)]
+\]</span></p>
+<h5 id="bellman-optimality-equation-for-q_">Bellman Optimality Equation
+for <span class="math inline">\(q_*\)</span></h5>
+<p><span class="math display">\[
+q_*(s)=  \sum_{s&#39;,r}p(s&#39;,r|s,a)[r+\gamma
+\max_{a&#39;}q_*(s&#39;,a&#39;))]
+\]</span></p>
+<h2 id="dynamic-programming">Dynamic Programming</h2>
+<p>Using old values to compute new values. That’s it.</p>
+<h3 id="policy-evaluation">Policy Evaluation</h3>
+<ul>
+<li>Initialize a random state-value function <span
+class="math inline">\(v_0\)</span>. Terminal state must be given value
+0.</li>
+<li>Each successive approximation is obtained by the <a
+href="#bellman-equation-state-value-fn">Bellman Equation for <span
+class="math inline">\(v_{\pi}\)</span></a></li>
+</ul>
+<figure>
+<img src="../images/obs/policy-evaluation-rl.png"
+alt="Iterative Policy Evaluation" />
+<figcaption aria-hidden="true">Iterative Policy Evaluation</figcaption>
+</figure>
+<p>The algorithm is as follows:</p>
+<figure>
+<img src="../images/obs/policy-evaluation-algo-rl.png"
+alt="Iterative Policy Evaluation Algorithm" />
+<figcaption aria-hidden="true">Iterative Policy Evaluation
+Algorithm</figcaption>
+</figure>
+<p>This will always converge, given that the policy <span
+class="math inline">\(\pi\)</span> is proper, i.e, we can reach a
+terminal state from any state.</p>
+<h3 id="policy-improvement">Policy Improvement</h3>
+<p>We calculated a new <span class="math inline">\(v_{\pi}\)</span>
+using policy evaluation. Now we want to see if we should change the
+policy as well. For e.g, if at state <span
+class="math inline">\(x\)</span> we were taking action <span
+class="math inline">\(a\)</span> because it led to state <span
+class="math inline">\(y\)</span>. Earlier , <span
+class="math inline">\(v_{\pi}(y)=5\)</span>, but after evaluation it’s
+value has dropped to <span class="math inline">\(3\)</span>. So should
+we still take action <span class="math inline">\(a\)</span>, or should
+we change it to something else?</p>
+<p>A simple update rule is: <span class="math display">\[
+\pi&#39;(s) = \text{arg}\max_a q_{\pi}(s,a)
+\]</span> i.e, <span class="math inline">\(\pi&#39;(s)\)</span> should
+be whichever <span class="math inline">\(a\)</span> gets the maximum
+reward. We can also write it as: <span class="math display">\[
+\pi&#39;(s) = \text{arg}\max_a \sum_{s&#39;,r}p(s&#39;,r|s,a)[r+\gamma
+v_{\pi}(s)]
+\]</span> This is <strong>one-step lookahead</strong></p>
+<h3 id="policy-iteration">Policy Iteration</h3>
+<p>Policy iteration consists of two steps - <strong>Policy
+Evaluation</strong>, followed by <strong>Policy Improvement</strong>.
+Both of these are done over and over again till convergence.</p>
+<figure>
+<img src="../images/obs/policy-iteration.png" alt="Policy Iteration" />
+<figcaption aria-hidden="true">Policy Iteration</figcaption>
+</figure>
+<p><span class="math inline">\(E\)</span> represent policy evaluation.
+<span class="math inline">\(I\)</span> represents policy
+improvement.</p>
+<h3 id="value-iteration">Value Iteration</h3>
+<ul>
+<li>Combines Bellman optimality with Policy Iteration</li>
+<li>Instead of summing over expectation of all actions (as we did in
+policy iteration),we take the max of actions.</li>
+</ul>
+<p><strong><img src="../images/obs/image-20230924172236691.png"
+alt="Value Iteration" /></strong></p>
+<ul>
+<li>The output of this algorithm will be <span
+class="math inline">\(v_{\pi}\)</span>, but we don’t want that. We want
+the policy <span class="math inline">\(\pi\)</span>. We will use the
+same <span class="math inline">\(\text{arg}\max_a\)</span> method we
+used in policy improvement</li>
+</ul>
+<p>The algorithm is given below</p>
+<figure>
+<img src="../images/obs/value-iter-algo.png" alt="Value Iteration" />
+<figcaption aria-hidden="true">Value Iteration</figcaption>
+</figure>
+<h3 id="asynchronous-dp">Asynchronous DP</h3>
+<p>Asynchronous Dynamic Programming (ADP) in reinforcement learning is a
+variant of dynamic programming that aims to improve the computational
+efficiency of solving Markov Decision Processes (MDPs), which are
+commonly used in reinforcement learning for modeling sequential
+decision-making problems. ADP differs from traditional dynamic
+programming approaches in the following ways:</p>
+<ol type="1">
+<li><p><strong>Parallelism</strong>: In traditional dynamic programming,
+computations are performed sequentially, which can be computationally
+expensive for large MDPs. In contrast, ADP employs parallelism to speed
+up the process. It allows multiple updates to the value function or
+policy to occur concurrently, taking advantage of modern multi-core
+processors or distributed computing environments.</p></li>
+<li><p><strong>Asynchronous Updates</strong>: In ADP, updates to the
+value function or policy do not follow a strict, synchronous pattern as
+in traditional dynamic programming. Instead, updates occur
+asynchronously, meaning that different parts of the state or action
+space are updated independently and possibly at different times. This
+asynchrony can lead to faster convergence because the algorithm focuses
+on states or actions that require immediate attention.</p></li>
+<li><p><strong>Prioritization</strong>: ADP methods often prioritize
+state or action updates based on their importance or relevance to the
+learning process. States or actions with higher estimation errors or
+greater potential for learning are updated more frequently than others.
+This prioritization helps allocate computational resources effectively,
+which is especially useful in scenarios with large state or action
+spaces.</p></li>
+<li><p><strong>Online and Offline Variants</strong>: ADP can be
+implemented in both online and offline settings. In online ADP, updates
+are made as the agent interacts with the environment, allowing for
+real-time learning. In offline ADP, the agent learns from pre-collected
+data, making it suitable for batch learning.</p></li>
+<li><p><strong>Sample Efficiency</strong>: ADP methods often focus on
+improving sample efficiency, which means achieving good learning
+performance with fewer interactions with the environment. This is
+crucial in applications where collecting data is costly or
+time-consuming.</p></li>
+</ol>
+<p>Asynchronous methods, such as Asynchronous Advantage Actor-Critic
+(A3C) and asynchronous variants of Q-learning, can be valuable for
+addressing exploration challenges in reinforcement learning,
+particularly in domains with large state or action spaces. Here’s how
+asynchronous methods can help:</p>
+<ol type="1">
+<li><p><strong>Exploration Efficiency</strong>: Asynchronous methods can
+explore the environment more efficiently than their synchronous
+counterparts. In A3C, for example, multiple agents (threads) explore the
+environment concurrently. Each agent interacts with the environment
+independently, increasing the diversity of experiences and improving the
+chances of discovering optimal or near-optimal policies.</p></li>
+<li><p><strong>Faster Exploration</strong>: In large state or action
+spaces, it can take a long time for a single agent to explore and
+discover the best actions. Asynchronous methods enable multiple agents
+to explore different parts of the state or action space simultaneously,
+accelerating the exploration process and reducing the risk of getting
+stuck in suboptimal solutions.</p></li>
+<li><p><strong>Exploration Strategies</strong>: Asynchronous methods can
+implement different exploration strategies for each agent. Some agents
+may prioritize exploration (e.g., using epsilon-greedy exploration),
+while others may focus on exploiting the current knowledge (e.g.,
+following a policy). This diversity in strategies can improve
+exploration and learning in complex environments.</p></li>
+<li><p><strong>Experience Sharing</strong>: Agents in asynchronous
+methods can share their experiences with each other. This sharing of
+experiences allows the network to learn from a broader range of data and
+can help in generalizing across different parts of the state
+space.</p></li>
+<li><p><strong>Parallelism</strong>: Parallelism in asynchronous methods
+enables the collection of more data in a shorter time, which can be
+especially important when exploration is costly, risky, or
+time-consuming. This increased data throughput can lead to faster
+learning and better exploration.</p></li>
+<li><p><strong>Asynchronous Prioritization</strong>: Some asynchronous
+methods, like Prioritized Experience Replay, prioritize experiences
+based on their potential for learning. This prioritization ensures that
+the most informative experiences are replayed more frequently, aiding
+exploration by focusing on critical areas of the state or action
+space.</p></li>
+</ol>
+<h3 id="generalized-policy-iteration">Generalized Policy Iteration</h3>
+<ul>
+<li>Policy iteration consists of 2 processes - policy evaluation and
+policy improvement</li>
+<li>In policy iteration, these 2 alternate. In value iteration, only a
+single iteration of evaluation is done before improvement. In async DP,
+they can occur simultaneously.</li>
+</ul>
+<p><strong>Generalized Policy Iteration (GPI)</strong> is the idea of
+letting policy-eval and policy-improvement processes interact ,
+independent of the details of the two processes. Almost all RL methods
+can be described as a GPI.</p>
+<ul>
+<li>The policy should always be being driven towards a greedy value
+function.</li>
+<li>The value function should always be being driven towards the
+policy.</li>
+<li>This should occur until they both converge.</li>
+</ul>
+<figure>
+<img src="../images/obs/gpi.png" alt="GPI" />
+<figcaption aria-hidden="true">GPI</figcaption>
+</figure>
+<blockquote>
+<p>The evaluation and improvement processes in GPI can be viewed as both
+competing and cooperating. They compete in the sense that they pull in
+opposing directions. Making the policy greedy with respect to the value
+function typically makes the value function incorrect for the changed
+policy, and making the value function consistent with the policy
+typically causes that policy no longer to be greedy. In the long run,
+however, these two processes interact to find a single joint solution:
+the optimal value function and an optimal policy.</p>
+</blockquote>
+<figure>
+<img src="../images/obs/gpi-2.png" alt="GPI" />
+<figcaption aria-hidden="true">GPI</figcaption>
+</figure>
 </div></div></body>
 </html>
