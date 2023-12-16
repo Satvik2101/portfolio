@@ -1,0 +1,44 @@
+.border_mask {
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 55em;
+  height: 100vh;
+}
+
+#mask_top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  background-color: red;
+  height: 0.9vh;
+}
+#mask_right {
+  position: absolute;
+  right: 0vh;
+  top: 0;
+  height: 20%;
+  background-color: green;
+  width: 0.9vh;
+}
+#mask_bottom {
+  position: absolute;
+  bottom: 0vh;
+  right: 0;
+  width: 20%;
+  background-color: blue;
+  height: 0.9vh;
+}
+#mask_left {
+  position: absolute;
+  left: 0vh;
+  bottom: 0;
+  height: 20%;
+  background-color: white;
+  width: 0.9vh;
+}

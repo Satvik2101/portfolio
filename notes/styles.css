@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Luxurious+Roman&family=Roboto+Slab&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "../styles_manual.css";
+
+html {
+    max-height: 100vh;
+}
+
+
+body {
+    max-height: 100vh;
+    max-width: 1300px;
+    color: #333333;
+    line-height: 1.8;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    background-color: unset;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    margin: 0 auto;
+    flex: 0 1 auto;
+    text-align: center;
+    margin-bottom: 10px
+}
+
+* {
+    user-select: none;
+}
+
+table {
+    width: 100%;
+}
+
+#container {
+    padding: 0;
+    overflow: scroll;
+    flex: 1 1 auto;
+    display: flex;
+    margin: none;
+    flex-direction: row;
+}
+
+#TOC {
+    padding-top: 10px;
+    max-width: 270px;
+    flex: 1 1;
+    font-family: 'Open Sans', sans-serif;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    padding-right: 10px;
+    border-right: 1px solid rgb(233, 233, 233);
+    font-size: 0.85rem;
+}
+
+#TOC a {
+    text-decoration: none;
+    color: unset;
+}
+
+#data {
+    flex: 1 0;
+    overflow-y: scroll;
+    padding-left: 1em;
+}
+
+body ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+    outline: none;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+}
+
+hr {
+    border: 1.4px solid rgb(233, 233, 233);
+    margin: 10px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+    margin-bottom: 7px;
+}
+
+h2,
+h3 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(233, 233, 233);
+}
+
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+.pdf_link_container {
+    text-align: center;
+    margin: 10px;
+}
+
+.pdf_link {
+    /* position: fixed;
+    top: 20px;
+    left: 20px; */
+    margin: 0 10%;
+    font-size: 1.2em;
+    padding: 8px 10px;
+    align-self: center;
+    text-align: center;
+    font-weight: bold;
+    color: #333333;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.pdf_link:hover {
+    color: var(--primary);
+    transition: 0.5s;
+}
+
+#navbar {
+    margin-right: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: rgba(255, 255, 255, 0.596);
+}
+
+#navbar_text {
+    color: var(--primary);
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+#navbar_links a {
+    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+
+.author {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th,
+table,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        display: unset;
+    }
+
+    #container {
+        padding: 0;
+        flex-direction: column;
+    }
+
+    #TOC {
+        max-width: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+        border-right: none;
+    }
+
+    #data {
+        max-width: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+}
+
+h5 {
+    font-size: 17px;
+}
