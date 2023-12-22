@@ -34,7 +34,7 @@ node ./aws/scripts/filter.js
 # Read S3 URI and CloudFront distribution ID from aws/aws_ids (space separated)
 # store them in variables
 
-read s3 cf < ./aws/aws_ids
+read s3 cf < ./aws/aws_ids_dev
 echo "S3 URI: $s3"
 echo "CloudFront distribution ID: $cf"
 # Read files to upload from aws/upload_files
