@@ -18,8 +18,8 @@ var start = `<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Righteous:wght@400;900&family=Roboto+Slab:wght@400;700&family=Cinzel+Decorative:wght@900&display=swap"
-    rel="stylesheet">
+  href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Righteous:wght@400;900&family=Roboto+Slab:wght@400;700&family=Cinzel+Decorative:wght@900&family=Black+Ops+One&display=swap"
+  rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles.css" />
@@ -51,6 +51,6 @@ html = html.replace(/(\r\n|\n|\r)/gm, "");
 html = html.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '');
 
 fs.writeFile('index.html', html, function (err) {
-  if (err) throw err;
-  console.log('Saved!');
+    if (err) throw err;
+    console.log('Saved!');
 });

@@ -14,11 +14,7 @@ function ignoreFile(file) {
             return true;
         }
         //if file is in a directory, check if directory is in ignore list
-        // if (ignoreFile == 'aws') {
-        //     console.log(file);
-        //     console.log(file.indexOf(ignoreFile));
-        //     console.log(file[ignoreFile.length]);
-        // }
+
         else if (file.indexOf(igFile) == 0 && file.length > igFile.length && file[igFile.length] == '/') {
             return true;
 
@@ -52,7 +48,7 @@ addedFiles.forEach(function (fileData) {
 
 
 var changed_files = fs.readFileSync('./aws/changed_files', 'utf-8').toString().split("\n");
-console.log(changed_files);
+console.log("Changed files\n", changed_files);
 
 changed_files.forEach(function (fileData) {
     //split by tab

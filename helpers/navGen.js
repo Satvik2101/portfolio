@@ -4,7 +4,7 @@ function generateNav() {
     <div id="navbar" onclick="">
 
     <div id="navbar_text">
-        .satvik
+    satvik <i id="dropdown-arrow" class="fa-solid fa-caret-down fa-xs"></i> 
     </div>
     <div id="navbar_links">
         <div class="navbar_link" id="home_link">

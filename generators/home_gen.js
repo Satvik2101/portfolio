@@ -6,7 +6,7 @@ var home = `
 <div id="arc_reactor">
 <a href="#home" target="_self">
 
-  <img src="./images/arc_reactor.png" alt="nav_bar_logo" />
+  <img src="./images/arcblue.png" alt="nav_bar_logo" />
 </a>
 </div>
 `
@@ -38,7 +38,7 @@ home += `
     <p id="bio" class="padded_centered">
 
 
-      Computer Engineering junior at Delhi Technological University.
+      Computer Engineering senior at Delhi Technological University.
       <br>
       Technology,coding, and programming have been my passions since I wrote
       my <a href=https://github.com/Satvik2101/Clean-Folder>first Python Script</a> at the age of 15.
@@ -78,7 +78,7 @@ home += `
 `
 
 function generate() {
-  return home;
+    return home;
 }
 
 module.exports = generate;

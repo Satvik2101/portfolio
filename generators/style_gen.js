@@ -2,9 +2,20 @@ var fs = require('fs');
 
 var stylesheet = '';
 
+var excludeFromGlobalStyles = [
+    'navbar_light.css',
+    'notes_list_style.css',
+    'notes_style.css',
+    'time_table_styles.css'
+
+
+]
 //read all files in styles folder
-fs.readdirSync('styles_helpers').forEach(file => {
+fs.readdirSync('styles').forEach(file => {
     // console.log(file)
+    if (excludeFromGlobalStyles.includes(file)) {
+        return;
+    }
     filedata = fs.readFileSync("./styles/" + file, 'utf-8');
     stylesheet += filedata;
 });

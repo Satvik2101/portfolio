@@ -8,7 +8,7 @@ const ganalyticsTag = fs.readFileSync(ganalyticsTagFile, "utf8");
 const ganalyticsIdentifier = ganalyticsTag.match(/G-[A-Z0-9]{10}/)[0];
 function addTagInFolder(ogPath) {
     const files = fs.readdirSync("./" + ogPath);
-    console.log(files)
+    // console.log(files)
     for (const file of files) {
         // If the file is an html file,
         const filePath = ogPath + "/" + file;
@@ -24,7 +24,7 @@ function addTagInFolder(ogPath) {
                 fs.writeFileSync(filePath, fileContents, "utf8");
             }
         } else if (fs.statSync(filePath).isDirectory()) {
-            console.log("folder");
+            // console.log("folder");
             addTagInFolder(filePath);
         }
     }

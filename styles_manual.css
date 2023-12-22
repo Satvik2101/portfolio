@@ -1,4 +1,4 @@
-/* @import "./styles/projects_section.css";
+@import "./styles/projects_section.css";
 @import "./styles/sections.css";
 @import "./styles/border_mask.css";
 @import "./styles/home_section.css";
@@ -6,14 +6,15 @@
 @import "./styles/projects_section.css";
 @import "./styles/workexp_section.css";
 @import "./styles/contact.css";
- */
+
 
 
 :root {
-    --primary: #e02633;
-    --primary_bg: #D2042D;
-    --cherry: #D2042D;
-    --rose: #FF033E;
+    --primary: rgb(56, 225, 255);
+    --primary_bg: #1504d2;
+    --moonstone: #12959c;
+    --vista: #0f777d;
+    --bluegray: rgb(200, 213, 225);
 }
 
 * {
@@ -52,6 +53,12 @@ a {
     align-items: center;
 }
 
+#dropdown-arrow {
+    padding-left: 2px;
+    color: var(--bluegray);
+}
+
+
 #navbar_text {
     text-shadow: 0 0 10px rgb(0, 0, 0);
     background-color: transparent;
@@ -82,8 +89,7 @@ a {
 #navbar_links a {
     text-decoration: none;
     text-shadow: 0 0 5px rgb(0, 0, 0);
-    color: rgb(200, 213, 225);
-
+    color: var(--bluegray);
 }
 
 
@@ -100,10 +106,10 @@ body ::-webkit-scrollbar {
 }
 
 #bg_image {
-    background-image: url(./images/keyboard.jpg);
+    background-image: url(./images/workstation.JPEG);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top center;
+    background-position: center;
     /* background-attachment: fixed; */
 }
 
