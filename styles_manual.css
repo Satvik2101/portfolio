@@ -106,7 +106,7 @@ body ::-webkit-scrollbar {
 }
 
 #bg_image {
-    background-image: url(./images/workstation.png);
+    background-image: url(./images/workstation.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
