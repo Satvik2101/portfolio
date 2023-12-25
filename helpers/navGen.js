@@ -1,5 +1,8 @@
+html = require('../generators/html-template-func');
+
+
 function generateNav() {
-    return `
+    return html`
     
     <div id="navbar" onclick="">
 

@@ -1,7 +1,9 @@
 var fs = require('fs');
+html = require('./html-template-func');
 
 
-var start = `<!DOCTYPE html>
+
+var start = html`<!DOCTYPE html>
 <html lang="en" ontouchmove="">
 
 <head>
@@ -28,7 +30,7 @@ var start = `<!DOCTYPE html>
 
 <body>`;
 
-var end = `
+var end = html`
 </body>
 <script src="./scripts/typewriter.js"> </script>
 
