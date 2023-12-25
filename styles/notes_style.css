@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Luxurious+Roman&family=Roboto+Slab&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 @import "../styles.css";
-
-
 @import "./navbar_light.css";
 
 html {
@@ -139,7 +138,13 @@ h1 {
 .pdf_link_container {
     text-align: center;
     margin: 10px;
+
 }
+
+/* 
+.pdf_link_container:hover {
+    color: var(--moonstone)
+} */
 
 .pdf_link {
     /* position: fixed;
@@ -151,18 +156,20 @@ h1 {
     align-self: center;
     text-align: center;
     font-weight: bold;
-    color: #333333;
     transition: 0.5s;
     text-decoration: none;
+
 }
 
 .pdf_link:hover {
-    color: var(--primary);
+    color: var(--moonstone) !important;
     transition: 0.5s;
 }
 
 
 .author {
+    color: var(--vista);
+
     text-align: center;
     margin-bottom: 5px;
 }
