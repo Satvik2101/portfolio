@@ -6,6 +6,8 @@ d=0; # if d flag is passed, then this is a dry-run.
     # index.html, styles.css , invalidate_files, upload_files will
     # still be created
 
+
+
 # Go through flags
 while getopts ":fd" opt; do
     case $opt in
@@ -31,10 +33,27 @@ fi
 ./aws/scripts/calc_diff.sh
 node ./aws/scripts/filter.js
 
+# Read current git branch 
+# store it in variable
+
+branch=$(git branch --show-current)
+
+aws_ids_file="";
+if [ $branch == "main" ]; then
+    aws_ids_file="./aws/aws_ids"
+else if [ $branch == "dev" ]; then
+    aws_ids_file="./aws/aws_ids_dev"
+else 
+    echo "Invalid branch name. Exiting"
+    exit 1
+fi
+fi
+
+
 # Read S3 URI and CloudFront distribution ID from aws/aws_ids (space separated)
 # store them in variables
 
-read s3 cf < ./aws/aws_ids
+read s3 cf < $aws_ids_file
 echo "S3 URI: $s3"
 echo "CloudFront distribution ID: $cf"
 # Read files to upload from aws/upload_files
