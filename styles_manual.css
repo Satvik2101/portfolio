@@ -67,8 +67,7 @@ a {
     cursor: default;
 }
 
-/* give it a glass look */
-#navbar:hover {}
+
 
 #navbar:hover #navbar_links {
 
