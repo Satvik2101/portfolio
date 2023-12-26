@@ -51,14 +51,12 @@ function generate() {
 I've been lucky enough to be able to work for some amazing companies and organizations. Here are some of them.
   </div>
 
-  <div id="workexp_cards_and_description">
 
     <div id="workexp_cards_container">
     `;
 
     var end = html`  </div>
 
-  </div>
 
 </div>
   `
