@@ -1,4 +1,6 @@
 var fs = require('fs');
+html = require('./html-template-func');
+
 
 var stylesheet = '';
 

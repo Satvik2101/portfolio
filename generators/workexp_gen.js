@@ -1,12 +1,12 @@
 //read data from raw.json
-
 var fs = require('fs');
 var generateTechStack = require('../helpers/techStackGen.js');
+html = require('./html-template-func');
 
 
 function generateHtml(company, role, start, end, points, techstack) {
 
-  var output = `<div class="workexp_card">
+    var output = html`<div class="workexp_card">
     <h3 class="workexp_title">
       ${company}
     </h3>
@@ -20,26 +20,26 @@ function generateHtml(company, role, start, end, points, techstack) {
       <ul>
         <br/>`;
 
-  for (var i = 0; i < points.length; i++) {
-    output += `<li>${points[i]}</li>`;
-  }
-  output += `
+    for (var i = 0; i < points.length; i++) {
+        output += html`<li>${points[i]}</li>`;
+    }
+    output += html`
       
      </ul>`
-  output += generateTechStack(techstack);
-  output += `
+    output += generateTechStack(techstack);
+    output += html`
     </div>
   </div>
   
   `;
-  return output;
+    return output;
 }
 
 
 function generate() {
-  var raw = JSON.parse(fs.readFileSync('raw.json', 'utf8'));
-  var workexp = raw.workexp;
-  var start = `
+    var raw = JSON.parse(fs.readFileSync('raw.json', 'utf8'));
+    var workexp = raw.workexp;
+    var start = html`
   <div id="workexp" class="section">
   <div id="workexp_section_start">
 
@@ -56,28 +56,28 @@ I've been lucky enough to be able to work for some amazing companies and organiz
     <div id="workexp_cards_container">
     `;
 
-  var end = `  </div>
+    var end = html`  </div>
 
   </div>
 
 </div>
   `
-  var result = start;
+    var result = start;
 
-  for (var i = 0; i < workexp.length; i++) {
-    var company = workexp[i].company;
-    var role = workexp[i].role;
-    var startDate = workexp[i].start;
-    var endDate = workexp[i].end;
-    var points = workexp[i].points;
-    // var location = workexp[i].location;
-    var techstack = workexp[i].techstack;
+    for (var i = 0; i < workexp.length; i++) {
+        var company = workexp[i].company;
+        var role = workexp[i].role;
+        var startDate = workexp[i].start;
+        var endDate = workexp[i].end;
+        var points = workexp[i].points;
+        // var location = workexp[i].location;
+        var techstack = workexp[i].techstack;
 
-    result += generateHtml(company, role, startDate, endDate, points, techstack);
+        result += generateHtml(company, role, startDate, endDate, points, techstack);
 
-  }
-  result += end;
-  return result;
+    }
+    result += end;
+    return result;
 
 }
 

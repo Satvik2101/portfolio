@@ -2,20 +2,28 @@
     margin-right: -10px;
     padding-right: 10px;
     padding-left: 10px;
-    background-color: rgba(255, 255, 255, 0.596);
+
 }
 
+#navbar:hover #navbar_links {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: none;
+    border-radius: 20px;
+    height: auto;
+    width: auto;
+    opacity: 1;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+}
+
+
 #navbar_text {
-    color: var(--primary);
+    color: var(--moonstone);
     text-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 #navbar_links a {
     text-shadow: 0px 0px 10px rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-}
-
-#dropdown-arrow {
-    padding-left: 2px;
-    color: var(--bluegray);
+    color: rgb(73, 73, 73)
 }

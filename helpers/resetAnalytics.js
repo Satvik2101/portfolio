@@ -1,7 +1,7 @@
 var fs = require("fs");
 
 // Read the google analytics script from a file.
-const ganalyticsTagFile = `ganalyticstag.txt`;
+const ganalyticsTagFile = html`ganalyticstag.txt`;
 const ganalyticsTag = fs.readFileSync(ganalyticsTagFile, "utf8");
 
 // Extract the google analytics identifier from the file data.

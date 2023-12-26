@@ -1,6 +1,8 @@
 var generateNav = require("../helpers/navGen.js");
+html = require('./html-template-func');
 
-var home = `
+
+var home = html`
 <div id="bg_image">
 
 <div id="arc_reactor">
@@ -13,7 +15,7 @@ var home = `
 
 home += generateNav();
 
-home += `
+home += html`
 <div class="border_mask">
 
 

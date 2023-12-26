@@ -1,6 +1,7 @@
 //read data from raw.json
-
 var fs = require('fs');
+html = require('./html-template-func');
+
 
 var generateTechStack = require('../helpers/techStackGen.js');
 
@@ -9,7 +10,7 @@ var generateTechStack = require('../helpers/techStackGen.js');
 function generateLinks(links) {
     var output = "";
     if (links == null) return output;
-    output += `<div class="project_links">`
+    output += html`<div class="project_links">`
     for (var i = 0; i < links.length; i++) {
         var name = links[i].name;
         var icon = "";
@@ -23,20 +24,20 @@ function generateLinks(links) {
             icon = "fas fa-link fa-2x";
         }
 
-        output += `<a href="${links[i].url}"><span class="project_link"><i class="${icon}"></i></span></a>`
+        output += html`<a href="${links[i].url}"><span class="project_link"><i class="${icon}"></i></span></a>`
     }
-    output += `</div>`
+    output += html`</div>`
     return output;
 }
 
 function generatePoints(points) {
     var output = "";
     if (points == null) return output;
-    output += `<div class="project_por_points"> <ul>`
+    output += html`<div class="project_por_points"> <ul>`
     for (var i = 0; i < points.length; i++) {
-        output += `<li>${points[i]}</li>`
+        output += html`<li>${points[i]}</li>`
     }
-    output += `</ul></div>`
+    output += html`</ul></div>`
     return output;
 }
 
@@ -56,7 +57,7 @@ function generateImage(image, name, alt, isEven) {
         imgStyle = "\"float:left\"";
 
     }
-    output += `<div class="project_image" style=${style}>
+    output += html`<div class="project_image" style=${style}>
             <img src='${image}' style=${imgStyle} alt="${alt}"/>
         </div>`
     return output;
@@ -71,7 +72,7 @@ function generateHtml(name, product, role, techstack, links, points, image, alt,
     } else {
         style = "\"flex-direction:row;\"";
     }
-    var output = `
+    var output = html`
     <div class="project_card" style=${style}>
     <div class="project_details">
       <div class="project_title">
@@ -86,17 +87,17 @@ function generateHtml(name, product, role, techstack, links, points, image, alt,
     output += generateLinks(links);
 
     if (role != null)
-        output += `<div class="por_designation"> ${role}</div>`
+        output += html`<div class="por_designation"> ${role}</div>`
 
 
     output += generatePoints(points);
 
     output += generateTechStack(techstack);
-    output += `</div>`
+    output += html`</div>`
     if (image != null) {
         output += generateImage(image, name, alt, isEven);
     }
-    output += `</div >`
+    output += html`</div >`
     return output;
 }
 
@@ -104,7 +105,7 @@ function generateHtml(name, product, role, techstack, links, points, image, alt,
 function generate() {
     var raw = JSON.parse(fs.readFileSync('raw.json', 'utf8'));
     var data = [...raw.pors, ...raw.projects];
-    var start = `
+    var start = html`
         <div id = "projects" class="section" >
     <div id="projects_section_start">
       <h2 class="section_title">
@@ -119,7 +120,7 @@ function generate() {
     <div id="projects_and_pors_cards_and_description">
     `;
 
-    var end = `  </div>
+    var end = html`  </div>
 
   </div>
         `

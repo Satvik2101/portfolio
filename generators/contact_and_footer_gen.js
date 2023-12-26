@@ -1,4 +1,7 @@
-var data = `
+html = require('./html-template-func');
+
+
+var data = html`
 <div id="contact" class="section">
     <h2 class="section_title">
       Contact Me <span class="separator_line"></span>
@@ -26,7 +29,7 @@ var data = `
 `
 
 function generate() {
-  return data;
+    return data;
 }
 
 module.exports = generate;

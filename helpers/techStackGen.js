@@ -1,11 +1,13 @@
+html = require('../generators/html-template-func');
+
 function generateTechStack(techstack) {
     var output = "";
     if (techstack == null) return output;
-    output += `<div class="tech_stack">`
+    output += html`<div class="tech_stack">`
     for (var i = 0; i < techstack.length; i++) {
-        output += `<div class="tech_stack_item">${techstack[i]}</div>`
+        output += html`<div class="tech_stack_item">${techstack[i]}</div>`
     }
-    output += `</div>`
+    output += html`</div>`
     return output;
 }
 

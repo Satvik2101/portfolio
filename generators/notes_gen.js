@@ -1,12 +1,14 @@
 const fs = require('fs');
 var navBar = require("../helpers/navGen")();
+html = require('./html-template-func');
+
 
 const notes = process.argv.slice(2);
 
 // Loop through each note in the notes array
 for (let i = 0; i < notes.length; i++) {
     const note = notes[i];
-    const htmlPath = `notes/${note}.html`;
+    const htmlPath = html`notes/${note}.html`;
 
     // Read the corresponding HTML file and modify it
     fs.readFile(htmlPath, 'utf-8', (err, data) => {
@@ -33,7 +35,7 @@ for (let i = 0; i < notes.length; i++) {
 
         const navStartTagEnd = nav.indexOf('>') + 1;
         console.log(nav.slice(0, navStartTagEnd));
-        const pdfLink = `<div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/${note}.pdf">Download as PDF</a></div>`;
+        const pdfLink = html`<div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/${note}.pdf">Download as PDF</a></div>`;
         const modifiedNav = nav.slice(0, navStartTagEnd) + pdfLink + nav.slice(navStartTagEnd);
         const finalData = modifiedData.slice(0, navStartIndex) + modifiedNav + modifiedData.slice(navEndIndex);
 

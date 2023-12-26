@@ -37,13 +37,15 @@ a {
 }
 
 #navbar {
-    transition: 0.5s all ease-out;
+    padding: 5px 8px;
+    border-radius: 20px;
+    transition: 0.3s all ease-out;
     overflow: hidden;
     text-align: right;
     position: fixed;
     top: 5%;
     height: auto;
-    right: 5%;
+    right: 4%;
     z-index: 100;
     font-family: 'Roboto Slab';
     font-size: 1.3rem;
@@ -65,21 +67,30 @@ a {
     cursor: default;
 }
 
-/*add webkit properties*/
+
 
 #navbar:hover #navbar_links {
+
+    background-color: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-radius: 20px;
+    /* transition: 0.3s all ease-out; */
     height: auto;
+    width: auto;
     opacity: 1;
-    transition: all 0.5s ease-in;
-    -webkit-transition: all 0.5s ease-in;
+
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
 }
 
 
 #navbar_links {
+
     text-align: right;
     font-size: 1.1rem;
-    color: lightslategray;
     height: 0;
+    width: 0;
     opacity: 0;
     transition: all 0.5s ease-in;
     -webkit-transition: all 0.5s ease-in;
@@ -87,10 +98,17 @@ a {
 }
 
 #navbar_links a {
+    padding: 1px 8px;
     text-decoration: none;
-    text-shadow: 0 0 5px rgb(0, 0, 0);
     color: var(--bluegray);
+    text-shadow: 0 0 5px rgb(0, 0, 0);
+
 }
+
+#navbar_links a:hover {
+    text-shadow: none;
+}
+
 
 
 
@@ -106,7 +124,7 @@ body ::-webkit-scrollbar {
 }
 
 #bg_image {
-    background-image: url(./images/workstation.JPEG);
+    background-image: url(./images/workstation.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

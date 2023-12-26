@@ -15,3 +15,10 @@ scripts/test.js
 resume.sh
 resume.md
 ganalyticstag.txt
+styles/border_mask.css
+styles/contact.css
+styles/home_section.css
+styles/profile_links.css
+styles/project_section.css
+styles/sections.css
+styles/workexp_section.css

@@ -1,962 +1,1030 @@
 <!DOCTYPE html>
 <html ontouchmove="" xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Satvik Gupta" />
-  <title>Mobile And Digital Forensics</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <link rel="stylesheet" href="../styles/notes_style.css" />
-  <script
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-  type="text/javascript"></script>
-  <!--[if lt IE 9]>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="author" content="Satvik Gupta" />
+    <title>Mobile And Digital Forensics</title>
+    <style>
+        code {
+            white-space: pre-wrap;
+        }
+
+        span.smallcaps {
+            font-variant: small-caps;
+        }
+
+        div.columns {
+            display: flex;
+            gap: min(4vw, 1.5em);
+        }
+
+        div.column {
+            flex: auto;
+            overflow-x: auto;
+        }
+
+        div.hanging-indent {
+            margin-left: 1.5em;
+            text-indent: -1.5em;
+        }
+
+        ul.task-list {
+            list-style: none;
+        }
+
+        ul.task-list li input[type="checkbox"] {
+            width: 0.8em;
+            margin: 0 0.8em 0.2em -1.6em;
+            vertical-align: middle;
+        }
+    </style>
+    <link rel="stylesheet" href="../styles/notes_style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WX57KF6HY8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WX57KF6HY8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-WX57KF6HY8');
-</script></head>
+        gtag('config', 'G-WX57KF6HY8');
+    </script>
+</head>
+
 <body>
-    
+
     <div id="navbar" onclick="">
 
-    <div id="navbar_text">
-        .satvik
-    </div>
-    <div id="navbar_links">
-        <div class="navbar_link" id="home_link">
-            <a href="/#home" target="_self">Home</a>
+        <div id="navbar_text">
+            satvik <i id="dropdown-arrow" class="fa-solid fa-caret-down fa-xs"></i>
         </div>
-        <div class="navbar_link" id="workexp_link">
-            <a href="/#workexp" target="_self">
-                Work Experience
-            </a>
-        </div>
-        <div class=" navbar_link" id="projects_link">
-            <a href="/#projects" target="_self">Projects</a>
-        </div>
-        <div class=" navbar_link" id="notes_link">
-        <a href="/notes" target="_self">Notes</a>
-    </div>
-        <div class=" navbar_link" id="contacts_link">
-            <a href="/#contact" target="_self">Contact</a>
-        </div>
-      
-        
-    </div>
-</div>
+        <div id="navbar_links">
+            <div class="navbar_link" id="home_link">
+                <a href="/#home" target="_self">Home</a>
+            </div>
+            <div class="navbar_link" id="workexp_link">
+                <a href="/#workexp" target="_self">
+                    Work Experience
+                </a>
+            </div>
+            <div class=" navbar_link" id="projects_link">
+                <a href="/#projects" target="_self">Projects</a>
+            </div>
+            <div class=" navbar_link" id="notes_link">
+                <a href="/notes" target="_self">Notes</a>
+            </div>
+            <div class=" navbar_link" id="contacts_link">
+                <a href="/#contact" target="_self">Contact</a>
+            </div>
 
-<header id="title-block-header">
-<h1 class="title">Mobile And Digital Forensics</h1>
-<p class="author">Satvik Gupta</p>
-</header><div id="container">
-<nav id="TOC" role="doc-toc"><div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/MADF.pdf">Download as PDF</a></div>
-<ul>
-<li><a href="#risks-created-by-wireless-technology"
-id="toc-risks-created-by-wireless-technology">Risks Created By Wireless
-Technology</a></li>
-<li><a href="#wireless-technologies-in-use"
-id="toc-wireless-technologies-in-use">Wireless Technologies in Use</a>
-<ul>
-<li><a href="#pan-personal-area-network"
-id="toc-pan-personal-area-network">PAN (Personal Area Network)</a>
-<ul>
-<li><a href="#bluetooth" id="toc-bluetooth">Bluetooth</a></li>
-<li><a href="#infrared" id="toc-infrared">Infrared</a></li>
-<li><a href="#ultrawideband-uwb"
-id="toc-ultrawideband-uwb">Ultrawideband (UWB)</a></li>
-<li><a href="#zigbee" id="toc-zigbee">ZigBee</a></li>
-<li><a href="#wireless-usb" id="toc-wireless-usb">Wireless USB</a></li>
-</ul></li>
-<li><a href="#lan" id="toc-lan">LAN</a>
-<ul>
-<li><a href="#section" id="toc-section">802.11</a></li>
-<li><a href="#mhz-packet-radio" id="toc-mhz-packet-radio">900 MHz Packet
-Radio</a></li>
-</ul></li>
-<li><a href="#man" id="toc-man">MAN</a>
-<ul>
-<li><a href="#microwave" id="toc-microwave">Microwave</a></li>
-<li><a href="#free-space-optics" id="toc-free-space-optics">Free Space
-Optics</a></li>
-<li><a href="#ricochet" id="toc-ricochet">Ricochet</a></li>
-<li><a href="#wimax" id="toc-wimax">WiMax</a></li>
-</ul></li>
-<li><a href="#wans" id="toc-wans">WANs</a>
-<ul>
-<li><a href="#satellite" id="toc-satellite">Satellite</a></li>
-<li><a href="#cellular" id="toc-cellular">Cellular</a></li>
-<li><a href="#blackberry" id="toc-blackberry">Blackberry</a></li>
-<li><a href="#paging" id="toc-paging">Paging</a></li>
-<li><a href="#sms" id="toc-sms">SMS</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#wireless-network-security-threats"
-id="toc-wireless-network-security-threats">Wireless Network Security
-Threats</a>
-<ul>
-<li><a href="#eavesdropping"
-id="toc-eavesdropping">Eavesdropping</a></li>
-<li><a href="#traffic-analysis" id="toc-traffic-analysis">Traffic
-Analysis</a></li>
-<li><a href="#data-tampering" id="toc-data-tampering">Data
-Tampering</a></li>
-<li><a href="#masquerading" id="toc-masquerading">Masquerading</a></li>
-<li><a href="#denial-of-service-dos"
-id="toc-denial-of-service-dos">Denial of Service (DoS)</a></li>
-<li><a href="#wireless-client-attacks"
-id="toc-wireless-client-attacks">Wireless Client Attacks</a></li>
-</ul></li>
-<li><a href="#other-issues-with-wireless"
-id="toc-other-issues-with-wireless">Other Issues with Wireless</a>
-<ul>
-<li><a href="#spread-spectrum-isnt-secure"
-id="toc-spread-spectrum-isnt-secure">Spread Spectrum isn’t
-Secure</a></li>
-<li><a href="#ssids-are-not-designed-as-passwords"
-id="toc-ssids-are-not-designed-as-passwords">SSIDs are not designed as
-passwords</a></li>
-<li><a href="#wep-is-weak" id="toc-wep-is-weak">WEP is weak</a>
-<ul>
-<li><a href="#steps-to-attack-wep." id="toc-steps-to-attack-wep.">Steps
-to attack WEP.</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#war-driving" id="toc-war-driving">War Driving</a>
-<ul>
-<li><a href="#war-chalking" id="toc-war-chalking">War Chalking</a></li>
-<li><a href="#war-flying" id="toc-war-flying">War Flying</a></li>
-</ul></li>
-<li><a href="#security-recommendations-vs-reality"
-id="toc-security-recommendations-vs-reality">Security Recommendations vs
-Reality</a></li>
-<li><a href="#section-1" id="toc-section-1"><br />
-</a></li>
-<li><a href="#pda-personal-digital-assistants"
-id="toc-pda-personal-digital-assistants">PDA (Personal Digital
-Assistants)</a>
-<ul>
-<li><a href="#theft-of-the-device" id="toc-theft-of-the-device">Theft of
-the Device</a></li>
-<li><a href="#data-theft" id="toc-data-theft">Data Theft</a></li>
-<li><a href="#mobile-code" id="toc-mobile-code">Mobile Code</a></li>
-<li><a href="#auth-theft" id="toc-auth-theft">Auth Theft</a></li>
-<li><a href="#dos-attacks" id="toc-dos-attacks">DoS Attacks</a></li>
-<li><a href="#session-hijacking" id="toc-session-hijacking">Session
-Hijacking</a></li>
-<li><a href="#providing-security-to-pdas"
-id="toc-providing-security-to-pdas">Providing Security to PDAs</a></li>
-<li><a href="#best-security-practices"
-id="toc-best-security-practices">Best Security Practices</a></li>
-</ul></li>
-<li><a href="#sms-security-issues" id="toc-sms-security-issues">SMS
-Security Issues</a>
-<ul>
-<li><a href="#availability-issues"
-id="toc-availability-issues">Availability Issues</a></li>
-<li><a href="#confidentiality-issues"
-id="toc-confidentiality-issues">Confidentiality Issues</a></li>
-<li><a href="#integrity-issues" id="toc-integrity-issues">Integrity
-Issues</a></li>
-<li><a href="#other-security-issues"
-id="toc-other-security-issues">Other Security Issues</a></li>
-<li><a href="#sms-spamming" id="toc-sms-spamming">SMS Spamming</a></li>
-</ul></li>
-<li><a href="#mobile-phone-forensics"
-id="toc-mobile-phone-forensics">Mobile Phone Forensics</a>
-<ul>
-<li><a href="#crime-in-mobile-phones"
-id="toc-crime-in-mobile-phones">Crime in Mobile Phones</a></li>
-<li><a href="#sources-of-evidence" id="toc-sources-of-evidence">Sources
-of Evidence</a></li>
-<li><a href="#forensic-procedures" id="toc-forensic-procedures">Forensic
-Procedures</a>
-<ul>
-<li><a href="#general-principles" id="toc-general-principles">General
-Principles</a></li>
-<li><a href="#training-and-competence"
-id="toc-training-and-competence">Training and Competence</a></li>
-<li><a href="#analysis-procedure" id="toc-analysis-procedure">Analysis
-Procedure</a></li>
-<li><a href="#preserving-data-and-isolating-from-network"
-id="toc-preserving-data-and-isolating-from-network">Preserving data and
-isolating from network</a></li>
-<li><a href="#identify-the-phone" id="toc-identify-the-phone">Identify
-the phone</a></li>
-<li><a href="#examine-sim-card-and-memory"
-id="toc-examine-sim-card-and-memory">Examine SIM Card and
-Memory</a></li>
-</ul></li>
-<li><a href="#sim-card" id="toc-sim-card">SIM Card</a></li>
-<li><a href="#files-present-in-sim-card"
-id="toc-files-present-in-sim-card">Files Present in SIM Card</a>
-<ul>
-<li><a href="#imsi" id="toc-imsi">IMSI</a></li>
-<li><a href="#iccid" id="toc-iccid">ICCID</a></li>
-<li><a href="#location-information-file-and-bcch-file"
-id="toc-location-information-file-and-bcch-file">Location Information
-File and BCCH File</a></li>
-<li><a href="#sms-storage-file" id="toc-sms-storage-file">SMS Storage
-File</a></li>
-<li><a href="#contact-list" id="toc-contact-list">Contact List</a></li>
-<li><a href="#outgoing-calls" id="toc-outgoing-calls">Outgoing
-Calls</a></li>
-</ul></li>
-<li><a href="#device-data" id="toc-device-data">Device Data</a></li>
-<li><a href="#evidence-in-operators-network"
-id="toc-evidence-in-operators-network">Evidence in Operator’s
-Network</a></li>
-</ul></li>
-</ul>
-</nav><div id="data">
-<h3 id="risks-created-by-wireless-technology">Risks Created By Wireless
-Technology</h3>
-<ol type="1">
-<li>Wireless is shared and uncontrolled.</li>
-<li>Mobile devices are transient. They are always moving around.
-Detecting suspicious activity becomes difficult.</li>
-<li>Ease of use - As wireless is easy to use, people become familiar
-with it and become comfortable and careless with security.</li>
-<li>It’s easier to attack.</li>
-</ol>
-<h2 id="wireless-technologies-in-use">Wireless Technologies in Use</h2>
-<h3 id="pan-personal-area-network">PAN (Personal Area Network)</h3>
-<ul>
-<li>WPANs are used in short distances, &lt;10 m.</li>
-<li>Connect computers and peripherals</li>
-<li>High speed</li>
-</ul>
-<h4 id="bluetooth">Bluetooth</h4>
-<h4 id="infrared">Infrared</h4>
-<ul>
-<li>Line of sight</li>
-<li>Short range (0-2m)</li>
-<li>LoS makes it easy to think it’s secure, but attackers can detect
-reflected light and filter out ambient noise, and gain access to the
-data.</li>
-</ul>
-<h4 id="ultrawideband-uwb">Ultrawideband (UWB)</h4>
-<ul>
-<li>Superfast, wireless.</li>
-<li>Doesn’t use any carrier wave.</li>
-<li>Superfast pulses in timed sequences over a large continuous
-spectrum</li>
-</ul>
-<h4 id="zigbee">ZigBee</h4>
-<ul>
-<li>Home Area Network</li>
-<li>Designed to replace remote controls</li>
-<li>Cost effective, low power</li>
-</ul>
-<h4 id="wireless-usb">Wireless USB</h4>
-<ul>
-<li>10m range</li>
-<li>480 Mbps, upto 1 Gbps in future.</li>
-</ul>
-<h3 id="lan">LAN</h3>
-<p>Wireless Local Area Networks</p>
-<h4 id="section">802.11</h4>
-<ul>
-<li>AKA Wifi</li>
-<li>1-2 Mbps, 2.4 GHz</li>
-</ul>
-<h4 id="mhz-packet-radio">900 MHz Packet Radio</h4>
-<ul>
-<li>Cordless, pagers, medical equipment.</li>
-<li>Interference sometimes happens</li>
-<li>Transports IP based data.</li>
-</ul>
-<h3 id="man">MAN</h3>
-<p>A Metropolitan Area Network is designed to provide broadband
-connectivity to a densely populated area. Could be cities, counties,
-campuses. AKA <em>Last Mile Solutions.</em></p>
-<h4 id="microwave">Microwave</h4>
-<ul>
-<li>P2P,LoS</li>
-<li>AM Radio</li>
-<li>Less cost, Easy to Deploy</li>
-<li>High frequency</li>
-</ul>
-<h4 id="free-space-optics">Free Space Optics</h4>
-<ul>
-<li>Uses lasers instead of radio frequency</li>
-<li>High data rates</li>
-<li>Incorporates security of Fiber optic cables</li>
-<li>Transmits a LoS laser btw two points.</li>
-</ul>
-<h4 id="ricochet">Ricochet</h4>
-<ul>
-<li>Wireless ISP network solution for a particular geographic
-location</li>
-<li>Allows portable clients to move through an area and access
-Internet</li>
-</ul>
-<h4 id="wimax">WiMax</h4>
-<p>Worldwide Interoperability for Microwave Access, 802.16</p>
-<ul>
-<li>2-11 GHz</li>
-<li>Long range</li>
-<li>High throughput ~70 Mbps</li>
-</ul>
-<h3 id="wans">WANs</h3>
-<p>WANs are intended for communications between mobile and fixed devices
-worldwide.</p>
-<h4 id="satellite">Satellite</h4>
-<p>Use radio waves just like other wireless technologies. TElevision,
-GPS&lt; ISPs, etc.</p>
-<h4 id="cellular">Cellular</h4>
-<ul>
-<li><p>Cellular Digital Packet Data (CDPD)</p>
-<p>Uses unused cellular channels to transmit data packets.</p></li>
-<li><p>Global System for Mobile Comm. (GSM)</p>
-<p>Uses narrow band TDMA method to allow 8 simultaneous calls on the
-same radio frequency.</p></li>
-<li><p>3GSM</p>
-<p>Will support multimedia, video, and Internet</p></li>
-<li><p>TDMA</p>
-<p>Each cellular channel is divided into 3 time slots to increase amount
-of data.</p></li>
-</ul>
-<h4 id="blackberry">Blackberry</h4>
-<p>Email, File sharing, Voice and SMS, Calendar, Internet, Attachments,
-etc. btw Blackberry users.</p>
-<h4 id="paging">Paging</h4>
-<h4 id="sms">SMS</h4>
-<hr />
-<h2 id="wireless-network-security-threats">Wireless Network Security
-Threats</h2>
-<h3 id="eavesdropping">Eavesdropping</h3>
-<p>Someone else can read the transmitted information, even from outside
-the building.</p>
-<h3 id="traffic-analysis">Traffic Analysis</h3>
-<p>Patterns of communication and data flow can be monitored and may
-yield information.</p>
-<h3 id="data-tampering">Data Tampering</h3>
-<p>Information can be deleted, or modified via MITM attack.</p>
-<h3 id="masquerading">Masquerading</h3>
-<p>Attacker can impersonate an authorized user and gain access to
-information.</p>
-<h3 id="denial-of-service-dos">Denial of Service (DoS)</h3>
-<p>Attacker can jam frequency channels, using hardware blockers or by
-sending large amount of requests.</p>
-<h3 id="wireless-client-attacks">Wireless Client Attacks</h3>
-<p>Attacker can trick clients into connecting to an unsecured network
-and gain access to the data present on the client machine. The
-compromised client can now also be used to access the internal network
-and the data stored on it.</p>
-<h2 id="other-issues-with-wireless">Other Issues with Wireless</h2>
-<h3 id="spread-spectrum-isnt-secure">Spread Spectrum isn’t Secure</h3>
-<p>Spread Spectrum is a modulation technique used to prevent radio
-jamming.</p>
-<p>In general, spread spectrum has <strong>spreading codes</strong>,
-that can be changed. Without knowing the correct code, it is impossible
-to decipher data sent through the spread spectrum.</p>
-<p>However, the 802.11 standard publicly describes the spreading codes
-so that interoperable 802.11 components can be created. An attacker with
-a radio compliant with 802.11 would be able to connect.</p>
-<h3 id="ssids-are-not-designed-as-passwords">SSIDs are not designed as
-passwords</h3>
-<p>SSID - Service Set Identifier.</p>
-<ul>
-<li>Were initially used to prevent people from connecting to the access
-point (AP) without knowing the SSID.</li>
-<li>However, they should not be relied upon as passwords.</li>
-</ul>
-<h3 id="wep-is-weak">WEP is weak</h3>
-<p>Wired Equivalent Privacy.</p>
-<p>WEP occasionally produces cryptographically weak ciphers.</p>
-<h4 id="steps-to-attack-wep.">Steps to attack WEP.</h4>
-<ol type="1">
-<li><p>Hacker runs Kismet to discover WLANs in the area. He gets its
-SSID, channel number and its BSSID (Basic SSID - the Ethernet
-Address).</p></li>
-<li><p>APs can hide their SSIDs, using an option called SSID
-Cloaking/SSID Broadcast Disable.</p>
-<p>If this is the case, the attacker has to wait for a client to connect
-to the AP (the client and the AP will both disclose the SSID). The
-attacker can also force an already connected client to reconnect. This
-is done by sending a packet to the client, pretending to be from the AP.
-The packet tells the client that they have lost their connection with
-the AP (<strong><em>You are no longer connected</em></strong>). The
-client attempts to reconnect, and exposes the SSID.</p></li>
-<li><p>The attacker puts his wireless card into Monitor mode. The card
-will eavesdrop on the WLAN (even without connecting to it.) He makes the
-card monitor the channel on which the target AP is. All the traffic
-monitored is saved in a <em>capture file.</em></p></li>
-<li><p>WEP uses Initialization Vectors (IVs), which are values used to
-start a cryptographic process. When a certain number of weak IVs have
-been captured, we can determine the WEP key. 125k packets are needed to
-crack 40-bit WEP keys. 200-250k packets for 128-bit WEP keys.</p></li>
-<li><p>If the WLAN is slow, the hacker will need to accelerate the
-attack to capture the right amount of weak IVs. The attacker will inject
-already captured WEP frame back into the network. WEP has no replay
-protection mechanism.</p>
-<p>512 packets injected per second - 10 mins for 40-bit keys, 30 mins
-for 128-bit keys.</p></li>
-<li><p>After sufficient amount of IVs are captured, the attacker runs
-AirCrack, which will attempt to crack and return the WEP key. Once the
-key is known, the attacker can connect to the AP in the same way a
-legitimate client would.</p></li>
-</ol>
-<h2 id="war-driving">War Driving</h2>
-<p>People driving around in a car equipped with wireless gear, looking
-for unsecured wireless network. Generally they try to look for APs that
-are running a certain kind of server behind them, such as important
-security servers or financial servers, etc.</p>
-<p>Sometimes people just do it harmlessly, for e.g, just checking the
-radio environment.</p>
-<h3 id="war-chalking">War Chalking</h3>
-<p>War driving + marking the places with chalk. Different symbols are
-used for open, closed, and WEP APs.</p>
-<h3 id="war-flying">War Flying</h3>
-<p>War driving, but using airplanes,helicopters, etc. instead of cars.
-Due to increased range of wireless networks, hundreds of APs can be
-found in a short trip.</p>
-<h2 id="security-recommendations-vs-reality">Security Recommendations vs
-Reality</h2>
-<table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 85%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Recommendation</th>
-<th style="text-align: center;">Reality</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Turn SSID Broadcasting off</td>
-<td style="text-align: center;">SSIDs can be easily discovered as
-described above.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Use static IP Addresses</td>
-<td style="text-align: center;">Static IP addresses can be found easily
-using traffic analysis</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Turn 128-bit WEP on</td>
-<td style="text-align: center;">WEP can be easily cracked</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Change WEP keys</td>
-<td style="text-align: center;">New keys can be cracked easily</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Enable MAC Address Filtering</td>
-<td style="text-align: center;">Traffic analysis will yield the
-authorized MAC Addresses. WLAN cards can specify their own MAC Address,
-so hackers can just claim to be using an authorized one</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Utilize shared key auth</td>
-<td style="text-align: center;">WEP keys can be cracked</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Use personal firewalls</td>
-<td style="text-align: center;">Hackers may be able to fool you that
-they are a trusted system</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Use SSH/HTTPs</td>
-<td style="text-align: center;">May be vulnerable to MITM sometimes</td>
-</tr>
-</tbody>
-</table>
-<h2 id="section-1"><br />
-</h2>
 
-<h2 id="pda-personal-digital-assistants">PDA (Personal Digital
-Assistants)</h2>
-<p>Common attacks:</p>
-<ol type="1">
-<li>Copying/Stealing information from the device</li>
-<li>Loading malicious code onto the device</li>
-<li>Destroying key files or applications on the device</li>
-</ol>
-<h5 id="trojans">Trojans</h5>
-<p>A program disguised as another program.</p>
-<h5 id="worms">Worms</h5>
-<p>Programs that duplicate themselves over and over, and steal system
-resources in doing so.</p>
-<h5 id="logic-bombs">Logic Bombs</h5>
-<p>Programs within programs that perform certain actions based on a
-trigger event. PDAs can also be carriers of such programs instead of the
-target.</p>
-<h4 id="theft-of-the-device">Theft of the Device</h4>
-<h4 id="data-theft">Data Theft</h4>
-<p>Data can be easily copied from a PDA/Blackberry to a flash card
-within minutes.</p>
-<h4 id="mobile-code">Mobile Code</h4>
-<p>S/w transmitted from server to a local device, and then executed.
-This code may give the attacker access to the data on the PDA.</p>
-<h4 id="auth-theft">Auth Theft</h4>
-<p>Stealing a PDA may lead to auth information being stolen.</p>
-<h4 id="dos-attacks">DoS Attacks</h4>
-<p>Any attack in which an organization is denied access to a resource
-can be termed DoS. For PDAs, anything from mobile code to device theft
-can be considered DoS.</p>
-<h4 id="session-hijacking">Session Hijacking</h4>
-<p>A TCP session can be taken over by an attacker. TCP auth only occurs
-during the start, so an attacker can find ways to do this.</p>
-<h3 id="providing-security-to-pdas">Providing Security to PDAs</h3>
-<ul>
-<li>Use AntiVirus - Norton, Symantec, F-Secure, Kaspersky</li>
-<li>DB Security and Auth</li>
-<li>Faraday Bag - Block all wireless signals to the device</li>
-<li>Encryption - Ccrypt, PDA Secure</li>
-<li>Firewalls - Mobile Firewall Plus</li>
-<li>Password Enforcement - HotSync Security, PDA Defense.</li>
-<li>VPN - VPN 3000, Movian VPN</li>
-</ul>
-<h3 id="best-security-practices">Best Security Practices</h3>
-<ol type="1">
-<li>Define handheld security policy</li>
-<li>Centrally enforce and monitor handheld security</li>
-<li>Enforce use of power-on passwords</li>
-<li>Block unauthorized handheld network activity</li>
-<li>Detect handheld intrusions</li>
-<li>Protect handheld integrity</li>
-<li>Encrypt sensitive data stored on handhelds</li>
-<li>Protect traffic sent/received by handhelds</li>
-<li>Maintain up-to-date anti-virus protection</li>
-<li>Back up frequently</li>
-</ol>
-<h2 id="sms-security-issues">SMS Security Issues</h2>
-<p>SMS is a store and forward service. The SMS is stored in a server
-first, before being forwarded to the receiver. This is necessary in case
-the receiver’s mobile phone is out of coverage or switched off when the
-SMS is sent.</p>
-<ul>
-<li><strong>SMC</strong> - Short Message Center. This is where the SMSes
-are sent to be stored, before they are forwarded.</li>
-<li><strong>SME</strong> - Short Message Entity. This is an application
-or program that generates an SMS message. It can be a mobile phone, a
-computer, or a service network.</li>
-<li><strong>GMSC</strong> - Gateway Short Message Service (Actual full
-form is Gateway Mobile Switching Center)- acts as an interface between
-different networks. It uses the HLR (Home location register) to
-determine the recipient’s network, and forwards the message there.</li>
-</ul>
-<h3 id="availability-issues">Availability Issues</h3>
-<ul>
-<li>Many attacks try to create a DoS scenario.</li>
-<li>They may send thousands of messages to a particular user, using
-software or the Internet. If it is an older device, it’s memory will
-fill up and it will be unable to accept more messages.</li>
-<li>With modern devices, the recipient will have difficulty identifying
-which SMSes are real and meant for him, and which are fake.</li>
-<li>The attacker may trick the OS/device into blocking actions until the
-SMSes are deleted. These messages usually contain special characters or
-symbols, long names, or do not follow standard structure for an SMS
-message.</li>
-<li>Silent DoS is also possible, where the phone works normally but
-doesn’t receive any SMS.</li>
-<li>Continuous messaging can also drain the battery.</li>
-<li>DoS can be done by installing a fake base station, or a jamming
-device that makes the user unable to send or receive SMSes.</li>
-<li>Sometimes DoS can happen without any attack on the system, for e.g,
-on holidays when millions of SMSes are sent together which causes delay
-and overload in the system.</li>
-</ul>
-<h3 id="confidentiality-issues">Confidentiality Issues</h3>
-<ul>
-<li><p>Encryption for SMS/Voice calls are usually done between the phone
-and the provider network (if done at all). Once in the network, the data
-is unencrypted. Employees of the provider may have access to
-it.</p></li>
-<li><p>An attacker can hack an employee’s mobile phone to gain access to
-the network and view other people’s SMSes.</p></li>
-<li><p>Fake base stations can also be used by attackers to intercept and
-read SMSes. The attacker can also forward the SMS to the actual
-recipient to avoid any suspicion, using various techniques to hide his
-identity (SMS Masquerading)</p></li>
-<li><p>Even without knowing the content of SMS we can learn about the
-user’s habits, such as when they switch their phone off and when they
-switch it on. A switched off phone will not receive an SMS, and the SMS
-will be marked as <em>delivered</em> only after the phone is switched
-on.</p>
-<p>Attackers usually send <em>invisible</em> messages for this purpose,
-which do not show anything on the screen and don’t show any notification
-either.</p></li>
-<li><p>Mobile operators are sometimes required to share details of SMSes
-viewed and sent by a person for law enforcement. Even without operator’s
-help, there are ways to view deleted messages from a device.</p></li>
-</ul>
-<h3 id="integrity-issues">Integrity Issues</h3>
-<p>Integrity issues are those relating to an SMS’s content being
-changed, or the sender is pretending to be someone else.</p>
-<ul>
-<li><strong>SMS Spoofing</strong> is when a sender masquerades as
-another sender. Using the internet we can send messages in bulk using a
-number of our choice. Since this can be abused, operators now ask for
-some alphabets to be added in the ID along with digits. To combat this,
-fraudsters are using O instead of 0 and I instead of 1. The catalog’s
-functionality can also be exploited, as the catalog only matches the
-last 4 digits. So, an attacker sending a message using AA5483 will be
-matched by a catalog containing an entry for 88885483</li>
-<li>Attackers can also connect directly to a messaging center and use
-spoofing techniques to hide their identity, and pretend to be someone
-else. We can check if the number of the SMS, and the country of the
-message center match. For e.g, if the number is from Greece, but the
-message center is from Japan, we can figure out something is wrong.
-Timestamps can also be used, since message centers timestamp using their
-local time. If a message arrives from an Indian number , to an Indian
-receiver, with a timestamp of 2 hours before, we can guess that
-something is wrong (since it should have the same timestamp as the
-current time)</li>
-<li>Cipher can be used to change phone settings, such as turning
-ciphering indicator on or off.</li>
-<li>Special binary messages can also be sent using SMS. They don’t
-appear to the user, but go directly to the phone or SIM card. OTA
-updates of software were done using this method, but this can also be
-exploited by hackers.</li>
-</ul>
-<h3 id="other-security-issues">Other Security Issues</h3>
-<ul>
-<li>SMSes that can be modified/deleted later, but stay in the same
-memory location. Their initial use was for stuff like news, stocks,
-weather, where the SMS’s content would change daily and the user
-wouldn’t have to wait for a new SMS to arrive. They can obviously be
-misused.</li>
-<li>SMSes that show on the screen directly without any warning (flash
-SMS), without the user going into messages. These make the user think
-these are from the provider and hackers can trick users into calling
-certain numbers or paying money, etc.</li>
-<li>SMSes can be used to influence outcome of contests or voting
-procedures that allow SMS. Bulk messages can be sent for a particular
-participant.</li>
-</ul>
-<h3 id="sms-spamming">SMS Spamming</h3>
-<ul>
-<li>Spam is unsolicited commercial messages from unknown senders.</li>
-<li>Spam is profitable and can be completely anonymous.</li>
-<li>Internet sites allowing users to download free ringtones ask for
-their phone number, then sell that phone number to spammers.</li>
-<li>SMS spam filtering is more difficult than email spam filtering
-because SMSes are short so we have less information. ML algorithms such
-as Bayesian networks have proven effective.</li>
-<li>Techniques of protecting SMSC from spam sometimes use blacklisted
-words, which ends up blocking legitimate messages containing those
-words. Challenge/response protocols have been suggested.</li>
-<li>Many providers allow users to report spam, or stop SMS service
-altogether. Some also allow SMS aliases. Only messages sent to the alias
-are delivered, those sent to the number aren’t.</li>
-</ul>
-<p>A promising scheme is shown below.</p>
-<figure>
-<img src="../images/madf/sms_filter" alt="image-20230509195001350" />
-<figcaption aria-hidden="true">image-20230509195001350</figcaption>
-</figure>
-<ol type="1">
-<li>Originator’s phone number and the SMSC used are compared. If the
-originator sent a message earlier using a different SMSC, the message is
-marked as suspicious.</li>
-<li>SMSC and originator country is checked and compared.</li>
-<li>SenderId is checked. Non-numerical IDs have a greater chance of
-being spam.</li>
-<li>Timezone is checked. If the sender and receiver country are same,
-but the timestamp from SMSC is more than 1 minute ahead, the message is
-suspicoius.</li>
-<li>Keyword blacklist.</li>
-<li>HTTP links are checked.</li>
-<li>SMS Protocol is checked (TP-PID). Some SMSes, such as silent SMSes,
-which get deleted upon reception. The application notifies the user of
-such SMSes, even though it has been deleted.</li>
-</ol>
-<h2 id="mobile-phone-forensics">Mobile Phone Forensics</h2>
-<h3 id="crime-in-mobile-phones">Crime in Mobile Phones</h3>
-<ul>
-<li>Communication method for criminal activity</li>
-<li>Device theft</li>
-<li>Harassment calls</li>
-<li>Mobile phones can be used as a detonation mechanism</li>
-<li>Telecommunication fraud</li>
-<li>Identity theft</li>
-<li>Industrial espionage (using data stored on the device, or using the
-device as a bug)</li>
-</ul>
-<h3 id="sources-of-evidence">Sources of Evidence</h3>
-<p>We can find evidence on a mobile device in the following places</p>
-<ul>
-<li>Phone catalog/contacts</li>
-<li>Call history</li>
-<li>SMS/MMS</li>
-<li>Photographs and videos</li>
-<li>Emails</li>
-<li>Calendar</li>
-<li>Reminders</li>
-<li>Browser history</li>
-<li>Documents</li>
-<li>GPS information</li>
-<li>Memos/Reminders/To-do-lists</li>
-</ul>
-<p>Data can remain in places even after it has been deleted.</p>
-<h3 id="forensic-procedures">Forensic Procedures</h3>
-<p>When dealing with digital evidence,</p>
-<ul>
-<li>All general forensic principles must be applied.</li>
-<li>Actions taken on digital evidence should not change it</li>
-<li>Only trained people should be able to access the evidence in its
-original form</li>
-<li>All activity done on a device, such as seizure,storage, transfer
-must be documented.</li>
-<li>All processes performed on the device must also be recorded. A third
-party must be able to examine these processes.</li>
-</ul>
-<h4 id="general-principles">General Principles</h4>
-<ul>
-<li>Maintain data integrity</li>
-<li>Document and photograph everything on the scene</li>
-<li>All actions done on the device or to the device must be documented
-and must be available for audit.</li>
-<li>The mobile phone’s screen should be photographed as it was
-found.</li>
-<li>Evidence should not be altered.</li>
-<li>Analysts should be trained.</li>
-<li>Each evidence holder is responsible for anything that happens to
-it.</li>
-<li>Procedures should be completed as quickly as possible.</li>
-</ul>
-<h4 id="training-and-competence">Training and Competence</h4>
-<ul>
-<li>All involved people should be trained to perform and document
-actions.</li>
-<li>Different people will need different training. E.g, police officer
-needs to know how to properly secure and seize the phone. Analyst needs
-to know how to get the data from the phone without changing it.</li>
-<li>Involved people should keep themselves updated with latest
-technology and research.</li>
-<li>Practice with the same kind of device and software first.</li>
-<li>Head office must maintain constant communication with analysts and
-provide guidance.</li>
-</ul>
-<h4 id="analysis-procedure">Analysis Procedure</h4>
-<ul>
-<li>We want to know the <em>who, when, where,why</em>. Data is examined,
-including application files, timeline is established for events, and
-hidden data is also looked for.</li>
-<li>We try to avoid any data loss.</li>
-<li>First thing to do is to ensure the phone is isolated from the
-network.</li>
-<li>If the phone is on, memory and SIM card is examined first.</li>
-<li>If the phone is off and the owner doesn’t reveal the pincode, we
-need to ask for help from the provider.</li>
-<li>Each step should be photographed or videoed, even in the case of
-automatic data analysis.</li>
-<li>If the phone was deactivated, SIM analysis takes place first.
-Activating the phone may cause change in data, such as in Location Area
-Information file. If we place a different SIM, we may lose data such as
-call history.</li>
-</ul>
-<h4 id="preserving-data-and-isolating-from-network">Preserving data and
-isolating from network</h4>
-<ul>
-<li>Only qualified software should be used.</li>
-<li>If the phone is not compatible with specialized software, test the
-methods on a test phone first before executing it on the real
-device.</li>
-<li>New data from the network, such as phone calls, emails, SMSes, etc.
-must be avoided. They an also be used to delete or modify the data on
-the device. Therefore, we need to isolate the device from the
-network.</li>
-<li>Best solution is to use a Faraday cage.</li>
-<li>Phone should be charged constantly to avoid it turning off. We need
-to avoid any signal entering the phone using the charging cable. This is
-done by placing a power source inside the Faraday cage</li>
-<li>Jammers can also be used instead of Faraday cages.</li>
-<li>In modern phones we can also use flight mode.</li>
-<li>We can collaborate with the network to disable network access to the
-phone. We can also use a special SIM that activates the device but
-doesn’t allow network access. This may lead to loss of data such as call
-logs.</li>
-</ul>
-<h4 id="identify-the-phone">Identify the phone</h4>
-<ul>
-<li>Try to identify it visually</li>
-<li>Look up different mobile phones’ photographs online</li>
-<li>Take out the battery and see the IMEI and MAC address, and identify
-using those.
-<ul>
-<li>Typing *#06## also reveals the IMEI</li>
-</ul></li>
-<li>User manuals and characteristics of the phone must be studied, so we
-know what kind of data loss is possible. Test device is still
-recommended,</li>
-<li>Use manufacturer’s cables instead of local ones. Connecting via WiFi
-and Bluetooth should be avoided as it will write data to the phone’s
-memory.</li>
-</ul>
-<h4 id="examine-sim-card-and-memory">Examine SIM Card and Memory</h4>
-<ul>
-<li>Get PIN for phone and sim from user. If user doesn’t cooperate,
-contact provider.</li>
-<li>User should not be allowed to touch the phone</li>
-<li>SIM provides access to its data through its own microcontroller,
-therefore it cannot be cloned. The analysis has to take place on the
-original SIM card.</li>
-<li>Hashes are used to check if two sets of files are identical or
-not.</li>
-<li>The process must be filmed.</li>
-<li>Extracting the sim generally involved removing the battery, which
-may lead to loss in data. In these cases, the data in the mobile must be
-analyzed before the SIM card.</li>
-<li>After extraction of data with automated tools, manual extraction
-must also be done to find data that the software missed.</li>
-<li>Extracted evidence must be verified, such as with the network
-operator.</li>
-</ul>
-<h3 id="sim-card">SIM Card</h3>
-<ul>
-<li>Cannot be cloned</li>
-<li>Contains EEPROM memory</li>
-<li>SIM is protected by 4 or 6-digit PIN that the user can set. After 3
-wrong entries of PIN, the SIM will lock itself. To unlock it, we need a
-PUK (Pin Unblocking Key), which is an 8-digit key. After 10 unsuccessful
-entries of PUK, the SIM card will become unusable.</li>
-<li>PUK and PIN are both initially set by the SIM manufacturer, but the
-user can change them.</li>
-<li>ADM code is known only to the manufacturer, and it provides complete
-access to all data as well as their modification.</li>
-</ul>
-<h3 id="files-present-in-sim-card">Files Present in SIM Card</h3>
-<ul>
-<li>Files are present in directories and subdirectories, similar to in
-computers.</li>
-<li>MF stands for Master File and represents the root directory. DF
-(Dedicated File) are subdirectories. EF (Elementary File) are the actual
-files.</li>
-<li>Some files can be read without any authentication. Some need the SIM
-PIN. The most important files need the ADM code which only the provider
-has.</li>
-</ul>
-<p>SIM contains many files such as:</p>
-<ul>
-<li>Card’s serial number</li>
-<li>List of providers and their names</li>
-<li>Default network</li>
-<li>Default language</li>
-<li>Contacts</li>
-<li>Messages</li>
-<li>Settings for messages</li>
-<li>List of last outgoing calls</li>
-<li>Temporary identity (IMSI-TMSI) (International Mobile Subscriber
-Identity - Temporary Mobile Subscriber Identity)</li>
-<li>Coarse location (Location Area Identifier)</li>
-<li>Control Channels (BCCH)</li>
-<li>Current Encryption Key (<span
-class="math inline">\(K_c\)</span>)</li>
-</ul>
-<p>Around 100 files are present, but each provider can also add their
-own files. Users generally can’t access or delete these files, which
-makes them important.</p>
-<h4 id="imsi">IMSI</h4>
-<p>International Mobile Subscriber Identity (15-digit number) is used to
-uniquely identify the SIM internationally.</p>
-<p>It consists of MCC + MNC + MSIN.</p>
-<p>MCC - Mobile Country Code (3-digit). MNC - Mobile Network Code
-(2-digit , 3-digit for USA and Canada). MSIN is 10 digit (9 in
-USA/Canada)</p>
-<h4 id="iccid">ICCID</h4>
-<p>Integrated Circuit Card Identifier. It is a unique serial number that
-is printed on the plastic wrapping of the card. It identifies the actual
-printed circuit.</p>
-<p>It consists of :</p>
-<p>89 + MCC + MNC + Serial Number</p>
-<p>89 is fixed and represents that this circuit (the SIM) is used for
-telecommunication.</p>
-<h4 id="location-information-file-and-bcch-file">Location Information
-File and BCCH File</h4>
-<ul>
-<li>LIF (Location Information File) stores the last TMSI and last LAI.
-TMSI is a temporary identity that is used for security purposes, so we
-don’t transmit the permanent identity of the user again and again.</li>
-<li>LAI = MCC + MNC + LAC (Location Area Code)</li>
-<li>LAC gives a wide area which can have many phones.</li>
-<li>BCCH list stores the current BCCH and its six neighboring channels.
-By combining BCCH and LAC information we can get a better idea of where
-the phone was.</li>
-</ul>
-<h4 id="sms-storage-file">SMS Storage File</h4>
-<p>Modern SIMs can store SMS, usually upto 35. The first byte of each
-SMS storage slot tells the message’s status.</p>
-<p>00000000 - Empty Slot</p>
-<p>00000001 - Read incoming message</p>
-<p>00000011 - Unread incoming message</p>
-<p>00000101 - Outgoing message that has been sent</p>
-<p>00000111 - Outgoing message which hasn’t been sent.</p>
-<p>If a message is deleted by the user, usually the first byte’s last
-bit is changed to 0, which marks the slot as empty. But the actual
-content of the slots aren’t changed. So, by reading data directly, we
-can sometimes get old messages that the user thinks have been
-deleted.</p>
-<p>Another file stores SMS Settings, such as the default alphabet,
-message center number, etc.</p>
-<h4 id="contact-list">Contact List</h4>
-<p>SIM Cards can store contacts. Old SIMs stored upto 100, newer ones
-offer 250. When a contact is deleted, the slot is filled with binary
-“1”, so deleted contacts cannot be recovered. But slots are assigned in
-order, so if we find an empty slot between slot 34 and 36, we can assume
-there was a contact in slot 35 that has been deleted.</p>
-<h4 id="outgoing-calls">Outgoing Calls</h4>
-<p>SIMs can store the last 10 dialled numbers. Most manufacturers prefer
-to use the phone’s memory of this. SIM doesn’t store incoming calls,
-only outgoing.</p>
-<h3 id="device-data">Device Data</h3>
-<ul>
-<li>Contains messages, emails, IMEI, call logs, contacts, pictures,
-application files, etc.</li>
-<li>Deleted information can be recovered from the depths of memory.</li>
-<li>Data should be recovered without altering</li>
-<li>Memory can be cloned, unlike with SIM</li>
-<li>Official and unofficial tools exist for memory cloning.</li>
-</ul>
-<p>Issues :</p>
-<ul>
-<li>Hard to detect whether there have been changes in memory during our
-procedures</li>
-<li>During memory dumps, positions of files may change</li>
-<li>Searching for information in large memory dumps is difficult and
-time consuming</li>
-<li>Phones may have encrypted memory</li>
-</ul>
-<p>External memory dumps, that use hardware, can be used. In this, the
-memory circuits are desoldered from the phone. This ensures no changes
-occur while doing memory dump. This is less used because we may damage
-the whole memory while performing desoldering.</p>
-<p>External memory cards may be present in the device. Extracting data
-from these is fairly easy.</p>
-<h3 id="evidence-in-operators-network">Evidence in Operator’s
-Network</h3>
-<p>The SIM card operator may also have evidence in their database.</p>
-<ul>
-<li>Call logs</li>
-<li>SMS exchanged</li>
-<li>HLR keeps data about IMSI, SIM serial number, PIN and PUK code,
-etc.</li>
-<li>Call Detail Records (CDR) have all information about the numbers
-called - date, duration,etc.</li>
-</ul>
-</div></div></body>
+        </div>
+    </div>
+
+    <header id="title-block-header">
+        <h1 class="title">Mobile And Digital Forensics</h1>
+        <p class="author">Satvik Gupta</p>
+    </header>
+    <div id="container">
+        <nav id="TOC" role="doc-toc">
+            <div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/MADF.pdf">Download as PDF</a></div>
+            <ul>
+                <li><a href="#risks-created-by-wireless-technology" id="toc-risks-created-by-wireless-technology">Risks
+                        Created By Wireless
+                        Technology</a></li>
+                <li><a href="#wireless-technologies-in-use" id="toc-wireless-technologies-in-use">Wireless Technologies
+                        in Use</a>
+                    <ul>
+                        <li><a href="#pan-personal-area-network" id="toc-pan-personal-area-network">PAN (Personal Area
+                                Network)</a>
+                            <ul>
+                                <li><a href="#bluetooth" id="toc-bluetooth">Bluetooth</a></li>
+                                <li><a href="#infrared" id="toc-infrared">Infrared</a></li>
+                                <li><a href="#ultrawideband-uwb" id="toc-ultrawideband-uwb">Ultrawideband (UWB)</a></li>
+                                <li><a href="#zigbee" id="toc-zigbee">ZigBee</a></li>
+                                <li><a href="#wireless-usb" id="toc-wireless-usb">Wireless USB</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#lan" id="toc-lan">LAN</a>
+                            <ul>
+                                <li><a href="#section" id="toc-section">802.11</a></li>
+                                <li><a href="#mhz-packet-radio" id="toc-mhz-packet-radio">900 MHz Packet
+                                        Radio</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#man" id="toc-man">MAN</a>
+                            <ul>
+                                <li><a href="#microwave" id="toc-microwave">Microwave</a></li>
+                                <li><a href="#free-space-optics" id="toc-free-space-optics">Free Space
+                                        Optics</a></li>
+                                <li><a href="#ricochet" id="toc-ricochet">Ricochet</a></li>
+                                <li><a href="#wimax" id="toc-wimax">WiMax</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#wans" id="toc-wans">WANs</a>
+                            <ul>
+                                <li><a href="#satellite" id="toc-satellite">Satellite</a></li>
+                                <li><a href="#cellular" id="toc-cellular">Cellular</a></li>
+                                <li><a href="#blackberry" id="toc-blackberry">Blackberry</a></li>
+                                <li><a href="#paging" id="toc-paging">Paging</a></li>
+                                <li><a href="#sms" id="toc-sms">SMS</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#wireless-network-security-threats" id="toc-wireless-network-security-threats">Wireless
+                        Network Security
+                        Threats</a>
+                    <ul>
+                        <li><a href="#eavesdropping" id="toc-eavesdropping">Eavesdropping</a></li>
+                        <li><a href="#traffic-analysis" id="toc-traffic-analysis">Traffic
+                                Analysis</a></li>
+                        <li><a href="#data-tampering" id="toc-data-tampering">Data
+                                Tampering</a></li>
+                        <li><a href="#masquerading" id="toc-masquerading">Masquerading</a></li>
+                        <li><a href="#denial-of-service-dos" id="toc-denial-of-service-dos">Denial of Service (DoS)</a>
+                        </li>
+                        <li><a href="#wireless-client-attacks" id="toc-wireless-client-attacks">Wireless Client
+                                Attacks</a></li>
+                    </ul>
+                </li>
+                <li><a href="#other-issues-with-wireless" id="toc-other-issues-with-wireless">Other Issues with
+                        Wireless</a>
+                    <ul>
+                        <li><a href="#spread-spectrum-isnt-secure" id="toc-spread-spectrum-isnt-secure">Spread Spectrum
+                                isn’t
+                                Secure</a></li>
+                        <li><a href="#ssids-are-not-designed-as-passwords"
+                                id="toc-ssids-are-not-designed-as-passwords">SSIDs are not designed as
+                                passwords</a></li>
+                        <li><a href="#wep-is-weak" id="toc-wep-is-weak">WEP is weak</a>
+                            <ul>
+                                <li><a href="#steps-to-attack-wep." id="toc-steps-to-attack-wep.">Steps
+                                        to attack WEP.</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#war-driving" id="toc-war-driving">War Driving</a>
+                    <ul>
+                        <li><a href="#war-chalking" id="toc-war-chalking">War Chalking</a></li>
+                        <li><a href="#war-flying" id="toc-war-flying">War Flying</a></li>
+                    </ul>
+                </li>
+                <li><a href="#security-recommendations-vs-reality" id="toc-security-recommendations-vs-reality">Security
+                        Recommendations vs
+                        Reality</a></li>
+                <li><a href="#section-1" id="toc-section-1"><br />
+                    </a></li>
+                <li><a href="#pda-personal-digital-assistants" id="toc-pda-personal-digital-assistants">PDA (Personal
+                        Digital
+                        Assistants)</a>
+                    <ul>
+                        <li><a href="#theft-of-the-device" id="toc-theft-of-the-device">Theft of
+                                the Device</a></li>
+                        <li><a href="#data-theft" id="toc-data-theft">Data Theft</a></li>
+                        <li><a href="#mobile-code" id="toc-mobile-code">Mobile Code</a></li>
+                        <li><a href="#auth-theft" id="toc-auth-theft">Auth Theft</a></li>
+                        <li><a href="#dos-attacks" id="toc-dos-attacks">DoS Attacks</a></li>
+                        <li><a href="#session-hijacking" id="toc-session-hijacking">Session
+                                Hijacking</a></li>
+                        <li><a href="#providing-security-to-pdas" id="toc-providing-security-to-pdas">Providing Security
+                                to PDAs</a></li>
+                        <li><a href="#best-security-practices" id="toc-best-security-practices">Best Security
+                                Practices</a></li>
+                    </ul>
+                </li>
+                <li><a href="#sms-security-issues" id="toc-sms-security-issues">SMS
+                        Security Issues</a>
+                    <ul>
+                        <li><a href="#availability-issues" id="toc-availability-issues">Availability Issues</a></li>
+                        <li><a href="#confidentiality-issues" id="toc-confidentiality-issues">Confidentiality Issues</a>
+                        </li>
+                        <li><a href="#integrity-issues" id="toc-integrity-issues">Integrity
+                                Issues</a></li>
+                        <li><a href="#other-security-issues" id="toc-other-security-issues">Other Security Issues</a>
+                        </li>
+                        <li><a href="#sms-spamming" id="toc-sms-spamming">SMS Spamming</a></li>
+                    </ul>
+                </li>
+                <li><a href="#mobile-phone-forensics" id="toc-mobile-phone-forensics">Mobile Phone Forensics</a>
+                    <ul>
+                        <li><a href="#crime-in-mobile-phones" id="toc-crime-in-mobile-phones">Crime in Mobile Phones</a>
+                        </li>
+                        <li><a href="#sources-of-evidence" id="toc-sources-of-evidence">Sources
+                                of Evidence</a></li>
+                        <li><a href="#forensic-procedures" id="toc-forensic-procedures">Forensic
+                                Procedures</a>
+                            <ul>
+                                <li><a href="#general-principles" id="toc-general-principles">General
+                                        Principles</a></li>
+                                <li><a href="#training-and-competence" id="toc-training-and-competence">Training and
+                                        Competence</a></li>
+                                <li><a href="#analysis-procedure" id="toc-analysis-procedure">Analysis
+                                        Procedure</a></li>
+                                <li><a href="#preserving-data-and-isolating-from-network"
+                                        id="toc-preserving-data-and-isolating-from-network">Preserving data and
+                                        isolating from network</a></li>
+                                <li><a href="#identify-the-phone" id="toc-identify-the-phone">Identify
+                                        the phone</a></li>
+                                <li><a href="#examine-sim-card-and-memory" id="toc-examine-sim-card-and-memory">Examine
+                                        SIM Card and
+                                        Memory</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#sim-card" id="toc-sim-card">SIM Card</a></li>
+                        <li><a href="#files-present-in-sim-card" id="toc-files-present-in-sim-card">Files Present in SIM
+                                Card</a>
+                            <ul>
+                                <li><a href="#imsi" id="toc-imsi">IMSI</a></li>
+                                <li><a href="#iccid" id="toc-iccid">ICCID</a></li>
+                                <li><a href="#location-information-file-and-bcch-file"
+                                        id="toc-location-information-file-and-bcch-file">Location Information
+                                        File and BCCH File</a></li>
+                                <li><a href="#sms-storage-file" id="toc-sms-storage-file">SMS Storage
+                                        File</a></li>
+                                <li><a href="#contact-list" id="toc-contact-list">Contact List</a></li>
+                                <li><a href="#outgoing-calls" id="toc-outgoing-calls">Outgoing
+                                        Calls</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#device-data" id="toc-device-data">Device Data</a></li>
+                        <li><a href="#evidence-in-operators-network" id="toc-evidence-in-operators-network">Evidence in
+                                Operator’s
+                                Network</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="data">
+            <h3 id="risks-created-by-wireless-technology">Risks Created By Wireless
+                Technology</h3>
+            <ol type="1">
+                <li>Wireless is shared and uncontrolled.</li>
+                <li>Mobile devices are transient. They are always moving around.
+                    Detecting suspicious activity becomes difficult.</li>
+                <li>Ease of use - As wireless is easy to use, people become familiar
+                    with it and become comfortable and careless with security.</li>
+                <li>It’s easier to attack.</li>
+            </ol>
+            <h2 id="wireless-technologies-in-use">Wireless Technologies in Use</h2>
+            <h3 id="pan-personal-area-network">PAN (Personal Area Network)</h3>
+            <ul>
+                <li>WPANs are used in short distances, &lt;10 m.</li>
+                <li>Connect computers and peripherals</li>
+                <li>High speed</li>
+            </ul>
+            <h4 id="bluetooth">Bluetooth</h4>
+            <h4 id="infrared">Infrared</h4>
+            <ul>
+                <li>Line of sight</li>
+                <li>Short range (0-2m)</li>
+                <li>LoS makes it easy to think it’s secure, but attackers can detect
+                    reflected light and filter out ambient noise, and gain access to the
+                    data.</li>
+            </ul>
+            <h4 id="ultrawideband-uwb">Ultrawideband (UWB)</h4>
+            <ul>
+                <li>Superfast, wireless.</li>
+                <li>Doesn’t use any carrier wave.</li>
+                <li>Superfast pulses in timed sequences over a large continuous
+                    spectrum</li>
+            </ul>
+            <h4 id="zigbee">ZigBee</h4>
+            <ul>
+                <li>Home Area Network</li>
+                <li>Designed to replace remote controls</li>
+                <li>Cost effective, low power</li>
+            </ul>
+            <h4 id="wireless-usb">Wireless USB</h4>
+            <ul>
+                <li>10m range</li>
+                <li>480 Mbps, upto 1 Gbps in future.</li>
+            </ul>
+            <h3 id="lan">LAN</h3>
+            <p>Wireless Local Area Networks</p>
+            <h4 id="section">802.11</h4>
+            <ul>
+                <li>AKA Wifi</li>
+                <li>1-2 Mbps, 2.4 GHz</li>
+            </ul>
+            <h4 id="mhz-packet-radio">900 MHz Packet Radio</h4>
+            <ul>
+                <li>Cordless, pagers, medical equipment.</li>
+                <li>Interference sometimes happens</li>
+                <li>Transports IP based data.</li>
+            </ul>
+            <h3 id="man">MAN</h3>
+            <p>A Metropolitan Area Network is designed to provide broadband
+                connectivity to a densely populated area. Could be cities, counties,
+                campuses. AKA <em>Last Mile Solutions.</em></p>
+            <h4 id="microwave">Microwave</h4>
+            <ul>
+                <li>P2P,LoS</li>
+                <li>AM Radio</li>
+                <li>Less cost, Easy to Deploy</li>
+                <li>High frequency</li>
+            </ul>
+            <h4 id="free-space-optics">Free Space Optics</h4>
+            <ul>
+                <li>Uses lasers instead of radio frequency</li>
+                <li>High data rates</li>
+                <li>Incorporates security of Fiber optic cables</li>
+                <li>Transmits a LoS laser btw two points.</li>
+            </ul>
+            <h4 id="ricochet">Ricochet</h4>
+            <ul>
+                <li>Wireless ISP network solution for a particular geographic
+                    location</li>
+                <li>Allows portable clients to move through an area and access
+                    Internet</li>
+            </ul>
+            <h4 id="wimax">WiMax</h4>
+            <p>Worldwide Interoperability for Microwave Access, 802.16</p>
+            <ul>
+                <li>2-11 GHz</li>
+                <li>Long range</li>
+                <li>High throughput ~70 Mbps</li>
+            </ul>
+            <h3 id="wans">WANs</h3>
+            <p>WANs are intended for communications between mobile and fixed devices
+                worldwide.</p>
+            <h4 id="satellite">Satellite</h4>
+            <p>Use radio waves just like other wireless technologies. TElevision,
+                GPS&lt; ISPs, etc.</p>
+            <h4 id="cellular">Cellular</h4>
+            <ul>
+                <li>
+                    <p>Cellular Digital Packet Data (CDPD)</p>
+                    <p>Uses unused cellular channels to transmit data packets.</p>
+                </li>
+                <li>
+                    <p>Global System for Mobile Comm. (GSM)</p>
+                    <p>Uses narrow band TDMA method to allow 8 simultaneous calls on the
+                        same radio frequency.</p>
+                </li>
+                <li>
+                    <p>3GSM</p>
+                    <p>Will support multimedia, video, and Internet</p>
+                </li>
+                <li>
+                    <p>TDMA</p>
+                    <p>Each cellular channel is divided into 3 time slots to increase amount
+                        of data.</p>
+                </li>
+            </ul>
+            <h4 id="blackberry">Blackberry</h4>
+            <p>Email, File sharing, Voice and SMS, Calendar, Internet, Attachments,
+                etc. btw Blackberry users.</p>
+            <h4 id="paging">Paging</h4>
+            <h4 id="sms">SMS</h4>
+            <hr />
+            <h2 id="wireless-network-security-threats">Wireless Network Security
+                Threats</h2>
+            <h3 id="eavesdropping">Eavesdropping</h3>
+            <p>Someone else can read the transmitted information, even from outside
+                the building.</p>
+            <h3 id="traffic-analysis">Traffic Analysis</h3>
+            <p>Patterns of communication and data flow can be monitored and may
+                yield information.</p>
+            <h3 id="data-tampering">Data Tampering</h3>
+            <p>Information can be deleted, or modified via MITM attack.</p>
+            <h3 id="masquerading">Masquerading</h3>
+            <p>Attacker can impersonate an authorized user and gain access to
+                information.</p>
+            <h3 id="denial-of-service-dos">Denial of Service (DoS)</h3>
+            <p>Attacker can jam frequency channels, using hardware blockers or by
+                sending large amount of requests.</p>
+            <h3 id="wireless-client-attacks">Wireless Client Attacks</h3>
+            <p>Attacker can trick clients into connecting to an unsecured network
+                and gain access to the data present on the client machine. The
+                compromised client can now also be used to access the internal network
+                and the data stored on it.</p>
+            <h2 id="other-issues-with-wireless">Other Issues with Wireless</h2>
+            <h3 id="spread-spectrum-isnt-secure">Spread Spectrum isn’t Secure</h3>
+            <p>Spread Spectrum is a modulation technique used to prevent radio
+                jamming.</p>
+            <p>In general, spread spectrum has <strong>spreading codes</strong>,
+                that can be changed. Without knowing the correct code, it is impossible
+                to decipher data sent through the spread spectrum.</p>
+            <p>However, the 802.11 standard publicly describes the spreading codes
+                so that interoperable 802.11 components can be created. An attacker with
+                a radio compliant with 802.11 would be able to connect.</p>
+            <h3 id="ssids-are-not-designed-as-passwords">SSIDs are not designed as
+                passwords</h3>
+            <p>SSID - Service Set Identifier.</p>
+            <ul>
+                <li>Were initially used to prevent people from connecting to the access
+                    point (AP) without knowing the SSID.</li>
+                <li>However, they should not be relied upon as passwords.</li>
+            </ul>
+            <h3 id="wep-is-weak">WEP is weak</h3>
+            <p>Wired Equivalent Privacy.</p>
+            <p>WEP occasionally produces cryptographically weak ciphers.</p>
+            <h4 id="steps-to-attack-wep.">Steps to attack WEP.</h4>
+            <ol type="1">
+                <li>
+                    <p>Hacker runs Kismet to discover WLANs in the area. He gets its
+                        SSID, channel number and its BSSID (Basic SSID - the Ethernet
+                        Address).</p>
+                </li>
+                <li>
+                    <p>APs can hide their SSIDs, using an option called SSID
+                        Cloaking/SSID Broadcast Disable.</p>
+                    <p>If this is the case, the attacker has to wait for a client to connect
+                        to the AP (the client and the AP will both disclose the SSID). The
+                        attacker can also force an already connected client to reconnect. This
+                        is done by sending a packet to the client, pretending to be from the AP.
+                        The packet tells the client that they have lost their connection with
+                        the AP (<strong><em>You are no longer connected</em></strong>). The
+                        client attempts to reconnect, and exposes the SSID.</p>
+                </li>
+                <li>
+                    <p>The attacker puts his wireless card into Monitor mode. The card
+                        will eavesdrop on the WLAN (even without connecting to it.) He makes the
+                        card monitor the channel on which the target AP is. All the traffic
+                        monitored is saved in a <em>capture file.</em></p>
+                </li>
+                <li>
+                    <p>WEP uses Initialization Vectors (IVs), which are values used to
+                        start a cryptographic process. When a certain number of weak IVs have
+                        been captured, we can determine the WEP key. 125k packets are needed to
+                        crack 40-bit WEP keys. 200-250k packets for 128-bit WEP keys.</p>
+                </li>
+                <li>
+                    <p>If the WLAN is slow, the hacker will need to accelerate the
+                        attack to capture the right amount of weak IVs. The attacker will inject
+                        already captured WEP frame back into the network. WEP has no replay
+                        protection mechanism.</p>
+                    <p>512 packets injected per second - 10 mins for 40-bit keys, 30 mins
+                        for 128-bit keys.</p>
+                </li>
+                <li>
+                    <p>After sufficient amount of IVs are captured, the attacker runs
+                        AirCrack, which will attempt to crack and return the WEP key. Once the
+                        key is known, the attacker can connect to the AP in the same way a
+                        legitimate client would.</p>
+                </li>
+            </ol>
+            <h2 id="war-driving">War Driving</h2>
+            <p>People driving around in a car equipped with wireless gear, looking
+                for unsecured wireless network. Generally they try to look for APs that
+                are running a certain kind of server behind them, such as important
+                security servers or financial servers, etc.</p>
+            <p>Sometimes people just do it harmlessly, for e.g, just checking the
+                radio environment.</p>
+            <h3 id="war-chalking">War Chalking</h3>
+            <p>War driving + marking the places with chalk. Different symbols are
+                used for open, closed, and WEP APs.</p>
+            <h3 id="war-flying">War Flying</h3>
+            <p>War driving, but using airplanes,helicopters, etc. instead of cars.
+                Due to increased range of wireless networks, hundreds of APs can be
+                found in a short trip.</p>
+            <h2 id="security-recommendations-vs-reality">Security Recommendations vs
+                Reality</h2>
+            <table>
+                <colgroup>
+                    <col style="width: 14%" />
+                    <col style="width: 85%" />
+                </colgroup>
+                <thead>
+                    <tr class="header">
+                        <th style="text-align: center;">Recommendation</th>
+                        <th style="text-align: center;">Reality</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td style="text-align: center;">Turn SSID Broadcasting off</td>
+                        <td style="text-align: center;">SSIDs can be easily discovered as
+                            described above.</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: center;">Use static IP Addresses</td>
+                        <td style="text-align: center;">Static IP addresses can be found easily
+                            using traffic analysis</td>
+                    </tr>
+                    <tr class="odd">
+                        <td style="text-align: center;">Turn 128-bit WEP on</td>
+                        <td style="text-align: center;">WEP can be easily cracked</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: center;">Change WEP keys</td>
+                        <td style="text-align: center;">New keys can be cracked easily</td>
+                    </tr>
+                    <tr class="odd">
+                        <td style="text-align: center;">Enable MAC Address Filtering</td>
+                        <td style="text-align: center;">Traffic analysis will yield the
+                            authorized MAC Addresses. WLAN cards can specify their own MAC Address,
+                            so hackers can just claim to be using an authorized one</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: center;">Utilize shared key auth</td>
+                        <td style="text-align: center;">WEP keys can be cracked</td>
+                    </tr>
+                    <tr class="odd">
+                        <td style="text-align: center;">Use personal firewalls</td>
+                        <td style="text-align: center;">Hackers may be able to fool you that
+                            they are a trusted system</td>
+                    </tr>
+                    <tr class="even">
+                        <td style="text-align: center;">Use SSH/HTTPs</td>
+                        <td style="text-align: center;">May be vulnerable to MITM sometimes</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2 id="section-1"><br />
+            </h2>
+
+            <h2 id="pda-personal-digital-assistants">PDA (Personal Digital
+                Assistants)</h2>
+            <p>Common attacks:</p>
+            <ol type="1">
+                <li>Copying/Stealing information from the device</li>
+                <li>Loading malicious code onto the device</li>
+                <li>Destroying key files or applications on the device</li>
+            </ol>
+            <h5 id="trojans">Trojans</h5>
+            <p>A program disguised as another program.</p>
+            <h5 id="worms">Worms</h5>
+            <p>Programs that duplicate themselves over and over, and steal system
+                resources in doing so.</p>
+            <h5 id="logic-bombs">Logic Bombs</h5>
+            <p>Programs within programs that perform certain actions based on a
+                trigger event. PDAs can also be carriers of such programs instead of the
+                target.</p>
+            <h4 id="theft-of-the-device">Theft of the Device</h4>
+            <h4 id="data-theft">Data Theft</h4>
+            <p>Data can be easily copied from a PDA/Blackberry to a flash card
+                within minutes.</p>
+            <h4 id="mobile-code">Mobile Code</h4>
+            <p>S/w transmitted from server to a local device, and then executed.
+                This code may give the attacker access to the data on the PDA.</p>
+            <h4 id="auth-theft">Auth Theft</h4>
+            <p>Stealing a PDA may lead to auth information being stolen.</p>
+            <h4 id="dos-attacks">DoS Attacks</h4>
+            <p>Any attack in which an organization is denied access to a resource
+                can be termed DoS. For PDAs, anything from mobile code to device theft
+                can be considered DoS.</p>
+            <h4 id="session-hijacking">Session Hijacking</h4>
+            <p>A TCP session can be taken over by an attacker. TCP auth only occurs
+                during the start, so an attacker can find ways to do this.</p>
+            <h3 id="providing-security-to-pdas">Providing Security to PDAs</h3>
+            <ul>
+                <li>Use AntiVirus - Norton, Symantec, F-Secure, Kaspersky</li>
+                <li>DB Security and Auth</li>
+                <li>Faraday Bag - Block all wireless signals to the device</li>
+                <li>Encryption - Ccrypt, PDA Secure</li>
+                <li>Firewalls - Mobile Firewall Plus</li>
+                <li>Password Enforcement - HotSync Security, PDA Defense.</li>
+                <li>VPN - VPN 3000, Movian VPN</li>
+            </ul>
+            <h3 id="best-security-practices">Best Security Practices</h3>
+            <ol type="1">
+                <li>Define handheld security policy</li>
+                <li>Centrally enforce and monitor handheld security</li>
+                <li>Enforce use of power-on passwords</li>
+                <li>Block unauthorized handheld network activity</li>
+                <li>Detect handheld intrusions</li>
+                <li>Protect handheld integrity</li>
+                <li>Encrypt sensitive data stored on handhelds</li>
+                <li>Protect traffic sent/received by handhelds</li>
+                <li>Maintain up-to-date anti-virus protection</li>
+                <li>Back up frequently</li>
+            </ol>
+            <h2 id="sms-security-issues">SMS Security Issues</h2>
+            <p>SMS is a store and forward service. The SMS is stored in a server
+                first, before being forwarded to the receiver. This is necessary in case
+                the receiver’s mobile phone is out of coverage or switched off when the
+                SMS is sent.</p>
+            <ul>
+                <li><strong>SMC</strong> - Short Message Center. This is where the SMSes
+                    are sent to be stored, before they are forwarded.</li>
+                <li><strong>SME</strong> - Short Message Entity. This is an application
+                    or program that generates an SMS message. It can be a mobile phone, a
+                    computer, or a service network.</li>
+                <li><strong>GMSC</strong> - Gateway Short Message Service (Actual full
+                    form is Gateway Mobile Switching Center)- acts as an interface between
+                    different networks. It uses the HLR (Home location register) to
+                    determine the recipient’s network, and forwards the message there.</li>
+            </ul>
+            <h3 id="availability-issues">Availability Issues</h3>
+            <ul>
+                <li>Many attacks try to create a DoS scenario.</li>
+                <li>They may send thousands of messages to a particular user, using
+                    software or the Internet. If it is an older device, it’s memory will
+                    fill up and it will be unable to accept more messages.</li>
+                <li>With modern devices, the recipient will have difficulty identifying
+                    which SMSes are real and meant for him, and which are fake.</li>
+                <li>The attacker may trick the OS/device into blocking actions until the
+                    SMSes are deleted. These messages usually contain special characters or
+                    symbols, long names, or do not follow standard structure for an SMS
+                    message.</li>
+                <li>Silent DoS is also possible, where the phone works normally but
+                    doesn’t receive any SMS.</li>
+                <li>Continuous messaging can also drain the battery.</li>
+                <li>DoS can be done by installing a fake base station, or a jamming
+                    device that makes the user unable to send or receive SMSes.</li>
+                <li>Sometimes DoS can happen without any attack on the system, for e.g,
+                    on holidays when millions of SMSes are sent together which causes delay
+                    and overload in the system.</li>
+            </ul>
+            <h3 id="confidentiality-issues">Confidentiality Issues</h3>
+            <ul>
+                <li>
+                    <p>Encryption for SMS/Voice calls are usually done between the phone
+                        and the provider network (if done at all). Once in the network, the data
+                        is unencrypted. Employees of the provider may have access to
+                        it.</p>
+                </li>
+                <li>
+                    <p>An attacker can hack an employee’s mobile phone to gain access to
+                        the network and view other people’s SMSes.</p>
+                </li>
+                <li>
+                    <p>Fake base stations can also be used by attackers to intercept and
+                        read SMSes. The attacker can also forward the SMS to the actual
+                        recipient to avoid any suspicion, using various techniques to hide his
+                        identity (SMS Masquerading)</p>
+                </li>
+                <li>
+                    <p>Even without knowing the content of SMS we can learn about the
+                        user’s habits, such as when they switch their phone off and when they
+                        switch it on. A switched off phone will not receive an SMS, and the SMS
+                        will be marked as <em>delivered</em> only after the phone is switched
+                        on.</p>
+                    <p>Attackers usually send <em>invisible</em> messages for this purpose,
+                        which do not show anything on the screen and don’t show any notification
+                        either.</p>
+                </li>
+                <li>
+                    <p>Mobile operators are sometimes required to share details of SMSes
+                        viewed and sent by a person for law enforcement. Even without operator’s
+                        help, there are ways to view deleted messages from a device.</p>
+                </li>
+            </ul>
+            <h3 id="integrity-issues">Integrity Issues</h3>
+            <p>Integrity issues are those relating to an SMS’s content being
+                changed, or the sender is pretending to be someone else.</p>
+            <ul>
+                <li><strong>SMS Spoofing</strong> is when a sender masquerades as
+                    another sender. Using the internet we can send messages in bulk using a
+                    number of our choice. Since this can be abused, operators now ask for
+                    some alphabets to be added in the ID along with digits. To combat this,
+                    fraudsters are using O instead of 0 and I instead of 1. The catalog’s
+                    functionality can also be exploited, as the catalog only matches the
+                    last 4 digits. So, an attacker sending a message using AA5483 will be
+                    matched by a catalog containing an entry for 88885483</li>
+                <li>Attackers can also connect directly to a messaging center and use
+                    spoofing techniques to hide their identity, and pretend to be someone
+                    else. We can check if the number of the SMS, and the country of the
+                    message center match. For e.g, if the number is from Greece, but the
+                    message center is from Japan, we can figure out something is wrong.
+                    Timestamps can also be used, since message centers timestamp using their
+                    local time. If a message arrives from an Indian number , to an Indian
+                    receiver, with a timestamp of 2 hours before, we can guess that
+                    something is wrong (since it should have the same timestamp as the
+                    current time)</li>
+                <li>Cipher can be used to change phone settings, such as turning
+                    ciphering indicator on or off.</li>
+                <li>Special binary messages can also be sent using SMS. They don’t
+                    appear to the user, but go directly to the phone or SIM card. OTA
+                    updates of software were done using this method, but this can also be
+                    exploited by hackers.</li>
+            </ul>
+            <h3 id="other-security-issues">Other Security Issues</h3>
+            <ul>
+                <li>SMSes that can be modified/deleted later, but stay in the same
+                    memory location. Their initial use was for stuff like news, stocks,
+                    weather, where the SMS’s content would change daily and the user
+                    wouldn’t have to wait for a new SMS to arrive. They can obviously be
+                    misused.</li>
+                <li>SMSes that show on the screen directly without any warning (flash
+                    SMS), without the user going into messages. These make the user think
+                    these are from the provider and hackers can trick users into calling
+                    certain numbers or paying money, etc.</li>
+                <li>SMSes can be used to influence outcome of contests or voting
+                    procedures that allow SMS. Bulk messages can be sent for a particular
+                    participant.</li>
+            </ul>
+            <h3 id="sms-spamming">SMS Spamming</h3>
+            <ul>
+                <li>Spam is unsolicited commercial messages from unknown senders.</li>
+                <li>Spam is profitable and can be completely anonymous.</li>
+                <li>Internet sites allowing users to download free ringtones ask for
+                    their phone number, then sell that phone number to spammers.</li>
+                <li>SMS spam filtering is more difficult than email spam filtering
+                    because SMSes are short so we have less information. ML algorithms such
+                    as Bayesian networks have proven effective.</li>
+                <li>Techniques of protecting SMSC from spam sometimes use blacklisted
+                    words, which ends up blocking legitimate messages containing those
+                    words. Challenge/response protocols have been suggested.</li>
+                <li>Many providers allow users to report spam, or stop SMS service
+                    altogether. Some also allow SMS aliases. Only messages sent to the alias
+                    are delivered, those sent to the number aren’t.</li>
+            </ul>
+            <p>A promising scheme is shown below.</p>
+            <figure>
+                <img src="../images/madf/sms_filter" alt="image-20230509195001350" />
+                <figcaption aria-hidden="true">image-20230509195001350</figcaption>
+            </figure>
+            <ol type="1">
+                <li>Originator’s phone number and the SMSC used are compared. If the
+                    originator sent a message earlier using a different SMSC, the message is
+                    marked as suspicious.</li>
+                <li>SMSC and originator country is checked and compared.</li>
+                <li>SenderId is checked. Non-numerical IDs have a greater chance of
+                    being spam.</li>
+                <li>Timezone is checked. If the sender and receiver country are same,
+                    but the timestamp from SMSC is more than 1 minute ahead, the message is
+                    suspicoius.</li>
+                <li>Keyword blacklist.</li>
+                <li>HTTP links are checked.</li>
+                <li>SMS Protocol is checked (TP-PID). Some SMSes, such as silent SMSes,
+                    which get deleted upon reception. The application notifies the user of
+                    such SMSes, even though it has been deleted.</li>
+            </ol>
+            <h2 id="mobile-phone-forensics">Mobile Phone Forensics</h2>
+            <h3 id="crime-in-mobile-phones">Crime in Mobile Phones</h3>
+            <ul>
+                <li>Communication method for criminal activity</li>
+                <li>Device theft</li>
+                <li>Harassment calls</li>
+                <li>Mobile phones can be used as a detonation mechanism</li>
+                <li>Telecommunication fraud</li>
+                <li>Identity theft</li>
+                <li>Industrial espionage (using data stored on the device, or using the
+                    device as a bug)</li>
+            </ul>
+            <h3 id="sources-of-evidence">Sources of Evidence</h3>
+            <p>We can find evidence on a mobile device in the following places</p>
+            <ul>
+                <li>Phone catalog/contacts</li>
+                <li>Call history</li>
+                <li>SMS/MMS</li>
+                <li>Photographs and videos</li>
+                <li>Emails</li>
+                <li>Calendar</li>
+                <li>Reminders</li>
+                <li>Browser history</li>
+                <li>Documents</li>
+                <li>GPS information</li>
+                <li>Memos/Reminders/To-do-lists</li>
+            </ul>
+            <p>Data can remain in places even after it has been deleted.</p>
+            <h3 id="forensic-procedures">Forensic Procedures</h3>
+            <p>When dealing with digital evidence,</p>
+            <ul>
+                <li>All general forensic principles must be applied.</li>
+                <li>Actions taken on digital evidence should not change it</li>
+                <li>Only trained people should be able to access the evidence in its
+                    original form</li>
+                <li>All activity done on a device, such as seizure,storage, transfer
+                    must be documented.</li>
+                <li>All processes performed on the device must also be recorded. A third
+                    party must be able to examine these processes.</li>
+            </ul>
+            <h4 id="general-principles">General Principles</h4>
+            <ul>
+                <li>Maintain data integrity</li>
+                <li>Document and photograph everything on the scene</li>
+                <li>All actions done on the device or to the device must be documented
+                    and must be available for audit.</li>
+                <li>The mobile phone’s screen should be photographed as it was
+                    found.</li>
+                <li>Evidence should not be altered.</li>
+                <li>Analysts should be trained.</li>
+                <li>Each evidence holder is responsible for anything that happens to
+                    it.</li>
+                <li>Procedures should be completed as quickly as possible.</li>
+            </ul>
+            <h4 id="training-and-competence">Training and Competence</h4>
+            <ul>
+                <li>All involved people should be trained to perform and document
+                    actions.</li>
+                <li>Different people will need different training. E.g, police officer
+                    needs to know how to properly secure and seize the phone. Analyst needs
+                    to know how to get the data from the phone without changing it.</li>
+                <li>Involved people should keep themselves updated with latest
+                    technology and research.</li>
+                <li>Practice with the same kind of device and software first.</li>
+                <li>Head office must maintain constant communication with analysts and
+                    provide guidance.</li>
+            </ul>
+            <h4 id="analysis-procedure">Analysis Procedure</h4>
+            <ul>
+                <li>We want to know the <em>who, when, where,why</em>. Data is examined,
+                    including application files, timeline is established for events, and
+                    hidden data is also looked for.</li>
+                <li>We try to avoid any data loss.</li>
+                <li>First thing to do is to ensure the phone is isolated from the
+                    network.</li>
+                <li>If the phone is on, memory and SIM card is examined first.</li>
+                <li>If the phone is off and the owner doesn’t reveal the pincode, we
+                    need to ask for help from the provider.</li>
+                <li>Each step should be photographed or videoed, even in the case of
+                    automatic data analysis.</li>
+                <li>If the phone was deactivated, SIM analysis takes place first.
+                    Activating the phone may cause change in data, such as in Location Area
+                    Information file. If we place a different SIM, we may lose data such as
+                    call history.</li>
+            </ul>
+            <h4 id="preserving-data-and-isolating-from-network">Preserving data and
+                isolating from network</h4>
+            <ul>
+                <li>Only qualified software should be used.</li>
+                <li>If the phone is not compatible with specialized software, test the
+                    methods on a test phone first before executing it on the real
+                    device.</li>
+                <li>New data from the network, such as phone calls, emails, SMSes, etc.
+                    must be avoided. They an also be used to delete or modify the data on
+                    the device. Therefore, we need to isolate the device from the
+                    network.</li>
+                <li>Best solution is to use a Faraday cage.</li>
+                <li>Phone should be charged constantly to avoid it turning off. We need
+                    to avoid any signal entering the phone using the charging cable. This is
+                    done by placing a power source inside the Faraday cage</li>
+                <li>Jammers can also be used instead of Faraday cages.</li>
+                <li>In modern phones we can also use flight mode.</li>
+                <li>We can collaborate with the network to disable network access to the
+                    phone. We can also use a special SIM that activates the device but
+                    doesn’t allow network access. This may lead to loss of data such as call
+                    logs.</li>
+            </ul>
+            <h4 id="identify-the-phone">Identify the phone</h4>
+            <ul>
+                <li>Try to identify it visually</li>
+                <li>Look up different mobile phones’ photographs online</li>
+                <li>Take out the battery and see the IMEI and MAC address, and identify
+                    using those.
+                    <ul>
+                        <li>Typing *#06## also reveals the IMEI</li>
+                    </ul>
+                </li>
+                <li>User manuals and characteristics of the phone must be studied, so we
+                    know what kind of data loss is possible. Test device is still
+                    recommended,</li>
+                <li>Use manufacturer’s cables instead of local ones. Connecting via WiFi
+                    and Bluetooth should be avoided as it will write data to the phone’s
+                    memory.</li>
+            </ul>
+            <h4 id="examine-sim-card-and-memory">Examine SIM Card and Memory</h4>
+            <ul>
+                <li>Get PIN for phone and sim from user. If user doesn’t cooperate,
+                    contact provider.</li>
+                <li>User should not be allowed to touch the phone</li>
+                <li>SIM provides access to its data through its own microcontroller,
+                    therefore it cannot be cloned. The analysis has to take place on the
+                    original SIM card.</li>
+                <li>Hashes are used to check if two sets of files are identical or
+                    not.</li>
+                <li>The process must be filmed.</li>
+                <li>Extracting the sim generally involved removing the battery, which
+                    may lead to loss in data. In these cases, the data in the mobile must be
+                    analyzed before the SIM card.</li>
+                <li>After extraction of data with automated tools, manual extraction
+                    must also be done to find data that the software missed.</li>
+                <li>Extracted evidence must be verified, such as with the network
+                    operator.</li>
+            </ul>
+            <h3 id="sim-card">SIM Card</h3>
+            <ul>
+                <li>Cannot be cloned</li>
+                <li>Contains EEPROM memory</li>
+                <li>SIM is protected by 4 or 6-digit PIN that the user can set. After 3
+                    wrong entries of PIN, the SIM will lock itself. To unlock it, we need a
+                    PUK (Pin Unblocking Key), which is an 8-digit key. After 10 unsuccessful
+                    entries of PUK, the SIM card will become unusable.</li>
+                <li>PUK and PIN are both initially set by the SIM manufacturer, but the
+                    user can change them.</li>
+                <li>ADM code is known only to the manufacturer, and it provides complete
+                    access to all data as well as their modification.</li>
+            </ul>
+            <h3 id="files-present-in-sim-card">Files Present in SIM Card</h3>
+            <ul>
+                <li>Files are present in directories and subdirectories, similar to in
+                    computers.</li>
+                <li>MF stands for Master File and represents the root directory. DF
+                    (Dedicated File) are subdirectories. EF (Elementary File) are the actual
+                    files.</li>
+                <li>Some files can be read without any authentication. Some need the SIM
+                    PIN. The most important files need the ADM code which only the provider
+                    has.</li>
+            </ul>
+            <p>SIM contains many files such as:</p>
+            <ul>
+                <li>Card’s serial number</li>
+                <li>List of providers and their names</li>
+                <li>Default network</li>
+                <li>Default language</li>
+                <li>Contacts</li>
+                <li>Messages</li>
+                <li>Settings for messages</li>
+                <li>List of last outgoing calls</li>
+                <li>Temporary identity (IMSI-TMSI) (International Mobile Subscriber
+                    Identity - Temporary Mobile Subscriber Identity)</li>
+                <li>Coarse location (Location Area Identifier)</li>
+                <li>Control Channels (BCCH)</li>
+                <li>Current Encryption Key (<span class="math inline">\(K_c\)</span>)</li>
+            </ul>
+            <p>Around 100 files are present, but each provider can also add their
+                own files. Users generally can’t access or delete these files, which
+                makes them important.</p>
+            <h4 id="imsi">IMSI</h4>
+            <p>International Mobile Subscriber Identity (15-digit number) is used to
+                uniquely identify the SIM internationally.</p>
+            <p>It consists of MCC + MNC + MSIN.</p>
+            <p>MCC - Mobile Country Code (3-digit). MNC - Mobile Network Code
+                (2-digit , 3-digit for USA and Canada). MSIN is 10 digit (9 in
+                USA/Canada)</p>
+            <h4 id="iccid">ICCID</h4>
+            <p>Integrated Circuit Card Identifier. It is a unique serial number that
+                is printed on the plastic wrapping of the card. It identifies the actual
+                printed circuit.</p>
+            <p>It consists of :</p>
+            <p>89 + MCC + MNC + Serial Number</p>
+            <p>89 is fixed and represents that this circuit (the SIM) is used for
+                telecommunication.</p>
+            <h4 id="location-information-file-and-bcch-file">Location Information
+                File and BCCH File</h4>
+            <ul>
+                <li>LIF (Location Information File) stores the last TMSI and last LAI.
+                    TMSI is a temporary identity that is used for security purposes, so we
+                    don’t transmit the permanent identity of the user again and again.</li>
+                <li>LAI = MCC + MNC + LAC (Location Area Code)</li>
+                <li>LAC gives a wide area which can have many phones.</li>
+                <li>BCCH list stores the current BCCH and its six neighboring channels.
+                    By combining BCCH and LAC information we can get a better idea of where
+                    the phone was.</li>
+            </ul>
+            <h4 id="sms-storage-file">SMS Storage File</h4>
+            <p>Modern SIMs can store SMS, usually upto 35. The first byte of each
+                SMS storage slot tells the message’s status.</p>
+            <p>00000000 - Empty Slot</p>
+            <p>00000001 - Read incoming message</p>
+            <p>00000011 - Unread incoming message</p>
+            <p>00000101 - Outgoing message that has been sent</p>
+            <p>00000111 - Outgoing message which hasn’t been sent.</p>
+            <p>If a message is deleted by the user, usually the first byte’s last
+                bit is changed to 0, which marks the slot as empty. But the actual
+                content of the slots aren’t changed. So, by reading data directly, we
+                can sometimes get old messages that the user thinks have been
+                deleted.</p>
+            <p>Another file stores SMS Settings, such as the default alphabet,
+                message center number, etc.</p>
+            <h4 id="contact-list">Contact List</h4>
+            <p>SIM Cards can store contacts. Old SIMs stored upto 100, newer ones
+                offer 250. When a contact is deleted, the slot is filled with binary
+                “1”, so deleted contacts cannot be recovered. But slots are assigned in
+                order, so if we find an empty slot between slot 34 and 36, we can assume
+                there was a contact in slot 35 that has been deleted.</p>
+            <h4 id="outgoing-calls">Outgoing Calls</h4>
+            <p>SIMs can store the last 10 dialled numbers. Most manufacturers prefer
+                to use the phone’s memory of this. SIM doesn’t store incoming calls,
+                only outgoing.</p>
+            <h3 id="device-data">Device Data</h3>
+            <ul>
+                <li>Contains messages, emails, IMEI, call logs, contacts, pictures,
+                    application files, etc.</li>
+                <li>Deleted information can be recovered from the depths of memory.</li>
+                <li>Data should be recovered without altering</li>
+                <li>Memory can be cloned, unlike with SIM</li>
+                <li>Official and unofficial tools exist for memory cloning.</li>
+            </ul>
+            <p>Issues :</p>
+            <ul>
+                <li>Hard to detect whether there have been changes in memory during our
+                    procedures</li>
+                <li>During memory dumps, positions of files may change</li>
+                <li>Searching for information in large memory dumps is difficult and
+                    time consuming</li>
+                <li>Phones may have encrypted memory</li>
+            </ul>
+            <p>External memory dumps, that use hardware, can be used. In this, the
+                memory circuits are desoldered from the phone. This ensures no changes
+                occur while doing memory dump. This is less used because we may damage
+                the whole memory while performing desoldering.</p>
+            <p>External memory cards may be present in the device. Extracting data
+                from these is fairly easy.</p>
+            <h3 id="evidence-in-operators-network">Evidence in Operator’s
+                Network</h3>
+            <p>The SIM card operator may also have evidence in their database.</p>
+            <ul>
+                <li>Call logs</li>
+                <li>SMS exchanged</li>
+                <li>HLR keeps data about IMSI, SIM serial number, PIN and PUK code,
+                    etc.</li>
+                <li>Call Detail Records (CDR) have all information about the numbers
+                    called - date, duration,etc.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
 </html>

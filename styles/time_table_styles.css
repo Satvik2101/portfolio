@@ -3,6 +3,7 @@
 @import "./navbar_light.css";
 
 
+
 body {
     background-color: unset;
     color: #333333;
@@ -41,7 +42,7 @@ button {
 
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
-    background-color: var(--primary);
+    background-color: var(--moonstone);
     color: white;
 
 
@@ -69,7 +70,7 @@ button {
 }
 
 button:active {
-    background-color: var(--primary_bg)
+    background-color: var(--vista)
 }
 
 
