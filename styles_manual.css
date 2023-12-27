@@ -72,8 +72,8 @@ a {
 #navbar:hover #navbar_links {
 
     background-color: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
     border-radius: 20px;
     /* transition: 0.3s all ease-out; */
     height: auto;

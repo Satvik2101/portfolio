@@ -68,7 +68,7 @@ read -p "Press enter to continue";
 # Only happens with file names starting with a /
 
 
-Upload files to S3
+# Upload files to S3
 if [ $d == 1 ]; then
     echo "Dry run. Not uploading to S3"
 else
