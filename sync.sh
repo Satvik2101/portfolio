@@ -113,7 +113,7 @@ if [ $d == 1 ]; then
 else
     git add .
     git commit -m "Push to S3 by script commit $(date)"
-    git push -u origin main
+    git push -u origin $branch
 fi
 
 #et last commit hash and save it to aws/last_commit_hash
