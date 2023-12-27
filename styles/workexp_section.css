@@ -5,14 +5,14 @@
 
     color: white;
     overflow: hidden;
-    background-image: url(../images/waveL.png);
-    background-position: top left;
-    filter: hue-rotate(40deg);
+    background-image: url(/images/waveL.png);
+    background-position: 20% 20%;
+    filter: hue-rotate(15deg);
     transition: 0.5s all ease;
 }
 
 
-button {
+.workexp_chooser_item button {
     background-color: rgba(195, 247, 255, 0.4);
     backdrop-filter: blur(10px);
     border: none;
@@ -30,7 +30,7 @@ button {
     color: #000000;
 }
 
-button:hover {
+.workexp_chooser_item button:hover {
     background-color: var(--bluegray);
     color: black;
 }
@@ -38,7 +38,7 @@ button:hover {
 #workexp_cards_container {
     /* background-image: url(../images/waveL.png); */
     /* background-color: red; */
-    height: 100vh;
+    height: 500px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -115,7 +115,7 @@ button:hover {
     /* transition: all 0.25s  ease-out; */
     margin: 0.8em;
     padding: 1em;
-    max-width: 35vw;
+    max-width: 60%;
     border-radius: 2em 0 2em 0em;
     background-color: #121212a4;
     backdrop-filter: blur(10px);
@@ -137,66 +137,19 @@ h6 {
 }
 
 
-/* .workexp_card:hover {
-    background-color: var(--light-bg);
-    color: black;
-    border-color: black;
-    box-shadow:
-        1px 1px #525252,
-        3px 3px #525252,
-        5px 5px #525252,
-        7px 7px #525252;
-    -webkit-transform: translateX(-3px);
-    transform: translateX(-3px);
-    transition: 0.5s ease;
-} */
-/* 
-.workexp_card:hover .workexp_timespan {
-    color: var(--vista);
-}
+@media screen and (max-width: 900px) {
 
-
-.workexp_card:hover .workexp_subtitle {
-
-
-    color: var(--moonstone);
-}
-
-.workexp_card:hover .workexp_title {
-    color: rgb(60, 60, 60);
-    color: var(--light-bg)
-} */
-
-
-
-@media screen and (max-width: 1000px) {
-    /* 
     #workexp_cards_container {
+        padding: 0;
+        margin: 0;
+        height: 600px;
 
-        display: flex;
-        flex-direction: column;
-        overflow-y: scroll;
-        margin: 1em auto;
-    } */
+    }
 
     #workexp {
         background-position: center;
     }
 
-    #workexp_chooser {
-        /* vertical horizontal */
-        /* height: 300px;
-        margin: auto 0; */
-        padding-right: 40px;
-        /* height: 100%; */
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-    }
-
-    #workexp_chooser .workexp_chooser_item {
-        margin: 0.5em 0.5em;
-    }
 
     .workexp_card {
         padding: 0;
@@ -216,23 +169,40 @@ h6 {
 
     }
 
-    /* .workexp_card:hover {
-        background-color: #e6f4ff;
-        box-shadow: none;
-        transform: none;
-        -webkit-transform: none;
-        border-color: white;
+
+
+}
+
+
+
+@media screen and (max-width: 900px) {
+
+    #workexp_chooser {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
-    .workexp_card:hover .workexp_timespan {
-        color: var(--vista)
-    } */
+    #workexp_chooser .workexp_chooser_item {
+        margin: 0.5em 0.5em;
+    }
+}
 
+
+@media screen and (max-width:800px) {
     #workexp_cards_container {
-        padding: 0;
-        margin: 0;
+        height: 700px;
     }
+}
 
 
+
+@media screen and (max-width:600px) {
+    #workexp_cards_container {
+        height: auto;
+        max-height: unset;
+
+    }
 
 }
