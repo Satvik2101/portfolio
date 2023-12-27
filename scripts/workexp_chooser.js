@@ -3,7 +3,9 @@ var chosen = 0;
 var choosers = document.getElementsByClassName("workexp_chooser_item");
 var workexp_cards = document.getElementsByClassName("workexp_card");
 
-var degs = [15, 185, 160, 40];
+var degs = [15, 185, 160, 38];
+
+var pos = [[20, 20], [20, 10], [10, 20], [10, 10]]
 
 var workexp = document.getElementById("workexp");
 function choose(i) {
@@ -17,7 +19,9 @@ function choose(i) {
     workexp_cards[i].classList.add("workexp_card_selected");
     chosen = i;
 
-    workexp.style.filter = "hue-rotate(" + degs[i] + "deg)";
+    var n = degs.length;
+    workexp.style.filter = "hue-rotate(" + degs[i % n] + "deg)";
+    workexp.style.backgroundPosition = pos[i % n][0] + "% " + pos[i % n][1] + "%";
 }
 
 //attach event listeners to buttons inside choosers[i]

@@ -33,6 +33,8 @@ var start = html`<!DOCTYPE html>
 var end = html`
 </body>
 <script src="./scripts/typewriter.js"> </script>
+<script src="./scripts/workexp_chooser.js"> </script>
+
 
 </html>
 `

@@ -45,7 +45,7 @@
     "workexp": [
         {
             "company": "Salesforce",
-            "short-name": "Salesforce",
+            "shortName": "Salesforce",
             "location": "Hyderabad",
             "role": "Software Engineer Intern",
             "start": "May 2023",
@@ -65,7 +65,7 @@
         },
         {
             "company": "Coding Ninjas",
-            "short-name": "Coding Ninjas",
+            "shortName": "Coding Ninjas",
             "location": "Delhi",
             "role": "Technical Content Writer Intern",
             "start": "Sept 2022",
@@ -86,7 +86,7 @@
         },
         {
             "company": "IIT-Delhi",
-            "short-name": "IIT-D",
+            "shortName": "IIT-D",
             "location": "Delhi",
             "role": "App Developer Intern",
             "start": "Dec 2021",
@@ -106,7 +106,7 @@
         },
         {
             "company": "CRIS, Ministry of Railways",
-            "short-name": "CRIS",
+            "shortName": "CRIS",
             "location": "Delhi",
             "role": "Flutter Developer Intern",
             "techstack": [
