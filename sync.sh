@@ -107,7 +107,7 @@ fi
 
 MSYS_NO_PATHCONV=0
 
-Commit to git, with timestamp
+#Commit to git, with timestamp
 if [ $d == 1 ]; then
     echo "Dry run. Not committing to git"
 else
@@ -116,5 +116,5 @@ else
     git push -u origin main
 fi
 
-Get last commit hash and save it to aws/last_commit_hash
+#et last commit hash and save it to aws/last_commit_hash
 git rev-parse HEAD > ./aws/last_commit_hash
