@@ -68,19 +68,19 @@ read -p "Press enter to continue";
 # Only happens with file names starting with a /
 
 
-# Upload files to S3
-# if [ $d == 1 ]; then
-#     echo "Dry run. Not uploading to S3"
-# else
-#     for file in $files; do
-#         # if file is html file, remove the .html extension and add --content-type text/html
-#         if [[ $file == *.html ]]; then
-#             MSYS_NO_PATHCONV=1 aws s3 cp $file $s3/${file::-5} --content-type text/html
-#         else
-#             MSYS_NO_PATHCONV=1 aws s3 cp $file $s3/$file
-#         fi
-#     done
-# fi
+Upload files to S3
+if [ $d == 1 ]; then
+    echo "Dry run. Not uploading to S3"
+else
+    for file in $files; do
+        # if file is html file, remove the .html extension and add --content-type text/html
+        if [[ $file == *.html ]]; then
+            MSYS_NO_PATHCONV=1 aws s3 cp $file $s3/${file::-5} --content-type text/html
+        else
+            MSYS_NO_PATHCONV=1 aws s3 cp $file $s3/$file
+        fi
+    done
+fi
 
 # Create cloudfront invalidations
 
@@ -101,13 +101,13 @@ else
             echo $invalidation
         fi
         
-        echo MSYS_NO_PATHCONV=1 aws cloudfront create-invalidation --distribution-id $cf --paths $invalidation
+        MSYS_NO_PATHCONV=1 aws cloudfront create-invalidation --distribution-id $cf --paths $invalidation
     done
 fi
 
 MSYS_NO_PATHCONV=0
 
-# Commit to git, with timestamp
+Commit to git, with timestamp
 if [ $d == 1 ]; then
     echo "Dry run. Not committing to git"
 else
@@ -116,5 +116,5 @@ else
     git push -u origin main
 fi
 
-#Get last commit hash and save it to aws/last_commit_hash
+Get last commit hash and save it to aws/last_commit_hash
 git rev-parse HEAD > ./aws/last_commit_hash
