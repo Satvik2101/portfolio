@@ -5,7 +5,7 @@ var workexp_cards = document.getElementsByClassName("workexp_card");
 
 var degs = [15, 185, 160, 38];
 
-var pos = [[20, 20], [20, 10], [10, 20], [10, 10]]
+var pos = [[50, 80], [60, 60], [80, 50], [40, 60]]
 
 var workexp = document.getElementById("workexp");
 function choose(i) {
@@ -21,7 +21,7 @@ function choose(i) {
 
     var n = degs.length;
     workexp.style.filter = "hue-rotate(" + degs[i % n] + "deg)";
-    workexp.style.backgroundPosition = pos[i % n][0] + "% " + pos[i % n][1] + "%";
+    workexp.style.backgroundPosition = "top " + pos[i % n][0] + "% " + "right " + pos[i % n][1] + "%";
 }
 
 //attach event listeners to buttons inside choosers[i]
