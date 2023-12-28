@@ -1,206 +1,219 @@
 {
-  "name": "Satvik Gupta",
-  "title": "Software Developer",
-  "location": "New Delhi",
-  "email": "me@satvikgupta.com",
-  "phone": "",
-  "links": [
-    {
-      "name": "Website",
-      "url": "https://www.satvikgupta.com"
-    },
-    {
-      "name": "Github",
-      "url": "https://www.github.com/Satvik2101"
-    },
-    {
-      "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/satvik-gupta-063033195/"
-    },
-    {
-      "name": "LeetCode",
-      "url": "https://leetcode.com/kbx2157/"
-    }
-  ],
-  "education": [
-    {
-      "name": "B.Tech (Computer Engineering)",
-      "institute": "Delhi Technological University",
-      "year": "2020 - 2024",
-      "score": "9.48 GPA"
-    },
-    {
-      "name": "AISSCE/CBSE (Class XII)",
-      "institute": "GD Goenka Public School",
-      "year": "2020",
-      "score": "95%"
-    },
-    {
-      "name": "AISSCE/CBSE (Class X)",
-      "institute": "GD Goenka Public School",
-      "year": "2018",
-      "score": "96%"
-    }
-  ],
-  "workexp": [
-    {
-      "company": "Salesforce",
-      "location": "Hyderabad",
-      "role": "Software Engineer Intern",
-      "start": "May 2023",
-      "end": "July 2023",
-      "points": [
-        "Contributed to the Workspace Engineering team to design and integrate a fault-tolerant, versatile, and extensible Notification System. The system efficiently sends Slack notifications to users, keeping them well-informed about crucial events within their workspaces.",
-        "Utilized Spring Boot and Slack Bolt SDK to create a secure and authenticated REST API for the notification system, ensuring seamless communication with Slack.",
-        "Developed a command-line interface (CLI) using Golang and the Cobra library to enable users to trigger notifications on command completion, streamlining their workflow.",
-        "Conducted an in-depth exploration of Temporal, a powerful workflow orchestration engine. Leveraged its capabilities to build resumable, recoverable, and fault-tolerant workflows for scheduling notifications with precision and reliability."
-      ],
-      "techstack": [
-        "Spring Boot",
-        "Golang",
-        "Temporal"
-      ]
-    },
-    {
-      "company": "Coding Ninjas",
-      "location": "Delhi",
-      "role": "Technical Content Writer Intern",
-      "start": "Sept 2022",
-      "end": "Dec 2022",
-      "points": [
-        "Researched and wrote articles on prominent software and tools, including AWS, Postman, Maven, and Puppet.",
-        "Authored 36 comprehensive articles, averaging 1.8k words, on various technical topics, covering DSA, Cryptography, Shell Scripts, and more.",
-        "Demonstrated consistency in delivering three blogs per week with minimal delays, accompanied by illustrative images and diagrams.",
-        "Gained hands-on experience with the mentioned software, installing and writing code for tutorials to provide practical insights."
-      ]
-    },
-    {
-      "company": "IIT-Delhi",
-      "location": "Delhi",
-      "role": "App Developer Intern",
-      "start": "Dec 2021",
-      "end": "March 2022",
-      "techstack": [
-        "Flutter",
-        "SQLite",
-        "Arduino"
-      ],
-      "points": [
-        "Single-handedly designed and authored an Android app using Flutter SDK. The application receives, stores, displays, and exports ECG data received from Arduino-based hardware.",
-        "Implemented secure data storage with SQLite as a local database and enhanced user data protection by utilizing SHA-256 hashing for the pin code.",
-        "Utilized Flutter's responsive design capabilities to ensure the app's seamless user experience across various screen sizes and orientations.",
-        "Collaborated with a PhD student to integrate Bluetooth communication between the app and the Arduino-based device, enabling seamless data transmission."
-      ]
-    },
-    {
-      "company": "CRIS, Ministry of Railways",
-      "location": "Delhi",
-      "role": "Flutter Developer Intern",
-      "techstack": [
-        "Flutter"
-      ],
-      "start": "Aug 2021",
-      "end": "Oct 2021",
-      "points": [
-        "Revamped and implemented captivating UI improvements for multiple app pages, serving as the foundation for consistent and visually appealing user experiences throughout the application.",
-        "Engineered a robust structural layout to seamlessly support multiple languages within the app. Currently, the app accommodates 2 languages effortlessly, with the potential for further expansion without additional programming efforts.",
-        "Advocated for and actively contributed to the migration of the app to the null-safe version of Flutter. This migration resulted in an impressive 40% reduction in compile time and a 30% decrease in startup time, delivering a noticeable boost in overall performance."
-      ]
-    }
-  ],
-  "projects": [
-    {
-      "name": "DTU-DCE Fraternity Forum",
-      "product": "Flutter App",
-      "role": "Head of Mobile App Team",
-      "techstack": [
-        "Flutter",
-        "JWT",
-        "REST"
-      ],
-      "links": [
+    "name": "Satvik Gupta",
+    "title": "Software Developer",
+    "location": "New Delhi",
+    "email": "me@satvikgupta.com",
+    "phone": "",
+    "links": [
         {
-          "name": "App Store",
-          "url": "https://apps.apple.com/in/app/dtu-dce-fraternity-forum/id1601864796"
+            "name": "Website",
+            "url": "https://www.satvikgupta.com"
         },
         {
-          "name": "Play Store",
-          "url": "https://play.google.com/store/apps/details?id=org.dtudcefraternity.mobile.app"
+            "name": "Github",
+            "url": "https://www.github.com/Satvik2101"
+        },
+        {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/in/satvik-gupta-063033195/"
+        },
+        {
+            "name": "LeetCode",
+            "url": "https://leetcode.com/kbx2157/"
         }
-      ],
-      "points": [
-        "Led a team of 3 developers and spearheaded the end-to-end development of a dynamic app for DTU-DCE Fraternity Forum using Flutter. The app seamlessly integrates with a REST API server, providing a comprehensive platform for the forum members.",
-        "Collaborated closely with the backend team to design and implement new API endpoints, ensuring smooth data flow and seamless communication between the app and the server.",
-        "Implemented robust user authentication support using JWT authentication tokens, ensuring secure access for registered users and safeguarding user data.",
-        "Developed an intuitive admin panel within the app, empowering administrators to manage membership statuses and access user data efficiently.",
-        "Successfully launched the app on Play Store and App Store, achieving 100+ downloads and earning a top rating of 5 on both platforms, reflecting the app's exceptional user experience."
-      ],
-      "image": "./images/projects/dtu_dce_frat.png",
-      "image_alt": "Screenshot of the Forum's App"
-    }
-  ],
-  "achievements": [
-    "Secured rank 3989 in TCS CodeVita Season 10, out of 100k + participants",
-    "Secured rank 1421 in Newton School's Grand Coding Contest 2022, out of roughly 12k participants",
-    "Secured All India Rank 5045 in JEE Mains 2020",
-    "Cleared KVPY SA (11th) First Round in 2018"
-  ],
-  "skills": [
-    [
-      "C++",
-      "Dart",
-      "Java",
-      "JavaScript"
     ],
-    [
-      "Node.js",
-      "Express.js"
+    "education": [
+        {
+            "name": "B.Tech (Computer Engineering)",
+            "institute": "Delhi Technological University",
+            "year": "2020 - 2024",
+            "score": "9.48 GPA"
+        },
+        {
+            "name": "AISSCE/CBSE (Class XII)",
+            "institute": "GD Goenka Public School",
+            "year": "2020",
+            "score": "95%"
+        },
+        {
+            "name": "AISSCE/CBSE (Class X)",
+            "institute": "GD Goenka Public School",
+            "year": "2018",
+            "score": "96%"
+        }
     ],
-    [
-      "SQL",
-      "MongoDB",
-      "Git"
+    "workexp": [
+        {
+            "company": "Salesforce",
+            "shortName": "Salesforce",
+            "location": "Hyderabad",
+            "role": "Software Engineer Intern",
+            "start": "May 2023",
+            "end": "July 2023",
+            "points": [
+                "Trailblazed a Notification System within the Workspace Engineering squad.",
+                "Engineered a secure REST API using Spring Boot and Slack Bolt SDK.",
+                "Expanded an existing Golang-based CLI for effortless terminal-triggered notifications.",
+                "Performed a spike on Temporal,a workflow execution system, utilizing its capabilities to efficiently schedule notifications "
+            ],
+            "techstack": [
+                "Spring Boot",
+                "Golang",
+                "Temporal"
+            ],
+            "hue-degree": 15
+        },
+        {
+            "company": "Coding Ninjas",
+            "shortName": "Coding Ninjas",
+            "location": "Delhi",
+            "role": "Technical Content Writer Intern",
+            "start": "Sept 2022",
+            "end": "Dec 2022",
+            "points": [
+                "Explored software wonders like AWS, Postman, Maven, and Puppet, turning insights into engaging articles.",
+                "Crafted 36 in-depth pieces, each a captivating dive into software, DSA, Cryptography, Shell Scripts, and beyond.",
+                "Delved hands-on into the software realm (AWS, Puppet, Salt, etc.), transforming experiences into tutorial treasures."
+            ],
+            "techstack": [
+                "AWS",
+                "DSA",
+                "Bash",
+                "Puppet"
+            ],
+            "hue-degree": 185
+        },
+        {
+            "company": "IIT-Delhi",
+            "shortName": "IIT-D",
+            "location": "Delhi",
+            "role": "App Developer Intern",
+            "start": "Dec 2021",
+            "end": "March 2022",
+            "techstack": [
+                "Flutter",
+                "SQLite",
+                "Arduino"
+            ],
+            "points": [
+                "Crafted a standout Flutter app: capturing, storing, showcasing, and exporting ECG data from Arduino hardware.",
+                "Leveled up with SQLite for sleek local storage.",
+                "Engineered responsive Flutter designs, ensuring seamless experiences on screens of all sizes.",
+                "Teamed up with a PhD researcher, infusing the app with Bluetooth for seamless communication with Arduino-based hardware."
+            ],
+            "hue-degree": 160
+        },
+        {
+            "company": "CRIS, Ministry of Railways",
+            "shortName": "CRIS",
+            "location": "Delhi",
+            "role": "Flutter Developer Intern",
+            "techstack": [
+                "Flutter"
+            ],
+            "start": "Aug 2021",
+            "end": "Oct 2021",
+            "points": [
+                "Ignited a design shift on one app page, inspiring a captivating, consistent theme across all pages.",
+                "Infused the architecture with bilingual support after extensive coding and design, making it a breeze to add more languages -- without any code changes.",
+                "Spearheaded a Flutter upgrade, cutting compile time by 40% and startup time by 30%, boosting overall performance."
+            ],
+            "hue-degree": 40
+        }
+    ],
+    "projects": [
+        {
+            "name": "DTU-DCE Fraternity Forum",
+            "product": "Flutter App",
+            "role": "Head of Mobile App Team",
+            "techstack": [
+                "Flutter",
+                "JWT",
+                "REST"
+            ],
+            "links": [
+                {
+                    "name": "App Store",
+                    "url": "https://apps.apple.com/in/app/dtu-dce-fraternity-forum/id1601864796"
+                },
+                {
+                    "name": "Play Store",
+                    "url": "https://play.google.com/store/apps/details?id=org.dtudcefraternity.mobile.app"
+                }
+            ],
+            "points": [
+                "Led a dynamic team of 3 in crafting the DTU-DCE Fraternity Forum app using Flutter, connected to a REST API.",
+                "Teamed up with the backend team to design a REST API for the app.",
+                "Enhanced user security with JWT authentication, ensuring tight access and safeguarding user data.",
+                "Provided admins an intuitive control hub within the app, making membership management a breeze.",
+                "Launched on Play Store and App Store, clocking 100+ downloads and snagging a stellar 5-star rating for a top-notch user experience."
+            ],
+            "image": "./images/projects/dtu_dce_frat.png",
+            "image_alt": "Screenshot of the Forum's App"
+        }
+    ],
+    "achievements": [
+        "Secured rank 3989 in TCS CodeVita Season 10, out of 100k + participants",
+        "Secured rank 1421 in Newton School's Grand Coding Contest 2022, out of roughly 12k participants",
+        "Secured All India Rank 5045 in JEE Mains 2020",
+        "Cleared KVPY SA (11th) First Round in 2018"
+    ],
+    "skills": [
+        [
+            "C++",
+            "Dart",
+            "Java",
+            "JavaScript"
+        ],
+        [
+            "Node.js",
+            "Express.js"
+        ],
+        [
+            "SQL",
+            "MongoDB",
+            "Git"
+        ]
+    ],
+    "pors": [
+        {
+            "name": "TEDxDTU",
+            "product": "Website & App",
+            "role": "Head of Tech Team",
+            "techstack": [
+                "Flutter",
+                "Firebase Auth",
+                "Firestore",
+                "MongoDB",
+                "Mongoose",
+                "AWS",
+                "GCP"
+            ],
+            "start": "Dec 2021",
+            "end": "Present",
+            "links": [
+                {
+                    "name": "Github",
+                    "url": "https://github.com/TEDxDTU"
+                },
+                {
+                    "name": "Website",
+                    "url": "https://tedxdtu.in/"
+                },
+                {
+                    "name": "Play Store",
+                    "url": "https://play.google.com/store/apps/details?id=in.tedxdtu.flutter_app&pli=1"
+                }
+            ],
+            "points": [
+                "Led dynamic app development in Flutter, creating a seamless cross-platform experience with a responsive Next.js website.",
+                "Contributed significantly to the backend with Node.js, enhancing performance.",
+                "Orchestrated AWS EC2 setup for website hosting, implemented SSL certificates for secure communication, and later scaled performance on GCP Compute Engine.",
+                "Employed nginx as a reverse proxy for routing requests to the Node.js backend.",
+                "Achieved outstanding user engagement in 20 days, attracting 8k unique IP addresses and registering 1.5k users. Notably, 2/3rds of event tickets were sold on the site, highlighting its impactful success."
+            ],
+            "image": "./images/projects/tedx.png",
+            "image_alt": "Screenshot of TEDxDTU's App and Website"
+        }
     ]
-  ],
-  "pors": [
-    {
-      "name": "TEDxDTU",
-      "product": "Website & App",
-      "role": "Head of Tech Team",
-      "techstack": [
-        "Flutter",
-        "Firebase Auth",
-        "Firestore",
-        "MongoDB",
-        "Mongoose",
-        "AWS",
-        "GCP"
-      ],
-      "start": "Dec 2021",
-      "end": "Present",
-      "links": [
-        {
-          "name": "Github",
-          "url": "https://github.com/TEDxDTU"
-        },
-        {
-          "name": "Website",
-          "url": "https://tedxdtu.in/"
-        },
-        {
-          "name": "Play Store",
-          "url": "https://play.google.com/store/apps/details?id=in.tedxdtu.flutter_app&pli=1"
-        }
-      ],
-      "points": [
-        "Led the development of a dynamic mobile app using Flutter and oversaw the creation of a responsive website with Next.js, delivering a seamless cross-platform experience for users.",
-        "Made substantial contributions to the backend codebase, utilizing Node.js to enhance the platform's functionality and performance.",
-        "Successfully set up and configured AWS EC2 as a server for hosting the website. Implemented SSL certificates using Let's Encrypt to ensure secure communication and later migrated the live website to GCP Compute Engine for scalable performance.",
-        "Utilized nginx as a reverse proxy to efficiently route requests to the Node.js backend.",
-        "Witnessed remarkable user engagement within a short span of 20 days, with the website serving 400,000 HTTP requests, accommodating 8k unique IP addresses, and garnering 1.5k registered users. Notably, 2/3rds of the event tickets were sold on the website, attesting to its impact and success."
-      ],
-      "image": "./images/projects/tedx.png",
-      "image_alt": "Screenshot of TEDxDTU's App and Website"
-    }
-  ]
 }

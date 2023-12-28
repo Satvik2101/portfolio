@@ -3,10 +3,33 @@ var fs = require('fs');
 var generateTechStack = require('../helpers/techStackGen.js');
 html = require('./html-template-func');
 
+function generateChooserItem(companyShortName, idx) {
+    var itemClass = "workexp_chooser_item";
+    if (idx == 0) {
+        itemClass += " workexp_chooser_item_selected";
+    }
+    return html`<div class="${itemClass}" id="workexp_chooser_item_${idx + 1}">
+    <button>${companyShortName} </button>
+</div>`
+}
 
-function generateHtml(company, role, start, end, points, techstack) {
+function generateChooser(workexp) {
 
-    var output = html`<div class="workexp_card">
+    var chooserStart = html`<div id="workexp_chooser">`;
+    var chooserEnd = html`</div>`;
+    var chooserItems = "";
+    for (var i = 0; i < workexp.length; i++) {
+        chooserItems += generateChooserItem(workexp[i].shortName, i);
+    }
+    return chooserStart + chooserItems + chooserEnd;
+}
+function generateWorkexpCard(company, role, start, end, points, techstack, idx) {
+
+    var itemClass = "workexp_card";
+    if (idx == 0) {
+        itemClass += " workexp_card_selected";
+    }
+    var output = html`<div class="${itemClass}">
     <h3 class="workexp_title">
       ${company}
     </h3>
@@ -39,6 +62,8 @@ function generateHtml(company, role, start, end, points, techstack) {
 function generate() {
     var raw = JSON.parse(fs.readFileSync('raw.json', 'utf8'));
     var workexp = raw.workexp;
+
+    var chooser = generateChooser(workexp);
     var start = html`
   <div id="workexp" class="section">
   <div id="workexp_section_start">
@@ -51,14 +76,13 @@ function generate() {
 I've been lucky enough to be able to work for some amazing companies and organizations. Here are some of them.
   </div>
 
-  <div id="workexp_cards_and_description">
 
     <div id="workexp_cards_container">
+        ${chooser}
     `;
 
     var end = html`  </div>
 
-  </div>
 
 </div>
   `
@@ -73,7 +97,7 @@ I've been lucky enough to be able to work for some amazing companies and organiz
         // var location = workexp[i].location;
         var techstack = workexp[i].techstack;
 
-        result += generateHtml(company, role, startDate, endDate, points, techstack);
+        result += generateWorkexpCard(company, role, startDate, endDate, points, techstack, i);
 
     }
     result += end;
