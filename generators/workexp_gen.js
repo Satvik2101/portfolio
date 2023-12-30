@@ -41,7 +41,7 @@ function generateWorkexpCard(company, role, start, end, points, techstack, idx) 
     </h4>
     <div class="workexp_points">
       <ul>
-        <br/>`;
+        `;
 
     for (var i = 0; i < points.length; i++) {
         output += html`<li>${points[i]}</li>`;

@@ -13,6 +13,9 @@
     transition: 0.5s all ease;
 }
 
+#workexp ul {
+    padding-top: 15px;
+}
 
 .workexp_chooser_item button {
     background-color: rgba(195, 247, 255, 0.4);
