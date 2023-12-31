@@ -93,7 +93,7 @@ function generateHtml(name, product, role, techstack, links, points, image, alt,
     output += generatePoints(points);
 
     output += generateTechStack(techstack);
-    output += html`</div>`
+    output += html`</div>` //project_details closes here
     if (image != null) {
         output += generateImage(image, name, alt, isEven);
     }
