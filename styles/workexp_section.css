@@ -7,10 +7,38 @@
     overflow: hidden;
     background-image: url(/images/waveL.webp);
     background-position: top 50% right 80%;
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     /* background-size: cover; */
     filter: hue-rotate(15deg);
     transition: 0.5s all ease;
+    animation: moveBackground 60s linear infinite 0s;
+    animation-direction: normal;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: top 0% right 0%;
+    }
+
+    25% {
+        background-position: top 50% right 20%;
+
+    }
+
+    50% {
+        background-position: top 0% right 40%;
+
+    }
+
+    75% {
+        background-position: top -50% right 20%;
+
+    }
+
+    100% {
+        background-position: top 0% right 0%;
+
+    }
 }
 
 #workexp ul {

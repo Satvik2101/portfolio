@@ -1,5 +1,5 @@
-node ./generators/index_gen.js
-node ./generators/style_gen.js
+node ./helpers/indexGen.js
+node ./helpers/style_gen.js
 node ./helpers/addAnalytics.js
 # node ./helpers/minifyHtml.js
 
