@@ -32,3 +32,5 @@ images/waveM.webp
 images/waveS.webp
 images/wavePhone.webp
 lucid
+.gitmodules
+out.html
