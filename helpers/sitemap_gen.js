@@ -3,7 +3,7 @@
 
 var fs = require('fs');
 var path = require('path');
-html = require('./html-template-func');
+html = require('../helpers/html-template-func');
 
 
 var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';

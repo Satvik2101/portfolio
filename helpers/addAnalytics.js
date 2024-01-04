@@ -25,6 +25,9 @@ function addTagInFolder(ogPath) {
             }
         } else if (fs.statSync(filePath).isDirectory()) {
             // console.log("folder");
+            if (filePath.includes("lucid")) {
+                continue
+            }
             addTagInFolder(filePath);
         }
     }
