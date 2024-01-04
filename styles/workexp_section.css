@@ -11,8 +11,8 @@
     /* background-size: cover; */
     filter: hue-rotate(15deg);
     transition: 0.5s all ease;
-    animation: moveBackground 60s linear infinite 0s;
-    animation-direction: normal;
+    /* animation: moveBackground 60s linear infinite 0s;
+    animation-direction: normal; */
 }
 
 @keyframes moveBackground {
