@@ -57,19 +57,26 @@
   gtag('config', 'G-WX57KF6HY8');
 </script></head>
 
-<body><div id="navbar" onclick=" " ><div id="navbar_text" >satvik
-<i id="dropdown-arrow" class="fa-solid fa-caret-down fa-xs" ></i></div>
-<div id="navbar_links" ><div class="navbar_link" id="home_link" ><a href="/#home" target="_self" >Home</a></div>
-<div class="navbar_link" id="workexp_link" ><a href="/#workexp" target="_self" >Work Experience</a></div>
-<div class="navbar_link" id="projects_link" ><a href="/#projects" target="_self" >Projects</a></div>
-<div class="navbar_link" id="notes_link" ><a href="/#notes" target="_self" >Notes</a></div>
-<div class="navbar_link" id="contact_link" ><a href="/#contact" target="_self" >Contact</a></div></div></div>
+<body>
+    <div id="navbar" onclick=" ">
+        <div id="navbar_text">satvik
+            <i id="dropdown-arrow" class="fa-solid fa-caret-down fa-xs"></i>
+        </div>
+        <div id="navbar_links">
+            <div class="navbar_link" id="home_link"><a href="/#home" target="_self">Home</a></div>
+            <div class="navbar_link" id="workexp_link"><a href="/#workexp" target="_self">Work Experience</a></div>
+            <div class="navbar_link" id="projects_link"><a href="/#projects" target="_self">Projects</a></div>
+            <div class="navbar_link" id="notes_link"><a href="/#notes" target="_self">Notes</a></div>
+            <div class="navbar_link" id="contact_link"><a href="/#contact" target="_self">Contact</a></div>
+        </div>
+    </div>
     <header id="title-block-header">
         <h1 class="title">Computer Networks</h1>
         <p class="author">Satvik Gupta</p>
     </header>
     <div id="container">
-        <nav id="TOC" role="doc-toc"><div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/CN.pdf">Download as PDF</a></div>
+        <nav id="TOC" role="doc-toc">
+            <div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/CN.pdf">Download as PDF</a></div>
             <ul>
                 <li><a href="#introduction" id="toc-introduction">Introduction</a>
                     <ul>
@@ -1790,7 +1797,8 @@ Add to rightmost 4
             </ul>
             <h5 id="s_1"><span class="math inline">\(S_1\)</span></h5>
             <p>For the last octet, we will prefix the first bit for <span class="math inline">\(S_1\)</span> as
-                <code>1</code>.</p>
+                <code>1</code>.
+            </p>
             <p><span class="math inline">\(S_1\)</span> will have IP addresses of
                 the form <code>200.10.20.1 _ _ _ _ _ _ _</code>.</p>
             <p><strong>Range</strong> =&gt; 200.10.20.128 - 200.10.20.255</p>
@@ -1799,7 +1807,8 @@ Add to rightmost 4
             <p><strong>Broadcast IP address</strong> is 200.10.20.255</p>
             <h5 id="s_2"><span class="math inline">\(S_2\)</span></h5>
             <p>For the last octet, we will prefix the first bit for <span class="math inline">\(S_2\)</span> as
-                <code>0</code>.</p>
+                <code>0</code>.
+            </p>
             <p><span class="math inline">\(S_2\)</span> will have IP addresses of
                 the form <code>200.10.20.0 _ _ _ _ _ _ _</code>.</p>
             <p><strong>Range</strong> =&gt; 200.10.20.0 - 200.10.20.127</p>
@@ -2649,7 +2658,8 @@ Add to rightmost 4
                     sent, sequence numbers can be wrapped around and used from starting</li>
                 <li>Time taken to use all the <span class="math inline">\(2^{32}\)</span> numbers is called
                     <strong><em>wrap
-                            around time</em></strong></li>
+                            around time</em></strong>
+                </li>
             </ul>
             <p><strong><em>Wrap Around Time =</em></strong> <span
                     class="math inline">\(\frac{2^{32}}{bandwidth}\)</span></p>
@@ -3322,7 +3332,8 @@ Add to rightmost 4
             </ol>
             <p>Based on the properties of modulus, and the way we have chosen <span class="math inline">\(e\)</span> and
                 <span class="math inline">\(d\)</span>, we can easily see that <span class="math inline">\(y_i=m_i
-                    \forall i\)</span>.</p>
+                    \forall i\)</span>.
+            </p>
             <p>This way, the receiver is able to reconstruct the message.</p>
             <h4 id="properties-of-rsa">Properties of RSA</h4>
             <ul>

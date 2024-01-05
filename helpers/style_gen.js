@@ -21,7 +21,7 @@ fs.readdirSync('styles').forEach(file => {
     stylesheet += filedata;
 });
 
-styledata = fs.readFileSync("./styles_global.css", 'utf-8');
+styledata = fs.readFileSync("./web/styles_global.css", 'utf-8');
 
 stylesheet += styledata;
 
@@ -34,7 +34,7 @@ stylesheet = stylesheet.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '');
 //remove import statements
 stylesheet = stylesheet.replace(/@import[^;]+;/g, '');
 
-fs.writeFile('styles.css', stylesheet, function (err) {
+fs.writeFile('web/styles.css', stylesheet, function (err) {
     if (err) throw err;
     console.log('Saved Styles');
 });

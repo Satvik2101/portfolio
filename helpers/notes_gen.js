@@ -14,7 +14,7 @@ const notes = process.argv.slice(2);
 // Loop through each note in the notes array
 for (let i = 0; i < notes.length; i++) {
     const note = notes[i];
-    const htmlPath = `notes/${note}.html`;
+    const htmlPath = `web/notes/${note}.html`;
 
     // Read the corresponding HTML file and modify it
     fs.readFile(htmlPath, 'utf-8', (err, data) => {

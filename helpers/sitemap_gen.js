@@ -14,10 +14,7 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
 
 
 
-var files = fs.readdirSync('./');
-
-var toIgnore = fs.readFileSync('./aws/.awsignore', 'utf-8').toString().split("\r\n");
-toIgnore = toIgnore.concat(['404.html', 'index.html'])
+toIgnore = ['404.html', 'index.html']
 
 function ignoreFile(file) {
     if (file.length == 0) return true;
@@ -76,8 +73,8 @@ function addFilesInDir(dir) {
 
 }
 
-addFilesInDir('./');
+addFilesInDir('./web');
 
 sitemap += '</urlset>';
 
-fs.writeFileSync('./sitemap.xml', sitemap);
+fs.writeFileSync('./web/sitemap.xml', sitemap);

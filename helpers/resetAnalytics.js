@@ -40,4 +40,4 @@ function removeTagInFolder(ogPath) {
 
 }
 
-removeTagInFolder(".");
+removeTagInFolder("./web");

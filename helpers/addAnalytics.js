@@ -1,7 +1,7 @@
 var fs = require("fs");
 
 // Read the google analytics script from a file.
-const ganalyticsTagFile = `ganalyticstag.txt`;
+const ganalyticsTagFile = `./ganalyticstag.txt`;
 const ganalyticsTag = fs.readFileSync(ganalyticsTagFile, "utf8");
 
 // Extract the google analytics identifier from the file data.
@@ -34,7 +34,7 @@ function addTagInFolder(ogPath) {
 
 }
 
-addTagInFolder(".");
+addTagInFolder("./web");
 // Go through all the html files in the root directory.
 // const files = fs.readdirSync(".");
 // console.log(files)
