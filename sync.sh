@@ -20,11 +20,10 @@ while getopts ":d" opt; do
     esac
 done
 
-./aws/scripts/create.sh
+./aws/scripts/create.sh -t
 
 
-./aws/scripts/calc_diff.sh
-node ./aws/scripts/filter.js
+
 
 # Read current git branch 
 # store it in variable
