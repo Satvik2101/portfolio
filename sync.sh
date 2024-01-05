@@ -44,8 +44,10 @@ if [ $branch == "main" ]; then
 else if [ $branch == "dev" ]; then
     aws_ids_file="./aws/aws_ids_dev"
 else 
-    echo "Invalid branch name. Exiting"
-    exit 1
+    echo "Using branch $branch. No aws_ids file found for this branch, will dry run with dev IDs"
+    d=1
+    aws_ids_file="./aws/aws_ids_dev"
+
 fi
 fi
 
