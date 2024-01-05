@@ -21,7 +21,7 @@ fs.readdirSync('styles').forEach(file => {
     stylesheet += filedata;
 });
 
-styledata = fs.readFileSync("./styles_manual.css", 'utf-8');
+styledata = fs.readFileSync("./styles_global.css", 'utf-8');
 
 stylesheet += styledata;
 
