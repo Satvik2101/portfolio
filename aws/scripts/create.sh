@@ -1,3 +1,4 @@
+tsc --project ./tsconfig.json
 node ./helpers/indexGen.js
 node ./helpers/style_gen.js
 node ./helpers/addAnalytics.js

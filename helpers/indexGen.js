@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
-const Index_1 = __importDefault(require("../lucid/out/Index"));
+const Index_1 = __importDefault(require("../js/code/Index"));
 //read raw.json
 var raw = JSON.parse(fs_1.default.readFileSync("./raw.json").toString());
 function Play() {

@@ -32,5 +32,8 @@ images/waveM.webp
 images/waveS.webp
 images/wavePhone.webp
 lucid
+code
+js
 .gitmodules
+tsconfig.json
 out.html

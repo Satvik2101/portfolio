@@ -3,3 +3,4 @@ aws/aws_ids
 aws/aws_ids_dev
 test.sh
 .vscode
+js/
