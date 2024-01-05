@@ -77,9 +77,9 @@ else
     for file in $files; do
         # if file is html file, remove the .html extension and add --content-type text/html
         if [[ $file == *.html ]]; then
-            MSYS_NO_PATHCONV=1 aws s3 cp $file $s3/${file::-5} --content-type text/html
+            MSYS_NO_PATHCONV=1 aws s3 cp web/$file $s3/${file::-5} --content-type text/html
         else
-            MSYS_NO_PATHCONV=1 aws s3 cp $file $s3/$file
+            MSYS_NO_PATHCONV=1 aws s3 cp web/$file $s3/$file
         fi
     done
 fi

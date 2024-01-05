@@ -4,25 +4,13 @@ const fs = require('fs');
 
 //split by \n, or \r\n
 
-var toIgnore = fs.readFileSync('./aws/.awsignore', 'utf-8').toString().split("\r\n");
 
 function ignoreFile(file) {
-    if (file.length == 0) return true;
-    for (igFile of toIgnore) {
+    // does file belong to /web folder? If not, ignore it
 
-        if (file == igFile) {
-            return true;
-        }
-        //if file is in a directory, check if directory is in ignore list
-
-        else if (file.indexOf(igFile) == 0 && file.length > igFile.length && file[igFile.length] == '/') {
-            return true;
-
-        } else {
-            // console.log(file, igFile);
-        }
+    if (file.indexOf('web') != 0) {
+        return true;
     }
-
     return false;
 }
 
@@ -48,7 +36,7 @@ addedFiles.forEach(function (fileData) {
 
 
 var changed_files = fs.readFileSync('./aws/changed_files', 'utf-8').toString().split("\n");
-console.log("Changed files\n", changed_files);
+// console.log("Changed files\n", changed_files);
 
 changed_files.forEach(function (fileData) {
     //split by tab
@@ -58,8 +46,16 @@ changed_files.forEach(function (fileData) {
     var mode = fileData[0];
     var file = fileData[1];
 
+    if (mode.startsWith("R")) {
+        file = fileData[2]
+    }
+
+    //remove web prefix
+
     var isIgnored = ignoreFile(file);
     if (!isIgnored) {
+        file = file.replace('web/', '');
+
         console.log(file);
         if (mode == 'D') {
             return;
@@ -68,6 +64,10 @@ changed_files.forEach(function (fileData) {
             console.log('added');
             // fs.appendFileSync('./aws/added_files', file + "\n");
             finalAddedFiles.push(file);
+        } else if (mode.startsWith("R")) {
+            console.log('renamed')
+            finalAddedFiles.push(file);
+
         } else {
             finalChangedFiles.push(file);
         }
