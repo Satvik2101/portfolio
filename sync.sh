@@ -9,11 +9,8 @@ d=0; # if d flag is passed, then this is a dry-run.
 
 
 # Go through flags
-while getopts ":fd" opt; do
+while getopts ":d" opt; do
     case $opt in
-        f)
-            f=1
-            ;;
         d)
             d=1
             ;;
@@ -25,11 +22,7 @@ done
 
 ./aws/scripts/create.sh
 
-# check for -f flag
-if [ $f == 0 ]; then
-    C:/Windows/explorer.exe ./web/index.html
-    read -p "Press enter to continue";
-fi
+
 # ./aws/scripts/calc_diff.sh
 # node ./aws/scripts/filter.js
 
