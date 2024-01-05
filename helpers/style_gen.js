@@ -1,5 +1,4 @@
 var fs = require('fs');
-html = require('../helpers/html-template-func');
 
 
 var stylesheet = '';
