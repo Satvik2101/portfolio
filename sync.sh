@@ -23,8 +23,8 @@ done
 ./aws/scripts/create.sh
 
 
-# ./aws/scripts/calc_diff.sh
-# node ./aws/scripts/filter.js
+./aws/scripts/calc_diff.sh
+node ./aws/scripts/filter.js
 
 # Read current git branch 
 # store it in variable
