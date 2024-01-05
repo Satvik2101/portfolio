@@ -27,11 +27,11 @@ done
 
 # check for -f flag
 if [ $f == 0 ]; then
-    C:/Windows/explorer.exe index.html
+    C:/Windows/explorer.exe ./web/index.html
     read -p "Press enter to continue";
 fi
-./aws/scripts/calc_diff.sh
-node ./aws/scripts/filter.js
+# ./aws/scripts/calc_diff.sh
+# node ./aws/scripts/filter.js
 
 # Read current git branch 
 # store it in variable
