@@ -52,7 +52,7 @@ function addFilesInDir(dir) {
 
             // Check if file is a directory
             if (stat.isDirectory()) {
-                console.log(file + ' is a directory');
+                // console.log(file + ' is a directory');
                 addFilesInDir(filePath);
             }
 
