@@ -53,6 +53,10 @@ echo "CloudFront distribution ID: $cf"
 # Read files to upload from aws/upload_files
 # store them in variable
 
+./aws/scripts/calc_diff.sh
+
+node ./aws/scripts/filter.js
+
 read files < ./aws/upload_files
 echo "Files to upload: $files"
 read -p "Press enter to continue";
