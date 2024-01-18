@@ -28,10 +28,13 @@ addedFiles.forEach(function (fileData) {
     if (fileData.length == 0) { return; }
     var isIgnored = ignoreFile(fileData);
     if (!isIgnored) {
+        fileData = fileData.replace('web/', '');
 
         finalAddedFiles.push(fileData);
     }
 });
+
+
 // fs.writeFileSync('./aws/added_files', finalAddedFiles.join("\n"));
 
 
