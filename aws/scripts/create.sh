@@ -20,7 +20,7 @@ fi
 node ./helpers/indexGen.js
 node ./helpers/style_gen.js
 node ./helpers/addAnalytics.js
-# node ./helpers/sitemap_gen.js
+node ./helpers/sitemap_gen.js
 # node ./helpers/minifyHtml.js
 
 isodate=$(date -Is)
