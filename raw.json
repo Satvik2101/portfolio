@@ -51,9 +51,9 @@
             "start": "May 2023",
             "end": "July 2023",
             "points": [
-                "Trailblazed a Notification System within the Workspace Engineering squad.",
+                "Trailblazed a Notification System as part of the Workspace Engineering team.",
                 "Engineered a secure REST API using Spring Boot and Slack Bolt SDK.",
-                "Expanded an existing Golang-based CLI for effortless terminal-triggered notifications.",
+                "Expanded an existing Golang-based CLI to send terminal-triggered notifications.",
                 "Performed a spike on Temporal,a workflow execution system, utilizing its capabilities to efficiently schedule notifications "
             ],
             "techstack": [
@@ -71,7 +71,7 @@
             "start": "Sept 2022",
             "end": "Dec 2022",
             "points": [
-                "Explored software wonders like AWS, Postman, Maven, and Puppet, turning insights into engaging articles.",
+                "Explored softwares like AWS, Postman, Maven, and Puppet, turning insights into engaging articles.",
                 "Crafted 36 in-depth pieces, each a captivating dive into software, DSA, Cryptography, Shell Scripts, and beyond.",
                 "Delved hands-on into the software realm (AWS, Puppet, Salt, etc.), transforming experiences into tutorial treasures."
             ],
@@ -97,8 +97,7 @@
             ],
             "points": [
                 "Crafted a standout Flutter app: capturing, storing, showcasing, and exporting ECG data from Arduino hardware.",
-                "Leveled up with SQLite for sleek local storage.",
-                "Engineered responsive Flutter designs, ensuring seamless experiences on screens of all sizes.",
+                "Used SQLite for sleek local storage    ",
                 "Teamed up with a PhD researcher, infusing the app with Bluetooth for seamless communication with Arduino-based hardware."
             ],
             "hue-degree": 160
@@ -114,9 +113,9 @@
             "start": "Aug 2021",
             "end": "Oct 2021",
             "points": [
-                "Ignited a design shift on one app page, inspiring a captivating, consistent theme across all pages.",
-                "Infused the architecture with bilingual support after extensive coding and design, making it a breeze to add more languages -- without any code changes.",
-                "Spearheaded a Flutter upgrade, cutting compile time by 40% and startup time by 30%, boosting overall performance."
+                "Ignited a design shift on one app page, which was immediately adopted across other pages of the app",
+                "Added bilingual support to the app, making the app available in English/Hindi both. The architecture of this is such that you can add multiple languages later without any development effort.",
+                "Spearheaded a Flutter upgrade, cutting compile time by 40% and startup time by 30%,as well as boosting overall performance."
             ],
             "hue-degree": 40
         }
