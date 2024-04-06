@@ -33,7 +33,6 @@ initFirebase((user) => {
         const quotes = Object.values(quotesDoc.data());
 
         let quote = quotes[Math.floor(Math.random() * quotes.length)];
-        quote = quotes[0]
 
         //replace space in quote by &nbsp;, and new line by <br>
         quote = quote.replace(/ /g, '&nbsp;').replace(/\\n/g, '<br>');
