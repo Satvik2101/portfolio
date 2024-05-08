@@ -1,5 +1,5 @@
 import Script from "../lucid/tags/Script";
-import { Tag } from "../lucid/utils/Tag";
+import Tag from "../lucid/utils/Tag";
 import ContactSection from "./Contact/ContactSection";
 import BackgroundImageSection from "./Home/BackgroundImageSection";
 import ProjectsAndPorsSection from "./Project/ProjectsAndPorsSection";

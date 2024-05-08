@@ -1,7 +1,7 @@
 
 import TechStack from "../global/TechStack";
 import EnhancedDiv from "../../lucid/utils/EnhancedDiv";
-import { SimpleUnorderedList } from "../../lucid/utils/List";
+import SimpleUnorderedList from "../../lucid/utils/SimpleUnorderedList";
 import Workexp from "../interface/workexp";
 import H3 from "../../lucid/tags/H3";
 import H4 from "../../lucid/tags/H4";

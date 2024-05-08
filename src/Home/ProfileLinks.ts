@@ -2,7 +2,7 @@ import A from "../../lucid/tags/A";
 import Span from "../../lucid/tags/Span";
 import EnhancedDiv from "../../lucid/utils/EnhancedDiv";
 import EnhancedImg from "../../lucid/utils/EnhancedImg";
-import { Tag } from "../../lucid/utils/Tag";
+import Tag from "../../lucid/utils/Tag";
 
 
 class ProfileLinkIcon extends EnhancedImg {

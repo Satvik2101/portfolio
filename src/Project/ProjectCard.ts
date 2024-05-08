@@ -1,7 +1,7 @@
 
 import H3 from "../../lucid/tags/H3";
 import EnhancedDiv from "../../lucid/utils/EnhancedDiv";
-import { SimpleUnorderedList } from "../../lucid/utils/List";
+import SimpleUnorderedList from "../../lucid/utils/SimpleUnorderedList";
 import TechStack from "../global/TechStack";
 import Project from "../interface/Project";
 import ProjectImage from "./ProjectImage";
