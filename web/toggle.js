@@ -8,7 +8,7 @@ function setCli() {
     document.body.classList.remove("plain");
     document.body.classList.add("cli");
     localStorage.setItem("mode", "cli");
-    toggle.textContent = "Standard Mode"
+    toggle.textContent = "Nope, take me back!"
 }
 
 function setPlain() {
@@ -16,7 +16,7 @@ function setPlain() {
     document.body.classList.remove("cli");
     document.body.classList.add("plain");
     localStorage.setItem("mode", "plain");
-    toggle.textContent = "Developer Mode"
+    toggle.textContent = "Are you a developer?"
 }
 
 document.getElementById("modeToggle").addEventListener("click", () => {
