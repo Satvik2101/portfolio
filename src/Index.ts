@@ -132,7 +132,7 @@ class Index extends Tag {
                 // new WorkExpSection(rawData.workexp),
                 new ResumeSection(),
                 new AdapativeHeading("./.show-more.sh", "Cool, show me more!"),
-                new NaviagateTo({ href: "/more.html", cliText: "Open new shell to view my work", plainText: "Click to view my work." })
+                new NaviagateTo({ href: "/more", cliText: "Open new shell to view my work", plainText: "Click to view my work." })
                 // new WorkexpSection(rawData.workexp),
                 // new ProjectsAndPorsSection({ projects: rawData.projects, pors: rawData.pors })
             ]),
