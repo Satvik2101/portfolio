@@ -14,6 +14,7 @@ import Project from "./interface/Project";
 import SimpleAnchor from "../lucid/utils/SimpleAnchor";
 import Workexp from "./interface/workexp";
 import H2 from "../lucid/tags/H2";
+import A from "../lucid/tags/A";
 
 class TerminalIntro extends Tag {
     constructor() {
@@ -27,7 +28,7 @@ class TerminalIntro extends Tag {
     }
 }
 
-class AdapativeHeading extends Tag {
+export class AdapativeHeading extends Tag {
     constructor(cliHeading: string, plainHeading: string) {
         super("H2", [
             Span.withAttributes({ class: "cli-mode" }, `~$ ${cliHeading}`),
@@ -55,7 +56,7 @@ class HeroSection extends Tag {
 class MotdSection extends Tag {
     constructor() {
         super("section", [
-            P.withAttributes({ class: "motd cli-mode" }, "# “We who cut mere stones must always be envisioning cathedrals.”"),
+            P.withAttributes({ class: "motd cli-mode" }, "# “We who cut mere stones must always be envisioning cathedrals”"),
             Blockquote.withAttributes({ class: "motd plain-mode" }, "We who cut mere stones must always be envisioning cathedrals.")
         ], { id: "motd" });
 
@@ -86,69 +87,23 @@ class AboutSection extends Tag {
     }
 }
 
-class ProjectEntry extends EnhancedDiv {
-    constructor(project: Project) {
-        super({
-            class: "cli-project",
-            children: [
-                new EnhancedDiv({ class: "cli-name", children: project.name + (project.product ? "'s " + project.product : "") }),
-                // new EnhancedDiv({ class: "cli-desc", children: project.product ?? "" }),
-                new EnhancedDiv({ class: "cli-meta", children: project.techstack.join(" · ") }),
-                ...project.links.map(link =>
-                    new EnhancedDiv({
-                        class: "cli-link",
-                        children: new SimpleAnchor({ href: link.url, linkText: `[${link.name}]` })
-                    })
-                )
-            ]
-        });
+export class NaviagateTo extends A {
+    constructor(props: { href: string; cliText: string; plainText: string }) {
+        super([
+            Span.withAttributes({ class: "cli-mode" }, props.cliText),
+            Span.withAttributes({ class: "plain-mode" }, props.plainText)
+        ]);
+        this.href(props.href);
+        this.target("_self")
     }
 }
 
 
-class ProjectsSection extends Tag {
-    constructor(projects: Project[]) {
-        super("section", [
-            new AdapativeHeading("cat projects.txt", "Projects"),
-            new EnhancedDiv({
-                class: "cli-block",
-                children: projects.map(p => new ProjectEntry(p))
-            })
-        ], { id: "projects" });
-    }
-}
-
-class WorkExpEntry extends EnhancedDiv {
-    constructor(exp: Workexp) {
-        super({
-            class: "cli-workexp",
-            children: [
-                new EnhancedDiv({ class: "cli-exp-header", children: `${exp.role} @ ${exp.shortName}` }),
-                new EnhancedDiv({ class: "cli-exp-dates", children: `${exp.start} – ${exp.end}` }),
-                new EnhancedDiv({ class: "cli-meta", children: exp.techstack.join(" · ") }),
-                ...exp.points.map(point =>
-                    new EnhancedDiv({ class: "cli-exp-point", children: `- ${point}` })
-                )
-            ]
-        });
-    }
-}
-
-class WorkExpSection extends Tag {
-    constructor(experiences: Workexp[]) {
-        super("section", [
-            new AdapativeHeading("cat workexp.txt", "Work Experience"),
-            ...experiences
-                .filter(exp => exp.excluded !== true)
-                .map(exp => new WorkExpEntry(exp))
-        ], { id: "workexp" });
-    }
-}
 
 class ResumeSection extends Tag {
     constructor() {
         super("section", [
-            new AdapativeHeading("curl satvik.dev/resume.pdf -O", "Download Resume"),
+            new AdapativeHeading("curl satvikgupta.com/satvik-gupta-resume.pdf -O", "Download Resume"),
             new SimpleAnchor({ href: "https://www.satvikgupta.com/satvik-gupta-resume.pdf", linkText: "" }).p(
                 [Span.withAttributes({ class: "cli-mode" }, "Save resume.pdf to disk"),
                 Span.withAttributes({ class: "plain-mode" }, "Resume.pdf")]
@@ -176,6 +131,8 @@ class Index extends Tag {
                 // new ProjectsSection([...rawData.projects, ...rawData.pors]),
                 // new WorkExpSection(rawData.workexp),
                 new ResumeSection(),
+                new AdapativeHeading("./.show-more.sh", "Cool, show me more!"),
+                new NaviagateTo({ href: "/more.html", cliText: "Open new shell to view my work", plainText: "Click to view my work." })
                 // new WorkexpSection(rawData.workexp),
                 // new ProjectsAndPorsSection({ projects: rawData.projects, pors: rawData.pors })
             ]),

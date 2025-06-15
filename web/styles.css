@@ -185,10 +185,8 @@ body.cli .motd.plain-mode {
     color: #444;
 }
 
-
-
-h1 {
-    display: inline;
+body {
+    padding-top: 2rem;
 }
 
 body.cli h1 {
@@ -196,6 +194,7 @@ body.cli h1 {
 }
 
 a {
+    color: rgb(18, 105, 159);
     text-decoration: none;
 }
 
