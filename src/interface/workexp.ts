@@ -1,4 +1,4 @@
-interface Workexp{
+interface Workexp {
     company: string;
     shortName: string;
     location: string;
@@ -7,6 +7,7 @@ interface Workexp{
     end: string;
     points: string[];
     techstack: string[];
+    excluded: boolean;
     "hue-degree": number;
 
 }

@@ -38,7 +38,6 @@ class PortfolioHead extends Head {
             ...(stylesheets ?? []),
             titleTag
         ])
-        // return new Tag("head", {}, body)
     }
 }
 
@@ -51,7 +50,6 @@ class DefaultHeader extends PortfolioHead {
             image: "https://www.satvikgupta.com/images/preview.png",
             url: "https://www.satvikgupta.com",
             stylesheets: [
-                "https://fonts.googleapis.com/css2?family=Open+Sans&family=Righteous:wght@400;900&family=Roboto+Slab:wght@400;700&family=Cinzel+Decorative:wght@900&family=Black+Ops+One&display=swap",
                 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
                 "/styles.css"
             ],
@@ -60,4 +58,4 @@ class DefaultHeader extends PortfolioHead {
     }
 }
 
-export { PortfolioHead as Header, DefaultHeader };
+export { PortfolioHead, DefaultHeader };
