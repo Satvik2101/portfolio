@@ -15,6 +15,7 @@ import SimpleAnchor from "../lucid/utils/SimpleAnchor";
 import Workexp from "./interface/workexp";
 import H2 from "../lucid/tags/H2";
 import A from "../lucid/tags/A";
+import childrenType from "../lucid/childrenType";
 
 class TerminalIntro extends Tag {
     constructor() {
@@ -29,8 +30,9 @@ class TerminalIntro extends Tag {
 }
 
 export class AdapativeHeading extends Tag {
-    constructor(cliHeading: string, plainHeading: string) {
+    constructor(cliHeading: string, plainHeading: string, pre?: Tag) {
         super("H2", [
+            pre ?? new Span(),
             Span.withAttributes({ class: "cli-mode" }, `~$ ${cliHeading}`),
             Span.withAttributes({ class: "plain-mode" }, plainHeading)
         ],
@@ -88,29 +90,17 @@ class AboutSection extends Tag {
 }
 
 export class NaviagateTo extends A {
-    constructor(props: { href: string; cliText: string; plainText: string }) {
+    constructor(props: { href: string; cliText: string; plainText: string, iconClass: string, target?: string }) {
         super([
-            Span.withAttributes({ class: "cli-mode" }, props.cliText),
-            Span.withAttributes({ class: "plain-mode" }, props.plainText)
+
+            new AdapativeHeading(props.cliText, props.plainText, new Tag("i").setAttr("class", props.iconClass).style("padding-right:12px"),),
+
         ]);
         this.href(props.href);
-        this.target("_self")
+        this.target(props.target ?? "_self")
     }
 }
 
-
-
-class ResumeSection extends Tag {
-    constructor() {
-        super("section", [
-            new AdapativeHeading("curl satvikgupta.com/satvik-gupta-resume.pdf -O", "Download Resume"),
-            new SimpleAnchor({ href: "https://www.satvikgupta.com/satvik-gupta-resume.pdf", linkText: "" }).p(
-                [Span.withAttributes({ class: "cli-mode" }, "Save resume.pdf to disk"),
-                Span.withAttributes({ class: "plain-mode" }, "Resume.pdf")]
-            )
-        ]);
-    }
-}
 
 
 class Index extends Tag {
@@ -130,9 +120,9 @@ class Index extends Tag {
                 new AboutSection(),
                 // new ProjectsSection([...rawData.projects, ...rawData.pors]),
                 // new WorkExpSection(rawData.workexp),
-                new ResumeSection(),
-                new AdapativeHeading("./.show-more.sh", "Cool, show me more!"),
-                new NaviagateTo({ href: "/more", cliText: "Open new shell to view my work", plainText: "Click to view my work." })
+                new NaviagateTo({ href: "https://www.satvikgupta.com/satvik-gupta-resume.pdf", cliText: "curl satvikgupta.com/satvik-gupta-resume.pdf -O", plainText: "Download Resume", iconClass: "fa-regular fa-file-lines", target: "_blank" }),
+                // new AdapativeHeading("./.show-more.sh", "Cool, show me more!"),
+                new NaviagateTo({ href: "/more", cliText: "./.show-more.sh", plainText: "Cool, show me more!", iconClass: "fa-duotone fa-solid fa-link", })
                 // new WorkexpSection(rawData.workexp),
                 // new ProjectsAndPorsSection({ projects: rawData.projects, pors: rawData.pors })
             ]),

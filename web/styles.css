@@ -148,6 +148,10 @@ header {
     background-color: #f5f5f5;
 }
 
+a h2 {
+    color: unset;
+
+}
 
 h2 {
     color: #464646;
@@ -194,7 +198,7 @@ body.cli h1 {
 }
 
 a {
-    color: rgb(18, 105, 159);
+    color: #405fdb;
     text-decoration: none;
 }
 
