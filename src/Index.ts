@@ -10,12 +10,10 @@ import Span from "../lucid/tags/Span";
 import Br from "../lucid/tags/Br";
 import H1 from "../lucid/tags/H1";
 import EnhancedDiv from "../lucid/utils/EnhancedDiv";
-import Project from "./interface/Project";
-import SimpleAnchor from "../lucid/utils/SimpleAnchor";
-import Workexp from "./interface/workexp";
 import H2 from "../lucid/tags/H2";
 import A from "../lucid/tags/A";
 import childrenType from "../lucid/childrenType";
+import ProfileLinks from "./Home/ProfileLinks";
 
 class TerminalIntro extends Tag {
     constructor() {
@@ -115,6 +113,7 @@ class Index extends Tag {
                 ]),
                 new H1("Satvik Gupta"),
                 new TerminalIntro(),
+                new ProfileLinks(),
                 new HeroSection(),
                 new MotdSection(),
                 new AboutSection(),

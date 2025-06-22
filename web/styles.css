@@ -44,7 +44,7 @@ a {
 }
 
 a:hover {
-    color: #55f;
+    color: rgb(44, 21, 144);
 }
 
 /* CLI-style formatting */
@@ -182,6 +182,12 @@ body.cli .motd.plain-mode {
     font-style: italic;
     border-left: 4px solid #ccc;
     padding-left: 1rem;
+
+}
+
+.profile_link_button {
+    padding: 0.2rem;
+    font-weight: bold;
 
 }
 
