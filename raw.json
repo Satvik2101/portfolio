@@ -47,12 +47,34 @@
             "company": "Salesforce",
             "shortName": "Salesforce",
             "location": "Hyderabad",
+            "role": "Associate Member of Technical Staff (SDE-1)",
+            "start": "June 2024",
+            "end": "Present",
+            "points": [
+                "Built infra for Salesforce Workspaces — zero-setup cloud dev environments. Worked on AWS, Terraform, EC2, IAM, ECR, Kubernetes, and more.",
+                "Worked on moving infra from EC2 to K8s-based pods and Spring-based Control Plane to K8s-based controllers.",
+                "IaC: full Terraform migration of dataplane resources.",
+                "Enabled Cursor for 2200 developers, via secure SSH access to Workspaces via opkssh.",
+                "Reduced tech debt, pruned dead code, simplified flows"
+            ],
+            "techstack": [
+                "Spring Boot",
+                "Golang",
+                "Temporal"
+            ],
+            "hue-degree": 15
+        },
+        {
+            "company": "Salesforce",
+            "shortName": "Salesforce",
+            "location": "Hyderabad",
             "role": "Software Engineer Intern",
             "start": "May 2023",
             "end": "July 2023",
             "points": [
-                "Notified users from terminal via Go CLI + Slack API.",
-                "Prototyped scheduling with Temporal workflows."
+                "Built a notification system for cloud-based development Workspaces.",
+                "Enabled terminal-triggered alerts using Go CLI, Spring Boot and Slack SDK",
+                "Prototyped reliable scheduling with Temporal workflows."
             ],
             "techstack": [
                 "Spring Boot",
@@ -99,8 +121,8 @@
                 "Arduino"
             ],
             "points": [
-                "Built ECG recorder: Flutter + Arduino + Bluetooth.",
-                "Stored locally with SQLite, export-ready."
+                "Built ECG recorder: Flutter + Bluetooth linking to Arduino-based hardware",
+                "Stored data locally with SQLite."
             ],
             "hue-degree": 160
         },

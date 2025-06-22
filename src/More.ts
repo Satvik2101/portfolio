@@ -93,9 +93,9 @@ class More extends Tag {
                     Button.withAttributes({ id: "modeToggle" }, "Developer Mode")
                 ]),
                 new H1("Satvik Gupta"),
-
-                new ProjectsSection([...rawData.projects, ...rawData.pors]),
                 new WorkExpSection(rawData.workexp),
+                new ProjectsSection([...rawData.projects, ...rawData.pors]),
+
                 // new ResumeSection(),
                 // new WorkexpSection(rawData.workexp),
                 // new ProjectsAndPorsSection({ projects: rawData.projects, pors: rawData.pors })
