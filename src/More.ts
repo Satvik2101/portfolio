@@ -59,7 +59,13 @@ class WorkExpEntry extends EnhancedDiv {
                 new EnhancedDiv({ class: "cli-meta", children: exp.techstack.join(" · ") }),
                 ...exp.points.map(point =>
                     new EnhancedDiv({ class: "cli-exp-point", children: `- ${point}` })
-                )
+                ),
+                ...(exp.links ? ((exp.links).map(link =>
+                    new EnhancedDiv({
+                        class: "cli-link",
+                        children: new SimpleAnchor({ href: link.url, linkText: `[${link.name}]` })
+                    })
+                )) : [])
             ]
         });
     }
