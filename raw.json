@@ -1,7 +1,7 @@
 {
     "name": "Satvik Gupta",
     "title": "Software Developer",
-    "location": "New Delhi",
+    "location": "Hyderabad",
     "email": "me@satvikgupta.com",
     "phone": "",
     "links": [
@@ -30,14 +30,14 @@
             "score": "9.48 GPA"
         },
         {
-            "name": "AISSCE/CBSE (Class XII)",
-            "institute": "GD Goenka Public School",
+            "name": "CBSE Class XII",
+            "institute": "",
             "year": "2020",
             "score": "95%"
         },
         {
-            "name": "AISSCE/CBSE (Class X)",
-            "institute": "GD Goenka Public School",
+            "name": "CBSE Class X",
+            "institute": "",
             "year": "2018",
             "score": "96%"
         }
@@ -58,9 +58,11 @@
                 "Reduced tech debt, pruned dead code, simplified flows"
             ],
             "techstack": [
-                "Spring Boot",
-                "Golang",
-                "Temporal"
+                "AWS",
+                "Kubernetes",
+                "Terraform",
+                "IaC",
+                "AI"
             ],
             "hue-degree": 15
         },
@@ -97,7 +99,6 @@
             "techstack": [
                 "AWS",
                 "DSA",
-                "Bash",
                 "Puppet"
             ],
             "links": [
@@ -165,40 +166,14 @@
                 }
             ],
             "points": [
-                "Led a dynamic team of 3 in crafting the DTU-DCE Fraternity Forum app using Flutter, connected to a REST API.",
-                "Teamed up with the backend team to design a REST API for the app.",
-                "Enhanced user security with JWT authentication, ensuring tight access and safeguarding user data.",
-                "Provided admins an intuitive control hub within the app, making membership management a breeze.",
-                "Launched on Play Store and App Store, clocking 100+ downloads and snagging a stellar 5-star rating for a top-notch user experience."
+                "Led mobile dev for DTU-DCE Fraternity Forum using Flutter.",
+                "Built a secure app with JWT auth + REST backend integration.",
+                "Collaborated with the backend team to build an API spec, and with Forum President and Secretaries as stakeholders.",
+                "Launched on iOS + Android; 100+ downloads, 5 star rating."
             ],
             "image": "./images/projects/dtu_dce_frat.png",
             "image_alt": "Screenshot of the Forum's App"
-        }
-    ],
-    "achievements": [
-        "Secured rank 3989 in TCS CodeVita Season 10, out of 100k + participants",
-        "Secured rank 1421 in Newton School's Grand Coding Contest 2022, out of roughly 12k participants",
-        "Secured All India Rank 5045 in JEE Mains 2020",
-        "Cleared KVPY SA (11th) First Round in 2018"
-    ],
-    "skills": [
-        [
-            "C++",
-            "Dart",
-            "Java",
-            "JavaScript"
-        ],
-        [
-            "Node.js",
-            "Express.js"
-        ],
-        [
-            "SQL",
-            "MongoDB",
-            "Git"
-        ]
-    ],
-    "pors": [
+        },
         {
             "name": "TEDxDTU",
             "product": "Website & App",
@@ -230,11 +205,34 @@
             ],
             "points": [
                 "Built cross-platform app (Flutter) + site (Next.js).",
-                "Scaled backend infra: EC2 → GCP, NGINX + Node.js, certbot for SSL.",
+                "Built backend infra: EC2 → GCP, NGINX + Node.js, certbot + Let's Encrypt for SSL, moved to Vercel for serverless to reduce costs.",
                 "8k users in 20 days, 2/3rds of tickets sold online."
             ],
             "image": "./images/projects/tedx.png",
             "image_alt": "Screenshot of TEDxDTU's App and Website"
         }
+    ],
+    "achievements": [
+        "Secured rank 3989 in TCS CodeVita Season 10, out of 100k + participants",
+        "Secured rank 1421 in Newton School's Grand Coding Contest 2022, out of roughly 12k participants",
+        "Secured All India Rank 5045 in JEE Mains 2020",
+        "Cleared KVPY SA (11th) First Round in 2018"
+    ],
+    "skills": [
+        [
+            "C++",
+            "Dart",
+            "Java",
+            "JavaScript"
+        ],
+        [
+            "Node.js",
+            "Express.js"
+        ],
+        [
+            "SQL",
+            "MongoDB",
+            "Git"
+        ]
     ]
 }

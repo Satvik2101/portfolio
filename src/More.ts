@@ -97,7 +97,7 @@ class More extends Tag {
                 ]),
                 new H1("Satvik Gupta"),
                 new WorkExpSection(rawData.workexp),
-                new ProjectsSection([...rawData.projects, ...rawData.pors]),
+                new ProjectsSection([...rawData.projects]),
 
                 // new ResumeSection(),
                 // new WorkexpSection(rawData.workexp),

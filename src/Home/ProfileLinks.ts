@@ -35,7 +35,7 @@ const ProfileLinksData = [
         imgSrc: "./images/linkedin_icon_circular.png",
     },
     {
-        href: "https://www.satvikgupta.com/satvik-gupta-resume.pdf",
+        href: "https://www.satvikgupta.com/resume.pdf",
         shortName: "resume",
         name: "Resume",
         customChild: new Span().id("resume_icon"),

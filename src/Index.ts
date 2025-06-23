@@ -119,7 +119,7 @@ class Index extends Tag {
                 new AboutSection(),
                 // new ProjectsSection([...rawData.projects, ...rawData.pors]),
                 // new WorkExpSection(rawData.workexp),
-                new NaviagateTo({ href: "https://www.satvikgupta.com/satvik-gupta-resume.pdf", cliText: "curl satvikgupta.com/satvik-gupta-resume.pdf -O", plainText: "Download Resume", iconClass: "fa-regular fa-file-lines", target: "_blank" }),
+                new NaviagateTo({ href: "https://www.satvikgupta.com/resume.pdf", cliText: "curl satvikgupta.com/resume.pdf -O", plainText: "Download Resume", iconClass: "fa-regular fa-file-lines", target: "_blank" }),
                 // new AdapativeHeading("./.show-more.sh", "Cool, show me more!"),
                 new NaviagateTo({ href: "/more", cliText: "./.show-more.sh", plainText: "Cool, show me more!", iconClass: "fa-duotone fa-solid fa-link", })
                 // new WorkexpSection(rawData.workexp),
