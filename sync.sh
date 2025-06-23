@@ -33,14 +33,8 @@ branch=$(git branch --show-current)
 aws_ids_file="";
 if [ $branch == "main" ]; then
     aws_ids_file="./aws/aws_ids"
-else if [ $branch == "dev" ]; then
-    aws_ids_file="./aws/aws_ids_dev"
 else 
-    echo "Using branch $branch. No aws_ids file found for this branch, will dry run with dev IDs"
-    d=1
     aws_ids_file="./aws/aws_ids_dev"
-
-fi
 fi
 
 

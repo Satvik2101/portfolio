@@ -1,33 +1,22 @@
 import A from "../../lucid/tags/A";
 import Span from "../../lucid/tags/Span";
 import EnhancedDiv from "../../lucid/utils/EnhancedDiv";
-import EnhancedImg from "../../lucid/utils/EnhancedImg";
+import SimpleAnchor from "../../lucid/utils/SimpleAnchor";
 import Tag from "../../lucid/utils/Tag";
 
 
-class ProfileLinkIcon extends EnhancedImg {
-    constructor(props: { src: string, alt: string, id?: string }) {
-        super(props)
-        this.class("profile_link_icon");
-    }
-}
+class ProfileLinkButton extends Tag {
+    constructor(props: { href: string, name: string, shortName: string }, separator: boolean) {
 
-
-class ProfileLinkButton extends A {
-    constructor(props: { href: string, name: string, shortName: string, imgSrc?: string, customChild?: Tag }) {
-
-        super()
-        super.href(props.href)
+        super("span")
+        super
             .class("profile_link_button")
             .id(`${props.shortName}_button`)
-            .p([props.customChild ?
-                props.customChild
-                : new ProfileLinkIcon({
-                    src: props.imgSrc as string,
-                    alt: props.shortName,
-                    id: props.shortName + "_icon"
-                }),
-            props.name,
+            .p([
+                new SimpleAnchor({ href: props.href, linkText: props.name }).class("plain-mode"),
+                new SimpleAnchor({ href: props.href, linkText: props.shortName }).class("cli-mode"),
+
+                separator ? " | " : ""
             ])
     }
 }
@@ -58,7 +47,7 @@ class ProfileLinks extends EnhancedDiv {
     constructor() {
         super({
             id: "profile_links",
-            children: ProfileLinksData.map((linkData) => new ProfileLinkButton(linkData)),
+            children: ProfileLinksData.map((linkData, idx) => new ProfileLinkButton(linkData, idx != ProfileLinksData.length - 1),),
             class: "padded_centered"
         })
     }

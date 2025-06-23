@@ -22,17 +22,10 @@ function ignoreFile(file) {
         if (file == igFile) {
             return true;
         }
-        //if file is in a directory, check if directory is in ignore list
-        // if (ignoreFile == 'aws') {
-        //     console.log(file);
-        //     console.log(file.indexOf(ignoreFile));
-        //     console.log(file[ignoreFile.length]);
-        // }
+
         else if (file.indexOf(igFile) == 0 && file.length > igFile.length && file[igFile.length] == '/') {
             return true;
 
-        } else {
-            // console.log(file, igFile);
         }
     }
 
@@ -52,7 +45,6 @@ function addFilesInDir(dir) {
 
             // Check if file is a directory
             if (stat.isDirectory()) {
-                // console.log(file + ' is a directory');
                 addFilesInDir(filePath);
             }
 

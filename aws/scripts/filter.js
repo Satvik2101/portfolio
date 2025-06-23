@@ -14,13 +14,6 @@ function ignoreFile(file) {
     return false;
 }
 
-// function fixFileName(file) {
-//     //if file doesn't have a / in it, add / in the front
-//     if (file.indexOf('/') == -1) {
-//         file = '/' + file;
-//     }
-//     return file;
-// }
 var addedFiles = fs.readFileSync('./aws/added_files', 'utf-8').toString().split("\n");
 var finalAddedFiles = [];
 var finalChangedFiles = [];
@@ -35,15 +28,11 @@ addedFiles.forEach(function (fileData) {
 });
 
 
-// fs.writeFileSync('./aws/added_files', finalAddedFiles.join("\n"));
-
 
 var changed_files = fs.readFileSync('./aws/changed_files', 'utf-8').toString().split("\n");
-// console.log("Changed files\n", changed_files);
 
 changed_files.forEach(function (fileData) {
     //split by tab
-    // console.log(fileData);
     if (fileData.length == 0) { return; }
     var fileData = fileData.split("\t");
     var mode = fileData[0];
@@ -65,7 +54,6 @@ changed_files.forEach(function (fileData) {
         }
         if (mode == 'A') {
             console.log('added');
-            // fs.appendFileSync('./aws/added_files', file + "\n");
             finalAddedFiles.push(file);
         } else if (mode.startsWith("R")) {
             console.log('renamed')
@@ -79,7 +67,6 @@ changed_files.forEach(function (fileData) {
 })
 
 
-// fs.writeFileSync('./aws/changed_files', finalChangedFiles.join("\n"));
 var upload = [...finalAddedFiles, ...finalChangedFiles];
 fs.writeFileSync('./aws/upload_files', upload.join(" "));
 
