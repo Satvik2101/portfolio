@@ -25,6 +25,9 @@ class ProjectEntry extends EnhancedDiv {
                 new EnhancedDiv({ class: "cli-name", children: project.name + (project.product ? "'s " + project.product : "") }),
                 // new EnhancedDiv({ class: "cli-desc", children: project.product ?? "" }),
                 new EnhancedDiv({ class: "cli-meta", children: project.techstack.join(" · ") }),
+                ...project.points.map(point =>
+                    new EnhancedDiv({ class: "cli-exp-point", children: `- ${point}` })
+                ),
                 ...project.links.map(link =>
                     new EnhancedDiv({
                         class: "cli-link",
