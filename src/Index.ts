@@ -2,11 +2,11 @@ import Script from "../lucid/tags/Script";
 import Header from "../lucid/tags/Header"
 
 import Tag from "../lucid/utils/Tag";
-import { DefaultHeader } from "./global/PortfolioHead";
+import { DefaultHeader } from "./components/PortfolioHead";
 import Button from "../lucid/tags/Button";
 import H1 from "../lucid/tags/H1";
 import Br from "../lucid/tags/Br";
-import ProfileLinks from "./Home/ProfileLinks";
+import ProfileLinks from "./components/ProfileLinks";
 
 // Import sections
 import TerminalIntro from "./sections/TerminalIntro";
@@ -15,7 +15,7 @@ import MotdSection from "./sections/MotdSection";
 import AboutSection from "./sections/AboutSection";
 
 // Import navigation
-import { NavigateTo } from "./navigation/NavigateTo";
+import { NavigateTo } from "./components/NavigateTo";
 
 class Index extends Tag {
     constructor(rawData: { [key: string]: any }) {

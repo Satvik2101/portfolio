@@ -1,8 +1,8 @@
 import Tag from "../../lucid/utils/Tag";
 import EnhancedDiv from "../../lucid/utils/EnhancedDiv";
-import Workexp from "../interface/workexp";
+import Workexp from "../models/workexp";
 import SimpleAnchor from "../../lucid/utils/SimpleAnchor";
-import { AdaptiveHeading } from "../headings/AdaptiveHeading";
+import { AdaptiveHeading } from "../components/AdaptiveHeading";
 
 class WorkExpEntry extends EnhancedDiv {
     constructor(exp: Workexp) {

@@ -1,7 +1,7 @@
 import P from "../../lucid/tags/P";
 import Tag from "../../lucid/utils/Tag";
 import EnhancedDiv from "../../lucid/utils/EnhancedDiv";
-import { AdaptiveHeading } from "../headings/AdaptiveHeading";
+import { AdaptiveHeading } from "../components/AdaptiveHeading";
 
 class AboutSection extends Tag {
     constructor() {

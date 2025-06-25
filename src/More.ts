@@ -2,7 +2,7 @@ import Script from "../lucid/tags/Script";
 import Header from "../lucid/tags/Header"
 
 import Tag from "../lucid/utils/Tag";
-import { DefaultHeader } from "./global/PortfolioHead";
+import { DefaultHeader } from "./components/PortfolioHead";
 import Button from "../lucid/tags/Button";
 import H1 from "../lucid/tags/H1";
 import Br from "../lucid/tags/Br";

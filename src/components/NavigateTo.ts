@@ -1,6 +1,6 @@
 import A from "../../lucid/tags/A";
 import Tag from "../../lucid/utils/Tag";
-import { AdaptiveHeading } from "../headings/AdaptiveHeading";
+import { AdaptiveHeading } from "../components/AdaptiveHeading";
 
 export class NavigateTo extends A {
     constructor(props: { href: string; cliText: string; plainText: string, iconClass: string, target?: string }) {

@@ -1,8 +1,8 @@
 import Tag from "../../lucid/utils/Tag";
 import EnhancedDiv from "../../lucid/utils/EnhancedDiv";
-import Project from "../interface/Project";
+import Project from "../models/Project";
 import SimpleAnchor from "../../lucid/utils/SimpleAnchor";
-import { AdaptiveHeading } from "../headings/AdaptiveHeading";
+import { AdaptiveHeading } from "../components/AdaptiveHeading";
 
 class ProjectEntry extends EnhancedDiv {
     constructor(project: Project) {
