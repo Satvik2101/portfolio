@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Luxurious+Roman&family=Roboto+Slab&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 @import "../styles.css";
-@import "./navbar_light.css";
 
 html {
     max-height: 100vh;
