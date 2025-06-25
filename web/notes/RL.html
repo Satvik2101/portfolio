@@ -1,726 +1,641 @@
 <!DOCTYPE html>
 <html ontouchmove="" xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <meta name="author" content="Satvik Gupta" />
-    <title>Reinforcement Learning</title>
-    <style>
-        code {
-            white-space: pre-wrap;
-        }
-
-        span.smallcaps {
-            font-variant: small-caps;
-        }
-
-        div.columns {
-            display: flex;
-            gap: min(4vw, 1.5em);
-        }
-
-        div.column {
-            flex: auto;
-            overflow-x: auto;
-        }
-
-        div.hanging-indent {
-            margin-left: 1.5em;
-            text-indent: -1.5em;
-        }
-
-        ul.task-list {
-            list-style: none;
-        }
-
-        ul.task-list li input[type="checkbox"] {
-            width: 0.8em;
-            margin: 0 0.8em 0.2em -1.6em;
-            vertical-align: middle;
-        }
-    </style>
-    <link rel="stylesheet" href="../styles/notes_style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-    <!--[if lt IE 9]>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Satvik Gupta" />
+  <title>Reinforcement Learning</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../styles/notes_style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WX57KF6HY8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-WX57KF6HY8');
-    </script>
 </head>
-
 <body>
-
-    <div id="navbar" onclick="">
-
-        <div id="navbar_text">
-            satvik <i id="dropdown-arrow" class="fa-solid fa-caret-down fa-xs"></i>
-        </div>
-        <div id="navbar_links">
-            <div class="navbar_link" id="home_link">
-                <a href="/#home" target="_self">Home</a>
-            </div>
-            <div class="navbar_link" id="workexp_link">
-                <a href="/#workexp" target="_self">
-                    Work Experience
-                </a>
-            </div>
-            <div class=" navbar_link" id="projects_link">
-                <a href="/#projects" target="_self">Projects</a>
-            </div>
-            <div class=" navbar_link" id="notes_link">
-                <a href="/notes" target="_self">Notes</a>
-            </div>
-            <div class=" navbar_link" id="contact_link">
-                <a href="/#contact" target="_self">Contact</a>
-            </div>
-
-
-        </div>
-    </div>
-
-    <header id="title-block-header">
-        <h1 class="title">Reinforcement Learning</h1>
-        <p class="author">Satvik Gupta</p>
-    </header>
-    <div id="container">
-        <nav id="TOC" role="doc-toc">
-            <div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/RL.pdf">Download as PDF</a></div>
-            <ul>
-                <li><a href="#reinforcement-learning" id="toc-reinforcement-learning">Reinforcement Learning</a>
-                    <ul>
-                        <li><a href="#exploration-vs-exploitation" id="toc-exploration-vs-exploitation">Exploration vs
-                                Exploitation</a></li>
-                        <li><a href="#elements-of-reinforcement-learning"
-                                id="toc-elements-of-reinforcement-learning">Elements of Reinforcement
-                                Learning</a>
-                            <ul>
-                                <li><a href="#policy" id="toc-policy">Policy</a></li>
-                                <li><a href="#reward-signal" id="toc-reward-signal">Reward
-                                        Signal</a></li>
-                                <li><a href="#value-function" id="toc-value-function">Value
-                                        Function</a></li>
-                                <li><a href="#model-of-environment" id="toc-model-of-environment">Model
-                                        of Environment</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#k-armed-bandit" id="toc-k-armed-bandit">k-Armed Bandit</a>
-                    <ul>
-                        <li><a href="#incremental-updates" id="toc-incremental-updates">Incremental Updates</a></li>
-                        <li><a href="#non-stationary-problems" id="toc-non-stationary-problems">Non-stationary
-                                problems</a></li>
-                        <li><a href="#optimal-initial-values" id="toc-optimal-initial-values">Optimal Initial Values</a>
-                        </li>
-                        <li><a href="#gradient-bandit-algorithms" id="toc-gradient-bandit-algorithms">Gradient Bandit
-                                Algorithms</a></li>
-                    </ul>
-                </li>
-                <li><a href="#markov-decision-process-mdp" id="toc-markov-decision-process-mdp">Markov Decision Process
-                        (MDP)</a>
-                    <ul>
-                        <li><a href="#policy-and-value-functions" id="toc-policy-and-value-functions">Policy and Value
-                                Functions</a>
-                            <ul>
-                                <li><a href="#state-value-function" id="toc-state-value-function">State-Value
-                                        Function</a></li>
-                                <li><a href="#action-value-function" id="toc-action-value-function">Action-Value
-                                        Function</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#bellman-equations" id="toc-bellman-equations">Bellman
-                                Equations</a>
-                            <ul>
-                                <li><a href="#bellman-equation-state-value-fn"
-                                        id="toc-bellman-equation-state-value-fn">Bellman Equation for <span
-                                            class="math inline">\(v_{\pi}\)</span></a></li>
-                                <li><a href="#bellman-equation-for-q_pi" id="toc-bellman-equation-for-q_pi">Bellman
-                                        Equation for <span class="math inline">\(q_{\pi}\)</span></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#optimal-policies-and-optimal-value-functions"
-                                id="toc-optimal-policies-and-optimal-value-functions">Optimal Policies
-                                and Optimal Value Functions</a>
-                            <ul>
-                                <li><a href="#bellman-optimality-equations"
-                                        id="toc-bellman-optimality-equations">Bellman Optimality
-                                        Equations</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#dynamic-programming" id="toc-dynamic-programming">Dynamic
-                        Programming</a>
-                    <ul>
-                        <li><a href="#policy-evaluation" id="toc-policy-evaluation">Policy
-                                Evaluation</a></li>
-                        <li><a href="#policy-improvement" id="toc-policy-improvement">Policy
-                                Improvement</a></li>
-                        <li><a href="#policy-iteration" id="toc-policy-iteration">Policy
-                                Iteration</a></li>
-                        <li><a href="#value-iteration" id="toc-value-iteration">Value
-                                Iteration</a></li>
-                        <li><a href="#asynchronous-dp" id="toc-asynchronous-dp">Asynchronous
-                                DP</a></li>
-                        <li><a href="#generalized-policy-iteration" id="toc-generalized-policy-iteration">Generalized
-                                Policy
-                                Iteration</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="data">
-            <h2 id="reinforcement-learning">Reinforcement Learning</h2>
-            <p>The main idea is that we learn by interacting with our environment.
-                RL tries to map situations to action. The agent’s goal is to maximise a
-                <em>reward</em>. We don’t tell the agent which action to take, or even
-                which action has higher reward (beyond an estimate). The agent must try
-                different actions on its own and <strong>learn.</strong>
-            </p>
-            <p>RL involves interaction between an active decision-making agent, and
-                ts environment. The agent is always trying to seek a goal (or mazximize
-                reward), even thought the environment is <em>uncertain.</em></p>
-            <h4 id="exploration-vs-exploitation">Exploration vs Exploitation</h4>
-            <p>Exploration is any action that lets the agent discover new features
-                about the environment, while exploitation means capitalizing on the
-                information we have already learned.</p>
-            <p>If the agent continues to exploit only past experiences, it is likely
-                to get stuck in a <strong>suboptimal policy.</strong></p>
-            <p>On the other hand, if it continues to explore without exploiting, it
-                <strong>might never find a good policy.</strong>
-            </p>
-            <h3 id="elements-of-reinforcement-learning">Elements of Reinforcement
-                Learning</h3>
-            <ol type="1">
-                <li>Policy</li>
-                <li>Reward Signal</li>
-                <li>Value Function</li>
-                <li>Model of the environment</li>
-            </ol>
-            <h4 id="policy">Policy</h4>
-            <p>Policy is how the agent behaves. It is a mapping of state to action,
-                i.e, it tells the agent what action to perform, based on the state of
-                the environment.</p>
-            <h4 id="reward-signal">Reward Signal</h4>
-            <p>Reward signal is the goal of the RL agent. Whenever the agent takes
-                an action, the environment gives it a <em>reward</em>. The agent’s goal
-                is to maximize its <strong>long term reward</strong>.</p>
-            <p>Reward signal is the basis through which we change the policy. If the
-                policy told us to do an action <em>x</em>, but that action resulted in a
-                low (or negative) reward, then we may change the policy not to suggest
-                <em>x</em> in that situation.
-            </p>
-            <p>Reward may be a function of the state and the action taken.</p>
-            <h4 id="value-function">Value Function</h4>
-            <p>Reward signal gives us the immediate reward. Value function tells us
-                the long term reward of a particular state. The <em>value</em> of a
-                state is the total amount of reward an agent can accumulate in the
-                future, if it <strong>starts</strong> at that state.</p>
-            <h4 id="model-of-environment">Model of Environment</h4>
-            <p>Mimics the behavior of the environment. It lets the agent guess how
-                the environment will react to a particular action. Using the model, the
-                agent can predict the reward and next state, if it takes action
-                <em>x</em> from its current state. Models are used for planning - i.e,
-                the agent uses the model to consider many future situations before it
-                actually experiences them.
-            </p>
-            <p>Models are optional - not all RL agents will use a model. Those using
-                a model are called <strong>model-based</strong>, and those without
-                models are called <strong>model-free</strong>. Model-free methods are
-                trial-and-error.</p>
-            <h2 id="k-armed-bandit">k-Armed Bandit</h2>
-            <ul>
-                <li>We repeatedly get a choice among <span class="math inline">\(k\)</span> actions.</li>
-                <li>After each choice we get a reward, that depends on the action.</li>
-                <li>We repeat this <span class="math inline">\(time\;steps\)</span>
-                    times.</li>
-                <li>We don’t know action values for certain. We may have estimates.</li>
-            </ul>
-            <p><strong>At time <span class="math inline">\(t\)</span></strong>,</p>
-            <ul>
-                <li><strong>Action selected</strong> – <span class="math inline">\(A_t\)</span></li>
-                <li><strong>Reward received</strong> – <span class="math inline">\(R_t\)</span></li>
-                <li><strong>Value for action <span class="math inline">\(a\)</span></strong> – <span
-                        class="math inline">\(q_*(a)\)</span> = expected reward given that <span
-                        class="math inline">\(a\)</span> is selected.</li>
-            </ul>
-            <p><span class="math display">\[
-                    q_*(a) = \mathbb{E}[R_T| A_t=a]
-                    \]</span></p>
-            <ul>
-                <li><strong>Estimated value of action <span class="math inline">\(a\)</span> </strong> – <span
-                        class="math inline">\(Q_t(a)\)</span></li>
-            </ul>
-            <p>Ideally, <span class="math inline">\(Q_t(a)\)</span> should be as
-                close to <span class="math inline">\(q_*(a)\)</span> as possible.</p>
-            <p><strong>Greedy approach </strong> - always take the action with the
-                highest <span class="math inline">\(Q\)</span> value.</p>
-            <p><strong><span class="math inline">\(\epsilon\)</span>-greedy
-                    approach</strong> - At each step, with probability <span class="math inline">\(\epsilon\)</span>
-                take a non-greedy action, i.e,
-                take the action which does NOT have the highest estimated value.</p>
-            <blockquote>
-                <p>Methods that estimate the value of actions, and then use those
-                    estimates to choose which action to perform, are called
-                    <strong>action-value methods</strong>
-                </p>
-            </blockquote>
-            <p>A way to estimate <span class="math inline">\(Q_t(a)\)</span> is to
-                average all the actual rewards received. This is the
-                <strong>sample-average</strong> method
-            </p>
-            <figure>
-                <img src="../images/obs/rl_qt" alt="Estimation of Q_t" />
-                <figcaption aria-hidden="true">Estimation of <span class="math inline">\(Q_t\)</span></figcaption>
-            </figure>
-            <p><span class="math inline">\(1_{predicate}\)</span> represents a
-                random variable that is 1 when <span class="math inline">\(predicate\)</span> is true, and 0 when it’s
-                false.</p>
-            <p>If denominator is 0, we can define <span class="math inline">\(Q_t(a)\)</span> as some fixed value, such
-                as
-                0.</p>
-            <h4 id="incremental-updates">Incremental Updates</h4>
-            <p><span class="math display">\[
-                    Q_n = \frac{1}{n-1}\sum_{i=1}^{n-1}R_i
-                    \]</span></p>
-            <p>Instead of storing all the <span class="math inline">\(R_i\)</span>
-                values, we use incremental updating. The above formula can easily be
-                reduced to : <span class="math display">\[
-                    Q_{n+1} = Q_n + \frac{1}{n}[R_n-Q_n]
-                    \]</span> This is a frequently occurring format in RL. General form:
-                <span class="math display">\[
-                    NewEstimate \leftarrow OldEstimate + StepSize[Target-OldEstimate]
-                    \]</span> <span class="math inline">\(StepSize\)</span> is sometimes
-                denoted by <span class="math inline">\(\alpha\)</span> or <span
-                    class="math inline">\(\alpha_t(a)\)</span>
-            </p>
-            <h4 id="non-stationary-problems">Non-stationary problems</h4>
-            <p>Rewards may change during the course of the problem. These problems
-                are called non-stationary. Incremental updating will not work for those.
-                In these cases, we attach more weight to more recent rewards than
-                rewards received a long time ago. For e.g, if a particular action gave
-                us reward of 1 during the starting of the problem, but more recently
-                it’s been giving us reward of 10, our estimated reward of it should lean
-                more towards 10.</p>
-            <p>We do this by fixing the value of <span class="math inline">\(\alpha\)</span> , instead of above where it
-                changed according to <span class="math inline">\(n\)</span>.</p>
-            <p><span class="math display">\[
-                    Q_{n+1} = Q_n + \alpha[R_n-Q_n]
-                    \]</span></p>
-            <p>where <span class="math inline">\(\alpha \in(0,1]\)</span> is
-                constant. <span class="math inline">\(Q_{n+1}\)</span> becomes a
-                weighted average of all past rewards and the initial estimate <span class="math inline">\(Q_{1}\)</span>
-            </p>
-            <p><span class="math display">\[Q_{n+1} = Q_n +
-                    \alpha[R_n-Q_n]\]</span></p>
-            <p>Recursing the formula, we get <span class="math display">\[
-                    Q_{n+1} = (1-\alpha)^nQ_1 + \sum_{i=1}^{n} \alpha(1-\alpha)^{n-i}R_i
-                    \]</span> Past rewards (with lower <span class="math inline">\(i\)</span>) are multiplied with
-                higher powers of a
-                number that’s less than 1, i.e, they get less weightage.</p>
-            <blockquote>
-                <p>This is called <strong>exponential recency-weighted
-                        average</strong></p>
-            </blockquote>
-            <h4 id="optimal-initial-values">Optimal Initial Values</h4>
-            <ul>
-                <li>Instead of setting all initial <span class="math inline">\(Q\)</span> as 0, we can set them to an
-                    optimistically high value. This promotes exploration.</li>
-                <li>In the 10-armed testbed, we chose <span class="math inline">\(q_*(a)\)</span> values from a
-                    distribution with
-                    mean 0 and variance 1. If we set initial <span class="math inline">\(Q\)</span> as +5, this is very
-                    optimistic.
-                    Whatever the agent will do, it will always get a reward less than 5.
-                    Thus, it will try out other actions, which still have a estimated value
-                    of 5.</li>
-                <li>All actions will be tried several times before the <span class="math inline">\(Q\)</span> values
-                    converge.</li>
-                <li>Optimistic greedy (with <span class="math inline">\(\epsilon=0\)</span>) can even perform better
-                    than
-                    realistic (<span class="math inline">\(Q=0\)</span>) <span
-                        class="math inline">\(\epsilon\)</span>-greedy.</li>
-                <li>Not suited to non-stationary problem, since it only promotes
-                    exploration temporarily (during the start). If rewards keep changing, it
-                    cannot do anything at a later stage in the problem.</li>
-                <li>More like a simple trick instead of a very useful method.</li>
-            </ul>
-            <h4 id="gradient-bandit-algorithms">Gradient Bandit Algorithms</h4>
-            <ul>
-                <li>Instead of estimated values, each action is given a
-                    <em>preference</em> <span class="math inline">\(H_t(a)\)</span>. Larger
-                    preference means the action is more likely to be selected, but
-                    preference cannot be interpreted in terms of reward. Only relative
-                    preference of actions is important.
-                </li>
-            </ul>
-            <p><span class="math display">\[
-                    Pr\{A_t=a\}=\pi_t(a)=\frac{e^{H_t(a)}}{\sum_{b=1}^ke^{H_t(b)}}
-                    \]</span></p>
-            <p><span class="math inline">\(\pi_t(a)\)</span> represents the
-                probability of taking an action <span class="math inline">\(a\)</span>
-                at time <span class="math inline">\(t\)</span>. Initially, <span class="math inline">\(H=0\)</span> (or
-                some other constant) for all
-                <span class="math inline">\(a\)</span>
-            </p>
-            <p>On each step, after selecting <span class="math inline">\({A_t}\)</span> and receiving reward <span
-                    class="math inline">\(R_t\)</span>,we update action preferences by:
-                <span class="math display">\[
-                    H_{t+1}(A_t)=H_t(A_t)+\alpha(R_t-\bar{R_t})(1-\pi_t(A_t))
-                    \]</span> and <span class="math display">\[
-                    H_{t+1}(a)=H_t(a)-\alpha(R_t-\bar{R_t})\pi_t(a)
-                    \]</span> for all <span class="math inline">\(a \ne A_t\)</span>
-            </p>
-            <p><span class="math inline">\(\bar{R_t}\)</span> is the average of all
-                rewards received until (and including) time-step <span class="math inline">\(t\)</span>. If the reward
-                received in current step
-                is higher than the average, the preference for <span class="math inline">\(A_t\)</span> goes up,
-                otherwise it goes down.</p>
-            <h2 id="markov-decision-process-mdp">Markov Decision Process (MDP)</h2>
-            <ul>
-                <li>At each state <span class="math inline">\(S_t\)</span> , the agent
-                    will perform an action <span class="math inline">\(A_t\)</span>, for
-                    which it will receive a reward <span class="math inline">\(R_{t+1}\)</span> and find itself in the
-                    next state
-                    (<span class="math inline">\(S_{t+1}\)</span>)</li>
-                <li>In finite MDPs, set of states, actions, rewards all have a finite
-                    number of values. So, we can define probability values for all states
-                    and actions, i.e</li>
-            </ul>
-            <p><span class="math display">\[
-                    p(s&#39;,r | s,a) = Pr\{S_t=s&#39;,R_t=r | S_{t-1},A_{t-1}=a\}
-                    \]</span></p>
-            <p><span class="math inline">\(p\)</span> defines the probability of
-                receiving reward <span class="math inline">\(r\)</span> and getting to a
-                new state <span class="math inline">\(s&#39;\)</span>, by performing
-                action <span class="math inline">\(a\)</span> on a previous state <span
-                    class="math inline">\(s\)</span>.</p>
-            <ul>
-                <li>
-                    <p>Sum of <span class="math inline">\(p\)</span> for all <span class="math inline">\(s&#39;\)</span>
-                        and <span class="math inline">\(r\)</span> is 1.</p>
-                </li>
-                <li>
-                    <p>In MARKOV processes, the current state and action is enough to
-                        completely characterize the environment. I.e, the reward received and
-                        next state only depend on the current state and action performed, not on
-                        any previous state.</p>
-                    <ul>
-                        <li>The state must include all information about the past that can make
-                            a difference to the agent’s decision making in the future.</li>
-                        <li>Such states are said to possess the <strong>Markov
-                                Property</strong></li>
-                    </ul>
-                </li>
-            </ul>
-            <h3 id="policy-and-value-functions">Policy and Value Functions</h3>
-            <h4 id="state-value-function">State-Value Function</h4>
-            <ul>
-                <li>Expected return when starting in <span class="math inline">\(s\)</span>, and following a policy
-                    <span class="math inline">\(\pi\)</span> .
-                </li>
-            </ul>
-            <figure>
-                <img src="../images/obs/state-value-function.png" alt="State-Value Function Equation" />
-                <figcaption aria-hidden="true">State-Value Function
-                    Equation</figcaption>
-            </figure>
-            <h4 id="action-value-function">Action-Value Function</h4>
-            <ul>
-                <li>Expected return when taking action <span class="math inline">\(a\)</span> in state <span
-                        class="math inline">\(s\)</span>, and following policy <span class="math inline">\(\pi\)</span>.
-                </li>
-            </ul>
-            <figure>
-                <img src="../images/obs/action-value-function.png" alt="Action-Value Function Equation" />
-                <figcaption aria-hidden="true">Action-Value Function
-                    Equation</figcaption>
-            </figure>
-            <h3 id="bellman-equations">Bellman Equations</h3>
-            <p>We can see that, <span class="math display">\[
-                    v_{\pi}(s) = \sum_a \pi(a|s)q_{\pi}(s,a)
-                    \]</span></p>
-            <p><span class="math display">\[
-                    q_{\pi}(s,a) = \sum_{s&#39;,r} p(s&#39;,r|s,a)(r+\gamma v_{\pi}(s&#39;))
-                    \]</span></p>
-            <p>Combining these two equations, we get</p>
-            <h4 id="bellman-equation-state-value-fn">Bellman Equation for <span class="math inline">\(v_{\pi}\)</span>
-            </h4>
-            <p><span class="math display">\[
-                    v_{\pi}(s) = \sum_a \pi(a|s)\sum_{s&#39;,r} p(s&#39;,r|s,a)(r+\gamma
-                    v_{\pi}(s&#39;))
-                    \]</span></p>
-            <p>(Note that the 2 summations are <strong>NOT</strong> independent of
-                each other.)</p>
-            <h4 id="bellman-equation-for-q_pi">Bellman Equation for <span class="math inline">\(q_{\pi}\)</span></h4>
-            <p><span class="math display">\[
-                    q _{\pi}(s,a) = \sum_{s&#39;,r} p(s&#39;,r|s,a)(r+\gamma\sum_{a&#39;}
-                    \pi(a&#39;|s&#39;)q_{\pi}(s&#39;,a&#39;))
-                    \]</span></p>
-            <h3 id="optimal-policies-and-optimal-value-functions">Optimal Policies
-                and Optimal Value Functions</h3>
-            <ul>
-                <li>A policy is optimal if it gives better return than all other
-                    policies, for all states.
-                    <ul>
-                        <li>i.e <span class="math inline">\(\pi \ge \pi &#39;\)</span> if and
-                            only if <span class="math inline">\(v_{\pi}(s) \ge v_{\pi &#39;}(s)
-                                \forall s\)</span></li>
-                    </ul>
-                </li>
-                <li>An optimal policy, that is better or as good as all other policies,
-                    always exists.</li>
-                <li>Such policies (there may be more than one) are denoted by <span class="math inline">\(\pi_*\)</span>
-                </li>
-                <li>All optimal policies have the same state-value function <span class="math inline">\(v_*\)</span>. It
-                    is defined as:</li>
-            </ul>
-            <p><span class="math display">\[
-                    v_*(s) = \max_{\pi}v_{\pi}(s), \forall s
-                    \]</span></p>
-            <ul>
-                <li>They also share the same optimal action-value function <span class="math inline">\(q_*\)</span></li>
-            </ul>
-            <p><span class="math display">\[
-                    q_*(s,a) = \max_{\pi}q_{\pi}(s,a), \forall s,a
-                    \]</span></p>
-            <h4 id="bellman-optimality-equations">Bellman Optimality Equations</h4>
-            <p>Intuitively, the best value of a state is equal to the expected
-                return of the best action from that state. I.e,</p>
-            <p><span class="math display">\[
-                    v_*(s) = \max_{a}q_{\pi_*}(s,a)
-                    \]</span> Expanding and using the recursive formula, we get</p>
-            <h5 id="bellman-optimality-equation-for-v_">Bellman Optimality Equation
-                for <span class="math inline">\(v_*\)</span></h5>
-            <p><span class="math display">\[
-                    v_*(s)= \max_a \sum_{s&#39;,r}p(s&#39;,r|s,a)[r+\gamma v_*(s&#39;)]
-                    \]</span></p>
-            <h5 id="bellman-optimality-equation-for-q_">Bellman Optimality Equation
-                for <span class="math inline">\(q_*\)</span></h5>
-            <p><span class="math display">\[
-                    q_*(s)= \sum_{s&#39;,r}p(s&#39;,r|s,a)[r+\gamma
-                    \max_{a&#39;}q_*(s&#39;,a&#39;))]
-                    \]</span></p>
-            <h2 id="dynamic-programming">Dynamic Programming</h2>
-            <p>Using old values to compute new values. That’s it.</p>
-            <h3 id="policy-evaluation">Policy Evaluation</h3>
-            <ul>
-                <li>Initialize a random state-value function <span class="math inline">\(v_0\)</span>. Terminal state
-                    must be given value
-                    0.</li>
-                <li>Each successive approximation is obtained by the <a href="#bellman-equation-state-value-fn">Bellman
-                        Equation for <span class="math inline">\(v_{\pi}\)</span></a></li>
-            </ul>
-            <figure>
-                <img src="../images/obs/policy-evaluation-rl.png" alt="Iterative Policy Evaluation" />
-                <figcaption aria-hidden="true">Iterative Policy Evaluation</figcaption>
-            </figure>
-            <p>The algorithm is as follows:</p>
-            <figure>
-                <img src="../images/obs/policy-evaluation-algo-rl.png" alt="Iterative Policy Evaluation Algorithm" />
-                <figcaption aria-hidden="true">Iterative Policy Evaluation
-                    Algorithm</figcaption>
-            </figure>
-            <p>This will always converge, given that the policy <span class="math inline">\(\pi\)</span> is proper, i.e,
-                we can reach a
-                terminal state from any state.</p>
-            <h3 id="policy-improvement">Policy Improvement</h3>
-            <p>We calculated a new <span class="math inline">\(v_{\pi}\)</span>
-                using policy evaluation. Now we want to see if we should change the
-                policy as well. For e.g, if at state <span class="math inline">\(x\)</span> we were taking action <span
-                    class="math inline">\(a\)</span> because it led to state <span class="math inline">\(y\)</span>.
-                Earlier , <span class="math inline">\(v_{\pi}(y)=5\)</span>, but after evaluation it’s
-                value has dropped to <span class="math inline">\(3\)</span>. So should
-                we still take action <span class="math inline">\(a\)</span>, or should
-                we change it to something else?</p>
-            <p>A simple update rule is: <span class="math display">\[
-                    \pi&#39;(s) = \text{arg}\max_a q_{\pi}(s,a)
-                    \]</span> i.e, <span class="math inline">\(\pi&#39;(s)\)</span> should
-                be whichever <span class="math inline">\(a\)</span> gets the maximum
-                reward. We can also write it as: <span class="math display">\[
-                    \pi&#39;(s) = \text{arg}\max_a \sum_{s&#39;,r}p(s&#39;,r|s,a)[r+\gamma
-                    v_{\pi}(s)]
-                    \]</span> This is <strong>one-step lookahead</strong></p>
-            <h3 id="policy-iteration">Policy Iteration</h3>
-            <p>Policy iteration consists of two steps - <strong>Policy
-                    Evaluation</strong>, followed by <strong>Policy Improvement</strong>.
-                Both of these are done over and over again till convergence.</p>
-            <figure>
-                <img src="../images/obs/policy-iteration.png" alt="Policy Iteration" />
-                <figcaption aria-hidden="true">Policy Iteration</figcaption>
-            </figure>
-            <p><span class="math inline">\(E\)</span> represent policy evaluation.
-                <span class="math inline">\(I\)</span> represents policy
-                improvement.
-            </p>
-            <h3 id="value-iteration">Value Iteration</h3>
-            <ul>
-                <li>Combines Bellman optimality with Policy Iteration</li>
-                <li>Instead of summing over expectation of all actions (as we did in
-                    policy iteration),we take the max of actions.</li>
-            </ul>
-            <p><strong><img src="../images/obs/image-20230924172236691.png" alt="Value Iteration" /></strong></p>
-            <ul>
-                <li>The output of this algorithm will be <span class="math inline">\(v_{\pi}\)</span>, but we don’t want
-                    that. We want
-                    the policy <span class="math inline">\(\pi\)</span>. We will use the
-                    same <span class="math inline">\(\text{arg}\max_a\)</span> method we
-                    used in policy improvement</li>
-            </ul>
-            <p>The algorithm is given below</p>
-            <figure>
-                <img src="../images/obs/value-iter-algo.png" alt="Value Iteration" />
-                <figcaption aria-hidden="true">Value Iteration</figcaption>
-            </figure>
-            <h3 id="asynchronous-dp">Asynchronous DP</h3>
-            <p>Asynchronous Dynamic Programming (ADP) in reinforcement learning is a
-                variant of dynamic programming that aims to improve the computational
-                efficiency of solving Markov Decision Processes (MDPs), which are
-                commonly used in reinforcement learning for modeling sequential
-                decision-making problems. ADP differs from traditional dynamic
-                programming approaches in the following ways:</p>
-            <ol type="1">
-                <li>
-                    <p><strong>Parallelism</strong>: In traditional dynamic programming,
-                        computations are performed sequentially, which can be computationally
-                        expensive for large MDPs. In contrast, ADP employs parallelism to speed
-                        up the process. It allows multiple updates to the value function or
-                        policy to occur concurrently, taking advantage of modern multi-core
-                        processors or distributed computing environments.</p>
-                </li>
-                <li>
-                    <p><strong>Asynchronous Updates</strong>: In ADP, updates to the
-                        value function or policy do not follow a strict, synchronous pattern as
-                        in traditional dynamic programming. Instead, updates occur
-                        asynchronously, meaning that different parts of the state or action
-                        space are updated independently and possibly at different times. This
-                        asynchrony can lead to faster convergence because the algorithm focuses
-                        on states or actions that require immediate attention.</p>
-                </li>
-                <li>
-                    <p><strong>Prioritization</strong>: ADP methods often prioritize
-                        state or action updates based on their importance or relevance to the
-                        learning process. States or actions with higher estimation errors or
-                        greater potential for learning are updated more frequently than others.
-                        This prioritization helps allocate computational resources effectively,
-                        which is especially useful in scenarios with large state or action
-                        spaces.</p>
-                </li>
-                <li>
-                    <p><strong>Online and Offline Variants</strong>: ADP can be
-                        implemented in both online and offline settings. In online ADP, updates
-                        are made as the agent interacts with the environment, allowing for
-                        real-time learning. In offline ADP, the agent learns from pre-collected
-                        data, making it suitable for batch learning.</p>
-                </li>
-                <li>
-                    <p><strong>Sample Efficiency</strong>: ADP methods often focus on
-                        improving sample efficiency, which means achieving good learning
-                        performance with fewer interactions with the environment. This is
-                        crucial in applications where collecting data is costly or
-                        time-consuming.</p>
-                </li>
-            </ol>
-            <p>Asynchronous methods, such as Asynchronous Advantage Actor-Critic
-                (A3C) and asynchronous variants of Q-learning, can be valuable for
-                addressing exploration challenges in reinforcement learning,
-                particularly in domains with large state or action spaces. Here’s how
-                asynchronous methods can help:</p>
-            <ol type="1">
-                <li>
-                    <p><strong>Exploration Efficiency</strong>: Asynchronous methods can
-                        explore the environment more efficiently than their synchronous
-                        counterparts. In A3C, for example, multiple agents (threads) explore the
-                        environment concurrently. Each agent interacts with the environment
-                        independently, increasing the diversity of experiences and improving the
-                        chances of discovering optimal or near-optimal policies.</p>
-                </li>
-                <li>
-                    <p><strong>Faster Exploration</strong>: In large state or action
-                        spaces, it can take a long time for a single agent to explore and
-                        discover the best actions. Asynchronous methods enable multiple agents
-                        to explore different parts of the state or action space simultaneously,
-                        accelerating the exploration process and reducing the risk of getting
-                        stuck in suboptimal solutions.</p>
-                </li>
-                <li>
-                    <p><strong>Exploration Strategies</strong>: Asynchronous methods can
-                        implement different exploration strategies for each agent. Some agents
-                        may prioritize exploration (e.g., using epsilon-greedy exploration),
-                        while others may focus on exploiting the current knowledge (e.g.,
-                        following a policy). This diversity in strategies can improve
-                        exploration and learning in complex environments.</p>
-                </li>
-                <li>
-                    <p><strong>Experience Sharing</strong>: Agents in asynchronous
-                        methods can share their experiences with each other. This sharing of
-                        experiences allows the network to learn from a broader range of data and
-                        can help in generalizing across different parts of the state
-                        space.</p>
-                </li>
-                <li>
-                    <p><strong>Parallelism</strong>: Parallelism in asynchronous methods
-                        enables the collection of more data in a shorter time, which can be
-                        especially important when exploration is costly, risky, or
-                        time-consuming. This increased data throughput can lead to faster
-                        learning and better exploration.</p>
-                </li>
-                <li>
-                    <p><strong>Asynchronous Prioritization</strong>: Some asynchronous
-                        methods, like Prioritized Experience Replay, prioritize experiences
-                        based on their potential for learning. This prioritization ensures that
-                        the most informative experiences are replayed more frequently, aiding
-                        exploration by focusing on critical areas of the state or action
-                        space.</p>
-                </li>
-            </ol>
-            <h3 id="generalized-policy-iteration">Generalized Policy Iteration</h3>
-            <ul>
-                <li>Policy iteration consists of 2 processes - policy evaluation and
-                    policy improvement</li>
-                <li>In policy iteration, these 2 alternate. In value iteration, only a
-                    single iteration of evaluation is done before improvement. In async DP,
-                    they can occur simultaneously.</li>
-            </ul>
-            <p><strong>Generalized Policy Iteration (GPI)</strong> is the idea of
-                letting policy-eval and policy-improvement processes interact ,
-                independent of the details of the two processes. Almost all RL methods
-                can be described as a GPI.</p>
-            <ul>
-                <li>The policy should always be being driven towards a greedy value
-                    function.</li>
-                <li>The value function should always be being driven towards the
-                    policy.</li>
-                <li>This should occur until they both converge.</li>
-            </ul>
-            <figure>
-                <img src="../images/obs/gpi.png" alt="GPI" />
-                <figcaption aria-hidden="true">GPI</figcaption>
-            </figure>
-            <blockquote>
-                <p>The evaluation and improvement processes in GPI can be viewed as both
-                    competing and cooperating. They compete in the sense that they pull in
-                    opposing directions. Making the policy greedy with respect to the value
-                    function typically makes the value function incorrect for the changed
-                    policy, and making the value function consistent with the policy
-                    typically causes that policy no longer to be greedy. In the long run,
-                    however, these two processes interact to find a single joint solution:
-                    the optimal value function and an optimal policy.</p>
-            </blockquote>
-            <figure>
-                <img src="../images/obs/gpi-2.png" alt="GPI" />
-                <figcaption aria-hidden="true">GPI</figcaption>
-            </figure>
-        </div>
-    </div>
-</body>
-
+<header id="title-block-header">
+<h1 class="title">Reinforcement Learning</h1>
+<p class="author">Satvik Gupta</p>
+</header><div id="container">
+<nav id="TOC" role="doc-toc"><div class="pdf_link_container"><a class="pdf_link" href="/notes/pdfs/RL.pdf">Download as PDF</a></div>
+<ul>
+<li><a href="#reinforcement-learning"
+id="toc-reinforcement-learning">Reinforcement Learning</a>
+<ul>
+<li><a href="#exploration-vs-exploitation"
+id="toc-exploration-vs-exploitation">Exploration vs
+Exploitation</a></li>
+<li><a href="#elements-of-reinforcement-learning"
+id="toc-elements-of-reinforcement-learning">Elements of Reinforcement
+Learning</a>
+<ul>
+<li><a href="#policy" id="toc-policy">Policy</a></li>
+<li><a href="#reward-signal" id="toc-reward-signal">Reward
+Signal</a></li>
+<li><a href="#value-function" id="toc-value-function">Value
+Function</a></li>
+<li><a href="#model-of-environment" id="toc-model-of-environment">Model
+of Environment</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#k-armed-bandit" id="toc-k-armed-bandit">k-Armed Bandit</a>
+<ul>
+<li><a href="#incremental-updates"
+id="toc-incremental-updates">Incremental Updates</a></li>
+<li><a href="#non-stationary-problems"
+id="toc-non-stationary-problems">Non-stationary problems</a></li>
+<li><a href="#optimal-initial-values"
+id="toc-optimal-initial-values">Optimal Initial Values</a></li>
+<li><a href="#gradient-bandit-algorithms"
+id="toc-gradient-bandit-algorithms">Gradient Bandit Algorithms</a></li>
+</ul></li>
+<li><a href="#markov-decision-process-mdp"
+id="toc-markov-decision-process-mdp">Markov Decision Process (MDP)</a>
+<ul>
+<li><a href="#policy-and-value-functions"
+id="toc-policy-and-value-functions">Policy and Value Functions</a>
+<ul>
+<li><a href="#state-value-function"
+id="toc-state-value-function">State-Value Function</a></li>
+<li><a href="#action-value-function"
+id="toc-action-value-function">Action-Value Function</a></li>
+</ul></li>
+<li><a href="#bellman-equations" id="toc-bellman-equations">Bellman
+Equations</a>
+<ul>
+<li><a href="#bellman-equation-state-value-fn"
+id="toc-bellman-equation-state-value-fn">Bellman Equation for <span
+class="math inline">\(v_{\pi}\)</span></a></li>
+<li><a href="#bellman-equation-for-q_pi"
+id="toc-bellman-equation-for-q_pi">Bellman Equation for <span
+class="math inline">\(q_{\pi}\)</span></a></li>
+</ul></li>
+<li><a href="#optimal-policies-and-optimal-value-functions"
+id="toc-optimal-policies-and-optimal-value-functions">Optimal Policies
+and Optimal Value Functions</a>
+<ul>
+<li><a href="#bellman-optimality-equations"
+id="toc-bellman-optimality-equations">Bellman Optimality
+Equations</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dynamic-programming" id="toc-dynamic-programming">Dynamic
+Programming</a>
+<ul>
+<li><a href="#policy-evaluation" id="toc-policy-evaluation">Policy
+Evaluation</a></li>
+<li><a href="#policy-improvement" id="toc-policy-improvement">Policy
+Improvement</a></li>
+<li><a href="#policy-iteration" id="toc-policy-iteration">Policy
+Iteration</a></li>
+<li><a href="#value-iteration" id="toc-value-iteration">Value
+Iteration</a></li>
+<li><a href="#asynchronous-dp" id="toc-asynchronous-dp">Asynchronous
+DP</a></li>
+<li><a href="#generalized-policy-iteration"
+id="toc-generalized-policy-iteration">Generalized Policy
+Iteration</a></li>
+</ul></li>
+</ul>
+</nav><div id="data">
+<h2 id="reinforcement-learning">Reinforcement Learning</h2>
+<p>The main idea is that we learn by interacting with our environment.
+RL tries to map situations to action. The agent’s goal is to maximise a
+<em>reward</em>. We don’t tell the agent which action to take, or even
+which action has higher reward (beyond an estimate). The agent must try
+different actions on its own and <strong>learn.</strong></p>
+<p>RL involves interaction between an active decision-making agent, and
+ts environment. The agent is always trying to seek a goal (or mazximize
+reward), even thought the environment is <em>uncertain.</em></p>
+<h4 id="exploration-vs-exploitation">Exploration vs Exploitation</h4>
+<p>Exploration is any action that lets the agent discover new features
+about the environment, while exploitation means capitalizing on the
+information we have already learned.</p>
+<p>If the agent continues to exploit only past experiences, it is likely
+to get stuck in a <strong>suboptimal policy.</strong></p>
+<p>On the other hand, if it continues to explore without exploiting, it
+<strong>might never find a good policy.</strong></p>
+<h3 id="elements-of-reinforcement-learning">Elements of Reinforcement
+Learning</h3>
+<ol type="1">
+<li>Policy</li>
+<li>Reward Signal</li>
+<li>Value Function</li>
+<li>Model of the environment</li>
+</ol>
+<h4 id="policy">Policy</h4>
+<p>Policy is how the agent behaves. It is a mapping of state to action,
+i.e, it tells the agent what action to perform, based on the state of
+the environment.</p>
+<h4 id="reward-signal">Reward Signal</h4>
+<p>Reward signal is the goal of the RL agent. Whenever the agent takes
+an action, the environment gives it a <em>reward</em>. The agent’s goal
+is to maximize its <strong>long term reward</strong>.</p>
+<p>Reward signal is the basis through which we change the policy. If the
+policy told us to do an action <em>x</em>, but that action resulted in a
+low (or negative) reward, then we may change the policy not to suggest
+<em>x</em> in that situation.</p>
+<p>Reward may be a function of the state and the action taken.</p>
+<h4 id="value-function">Value Function</h4>
+<p>Reward signal gives us the immediate reward. Value function tells us
+the long term reward of a particular state. The <em>value</em> of a
+state is the total amount of reward an agent can accumulate in the
+future, if it <strong>starts</strong> at that state.</p>
+<h4 id="model-of-environment">Model of Environment</h4>
+<p>Mimics the behavior of the environment. It lets the agent guess how
+the environment will react to a particular action. Using the model, the
+agent can predict the reward and next state, if it takes action
+<em>x</em> from its current state. Models are used for planning - i.e,
+the agent uses the model to consider many future situations before it
+actually experiences them.</p>
+<p>Models are optional - not all RL agents will use a model. Those using
+a model are called <strong>model-based</strong>, and those without
+models are called <strong>model-free</strong>. Model-free methods are
+trial-and-error.</p>
+<h2 id="k-armed-bandit">k-Armed Bandit</h2>
+<ul>
+<li>We repeatedly get a choice among <span
+class="math inline">\(k\)</span> actions.</li>
+<li>After each choice we get a reward, that depends on the action.</li>
+<li>We repeat this <span class="math inline">\(time\;steps\)</span>
+times.</li>
+<li>We don’t know action values for certain. We may have estimates.</li>
+</ul>
+<p><strong>At time <span class="math inline">\(t\)</span></strong>,</p>
+<ul>
+<li><strong>Action selected</strong> – <span
+class="math inline">\(A_t\)</span></li>
+<li><strong>Reward received</strong> – <span
+class="math inline">\(R_t\)</span></li>
+<li><strong>Value for action <span
+class="math inline">\(a\)</span></strong> – <span
+class="math inline">\(q_*(a)\)</span> = expected reward given that <span
+class="math inline">\(a\)</span> is selected.</li>
+</ul>
+<p><span class="math display">\[
+q_*(a) = \mathbb{E}[R_T| A_t=a]
+\]</span></p>
+<ul>
+<li><strong>Estimated value of action <span
+class="math inline">\(a\)</span> </strong> – <span
+class="math inline">\(Q_t(a)\)</span></li>
+</ul>
+<p>Ideally, <span class="math inline">\(Q_t(a)\)</span> should be as
+close to <span class="math inline">\(q_*(a)\)</span> as possible.</p>
+<p><strong>Greedy approach </strong> - always take the action with the
+highest <span class="math inline">\(Q\)</span> value.</p>
+<p><strong><span class="math inline">\(\epsilon\)</span>-greedy
+approach</strong> - At each step, with probability <span
+class="math inline">\(\epsilon\)</span> take a non-greedy action, i.e,
+take the action which does NOT have the highest estimated value.</p>
+<blockquote>
+<p>Methods that estimate the value of actions, and then use those
+estimates to choose which action to perform, are called
+<strong>action-value methods</strong></p>
+</blockquote>
+<p>A way to estimate <span class="math inline">\(Q_t(a)\)</span> is to
+average all the actual rewards received. This is the
+<strong>sample-average</strong> method</p>
+<figure>
+<img src="../images/obs/rl_qt" alt="Estimation of Q_t" />
+<figcaption aria-hidden="true">Estimation of <span
+class="math inline">\(Q_t\)</span></figcaption>
+</figure>
+<p><span class="math inline">\(1_{predicate}\)</span> represents a
+random variable that is 1 when <span
+class="math inline">\(predicate\)</span> is true, and 0 when it’s
+false.</p>
+<p>If denominator is 0, we can define <span
+class="math inline">\(Q_t(a)\)</span> as some fixed value, such as
+0.</p>
+<h4 id="incremental-updates">Incremental Updates</h4>
+<p><span class="math display">\[
+Q_n = \frac{1}{n-1}\sum_{i=1}^{n-1}R_i
+\]</span></p>
+<p>Instead of storing all the <span class="math inline">\(R_i\)</span>
+values, we use incremental updating. The above formula can easily be
+reduced to : <span class="math display">\[
+Q_{n+1} = Q_n + \frac{1}{n}[R_n-Q_n]
+\]</span> This is a frequently occurring format in RL. General form:
+<span class="math display">\[
+NewEstimate \leftarrow OldEstimate + StepSize[Target-OldEstimate]
+\]</span> <span class="math inline">\(StepSize\)</span> is sometimes
+denoted by <span class="math inline">\(\alpha\)</span> or <span
+class="math inline">\(\alpha_t(a)\)</span></p>
+<h4 id="non-stationary-problems">Non-stationary problems</h4>
+<p>Rewards may change during the course of the problem. These problems
+are called non-stationary. Incremental updating will not work for those.
+In these cases, we attach more weight to more recent rewards than
+rewards received a long time ago. For e.g, if a particular action gave
+us reward of 1 during the starting of the problem, but more recently
+it’s been giving us reward of 10, our estimated reward of it should lean
+more towards 10.</p>
+<p>We do this by fixing the value of <span
+class="math inline">\(\alpha\)</span> , instead of above where it
+changed according to <span class="math inline">\(n\)</span>.</p>
+<p><span class="math display">\[
+Q_{n+1} = Q_n + \alpha[R_n-Q_n]
+\]</span></p>
+<p>where <span class="math inline">\(\alpha \in(0,1]\)</span> is
+constant. <span class="math inline">\(Q_{n+1}\)</span> becomes a
+weighted average of all past rewards and the initial estimate <span
+class="math inline">\(Q_{1}\)</span></p>
+<p><span class="math display">\[Q_{n+1} = Q_n +
+\alpha[R_n-Q_n]\]</span></p>
+<p>Recursing the formula, we get <span class="math display">\[
+Q_{n+1} = (1-\alpha)^nQ_1 + \sum_{i=1}^{n} \alpha(1-\alpha)^{n-i}R_i
+\]</span> Past rewards (with lower <span
+class="math inline">\(i\)</span>) are multiplied with higher powers of a
+number that’s less than 1, i.e, they get less weightage.</p>
+<blockquote>
+<p>This is called <strong>exponential recency-weighted
+average</strong></p>
+</blockquote>
+<h4 id="optimal-initial-values">Optimal Initial Values</h4>
+<ul>
+<li>Instead of setting all initial <span
+class="math inline">\(Q\)</span> as 0, we can set them to an
+optimistically high value. This promotes exploration.</li>
+<li>In the 10-armed testbed, we chose <span
+class="math inline">\(q_*(a)\)</span> values from a distribution with
+mean 0 and variance 1. If we set initial <span
+class="math inline">\(Q\)</span> as +5, this is very optimistic.
+Whatever the agent will do, it will always get a reward less than 5.
+Thus, it will try out other actions, which still have a estimated value
+of 5.</li>
+<li>All actions will be tried several times before the <span
+class="math inline">\(Q\)</span> values converge.</li>
+<li>Optimistic greedy (with <span
+class="math inline">\(\epsilon=0\)</span>) can even perform better than
+realistic (<span class="math inline">\(Q=0\)</span>) <span
+class="math inline">\(\epsilon\)</span>-greedy.</li>
+<li>Not suited to non-stationary problem, since it only promotes
+exploration temporarily (during the start). If rewards keep changing, it
+cannot do anything at a later stage in the problem.</li>
+<li>More like a simple trick instead of a very useful method.</li>
+</ul>
+<h4 id="gradient-bandit-algorithms">Gradient Bandit Algorithms</h4>
+<ul>
+<li>Instead of estimated values, each action is given a
+<em>preference</em> <span class="math inline">\(H_t(a)\)</span>. Larger
+preference means the action is more likely to be selected, but
+preference cannot be interpreted in terms of reward. Only relative
+preference of actions is important.</li>
+</ul>
+<p><span class="math display">\[
+Pr\{A_t=a\}=\pi_t(a)=\frac{e^{H_t(a)}}{\sum_{b=1}^ke^{H_t(b)}}
+\]</span></p>
+<p><span class="math inline">\(\pi_t(a)\)</span> represents the
+probability of taking an action <span class="math inline">\(a\)</span>
+at time <span class="math inline">\(t\)</span>. Initially, <span
+class="math inline">\(H=0\)</span> (or some other constant) for all
+<span class="math inline">\(a\)</span></p>
+<p>On each step, after selecting <span
+class="math inline">\({A_t}\)</span> and receiving reward <span
+class="math inline">\(R_t\)</span>,we update action preferences by:
+<span class="math display">\[
+H_{t+1}(A_t)=H_t(A_t)+\alpha(R_t-\bar{R_t})(1-\pi_t(A_t))
+\]</span> and <span class="math display">\[
+H_{t+1}(a)=H_t(a)-\alpha(R_t-\bar{R_t})\pi_t(a)
+\]</span> for all <span class="math inline">\(a \ne A_t\)</span></p>
+<p><span class="math inline">\(\bar{R_t}\)</span> is the average of all
+rewards received until (and including) time-step <span
+class="math inline">\(t\)</span>. If the reward received in current step
+is higher than the average, the preference for <span
+class="math inline">\(A_t\)</span> goes up, otherwise it goes down.</p>
+<h2 id="markov-decision-process-mdp">Markov Decision Process (MDP)</h2>
+<ul>
+<li>At each state <span class="math inline">\(S_t\)</span> , the agent
+will perform an action <span class="math inline">\(A_t\)</span>, for
+which it will receive a reward <span
+class="math inline">\(R_{t+1}\)</span> and find itself in the next state
+(<span class="math inline">\(S_{t+1}\)</span>)</li>
+<li>In finite MDPs, set of states, actions, rewards all have a finite
+number of values. So, we can define probability values for all states
+and actions, i.e</li>
+</ul>
+<p><span class="math display">\[
+p(s&#39;,r | s,a) = Pr\{S_t=s&#39;,R_t=r | S_{t-1},A_{t-1}=a\}
+\]</span></p>
+<p><span class="math inline">\(p\)</span> defines the probability of
+receiving reward <span class="math inline">\(r\)</span> and getting to a
+new state <span class="math inline">\(s&#39;\)</span>, by performing
+action <span class="math inline">\(a\)</span> on a previous state <span
+class="math inline">\(s\)</span>.</p>
+<ul>
+<li><p>Sum of <span class="math inline">\(p\)</span> for all <span
+class="math inline">\(s&#39;\)</span> and <span
+class="math inline">\(r\)</span> is 1.</p></li>
+<li><p>In MARKOV processes, the current state and action is enough to
+completely characterize the environment. I.e, the reward received and
+next state only depend on the current state and action performed, not on
+any previous state.</p>
+<ul>
+<li>The state must include all information about the past that can make
+a difference to the agent’s decision making in the future.</li>
+<li>Such states are said to possess the <strong>Markov
+Property</strong></li>
+</ul></li>
+</ul>
+<h3 id="policy-and-value-functions">Policy and Value Functions</h3>
+<h4 id="state-value-function">State-Value Function</h4>
+<ul>
+<li>Expected return when starting in <span
+class="math inline">\(s\)</span>, and following a policy <span
+class="math inline">\(\pi\)</span> .</li>
+</ul>
+<figure>
+<img src="../images/obs/state-value-function.png"
+alt="State-Value Function Equation" />
+<figcaption aria-hidden="true">State-Value Function
+Equation</figcaption>
+</figure>
+<h4 id="action-value-function">Action-Value Function</h4>
+<ul>
+<li>Expected return when taking action <span
+class="math inline">\(a\)</span> in state <span
+class="math inline">\(s\)</span>, and following policy <span
+class="math inline">\(\pi\)</span>.</li>
+</ul>
+<figure>
+<img src="../images/obs/action-value-function.png"
+alt="Action-Value Function Equation" />
+<figcaption aria-hidden="true">Action-Value Function
+Equation</figcaption>
+</figure>
+<h3 id="bellman-equations">Bellman Equations</h3>
+<p>We can see that, <span class="math display">\[
+v_{\pi}(s) = \sum_a \pi(a|s)q_{\pi}(s,a)
+\]</span></p>
+<p><span class="math display">\[
+q_{\pi}(s,a) = \sum_{s&#39;,r} p(s&#39;,r|s,a)(r+\gamma v_{\pi}(s&#39;))
+\]</span></p>
+<p>Combining these two equations, we get</p>
+<h4 id="bellman-equation-state-value-fn">Bellman Equation for <span
+class="math inline">\(v_{\pi}\)</span></h4>
+<p><span class="math display">\[
+v_{\pi}(s) = \sum_a \pi(a|s)\sum_{s&#39;,r} p(s&#39;,r|s,a)(r+\gamma
+v_{\pi}(s&#39;))
+\]</span></p>
+<p>(Note that the 2 summations are <strong>NOT</strong> independent of
+each other.)</p>
+<h4 id="bellman-equation-for-q_pi">Bellman Equation for <span
+class="math inline">\(q_{\pi}\)</span></h4>
+<p><span class="math display">\[
+q   _{\pi}(s,a) = \sum_{s&#39;,r} p(s&#39;,r|s,a)(r+\gamma\sum_{a&#39;}
+\pi(a&#39;|s&#39;)q_{\pi}(s&#39;,a&#39;))
+\]</span></p>
+<h3 id="optimal-policies-and-optimal-value-functions">Optimal Policies
+and Optimal Value Functions</h3>
+<ul>
+<li>A policy is optimal if it gives better return than all other
+policies, for all states.
+<ul>
+<li>i.e <span class="math inline">\(\pi \ge \pi &#39;\)</span> if and
+only if <span class="math inline">\(v_{\pi}(s) \ge v_{\pi &#39;}(s)
+\forall s\)</span></li>
+</ul></li>
+<li>An optimal policy, that is better or as good as all other policies,
+always exists.</li>
+<li>Such policies (there may be more than one) are denoted by <span
+class="math inline">\(\pi_*\)</span></li>
+<li>All optimal policies have the same state-value function <span
+class="math inline">\(v_*\)</span>. It is defined as:</li>
+</ul>
+<p><span class="math display">\[
+v_*(s) = \max_{\pi}v_{\pi}(s), \forall s
+\]</span></p>
+<ul>
+<li>They also share the same optimal action-value function <span
+class="math inline">\(q_*\)</span></li>
+</ul>
+<p><span class="math display">\[
+q_*(s,a) = \max_{\pi}q_{\pi}(s,a), \forall s,a
+\]</span></p>
+<h4 id="bellman-optimality-equations">Bellman Optimality Equations</h4>
+<p>Intuitively, the best value of a state is equal to the expected
+return of the best action from that state. I.e,</p>
+<p><span class="math display">\[
+v_*(s) = \max_{a}q_{\pi_*}(s,a)
+\]</span> Expanding and using the recursive formula, we get</p>
+<h5 id="bellman-optimality-equation-for-v_">Bellman Optimality Equation
+for <span class="math inline">\(v_*\)</span></h5>
+<p><span class="math display">\[
+v_*(s)= \max_a \sum_{s&#39;,r}p(s&#39;,r|s,a)[r+\gamma v_*(s&#39;)]
+\]</span></p>
+<h5 id="bellman-optimality-equation-for-q_">Bellman Optimality Equation
+for <span class="math inline">\(q_*\)</span></h5>
+<p><span class="math display">\[
+q_*(s)=  \sum_{s&#39;,r}p(s&#39;,r|s,a)[r+\gamma
+\max_{a&#39;}q_*(s&#39;,a&#39;))]
+\]</span></p>
+<h2 id="dynamic-programming">Dynamic Programming</h2>
+<p>Using old values to compute new values. That’s it.</p>
+<h3 id="policy-evaluation">Policy Evaluation</h3>
+<ul>
+<li>Initialize a random state-value function <span
+class="math inline">\(v_0\)</span>. Terminal state must be given value
+0.</li>
+<li>Each successive approximation is obtained by the <a
+href="#bellman-equation-state-value-fn">Bellman Equation for <span
+class="math inline">\(v_{\pi}\)</span></a></li>
+</ul>
+<figure>
+<img src="../images/obs/policy-evaluation-rl.png"
+alt="Iterative Policy Evaluation" />
+<figcaption aria-hidden="true">Iterative Policy Evaluation</figcaption>
+</figure>
+<p>The algorithm is as follows:</p>
+<figure>
+<img src="../images/obs/policy-evaluation-algo-rl.png"
+alt="Iterative Policy Evaluation Algorithm" />
+<figcaption aria-hidden="true">Iterative Policy Evaluation
+Algorithm</figcaption>
+</figure>
+<p>This will always converge, given that the policy <span
+class="math inline">\(\pi\)</span> is proper, i.e, we can reach a
+terminal state from any state.</p>
+<h3 id="policy-improvement">Policy Improvement</h3>
+<p>We calculated a new <span class="math inline">\(v_{\pi}\)</span>
+using policy evaluation. Now we want to see if we should change the
+policy as well. For e.g, if at state <span
+class="math inline">\(x\)</span> we were taking action <span
+class="math inline">\(a\)</span> because it led to state <span
+class="math inline">\(y\)</span>. Earlier , <span
+class="math inline">\(v_{\pi}(y)=5\)</span>, but after evaluation it’s
+value has dropped to <span class="math inline">\(3\)</span>. So should
+we still take action <span class="math inline">\(a\)</span>, or should
+we change it to something else?</p>
+<p>A simple update rule is: <span class="math display">\[
+\pi&#39;(s) = \text{arg}\max_a q_{\pi}(s,a)
+\]</span> i.e, <span class="math inline">\(\pi&#39;(s)\)</span> should
+be whichever <span class="math inline">\(a\)</span> gets the maximum
+reward. We can also write it as: <span class="math display">\[
+\pi&#39;(s) = \text{arg}\max_a \sum_{s&#39;,r}p(s&#39;,r|s,a)[r+\gamma
+v_{\pi}(s)]
+\]</span> This is <strong>one-step lookahead</strong></p>
+<h3 id="policy-iteration">Policy Iteration</h3>
+<p>Policy iteration consists of two steps - <strong>Policy
+Evaluation</strong>, followed by <strong>Policy Improvement</strong>.
+Both of these are done over and over again till convergence.</p>
+<figure>
+<img src="../images/obs/policy-iteration.png" alt="Policy Iteration" />
+<figcaption aria-hidden="true">Policy Iteration</figcaption>
+</figure>
+<p><span class="math inline">\(E\)</span> represent policy evaluation.
+<span class="math inline">\(I\)</span> represents policy
+improvement.</p>
+<h3 id="value-iteration">Value Iteration</h3>
+<ul>
+<li>Combines Bellman optimality with Policy Iteration</li>
+<li>Instead of summing over expectation of all actions (as we did in
+policy iteration),we take the max of actions.</li>
+</ul>
+<p><strong><img src="../images/obs/image-20230924172236691.png"
+alt="Value Iteration" /></strong></p>
+<ul>
+<li>The output of this algorithm will be <span
+class="math inline">\(v_{\pi}\)</span>, but we don’t want that. We want
+the policy <span class="math inline">\(\pi\)</span>. We will use the
+same <span class="math inline">\(\text{arg}\max_a\)</span> method we
+used in policy improvement</li>
+</ul>
+<p>The algorithm is given below</p>
+<figure>
+<img src="../images/obs/value-iter-algo.png" alt="Value Iteration" />
+<figcaption aria-hidden="true">Value Iteration</figcaption>
+</figure>
+<h3 id="asynchronous-dp">Asynchronous DP</h3>
+<p>Asynchronous Dynamic Programming (ADP) in reinforcement learning is a
+variant of dynamic programming that aims to improve the computational
+efficiency of solving Markov Decision Processes (MDPs), which are
+commonly used in reinforcement learning for modeling sequential
+decision-making problems. ADP differs from traditional dynamic
+programming approaches in the following ways:</p>
+<ol type="1">
+<li><p><strong>Parallelism</strong>: In traditional dynamic programming,
+computations are performed sequentially, which can be computationally
+expensive for large MDPs. In contrast, ADP employs parallelism to speed
+up the process. It allows multiple updates to the value function or
+policy to occur concurrently, taking advantage of modern multi-core
+processors or distributed computing environments.</p></li>
+<li><p><strong>Asynchronous Updates</strong>: In ADP, updates to the
+value function or policy do not follow a strict, synchronous pattern as
+in traditional dynamic programming. Instead, updates occur
+asynchronously, meaning that different parts of the state or action
+space are updated independently and possibly at different times. This
+asynchrony can lead to faster convergence because the algorithm focuses
+on states or actions that require immediate attention.</p></li>
+<li><p><strong>Prioritization</strong>: ADP methods often prioritize
+state or action updates based on their importance or relevance to the
+learning process. States or actions with higher estimation errors or
+greater potential for learning are updated more frequently than others.
+This prioritization helps allocate computational resources effectively,
+which is especially useful in scenarios with large state or action
+spaces.</p></li>
+<li><p><strong>Online and Offline Variants</strong>: ADP can be
+implemented in both online and offline settings. In online ADP, updates
+are made as the agent interacts with the environment, allowing for
+real-time learning. In offline ADP, the agent learns from pre-collected
+data, making it suitable for batch learning.</p></li>
+<li><p><strong>Sample Efficiency</strong>: ADP methods often focus on
+improving sample efficiency, which means achieving good learning
+performance with fewer interactions with the environment. This is
+crucial in applications where collecting data is costly or
+time-consuming.</p></li>
+</ol>
+<p>Asynchronous methods, such as Asynchronous Advantage Actor-Critic
+(A3C) and asynchronous variants of Q-learning, can be valuable for
+addressing exploration challenges in reinforcement learning,
+particularly in domains with large state or action spaces. Here’s how
+asynchronous methods can help:</p>
+<ol type="1">
+<li><p><strong>Exploration Efficiency</strong>: Asynchronous methods can
+explore the environment more efficiently than their synchronous
+counterparts. In A3C, for example, multiple agents (threads) explore the
+environment concurrently. Each agent interacts with the environment
+independently, increasing the diversity of experiences and improving the
+chances of discovering optimal or near-optimal policies.</p></li>
+<li><p><strong>Faster Exploration</strong>: In large state or action
+spaces, it can take a long time for a single agent to explore and
+discover the best actions. Asynchronous methods enable multiple agents
+to explore different parts of the state or action space simultaneously,
+accelerating the exploration process and reducing the risk of getting
+stuck in suboptimal solutions.</p></li>
+<li><p><strong>Exploration Strategies</strong>: Asynchronous methods can
+implement different exploration strategies for each agent. Some agents
+may prioritize exploration (e.g., using epsilon-greedy exploration),
+while others may focus on exploiting the current knowledge (e.g.,
+following a policy). This diversity in strategies can improve
+exploration and learning in complex environments.</p></li>
+<li><p><strong>Experience Sharing</strong>: Agents in asynchronous
+methods can share their experiences with each other. This sharing of
+experiences allows the network to learn from a broader range of data and
+can help in generalizing across different parts of the state
+space.</p></li>
+<li><p><strong>Parallelism</strong>: Parallelism in asynchronous methods
+enables the collection of more data in a shorter time, which can be
+especially important when exploration is costly, risky, or
+time-consuming. This increased data throughput can lead to faster
+learning and better exploration.</p></li>
+<li><p><strong>Asynchronous Prioritization</strong>: Some asynchronous
+methods, like Prioritized Experience Replay, prioritize experiences
+based on their potential for learning. This prioritization ensures that
+the most informative experiences are replayed more frequently, aiding
+exploration by focusing on critical areas of the state or action
+space.</p></li>
+</ol>
+<h3 id="generalized-policy-iteration">Generalized Policy Iteration</h3>
+<ul>
+<li>Policy iteration consists of 2 processes - policy evaluation and
+policy improvement</li>
+<li>In policy iteration, these 2 alternate. In value iteration, only a
+single iteration of evaluation is done before improvement. In async DP,
+they can occur simultaneously.</li>
+</ul>
+<p><strong>Generalized Policy Iteration (GPI)</strong> is the idea of
+letting policy-eval and policy-improvement processes interact ,
+independent of the details of the two processes. Almost all RL methods
+can be described as a GPI.</p>
+<ul>
+<li>The policy should always be being driven towards a greedy value
+function.</li>
+<li>The value function should always be being driven towards the
+policy.</li>
+<li>This should occur until they both converge.</li>
+</ul>
+<figure>
+<img src="../images/obs/gpi.png" alt="GPI" />
+<figcaption aria-hidden="true">GPI</figcaption>
+</figure>
+<blockquote>
+<p>The evaluation and improvement processes in GPI can be viewed as both
+competing and cooperating. They compete in the sense that they pull in
+opposing directions. Making the policy greedy with respect to the value
+function typically makes the value function incorrect for the changed
+policy, and making the value function consistent with the policy
+typically causes that policy no longer to be greedy. In the long run,
+however, these two processes interact to find a single joint solution:
+the optimal value function and an optimal policy.</p>
+</blockquote>
+<figure>
+<img src="../images/obs/gpi-2.png" alt="GPI" />
+<figcaption aria-hidden="true">GPI</figcaption>
+</figure>
+</div></div></body>
 </html>

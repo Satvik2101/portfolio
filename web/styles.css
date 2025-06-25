@@ -3,7 +3,6 @@ body {
     color: #111;
     font-family: 'Courier New', monospace;
     margin: 0;
-    padding: 2rem;
     line-height: 1.6;
     max-width: 700px;
     margin: auto;
@@ -169,6 +168,10 @@ h2 {
 }
 
 
+.motd {
+    color: #979797;
+}
+
 body.cli .motd.cli-mode {
     display: inline;
 }
@@ -192,7 +195,7 @@ body.cli .motd.plain-mode {
 }
 
 .terminal-intro {
-    color: #444;
+    color: #979797;
 }
 
 body {

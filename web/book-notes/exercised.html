@@ -1,514 +1,738 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Satvik Gupta" />
-  <title>Exercised (Daniel Lieberman) Notes</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="author" content="Satvik Gupta" />
+    <title>Exercised (Daniel Lieberman) Notes</title>
+    <style>
+        code {
+            white-space: pre-wrap;
+        }
+
+        span.smallcaps {
+            font-variant: small-caps;
+        }
+
+        div.columns {
+            display: flex;
+            gap: min(4vw, 1.5em);
+        }
+
+        div.column {
+            flex: auto;
+            overflow-x: auto;
+        }
+
+        div.hanging-indent {
+            margin-left: 1.5em;
+            text-indent: -1.5em;
+        }
+
+        /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
-  <link rel="stylesheet" href="styles.css" />
-  <!--[if lt IE 9]>
+        ul.task-list[class] {
+            list-style: none;
+        }
+
+        ul.task-list li input[type="checkbox"] {
+            font-size: inherit;
+            width: 0.8em;
+            margin: 0 0.8em 0.2em -1.6em;
+            vertical-align: middle;
+        }
+
+        ul {
+            list-style: disc !important;
+        }
+
+        .display.math {
+            display: block;
+            text-align: center;
+            margin: 0.5rem auto;
+        }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+    <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WX57KF6HY8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WX57KF6HY8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-WX57KF6HY8');
-</script></head>
+        gtag('config', 'G-WX57KF6HY8');
+    </script>
+</head>
+
 <body>
-<header id="title-block-header">
-<h1 class="title">Exercised (Daniel Lieberman) Notes</h1>
-<p class="author">Satvik Gupta</p>
-</header>
-<h2 id="all-notes">All Notes</h2>
-<ul>
-<li><p>we never evolved to exercise.</p></li>
-<li><p>exercise today is most commonly defined as voluntary physical
-activity undertaken for the sake of health and fitness.</p></li>
-<li><p>[in the old days] no one ever ran or walked several miles just
-for health.</p></li>
-<li><p>how would I explain to a hunter-gatherer, a farmer in Pemja, or
-even my great-great-great-grandparents that I spend most of my days
-sitting in chairs and then compensate for my idleness by paying money to
-go to a gym to make myself sweaty, tired, and uncomfortable on a machine
-that forces me to struggle to stay in the same place?</p></li>
-<li><p>many of our beliefs and attitudes about exercise are myths. Chief
-among these myths is the notion that we are supposed to want to
-exercise.</p></li>
-<li><p>If exercise, as we are told, is really a “magic pill” that will
-cure or prevent most diseases, why are more people living longer than
-ever despite being more physically inactive than ever?</p></li>
-<li><p>nothing about the biology of exercise makes sense except in the
-light of evolution, and nothing about exercise as a behavior makes sense
-except in the light of anthropology.</p></li>
-<li><p>the myth of the athletic savage. The essential premise of this
-myth is that people like the Tarahumara whose bodies are untainted by
-modern decadent lifestyles are natural superathletes, not only capable
-of amazing physical feats, but also free from laziness. By contending
-that the men I observed running seventy miles</p></li>
-<li><p>without training do so naturally, this myth implies that people
-like you and me who neither can nor will accomplish such feats are, from
-an evolutionary perspective, abnormal because civilization has turned us
-into etiolated wimps. As you have probably divined, I object to the myth
-of the athletic savage. For one, it stereotypes and dehumanizes people
-such as the Tarahumara. Since that first trip when I spoke with Ernesto,
-I have talked with hundreds of Tarahumara all over the Sierra Tarahumara
-and can assure you no one there wakes up in the morning and thinks,
-“Gee, what a beautiful day. I think I’ll run fifty miles just for fun.”
-They don’t even go for needless five-mile runs. When I ask Tarahumara on
-what occasions they run, the most common answer is “when I chase goats.”
-Instead, I have come to appreciate that the Tarahumara are extremely
-hardworking, physically fit farmers who never do anything by half and
-whose culture deeply values running. The reason some Tarahumara run
-fifty or more miles on rare occasions is not much different from the
-reason Ironmen do triathlons: they think it is worth it. However,
-whereas Ironmen subject themselves to full triathlons to test their
-limits (Anything Is Possible!), Tarahumara run rarájiparis because it is
-a deeply spiritual ceremony that they consider a powerful form of
-prayer.</p></li>
-<li><p>The myth of the athletic savage mistakenly suggests that humans
-uncorrupted by civilization can easily run ultramarathons, scale
-enormous mountains, and perform other seemingly superhuman feats without
-training.</p></li>
-<li><p>In other words, the training that enables them to run
-back-to-back marathons is the physical work that is part and parcel of
-their everyday life.</p></li>
-<li><p>In other words, typical hunter-gatherers are about as physically
-active as Americans or Europeans who include about an hour of exercise
-in their daily routine.</p></li>
-<li><p>we walk less, drive more, and use countless energy-saving devices
-from shopping carts to elevators that whittle away, calorie by calorie,
-at how much physical activity we do. The problem, of course, is that
-physical activity helps slow aging and promotes fitness and health. So
-those of us who no longer engage in physical labor to survive must now
-weirdly choose to engage in unnecessary physical activity for the sake
-of health and fitness. In other words, exercise.</p></li>
-<li><p>First, while youngsters have always played and sports are a human
-universal, exercise outside the context of sports was extremely rare
-until relatively recently. Second, as recent technological and social
-developments have diminished industrialized people’s need to be
-physically active, a growing chorus of experts has never ceased to raise
-the alarm that we aren’t exercising enough.</p></li>
-<li><p>“there never was a time in the history of the world when the
-great mass of mankind could meet the simple exigencies of life with so
-little expenditure of time and energy as today,” and that “without solid
-physical education programs, people would become fat, deformed, and
-clumsy.”</p></li>
-<li><p>Just as we put wheels in cages for mice in labs, over the
-centuries we have invented a stunning variety of ways and means for our
-fellow humans to undertake optional physical activity for the sake of
-health and fitness.</p></li>
-<li><p>Unsurprisingly, exercise has become increasingly advertised as
-virtuous and has been commodified, commercialized, and industrialized.
-To use the weight machines, treadmills, ellipticals, and other
-contraptions in the gym around the corner from my house costs seventy
-dollars per month. When I head out for a morning run, I wear specialized
-running shoes, chafe-preventing shorts, a snazzy moisture-wicking shirt,
-a washable cap, and an expensive watch that connects to satellites
-overhead to track my speed and distance. Oscar Wilde once quipped, “I
-approve of any activity that requires the wearing of special clothing,”
-but I suspect even he would be shocked at the popularity of
-“athleisure”—workout clothes for everyday activities like sitting that
-help us look athletic without ever having to break a sweat. Worldwide,
-people spend trillions of dollars a year on fitness and
-sportswear.</p></li>
-<li><p>What would my distant hunter-gatherer ancestors have thought of
-paying lots of money to suffer through needless physical activity on an
-annoying machine that gets us nowhere and accomplishes nothing?</p></li>
-<li><p>MYTH #2 It Is Unnatural to Be Indolent</p></li>
-<li><p>To be more precise, we’d ask you to drink some very expensive,
-harmless water that contains a known quantity of rare (heavy) hydrogen
-and oxygen atoms and then collect samples of your urine over the next
-few days. This sounds like a creepy magic trick, but by measuring the
-rate at which these heavy atoms become less abundant in urine, we can
-calculate the rates at which both the hydrogen and the oxygen atoms
-leave the body from sweating, urinating, and breathing. Because hydrogen
-exits the body only in water but oxygen leaves in both water and carbon
-dioxide, the difference in the concentration of these two atoms in urine
-allows us to compute exactly how much carbon dioxide someone produced
-from breathing, hence how much energy he or she used.</p></li>
-<li><p>even if you are a highly active person, you probably spend more
-energy maintaining your body than doing stuff. Understandably, this fact
-seems counterintuitive. As I sit here writing these words, there is
-little visible evidence that every one of my body’s systems is working
-industriously to keep me alive apart from the fifteen to twenty gentle
-breaths I take every minute. Yet my heart is contracting sixty times a
-minute to pump blood to every corner of my body, my intestines are
-digesting my last meal, my liver and kidneys are regulating and
-filtering my blood, my fingernails are growing, my brain is processing
-these words, and countless other cells in every tissue of my body are
-busily replenishing themselves, repairing damage, fending off infection,
-and monitoring what’s going on.</p></li>
-<li><p>The key lesson to digest from the starving men’s dramatically
-lower resting metabolic rates is that human resting metabolisms are
-flexible. Most critically, resting metabolism is what the body has opted
-to spend on maintenance, not what it needs to spend.</p></li>
-<li><p>Stated simply, we evolved to be as inactive as possible. Or to be
-more precise, our bodies were selected to spend enough but not too much
-energy on nonreproductive functions including physical
-activity.</p></li>
-<li><p>ancient, fundamental strategy to allocate scarce energy sensibly.
-Apart from youthful tendencies to play and other social reasons (topics
-for later chapters), the instinct to avoid nonessential physical
-activity has been a pragmatic adaptation for millions of
-generations.</p></li>
-<li><p>But then I wondered if I was being one of those annoying
-exercists who nags people (in this case myself) to sneak in more
-physical activity by parking at the back of the lot. How did something
-as normal and instinctive as saving energy become associated with the
-sin of slothfulness?</p></li>
-<li><p>To early Christian thinkers like Thomas Aquinas, sloth had
-nothing to do with physical laziness, but instead was a sort of mental
-apathy, a lack of interest in the world. By this definition, sloth is
-sinful by causing us to neglect the pursuit of God’s work. It was only
-later that sloth came to mean the avoidance of physical work, perhaps
-because almost no one back then, apart from a few elites, could avoid
-regular physical labor.</p></li>
-<li><p>So let’s banish the myth that resting, relaxing, taking it easy,
-or whatever you want to call inactivity is an unnatural, indolent
-absence of physical activity.</p></li>
-<li><p>MYTH #3 Sitting Is Intrinsically Unhealthy</p></li>
-<li><p>Technically, “inflammation” describes how the immune system first
-reacts after it detects a harmful pathogen, something noxious, or a
-damaged tissue. In most cases, inflammation is rapid and vigorous.
-Whether the offenders are viruses, bacteria, or sunburns, the immune
-system quickly launches an armada of cells into battle. These cells
-discharge a barrage of compounds that cause blood vessels to dilate and
-become more permeable to white blood cells that swoop in to destroy any
-invaders. This extra blood flow brings critically needed immune cells
-and fluids, but the swelling compresses nerves and causes the four
-cardinal symptoms of inflammation (which literally means “to set on
-fire”): redness, heat, swelling, and pain.</p></li>
-<li><p>As scientists started to study when and how cytokines turn
-inflammation on and off, they discovered that some of the same cytokines
-that ignite short-lived, intense, and local inflammatory responses
-following an infection also stimulate lasting, barely detectable levels
-of inflammation throughout the body. Instead of blazing acutely in one
-spot for a few days or weeks, as when we fight a cold, inflammation can
-smolder imperceptibly in many parts of the body for months or years. In
-a way, chronic, low-grade inflammation is like having a never-ending
-cold so mild you never notice its existence.</p></li>
-<li><p>The mechanisms by which too much fat, especially in and around
-organs, can ignite low-grade, chronic inflammation suggest that too much
-sitting may be hazardous simply because it causes weight gain.</p></li>
-<li><p>the hormone cortisol. This much-misunderstood hormone doesn’t
-cause stress but instead is produced when we are stressed, and it
-evolved to help us cope with threatening situations by making energy
-available.</p></li>
-<li><p>Cortisol shunts sugar and fats into the bloodstream, it makes us
-crave sugar-rich and fat-rich foods, and it directs us to store organ
-fat rather than subcutaneous fat.</p></li>
-<li><p>Consequently, long hours of stressful sitting while commuting or
-a high-pressure office job can be a double whammy.</p></li>
-<li><p>muscles regulate inflammation during bouts of moderate to intense
-physical activity similarly to the way the immune system mounts an
-inflammatory response to an infection or a wound.</p></li>
-<li><p>If I gulp down four cups of coffee all at once, I’ll become
-jittery and get a headache, but if I drink them over the course of a
-day, I’ll be fine. Is the same true for sitting? Additionally, does a
-daily bout of hard exercise negate the effects of sitting for the rest
-of the day?</p></li>
-<li><p>Even those who engaged in more than seven hours per week of
-moderate or vigorous exercise had a 50 percent higher risk of dying from
-cardiovascular disease if they otherwise sat a lot.</p></li>
-<li><p>Altogether, these and other alarming studies suggest that even if
-you are physically active and fit, the more time you spend sitting in a
-chair, the higher your risk of chronic illnesses linked to inflammation,
-including some forms of cancer. If these results are correct, then
-exercise alone doesn’t counter all the negative effects of
-sitting.</p></li>
-<li><p>These activities aren’t serious exercise, but experiments that
-ask people to interrupt long periods of sitting even briefly—for
-example, just a hundred seconds every half hour—result in lower levels
-of sugar, fat, and so-called bad cholesterol in their blood. In turn,
-less circulating blood sugar and fat prevent inflammation as well as
-obesity. In addition, small and occasional bouts of moving stimulate
-muscles to</p></li>
-<li><p>quench inflammation and reduce physiological stress.</p></li>
-<li><p>For this reason, squatting and other more active forms of sitting
-may be healthier than sitting in chairs by requiring intermittent muscle
-activity, especially in the calves, thus recirculating blood in the
-legs.</p></li>
-<li><p>Another way to sit actively is to fidget, or do what researchers
-drily term “spontaneous physical activity.”</p></li>
-<li><p>that simply fidgeting while seated can expend as much as twenty
-calories an hour as well as promote beneficial levels of blood flow to
-restless arms and legs. One study even found a 30 percent lower rate of
-all-cause mortality among people who fidget after adjusting for other
-forms of physical activity, smoking, diet, and alcohol
-consumption.</p></li>
-<li><p>Standing is not exercise, and as yet no well-designed, careful
-study has shown that standing desks confer substantial health
-benefits.</p></li>
-<li><p>One massive fifteen-year-long study of more than ten thousand
-Danes found no association between time spent sitting at work and heart
-disease.</p></li>
-<li><p>An even bigger study on sixty-six thousand middle-aged Japanese
-office</p></li>
-<li><p>workers yielded similar results. Instead, leisure-time sitting
-best predicts mortality, suggesting that socioeconomic status and
-exercise habits in mornings, evenings, and weekends have important
-health effects beyond how much one sits during weekdays at the
-office.</p></li>
-<li><p>Sleep: Why Stress Thwarts Rest</p></li>
-<li><p>I sometimes experience this phenomenon when I stay up late trying
-to comprehend complex information (like how sleep affects the brain). As
-the night progresses, my brain becomes increasingly muddled, and
-eventually I give up and go to bed. But then in the morning, almost
-miraculously, everything seems to make sense. What happened while I was
-asleep?</p></li>
-<li><p>For every hour spent awake storing memories and amassing waste,
-we need approximately fifteen minutes asleep to process those memories
-and clean up. That ratio, however, is highly variable: some people like
-the elderly sleep less, while others, especially children, need
-more.</p></li>
-<li><p>College students are a special breed of humans, in part because
-so many of them are enjoying their first taste of being grown up without
-yet shouldering the responsibilities of being adults.</p></li>
-<li><p>“In twenty years, people will look back on the sleeping-pill era
-as we now look back on the acceptance of cigarette smoking.”</p></li>
-<li><p>We label sitting as bad and sleeping as good. In truth, both ways
-of resting are utterly normal but highly variable behaviors with complex
-costs and benefits that are strongly influenced by our environment and
-contemporary cultural norms.</p></li>
-<li><p>It bears repeating that sleep and physical activity are
-inextricably linked: the more physically active we are, the better we
-sleep because physical activity builds up sleep pressure and reduces
-chronic stress, hence insomnia. In that sense, physical activity and
-sleep are not trade-offs but collaborators. Maybe it is not so
-paradoxical that the same well-intentioned people who nag us to exercise
-sometimes also badger us to spend more time in bed.</p></li>
-<li><p>Wondering how lions could develop such strength without using
-weights, Angelo figured they must get strong by “pitting one muscle
-against another.” He started to experiment with what he called “dynamic
-tension,” which today we call isometric training.</p></li>
-<li><p>When asked to do as many push-ups, pull-ups, and chin-ups as they
-could, the Aché were fit but similar to Westerners with one important
-difference: as they aged, their strength declined at lower rates,
-presumably reflecting how they stay physically active throughout the
-life span including middle age.</p></li>
-<li><p>One potential drawback of bulking up too much is sacrificing
-power. Strength is how much force I can produce; power is how rapidly I
-produce it. Strength and power are not independent, but there is some
-trade-off between the two:</p></li>
-<li><p>Indeed, aging does not put an end to muscles’ capacity to respond
-to resistance exercise; instead, modest levels of resistance exercise
-slow and sometimes reverse sarcopenia regardless of age they would
-probably be confused by how we spend money to needlessly lift things
-whose sole purpose is to be lifted.</p></li>
-<li><p>Humans are endurance walkers.</p></li>
-<li><p>“Walking on a regular basis—whether going for a brisk, structured
-walk, or just fitting in more steps every day—can help you shed pounds
-and inches and, most importantly, keep them off.”</p></li>
-<li><p>MYTH #10 It’s Normal to Be Less Active as We Age</p></li>
-<li><p>Hippocrates wrote twenty-five hundred years ago, “Eating alone
-will not make a man well; he must also take exercise.”</p></li>
-<li><p>Endurance promotes endurance.</p></li>
-<li><p>If exercise is so destructive, why is it healthy? One explanation
-is that once she stopped exercising, my wife’s body reacted by repairing
-whatever harm she caused and, crucially, also repairing some of the
-damage that she had accumulated beforehand when she wasn’t exercising.
-As a result, she restored many tissues to their previous state.</p></li>
-<li><p>his advocacy of vitamin C was quackery. Dozens of studies have
-found that taking antioxidant pills is no substitute for physical
-activity to fight senescence. A comprehensive review published in
-examined sixty-eight clinical trials that compared the effects of
-commonly prescribed antioxidants like vitamin C with placebos on more
-than 230,000 people. Three or four studies reported a modest benefit,
-but the rest found that antioxidants provided no benefit or even
-increased the risk of dying.</p></li>
-<li><p>This shift, in which more of us live longer but die from chronic
-rather than infectious diseases, thus extending morbidity, is known as
-the epidemiological transition and widely hailed as medical
-progress.</p></li>
-<li><p>In 1984, he and his students began studying more than five
-hundred members of amateur running clubs along with more than four
-hundred healthy but physically inactive controls. Back then, the
-subjects were over the age of fifty and healthy: few smoked, none drank
-heavily, and none were obese. Then, for the next twenty-one years, Fries
-and his colleagues patiently kept track of each subject’s physical
-activity habits, administered a yearly disability questionnaire that
-measures functions like the ability to walk, dress, and do routine
-activities, and recorded the year and cause of every death that
-occurred. Fries and colleagues had to wait two decades for the results,
-but I have summarized them for you instantaneously in figure 29. They
-are worth a careful look. The top graph plots the runners’ and
-non-runners’ probability of not dying in a given year against time; the
-graph below plots disability against time. As you can see, the healthy
-non-runners died at increasingly faster rates than the runners and by
-the study’s end were about three times more likely to pass away in a
-given year. In terms of cause of death, the non-runners were more than
-twice as likely to die of heart disease, about twice as likely to die of
-cancers, and more than three times as likely to die of neurological
-diseases. In addition, they were more than ten times as likely to die of
-infections like pneumonia. Just as important, the disability scores
-plotted on the bottom show that the non-runners lost functional capacity
-at double the rate of the runners. By the end of the study their
-disability scores were more than twice as high as the runners’,
-indicating that the runners’ bodies were approximately fifteen years
-younger by this measure. In sum, running caused a compression of
-morbidity, thus also extending lives.</p></li>
-<li><p>MYTH #11 “Just Do It” Works</p></li>
-<li><p>“exercise is done against one’s wishes and maintained only
-because the alternative is worse.”</p></li>
-<li><p>our bodies never evolved to function optimally without lifelong
-physical activity but our minds never evolved to get us moving unless it
-is necessary, pleasurable, or otherwise rewarding.</p></li>
-<li><p>If we can’t make exercise necessary and fun, perhaps we can make
-it more necessary and more fun.</p></li>
-<li><p>I think there is a deeper evolutionary explanation for why almost
-every book, website, article, and podcast on how to encourage exercise
-advises doing it in a group. Humans are intensely social creatures, and
-more than any other species we cooperate with unrelated strangers. We
-used to hunt and gather together, and we still share food, shelter, and
-other resources, we help raise one another’s children, we fight
-together, we play together. As a result, we have been selected to enjoy
-doing activities in groups, to assist one another, and to care what
-others think of us. 15 Physical activities like exercise are no
-exception.</p></li>
-<li><p>Dopamine. This molecule is the linchpin of the brain’s reward
-system. It tells a region deep in the brain “do that again.” First,
-dopamine levels go up only while we exercise. So they don’t get us off
-the couch. Worse, dopamine receptors in the brain are less active in
-people who haven’t been exercising than in fit people who are regularly
-active. And to add insult to injury, people who are obese have fewer
-active dopamine receptors.</p></li>
-<li><p>Serotonin. This still mysterious neurotransmitter helps us feel
-pleasure and control impulses, but it also affects memory, sleep, and
-other functions. Our brains produce serotonin when we engage in
-beneficial behaviors like having physical contact with loved ones,
-taking care of infants, spending time outdoors in natural light, and,
-yes, exercising.</p></li>
-<li><p>Although some people with depression take pharmaceuticals to
-maintain normal serotonin function, exercise has been shown to be often
-as effective as any prescription.</p></li>
-<li><p>Endorphins. Endorphins are natural opioids that help us tolerate
-the discomfort of exertion. The body’s own opioids are less strong than
-heroin, codeine, and morphine, but they too blunt pain and produce
-feelings of euphoria.</p></li>
-<li><p>endorphins aren’t produced until after twenty or more minutes of
-intense, vigorous activity, making them more rewarding for people who
-are already fit enough to work out that hard.</p></li>
-<li><p>Endocannabinoids. For years, endorphins were thought to cause the
-infamous runner’s high, but it is now evident that endocannabinoids—the
-body’s natural version of marijuana’s active ingredient—play a much
-greater role in this phenomenon. 24 Despite causing a truly pleasurable
-high, this system has little relevance for most exercisers because it
-usually takes several hours of vigorous physical activity before the
-brain releases these mood-and sensory-enhancing drugs.</p></li>
-<li><p>While these and other chemicals released by exercise help us
-exercise, their drawback is they mostly function through virtuous
-cycles. When we do something like walk or run six miles, we produce
-dopamine, serotonin, and other chemicals that make us feel good and more
-likely to do it again. When we are sedentary, however, a vicious cycle
-ensues. As we become more out of shape, our brains become less able to
-reward us for exercising. It’s a classic mismatch: because few of our
-ancestors were physically inactive and unfit, the brain’s hedonic
-response to exercise never evolved to work well in persistently
-sedentary individuals.</p></li>
-<li><p>Commonly recommended, sensible methods to make exercise more fun
-(or less unfun) include: Be social: exercise with friends, a group, or a
-good, qualified trainer. 27 Entertain yourself: listen to music,
-podcasts, or books, or watch a movie. Exercise outside in a beautiful
-environment. Dance or play sports and games. Because variety is
-enjoyable, experiment and mix things up. Choose realistic goals based on
-time, not performance, so you don’t set yourself up for disappointment.
-Reward yourself for exercising.</p></li>
-<li><p>Because we never evolved to be inactive and out of shape, the
-adaptations that make physical activity feel rewarding and become a
-habit develop only after the several months of effort it takes to
-improve fitness. Slowly and gradually, exercise switches from being a
-negative feedback loop in which discomfort and lack of reward inhibit us
-from exercising again to being a positive feedback loop in which
-exercise becomes satisfying.</p></li>
-<li><p>No matter what we do to make exercise more enjoyable, the
-prospect of exercising usually seems less desirable and less comfortable
-than staying put. Every time I plan to exercise, I first struggle to
-prevail over instincts to not exercise. Afterward, I never regret it,
-but to overcome my inertia, I usually have to figure out how to make it
-seem necessary.</p></li>
-<li><p>From a purely utilitarian perspective, how is requiring exercise
-different from mandating seat belt use?</p></li>
-<li><p>MYTH #12 There Is an Optimal Dose and Type of Exercise</p></li>
-<li><p>All things are poison and nothing is without poison; only the
-dose permits something not to be poisonous.</p></li>
-<li><p>Paffenbarger published many brilliant studies (including one
-contending that regular chocolate consumption adds nearly a year to your
-life3),</p></li>
-<li><p>Middle-aged alumni who exercised more than two thousand calories
-per week had a 21 percent lower risk of dying than their sedentary
-classmates, and those who were over seventy and exercised the same
-amount had half the risk of dying in a given year as their inactive
-classmates. alumni who reported they exercised moderately or vigorously
-did better than their classmates who exercised only lightly. Finally,
-alumni who took up exercise later in life had similarly lower rates of
-mortality compared to those who had been active all along. It’s never
-too late to start.</p></li>
-<li><p>By the 1990s, so many studies had accumulated that three major
-health organizations decided to convene expert panels to review the
-evidence and make recommendations. In 1995 and 1996, all three panels
-published essentially the same advice: to reduce the overall risk of
-chronic disease, adults should engage in at least 30 minutes of
-moderate-intensity exercise at least five times a week. 6 They also
-concluded that children should engage in 60 minutes of physical activity
-a day. the study further concluded that half an hour of vigorous
-exercise and an hour of moderate exercise confer the same
-benefit.</p></li>
-<li><p>In the final analysis, exercising a minimum of 150 minutes per
-week is as good a prescription as any and hasthe advantage of being a
-clear, attainable dose. But there is no optimal, most beneficial dose of
-exercise.People who exercise the least have the most to gain from just
-modest added effort, more is better, and the benefits of additional
-exercise gradually tail off. “these findings reinforce the notion that
-light to moderate doses of exercise have a substantial positive impact
-on health but that continued dose escalation appears neither
-incrementally better nor worse.”</p></li>
-<li><p>marathoners and ultramarathoners had higher rates of
-self-reported respiratory tract infections following their grueling
-races than fit individuals who exercised more moderately. 16 Additional
-studies found lower levels of disease-fighting white blood cells in the
-bloodstream and saliva immediately following intense bouts of vigorous
-exercise. These and other data led to the hypothesis that the energetic
-demands of extreme exercise create a temporary “open window” for
-infection.</p></li>
-<li><p>That said, there is no question that anyone fighting a serious
-infection should avoid overexertion.</p></li>
-<li><p>An experiment that gave mice a deadly form of influenza and then
-forced them to exercise before their symptoms developed found that low
-levels of moderate exercise (twenty to thirty minutes of daily running)
-doubled their rate of survival compared to sedentary mice, but extremely
-high levels of exercise (two and a half hours of running a day) caused
-them to die at even higher rates.</p></li>
-<li><p>In the eighteenth century it was fashionable to lift church bells
-that were silenced (made “dumb”) by having their clappers removed, hence
-the term “dumbbells.”</p></li>
-<li><p>Given that each of us is an “experiment of one” with different
-backgrounds, goals, and predilections that change with age, there can be
-no optimal mixture of exercise type any more than there can be an
-optimal amount.</p></li>
-<li><p>Make exercise necessary and fun. Do mostly cardio, but also some
-weights. Some is better than none. Keep it up as you age.</p></li>
-</ul>
+    <header id="title-block-header">
+        <h1 class="title">Exercised (Daniel Lieberman) Notes</h1>
+        <p class="author">Satvik Gupta</p>
+    </header>
+    <h2 id="all-notes">All Notes</h2>
+    <ul>
+        <li>
+            <p>we never evolved to exercise.</p>
+        </li>
+        <li>
+            <p>exercise today is most commonly defined as voluntary physical
+                activity undertaken for the sake of health and fitness.</p>
+        </li>
+        <li>
+            <p>[in the old days] no one ever ran or walked several miles just
+                for health.</p>
+        </li>
+        <li>
+            <p>how would I explain to a hunter-gatherer, a farmer in Pemja, or
+                even my great-great-great-grandparents that I spend most of my days
+                sitting in chairs and then compensate for my idleness by paying money to
+                go to a gym to make myself sweaty, tired, and uncomfortable on a machine
+                that forces me to struggle to stay in the same place?</p>
+        </li>
+        <li>
+            <p>many of our beliefs and attitudes about exercise are myths. Chief
+                among these myths is the notion that we are supposed to want to
+                exercise.</p>
+        </li>
+        <li>
+            <p>If exercise, as we are told, is really a “magic pill” that will
+                cure or prevent most diseases, why are more people living longer than
+                ever despite being more physically inactive than ever?</p>
+        </li>
+        <li>
+            <p>nothing about the biology of exercise makes sense except in the
+                light of evolution, and nothing about exercise as a behavior makes sense
+                except in the light of anthropology.</p>
+        </li>
+        <li>
+            <p>the myth of the athletic savage. The essential premise of this
+                myth is that people like the Tarahumara whose bodies are untainted by
+                modern decadent lifestyles are natural superathletes, not only capable
+                of amazing physical feats, but also free from laziness. By contending
+                that the men I observed running seventy miles</p>
+        </li>
+        <li>
+            <p>without training do so naturally, this myth implies that people
+                like you and me who neither can nor will accomplish such feats are, from
+                an evolutionary perspective, abnormal because civilization has turned us
+                into etiolated wimps. As you have probably divined, I object to the myth
+                of the athletic savage. For one, it stereotypes and dehumanizes people
+                such as the Tarahumara. Since that first trip when I spoke with Ernesto,
+                I have talked with hundreds of Tarahumara all over the Sierra Tarahumara
+                and can assure you no one there wakes up in the morning and thinks,
+                “Gee, what a beautiful day. I think I’ll run fifty miles just for fun.”
+                They don’t even go for needless five-mile runs. When I ask Tarahumara on
+                what occasions they run, the most common answer is “when I chase goats.”
+                Instead, I have come to appreciate that the Tarahumara are extremely
+                hardworking, physically fit farmers who never do anything by half and
+                whose culture deeply values running. The reason some Tarahumara run
+                fifty or more miles on rare occasions is not much different from the
+                reason Ironmen do triathlons: they think it is worth it. However,
+                whereas Ironmen subject themselves to full triathlons to test their
+                limits (Anything Is Possible!), Tarahumara run rarájiparis because it is
+                a deeply spiritual ceremony that they consider a powerful form of
+                prayer.</p>
+        </li>
+        <li>
+            <p>The myth of the athletic savage mistakenly suggests that humans
+                uncorrupted by civilization can easily run ultramarathons, scale
+                enormous mountains, and perform other seemingly superhuman feats without
+                training.</p>
+        </li>
+        <li>
+            <p>In other words, the training that enables them to run
+                back-to-back marathons is the physical work that is part and parcel of
+                their everyday life.</p>
+        </li>
+        <li>
+            <p>In other words, typical hunter-gatherers are about as physically
+                active as Americans or Europeans who include about an hour of exercise
+                in their daily routine.</p>
+        </li>
+        <li>
+            <p>we walk less, drive more, and use countless energy-saving devices
+                from shopping carts to elevators that whittle away, calorie by calorie,
+                at how much physical activity we do. The problem, of course, is that
+                physical activity helps slow aging and promotes fitness and health. So
+                those of us who no longer engage in physical labor to survive must now
+                weirdly choose to engage in unnecessary physical activity for the sake
+                of health and fitness. In other words, exercise.</p>
+        </li>
+        <li>
+            <p>First, while youngsters have always played and sports are a human
+                universal, exercise outside the context of sports was extremely rare
+                until relatively recently. Second, as recent technological and social
+                developments have diminished industrialized people’s need to be
+                physically active, a growing chorus of experts has never ceased to raise
+                the alarm that we aren’t exercising enough.</p>
+        </li>
+        <li>
+            <p>“there never was a time in the history of the world when the
+                great mass of mankind could meet the simple exigencies of life with so
+                little expenditure of time and energy as today,” and that “without solid
+                physical education programs, people would become fat, deformed, and
+                clumsy.”</p>
+        </li>
+        <li>
+            <p>Just as we put wheels in cages for mice in labs, over the
+                centuries we have invented a stunning variety of ways and means for our
+                fellow humans to undertake optional physical activity for the sake of
+                health and fitness.</p>
+        </li>
+        <li>
+            <p>Unsurprisingly, exercise has become increasingly advertised as
+                virtuous and has been commodified, commercialized, and industrialized.
+                To use the weight machines, treadmills, ellipticals, and other
+                contraptions in the gym around the corner from my house costs seventy
+                dollars per month. When I head out for a morning run, I wear specialized
+                running shoes, chafe-preventing shorts, a snazzy moisture-wicking shirt,
+                a washable cap, and an expensive watch that connects to satellites
+                overhead to track my speed and distance. Oscar Wilde once quipped, “I
+                approve of any activity that requires the wearing of special clothing,”
+                but I suspect even he would be shocked at the popularity of
+                “athleisure”—workout clothes for everyday activities like sitting that
+                help us look athletic without ever having to break a sweat. Worldwide,
+                people spend trillions of dollars a year on fitness and
+                sportswear.</p>
+        </li>
+        <li>
+            <p>What would my distant hunter-gatherer ancestors have thought of
+                paying lots of money to suffer through needless physical activity on an
+                annoying machine that gets us nowhere and accomplishes nothing?</p>
+        </li>
+        <li>
+            <p>MYTH #2 It Is Unnatural to Be Indolent</p>
+        </li>
+        <li>
+            <p>To be more precise, we’d ask you to drink some very expensive,
+                harmless water that contains a known quantity of rare (heavy) hydrogen
+                and oxygen atoms and then collect samples of your urine over the next
+                few days. This sounds like a creepy magic trick, but by measuring the
+                rate at which these heavy atoms become less abundant in urine, we can
+                calculate the rates at which both the hydrogen and the oxygen atoms
+                leave the body from sweating, urinating, and breathing. Because hydrogen
+                exits the body only in water but oxygen leaves in both water and carbon
+                dioxide, the difference in the concentration of these two atoms in urine
+                allows us to compute exactly how much carbon dioxide someone produced
+                from breathing, hence how much energy he or she used.</p>
+        </li>
+        <li>
+            <p>even if you are a highly active person, you probably spend more
+                energy maintaining your body than doing stuff. Understandably, this fact
+                seems counterintuitive. As I sit here writing these words, there is
+                little visible evidence that every one of my body’s systems is working
+                industriously to keep me alive apart from the fifteen to twenty gentle
+                breaths I take every minute. Yet my heart is contracting sixty times a
+                minute to pump blood to every corner of my body, my intestines are
+                digesting my last meal, my liver and kidneys are regulating and
+                filtering my blood, my fingernails are growing, my brain is processing
+                these words, and countless other cells in every tissue of my body are
+                busily replenishing themselves, repairing damage, fending off infection,
+                and monitoring what’s going on.</p>
+        </li>
+        <li>
+            <p>The key lesson to digest from the starving men’s dramatically
+                lower resting metabolic rates is that human resting metabolisms are
+                flexible. Most critically, resting metabolism is what the body has opted
+                to spend on maintenance, not what it needs to spend.</p>
+        </li>
+        <li>
+            <p>Stated simply, we evolved to be as inactive as possible. Or to be
+                more precise, our bodies were selected to spend enough but not too much
+                energy on nonreproductive functions including physical
+                activity.</p>
+        </li>
+        <li>
+            <p>ancient, fundamental strategy to allocate scarce energy sensibly.
+                Apart from youthful tendencies to play and other social reasons (topics
+                for later chapters), the instinct to avoid nonessential physical
+                activity has been a pragmatic adaptation for millions of
+                generations.</p>
+        </li>
+        <li>
+            <p>But then I wondered if I was being one of those annoying
+                exercists who nags people (in this case myself) to sneak in more
+                physical activity by parking at the back of the lot. How did something
+                as normal and instinctive as saving energy become associated with the
+                sin of slothfulness?</p>
+        </li>
+        <li>
+            <p>To early Christian thinkers like Thomas Aquinas, sloth had
+                nothing to do with physical laziness, but instead was a sort of mental
+                apathy, a lack of interest in the world. By this definition, sloth is
+                sinful by causing us to neglect the pursuit of God’s work. It was only
+                later that sloth came to mean the avoidance of physical work, perhaps
+                because almost no one back then, apart from a few elites, could avoid
+                regular physical labor.</p>
+        </li>
+        <li>
+            <p>So let’s banish the myth that resting, relaxing, taking it easy,
+                or whatever you want to call inactivity is an unnatural, indolent
+                absence of physical activity.</p>
+        </li>
+        <li>
+            <p>MYTH #3 Sitting Is Intrinsically Unhealthy</p>
+        </li>
+        <li>
+            <p>Technically, “inflammation” describes how the immune system first
+                reacts after it detects a harmful pathogen, something noxious, or a
+                damaged tissue. In most cases, inflammation is rapid and vigorous.
+                Whether the offenders are viruses, bacteria, or sunburns, the immune
+                system quickly launches an armada of cells into battle. These cells
+                discharge a barrage of compounds that cause blood vessels to dilate and
+                become more permeable to white blood cells that swoop in to destroy any
+                invaders. This extra blood flow brings critically needed immune cells
+                and fluids, but the swelling compresses nerves and causes the four
+                cardinal symptoms of inflammation (which literally means “to set on
+                fire”): redness, heat, swelling, and pain.</p>
+        </li>
+        <li>
+            <p>As scientists started to study when and how cytokines turn
+                inflammation on and off, they discovered that some of the same cytokines
+                that ignite short-lived, intense, and local inflammatory responses
+                following an infection also stimulate lasting, barely detectable levels
+                of inflammation throughout the body. Instead of blazing acutely in one
+                spot for a few days or weeks, as when we fight a cold, inflammation can
+                smolder imperceptibly in many parts of the body for months or years. In
+                a way, chronic, low-grade inflammation is like having a never-ending
+                cold so mild you never notice its existence.</p>
+        </li>
+        <li>
+            <p>The mechanisms by which too much fat, especially in and around
+                organs, can ignite low-grade, chronic inflammation suggest that too much
+                sitting may be hazardous simply because it causes weight gain.</p>
+        </li>
+        <li>
+            <p>the hormone cortisol. This much-misunderstood hormone doesn’t
+                cause stress but instead is produced when we are stressed, and it
+                evolved to help us cope with threatening situations by making energy
+                available.</p>
+        </li>
+        <li>
+            <p>Cortisol shunts sugar and fats into the bloodstream, it makes us
+                crave sugar-rich and fat-rich foods, and it directs us to store organ
+                fat rather than subcutaneous fat.</p>
+        </li>
+        <li>
+            <p>Consequently, long hours of stressful sitting while commuting or
+                a high-pressure office job can be a double whammy.</p>
+        </li>
+        <li>
+            <p>muscles regulate inflammation during bouts of moderate to intense
+                physical activity similarly to the way the immune system mounts an
+                inflammatory response to an infection or a wound.</p>
+        </li>
+        <li>
+            <p>If I gulp down four cups of coffee all at once, I’ll become
+                jittery and get a headache, but if I drink them over the course of a
+                day, I’ll be fine. Is the same true for sitting? Additionally, does a
+                daily bout of hard exercise negate the effects of sitting for the rest
+                of the day?</p>
+        </li>
+        <li>
+            <p>Even those who engaged in more than seven hours per week of
+                moderate or vigorous exercise had a 50 percent higher risk of dying from
+                cardiovascular disease if they otherwise sat a lot.</p>
+        </li>
+        <li>
+            <p>Altogether, these and other alarming studies suggest that even if
+                you are physically active and fit, the more time you spend sitting in a
+                chair, the higher your risk of chronic illnesses linked to inflammation,
+                including some forms of cancer. If these results are correct, then
+                exercise alone doesn’t counter all the negative effects of
+                sitting.</p>
+        </li>
+        <li>
+            <p>These activities aren’t serious exercise, but experiments that
+                ask people to interrupt long periods of sitting even briefly—for
+                example, just a hundred seconds every half hour—result in lower levels
+                of sugar, fat, and so-called bad cholesterol in their blood. In turn,
+                less circulating blood sugar and fat prevent inflammation as well as
+                obesity. In addition, small and occasional bouts of moving stimulate
+                muscles to</p>
+        </li>
+        <li>
+            <p>quench inflammation and reduce physiological stress.</p>
+        </li>
+        <li>
+            <p>For this reason, squatting and other more active forms of sitting
+                may be healthier than sitting in chairs by requiring intermittent muscle
+                activity, especially in the calves, thus recirculating blood in the
+                legs.</p>
+        </li>
+        <li>
+            <p>Another way to sit actively is to fidget, or do what researchers
+                drily term “spontaneous physical activity.”</p>
+        </li>
+        <li>
+            <p>that simply fidgeting while seated can expend as much as twenty
+                calories an hour as well as promote beneficial levels of blood flow to
+                restless arms and legs. One study even found a 30 percent lower rate of
+                all-cause mortality among people who fidget after adjusting for other
+                forms of physical activity, smoking, diet, and alcohol
+                consumption.</p>
+        </li>
+        <li>
+            <p>Standing is not exercise, and as yet no well-designed, careful
+                study has shown that standing desks confer substantial health
+                benefits.</p>
+        </li>
+        <li>
+            <p>One massive fifteen-year-long study of more than ten thousand
+                Danes found no association between time spent sitting at work and heart
+                disease.</p>
+        </li>
+        <li>
+            <p>An even bigger study on sixty-six thousand middle-aged Japanese
+                office</p>
+        </li>
+        <li>
+            <p>workers yielded similar results. Instead, leisure-time sitting
+                best predicts mortality, suggesting that socioeconomic status and
+                exercise habits in mornings, evenings, and weekends have important
+                health effects beyond how much one sits during weekdays at the
+                office.</p>
+        </li>
+        <li>
+            <p>Sleep: Why Stress Thwarts Rest</p>
+        </li>
+        <li>
+            <p>I sometimes experience this phenomenon when I stay up late trying
+                to comprehend complex information (like how sleep affects the brain). As
+                the night progresses, my brain becomes increasingly muddled, and
+                eventually I give up and go to bed. But then in the morning, almost
+                miraculously, everything seems to make sense. What happened while I was
+                asleep?</p>
+        </li>
+        <li>
+            <p>For every hour spent awake storing memories and amassing waste,
+                we need approximately fifteen minutes asleep to process those memories
+                and clean up. That ratio, however, is highly variable: some people like
+                the elderly sleep less, while others, especially children, need
+                more.</p>
+        </li>
+        <li>
+            <p>College students are a special breed of humans, in part because
+                so many of them are enjoying their first taste of being grown up without
+                yet shouldering the responsibilities of being adults.</p>
+        </li>
+        <li>
+            <p>“In twenty years, people will look back on the sleeping-pill era
+                as we now look back on the acceptance of cigarette smoking.”</p>
+        </li>
+        <li>
+            <p>We label sitting as bad and sleeping as good. In truth, both ways
+                of resting are utterly normal but highly variable behaviors with complex
+                costs and benefits that are strongly influenced by our environment and
+                contemporary cultural norms.</p>
+        </li>
+        <li>
+            <p>It bears repeating that sleep and physical activity are
+                inextricably linked: the more physically active we are, the better we
+                sleep because physical activity builds up sleep pressure and reduces
+                chronic stress, hence insomnia. In that sense, physical activity and
+                sleep are not trade-offs but collaborators. Maybe it is not so
+                paradoxical that the same well-intentioned people who nag us to exercise
+                sometimes also badger us to spend more time in bed.</p>
+        </li>
+        <li>
+            <p>Wondering how lions could develop such strength without using
+                weights, Angelo figured they must get strong by “pitting one muscle
+                against another.” He started to experiment with what he called “dynamic
+                tension,” which today we call isometric training.</p>
+        </li>
+        <li>
+            <p>When asked to do as many push-ups, pull-ups, and chin-ups as they
+                could, the Aché were fit but similar to Westerners with one important
+                difference: as they aged, their strength declined at lower rates,
+                presumably reflecting how they stay physically active throughout the
+                life span including middle age.</p>
+        </li>
+        <li>
+            <p>One potential drawback of bulking up too much is sacrificing
+                power. Strength is how much force I can produce; power is how rapidly I
+                produce it. Strength and power are not independent, but there is some
+                trade-off between the two:</p>
+        </li>
+        <li>
+            <p>Indeed, aging does not put an end to muscles’ capacity to respond
+                to resistance exercise; instead, modest levels of resistance exercise
+                slow and sometimes reverse sarcopenia regardless of age they would
+                probably be confused by how we spend money to needlessly lift things
+                whose sole purpose is to be lifted.</p>
+        </li>
+        <li>
+            <p>Humans are endurance walkers.</p>
+        </li>
+        <li>
+            <p>“Walking on a regular basis—whether going for a brisk, structured
+                walk, or just fitting in more steps every day—can help you shed pounds
+                and inches and, most importantly, keep them off.”</p>
+        </li>
+        <li>
+            <p>MYTH #10 It’s Normal to Be Less Active as We Age</p>
+        </li>
+        <li>
+            <p>Hippocrates wrote twenty-five hundred years ago, “Eating alone
+                will not make a man well; he must also take exercise.”</p>
+        </li>
+        <li>
+            <p>Endurance promotes endurance.</p>
+        </li>
+        <li>
+            <p>If exercise is so destructive, why is it healthy? One explanation
+                is that once she stopped exercising, my wife’s body reacted by repairing
+                whatever harm she caused and, crucially, also repairing some of the
+                damage that she had accumulated beforehand when she wasn’t exercising.
+                As a result, she restored many tissues to their previous state.</p>
+        </li>
+        <li>
+            <p>his advocacy of vitamin C was quackery. Dozens of studies have
+                found that taking antioxidant pills is no substitute for physical
+                activity to fight senescence. A comprehensive review published in
+                examined sixty-eight clinical trials that compared the effects of
+                commonly prescribed antioxidants like vitamin C with placebos on more
+                than 230,000 people. Three or four studies reported a modest benefit,
+                but the rest found that antioxidants provided no benefit or even
+                increased the risk of dying.</p>
+        </li>
+        <li>
+            <p>This shift, in which more of us live longer but die from chronic
+                rather than infectious diseases, thus extending morbidity, is known as
+                the epidemiological transition and widely hailed as medical
+                progress.</p>
+        </li>
+        <li>
+            <p>In 1984, he and his students began studying more than five
+                hundred members of amateur running clubs along with more than four
+                hundred healthy but physically inactive controls. Back then, the
+                subjects were over the age of fifty and healthy: few smoked, none drank
+                heavily, and none were obese. Then, for the next twenty-one years, Fries
+                and his colleagues patiently kept track of each subject’s physical
+                activity habits, administered a yearly disability questionnaire that
+                measures functions like the ability to walk, dress, and do routine
+                activities, and recorded the year and cause of every death that
+                occurred. Fries and colleagues had to wait two decades for the results,
+                but I have summarized them for you instantaneously in figure 29. They
+                are worth a careful look. The top graph plots the runners’ and
+                non-runners’ probability of not dying in a given year against time; the
+                graph below plots disability against time. As you can see, the healthy
+                non-runners died at increasingly faster rates than the runners and by
+                the study’s end were about three times more likely to pass away in a
+                given year. In terms of cause of death, the non-runners were more than
+                twice as likely to die of heart disease, about twice as likely to die of
+                cancers, and more than three times as likely to die of neurological
+                diseases. In addition, they were more than ten times as likely to die of
+                infections like pneumonia. Just as important, the disability scores
+                plotted on the bottom show that the non-runners lost functional capacity
+                at double the rate of the runners. By the end of the study their
+                disability scores were more than twice as high as the runners’,
+                indicating that the runners’ bodies were approximately fifteen years
+                younger by this measure. In sum, running caused a compression of
+                morbidity, thus also extending lives.</p>
+        </li>
+        <li>
+            <p>MYTH #11 “Just Do It” Works</p>
+        </li>
+        <li>
+            <p>“exercise is done against one’s wishes and maintained only
+                because the alternative is worse.”</p>
+        </li>
+        <li>
+            <p>our bodies never evolved to function optimally without lifelong
+                physical activity but our minds never evolved to get us moving unless it
+                is necessary, pleasurable, or otherwise rewarding.</p>
+        </li>
+        <li>
+            <p>If we can’t make exercise necessary and fun, perhaps we can make
+                it more necessary and more fun.</p>
+        </li>
+        <li>
+            <p>I think there is a deeper evolutionary explanation for why almost
+                every book, website, article, and podcast on how to encourage exercise
+                advises doing it in a group. Humans are intensely social creatures, and
+                more than any other species we cooperate with unrelated strangers. We
+                used to hunt and gather together, and we still share food, shelter, and
+                other resources, we help raise one another’s children, we fight
+                together, we play together. As a result, we have been selected to enjoy
+                doing activities in groups, to assist one another, and to care what
+                others think of us. 15 Physical activities like exercise are no
+                exception.</p>
+        </li>
+        <li>
+            <p>Dopamine. This molecule is the linchpin of the brain’s reward
+                system. It tells a region deep in the brain “do that again.” First,
+                dopamine levels go up only while we exercise. So they don’t get us off
+                the couch. Worse, dopamine receptors in the brain are less active in
+                people who haven’t been exercising than in fit people who are regularly
+                active. And to add insult to injury, people who are obese have fewer
+                active dopamine receptors.</p>
+        </li>
+        <li>
+            <p>Serotonin. This still mysterious neurotransmitter helps us feel
+                pleasure and control impulses, but it also affects memory, sleep, and
+                other functions. Our brains produce serotonin when we engage in
+                beneficial behaviors like having physical contact with loved ones,
+                taking care of infants, spending time outdoors in natural light, and,
+                yes, exercising.</p>
+        </li>
+        <li>
+            <p>Although some people with depression take pharmaceuticals to
+                maintain normal serotonin function, exercise has been shown to be often
+                as effective as any prescription.</p>
+        </li>
+        <li>
+            <p>Endorphins. Endorphins are natural opioids that help us tolerate
+                the discomfort of exertion. The body’s own opioids are less strong than
+                heroin, codeine, and morphine, but they too blunt pain and produce
+                feelings of euphoria.</p>
+        </li>
+        <li>
+            <p>endorphins aren’t produced until after twenty or more minutes of
+                intense, vigorous activity, making them more rewarding for people who
+                are already fit enough to work out that hard.</p>
+        </li>
+        <li>
+            <p>Endocannabinoids. For years, endorphins were thought to cause the
+                infamous runner’s high, but it is now evident that endocannabinoids—the
+                body’s natural version of marijuana’s active ingredient—play a much
+                greater role in this phenomenon. 24 Despite causing a truly pleasurable
+                high, this system has little relevance for most exercisers because it
+                usually takes several hours of vigorous physical activity before the
+                brain releases these mood-and sensory-enhancing drugs.</p>
+        </li>
+        <li>
+            <p>While these and other chemicals released by exercise help us
+                exercise, their drawback is they mostly function through virtuous
+                cycles. When we do something like walk or run six miles, we produce
+                dopamine, serotonin, and other chemicals that make us feel good and more
+                likely to do it again. When we are sedentary, however, a vicious cycle
+                ensues. As we become more out of shape, our brains become less able to
+                reward us for exercising. It’s a classic mismatch: because few of our
+                ancestors were physically inactive and unfit, the brain’s hedonic
+                response to exercise never evolved to work well in persistently
+                sedentary individuals.</p>
+        </li>
+        <li>
+            <p>Commonly recommended, sensible methods to make exercise more fun
+                (or less unfun) include: Be social: exercise with friends, a group, or a
+                good, qualified trainer. 27 Entertain yourself: listen to music,
+                podcasts, or books, or watch a movie. Exercise outside in a beautiful
+                environment. Dance or play sports and games. Because variety is
+                enjoyable, experiment and mix things up. Choose realistic goals based on
+                time, not performance, so you don’t set yourself up for disappointment.
+                Reward yourself for exercising.</p>
+        </li>
+        <li>
+            <p>Because we never evolved to be inactive and out of shape, the
+                adaptations that make physical activity feel rewarding and become a
+                habit develop only after the several months of effort it takes to
+                improve fitness. Slowly and gradually, exercise switches from being a
+                negative feedback loop in which discomfort and lack of reward inhibit us
+                from exercising again to being a positive feedback loop in which
+                exercise becomes satisfying.</p>
+        </li>
+        <li>
+            <p>No matter what we do to make exercise more enjoyable, the
+                prospect of exercising usually seems less desirable and less comfortable
+                than staying put. Every time I plan to exercise, I first struggle to
+                prevail over instincts to not exercise. Afterward, I never regret it,
+                but to overcome my inertia, I usually have to figure out how to make it
+                seem necessary.</p>
+        </li>
+        <li>
+            <p>From a purely utilitarian perspective, how is requiring exercise
+                different from mandating seat belt use?</p>
+        </li>
+        <li>
+            <p>MYTH #12 There Is an Optimal Dose and Type of Exercise</p>
+        </li>
+        <li>
+            <p>All things are poison and nothing is without poison; only the
+                dose permits something not to be poisonous.</p>
+        </li>
+        <li>
+            <p>Paffenbarger published many brilliant studies (including one
+                contending that regular chocolate consumption adds nearly a year to your
+                life3),</p>
+        </li>
+        <li>
+            <p>Middle-aged alumni who exercised more than two thousand calories
+                per week had a 21 percent lower risk of dying than their sedentary
+                classmates, and those who were over seventy and exercised the same
+                amount had half the risk of dying in a given year as their inactive
+                classmates. alumni who reported they exercised moderately or vigorously
+                did better than their classmates who exercised only lightly. Finally,
+                alumni who took up exercise later in life had similarly lower rates of
+                mortality compared to those who had been active all along. It’s never
+                too late to start.</p>
+        </li>
+        <li>
+            <p>By the 1990s, so many studies had accumulated that three major
+                health organizations decided to convene expert panels to review the
+                evidence and make recommendations. In 1995 and 1996, all three panels
+                published essentially the same advice: to reduce the overall risk of
+                chronic disease, adults should engage in at least 30 minutes of
+                moderate-intensity exercise at least five times a week. 6 They also
+                concluded that children should engage in 60 minutes of physical activity
+                a day. the study further concluded that half an hour of vigorous
+                exercise and an hour of moderate exercise confer the same
+                benefit.</p>
+        </li>
+        <li>
+            <p>In the final analysis, exercising a minimum of 150 minutes per
+                week is as good a prescription as any and hasthe advantage of being a
+                clear, attainable dose. But there is no optimal, most beneficial dose of
+                exercise.People who exercise the least have the most to gain from just
+                modest added effort, more is better, and the benefits of additional
+                exercise gradually tail off. “these findings reinforce the notion that
+                light to moderate doses of exercise have a substantial positive impact
+                on health but that continued dose escalation appears neither
+                incrementally better nor worse.”</p>
+        </li>
+        <li>
+            <p>marathoners and ultramarathoners had higher rates of
+                self-reported respiratory tract infections following their grueling
+                races than fit individuals who exercised more moderately. 16 Additional
+                studies found lower levels of disease-fighting white blood cells in the
+                bloodstream and saliva immediately following intense bouts of vigorous
+                exercise. These and other data led to the hypothesis that the energetic
+                demands of extreme exercise create a temporary “open window” for
+                infection.</p>
+        </li>
+        <li>
+            <p>That said, there is no question that anyone fighting a serious
+                infection should avoid overexertion.</p>
+        </li>
+        <li>
+            <p>An experiment that gave mice a deadly form of influenza and then
+                forced them to exercise before their symptoms developed found that low
+                levels of moderate exercise (twenty to thirty minutes of daily running)
+                doubled their rate of survival compared to sedentary mice, but extremely
+                high levels of exercise (two and a half hours of running a day) caused
+                them to die at even higher rates.</p>
+        </li>
+        <li>
+            <p>In the eighteenth century it was fashionable to lift church bells
+                that were silenced (made “dumb”) by having their clappers removed, hence
+                the term “dumbbells.”</p>
+        </li>
+        <li>
+            <p>Given that each of us is an “experiment of one” with different
+                backgrounds, goals, and predilections that change with age, there can be
+                no optimal mixture of exercise type any more than there can be an
+                optimal amount.</p>
+        </li>
+        <li>
+            <p>Make exercise necessary and fun. Do mostly cardio, but also some
+                weights. Some is better than none. Keep it up as you age.</p>
+        </li>
+    </ul>
 </body>
+
 </html>
