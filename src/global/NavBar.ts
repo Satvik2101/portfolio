@@ -13,21 +13,14 @@ var navbarLinksList: NavbarLinkInterface[] = [
         short: "home",
     },
     {
-        name: "Work Experience",
-        short: "workexp",
-    },
-    {
-        name: "Projects",
-        short: "projects",
+        name: "Work",
+        short: "more",
+        pre: "/"
     },
     {
         name: "Notes",
         short: "notes",
         pre: "/"
-    },
-    {
-        name: "Contact",
-        short: "contact",
     },
 
 ]

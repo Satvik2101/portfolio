@@ -26,19 +26,16 @@ const ProfileLinksData = [
         href: "https://www.github.com/Satvik2101",
         shortName: "github",
         name: "GitHub",
-        imgSrc: "./images/github_icon_2.png",
     },
     {
         href: "https://www.linkedin.com/in/satvik-g/",
         shortName: "linkedin",
         name: "LinkedIn",
-        imgSrc: "./images/linkedin_icon_circular.png",
     },
     {
         href: "https://www.satvikgupta.com/resume.pdf",
         shortName: "resume",
         name: "Resume",
-        customChild: new Span().id("resume_icon"),
     }
 ]
 
