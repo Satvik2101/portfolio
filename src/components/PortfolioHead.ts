@@ -31,7 +31,7 @@ class PortfolioHead extends Head {
 
             props.image ? new Meta().property("og:image").content(props.image) : "",
             props.url ? new Meta().property("og:url").content(props.url) : "",
-            new Link().rel("canonical").href("https://www.satvikgupta.com"),
+            new Link().rel("canonical").href(props.url),
             new Link().rel("preconnect").href("https://fonts.googleapis.com"),
             new Link().rel("preconnect").href("https://fonts.gstatic.com").crossorigin(""),
 
