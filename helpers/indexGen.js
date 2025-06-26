@@ -9,6 +9,7 @@ const More_1 = __importDefault(require("../build/src/More"))
 const Note_1 = __importDefault(require("../build/src/Notes"))
 const Error404_1 = __importDefault(require("../build/src/404"))
 const TimeTable_1 = __importDefault(require("../build/src/TimeTable"))
+const Conway_1 = __importDefault(require("../build/src/Conway"))
 //read raw.json
 var raw = JSON.parse(fs_1.default.readFileSync("./raw.json").toString());
 function Play() {
@@ -22,5 +23,7 @@ function Play() {
     fs_1.default.writeFileSync("./web/404.html", ele4.toString())
     var ele5 = new TimeTable_1.default();
     fs_1.default.writeFileSync("./web/time-table.html", ele5.toString())
+    var ele6 = new Conway_1.default();
+    fs_1.default.writeFileSync("./web/conway.html", ele6.toString())
 }
 Play();
