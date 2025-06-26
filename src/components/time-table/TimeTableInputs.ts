@@ -1,7 +1,7 @@
-import Tag from "../../lucid/utils/Tag";
-import Input from "../../lucid/tags/Input";
-import Button from "../../lucid/tags/Button";
-import Div from "../../lucid/tags/Div";
+import Tag from "../../../lucid/utils/Tag";
+import Input from "../../../lucid/tags/Input";
+import Button from "../../../lucid/tags/Button";
+import Div from "../../../lucid/tags/Div";
 
 class TimeTableInputs extends Tag {
     constructor() {

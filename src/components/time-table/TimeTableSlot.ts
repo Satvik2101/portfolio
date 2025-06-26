@@ -1,4 +1,4 @@
-import Div from "../../lucid/tags/Div";
+import Div from "../../../lucid/tags/Div";
 
 class TimeTableSlot extends Div {
     constructor(id: string) {

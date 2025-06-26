@@ -9,9 +9,9 @@ import Th from "../lucid/tags/Th";
 import Script from "../lucid/tags/Script";
 
 // Import components
-import TimeTableInputs from "./components/TimeTableInputs";
-import TimeTableRow from "./components/TimeTableRow";
-import ICalSection from "./components/ICalSection";
+import TimeTableInputs from "./components/time-table/TimeTableInputs";
+import TimeTableRow from "./components/time-table/TimeTableRow";
+import ICalSection from "./components/time-table/ICalSection";
 
 class TimeTable extends Tag {
     constructor() {
@@ -36,16 +36,13 @@ class TimeTable extends Tag {
                 new Table([
                     new Tr([
                         new Th(""),
-                        new Th("8 - 9"),
-                        new Th("9 - 10"),
-                        new Th("10 - 11"),
-                        new Th("11 - 12"),
-                        new Th("12 - 1"),
-                        new Th("1 - 2"),
-                        new Th("2 - 3"),
-                        new Th("3 - 4"),
-                        new Th("4 - 5"),
-                        new Th("5 - 6")
+                        ...Array.from({ length: 10 }, (_, i) => {
+                            const startHour = 8 + i;
+                            const endHour = startHour + 1;
+                            const startDisplay = startHour > 12 ? startHour - 12 : startHour;
+                            const endDisplay = endHour > 12 ? endHour - 12 : endHour;
+                            return new Th(`${startDisplay} - ${endDisplay}`);
+                        })
                     ]),
                     new TimeTableRow("Monday", "mon"),
                     new TimeTableRow("Tuesday", "tue"),
