@@ -53,8 +53,8 @@ class TimeTable extends Tag {
                 new Br(),
                 new ICalSection()
             ]),
-            new Script().src("./time-table/fill_tt.js"),
-            new Script().src("./time-table/create_ics.js")
+            new Script().src("./scripts/time-table/fill_tt.js"),
+            new Script().src("./scripts/time-table/create_ics.js")
         ], { lang: "en", ontouchmove: "" })
     }
 
