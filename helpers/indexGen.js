@@ -11,6 +11,7 @@ const Error404_1 = __importDefault(require("../build/src/404"))
 const TimeTable_1 = __importDefault(require("../build/src/TimeTable"))
 const Conway_1 = __importDefault(require("../build/src/Conway"))
 const Login_1 = __importDefault(require("../build/src/Login"))
+const Success_1 = __importDefault(require("../build/src/Success"))
 //read raw.json
 var raw = JSON.parse(fs_1.default.readFileSync("./raw.json").toString());
 function Play() {
@@ -28,5 +29,7 @@ function Play() {
     fs_1.default.writeFileSync("./web/conway.html", ele6.toString())
     var ele7 = new Login_1.default();
     fs_1.default.writeFileSync("./web/login.html", ele7.toString())
+    var ele8 = new Success_1.default();
+    fs_1.default.writeFileSync("./web/success.html", ele8.toString())
 }
 Play();
