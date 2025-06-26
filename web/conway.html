@@ -1,49 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><base target="_blank"><link rel="icon" href="/favicon.ico" type="image/x-icon"><meta name="description" content="Interactive Conway's Game of Life simulation"><meta property="og:title" content="Conway's Game of Life"><meta property="og:description" content="Interactive Conway's Game of Life simulation"><meta property="og:image" content="https://www.satvikgupta.com/images/preview.png"><meta property="og:url" content="https://www.satvikgupta.com/conway"><link rel="canonical" href="https://www.satvikgupta.com/conway"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link rel="stylesheet" href="conway/styles.css"><title>Conway's Game of Life</title><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WX57KF6HY8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="conway/styles.css">
-    <title>Document</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WX57KF6HY8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-WX57KF6HY8');
-    </script>
-</head>
-
-<body>
-    <h1>Conway's Game of Life</h1>
-    <div id="board-and-rules">
-        <table id="game-board">
-
-        </table>
-        <div id="rules">
-            <button id="toggle-button">Start</button>
-
-            <h2> Rules</h2>
-            <ol>
-                <li> Any live cell with fewer than two live neighbours dies, as if by underpopulation.</li>
-                <li> Any live cell with two or three live neighbours lives on to the next generation.</li>
-                <li> Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
-                <li> Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
-            </ol>
-            <input type="range" min="1" max="10" value="1" id="speed-slider">
-            <label for="speed-slider">Speed</label>
-            <input type="range" min="1" max="5" value="1" id="size-slider">
-            <label for="size-slider">Size</label><br>
-
-        </div>
-
-    </div>
-    <br>
-
-</body>
-<script src="conway/game.js"></script>
-
-</html>
+  gtag('config', 'G-WX57KF6HY8');
+</script></head><body><h1>Conway's Game of Life</h1><div id="board-and-rules"><table id="game-board"></table><div id="rules"><button id="toggle-button">Start</button><h2>Rules</h2><ol><li>Any live cell with fewer than two live neighbours dies, as if by underpopulation.</li><li>Any live cell with two or three live neighbours lives on to the next generation.</li><li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li><li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li></ol><input type="range" min="1" max="10" value="1" id="speed-slider"><label for="speed-slider">Speed</label><input type="range" min="1" max="5" value="1" id="size-slider"><label for="size-slider">Size</label><br></div></div><br></body><script src="conway/game.js"></script></html>
