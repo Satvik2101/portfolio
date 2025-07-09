@@ -47,7 +47,7 @@ class DefaultHeader extends PortfolioHead {
         super({
             title: "Satvik Gupta",
             description: "I'm Satvik Gupta, a Software Developer. This is my Portfolio Website.",
-            image: "https://www.satvikgupta.com/images/preview.png",
+            image: "https://www.satmvikgupta.com/assets/images/preview.png",
             url: "https://www.satvikgupta.com",
             stylesheets: [
                 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",

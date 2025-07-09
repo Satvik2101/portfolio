@@ -15,7 +15,7 @@ class Conway extends Tag {
             new PortfolioHead({
                 title: "Conway's Game of Life",
                 description: "Interactive Conway's Game of Life simulation",
-                image: "https://www.satvikgupta.com/images/preview.png",
+                image: "https://www.satvikgupta.com/assets/images/preview.png",
                 url: "https://www.satvikgupta.com/conway",
                 stylesheets: [
                     "styles/conway.css"

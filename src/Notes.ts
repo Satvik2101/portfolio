@@ -26,7 +26,7 @@ class Notes extends Tag {
             new PortfolioHead({
                 title: "Satvik Gupta - Notes",
                 description: "I'm Satvik Gupta, a Software Developer. This page contains notes of various subjects that I have compiled and created over the years",
-                image: "https://www.satvikgupta.com/images/preview.png",
+                image: "https://www.satvikgupta.com/assets/images/preview.png",
                 url: "https://www.satvikgupta.com/notes",
                 stylesheets: [
                     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
