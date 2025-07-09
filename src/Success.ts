@@ -38,7 +38,7 @@ class Success extends Tag {
                 `),
                 new Div().id("app")
             ]),
-            new Script().type("module").src("./meterApp.js")
+            new Script().type("module").src("./scripts/meterApp.js")
         ], { lang: "en" })
     }
 

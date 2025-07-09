@@ -15,10 +15,10 @@ class Conway extends Tag {
             new PortfolioHead({
                 title: "Conway's Game of Life",
                 description: "Interactive Conway's Game of Life simulation",
-                image: "https://www.satvikgupta.com/images/preview.png",
+                image: "https://www.satvikgupta.com/assets/images/preview.png",
                 url: "https://www.satvikgupta.com/conway",
                 stylesheets: [
-                    "conway/styles.css"
+                    "styles/conway.css"
                 ]
             }),
             new Tag("body", [
@@ -29,7 +29,7 @@ class Conway extends Tag {
                 ]).id("board-and-rules"),
                 new Br()
             ]),
-            new Script().src("conway/game.js")
+            new Script().src("scripts/game.js")
         ], { lang: "en" })
     }
 

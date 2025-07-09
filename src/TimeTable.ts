@@ -19,7 +19,7 @@ class TimeTable extends Tag {
             new PortfolioHead({
                 title: "Satvik Gupta - Time Table Creator",
                 description: "I'm Satvik Gupta, a Software Developer, and student at Delhi Technological University. This page is an easy tool for students to create a visual time-table when starting a new semester.",
-                image: "https://www.satvikgupta.com/images/preview.png",
+                image: "https://www.satvikgupta.com/assets/images/preview.png",
                 url: "https://www.satvikgupta.com/time-table",
                 stylesheets: [
                     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
@@ -53,8 +53,8 @@ class TimeTable extends Tag {
                 new Br(),
                 new ICalSection()
             ]),
-            new Script().src("./time-table/fill_tt.js"),
-            new Script().src("./time-table/create_ics.js")
+            new Script().src("./scripts/time-table/fill_tt.js"),
+            new Script().src("./scripts/time-table/create_ics.js")
         ], { lang: "en", ontouchmove: "" })
     }
 

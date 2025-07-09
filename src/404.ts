@@ -27,7 +27,7 @@ class Error404 extends Tag {
 
 
                 new H1("404"),
-                new Img().src("./images/ducky.png").height("300px"),
+                new Img().src("./assets/images/ducky.png").height("300px"),
                 new P("Oops, we couldn't find the page you were looking for."),
                 new P("Here's a duck to help you debug."),
                 new P([

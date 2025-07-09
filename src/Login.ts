@@ -41,7 +41,7 @@ class Login extends Tag {
                 `),
                 new Div().id("firebaseui-auth-container")
             ]),
-            new Script().type("module").src("./app.js")
+            new Script().type("module").src("./scripts/app.js")
         ])
     }
 
