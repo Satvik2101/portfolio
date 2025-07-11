@@ -6,8 +6,6 @@ d=0; # if d flag is passed, then this is a dry-run.
     # index.html, styles.css , invalidate_files, upload_files will
     # still be created
 
-
-
 # Go through flags
 while getopts ":d" opt; do
     case $opt in
@@ -20,10 +18,7 @@ while getopts ":d" opt; do
     esac
 done
 
-./aws/scripts/create.sh -t
-
-
-
+make all
 
 # Read current git branch 
 # store it in variable
@@ -36,7 +31,6 @@ if [ $branch == "main" ]; then
 else 
     aws_ids_file="./aws/aws_ids_dev"
 fi
-
 
 # Read S3 URI and CloudFront distribution ID from aws/aws_ids (space separated)
 # store them in variables

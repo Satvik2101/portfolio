@@ -1,15 +1,18 @@
-import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
-import { pipeline } from "stream/promises";
-import { readFile } from "fs/promises";
-import fs from "fs";
-import { exit } from "process";
+const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3");
+const { pipeline } = require("stream/promises");
+const { readFile } = require("fs/promises");
+const fs = require("fs");
+const { exit } = require("process");
 
 const BUCKET = "satvik-gupta";
 const KEY = "manifest.json";
 const LOCAL_MANIFEST_PATH = "web/manifest.json";
 const TEMP_REMOTE_PATH = "build/manifest.json";
 
-const s3 = new S3Client({ region: "ap-south-1", endpoint: `https://s3.ap-south-1.amazonaws.com` });
+const s3 = new S3Client({
+    region: "ap-south-1",
+    endpoint: "https://s3.ap-south-1.amazonaws.com"
+});
 
 async function getRemoteManifest() {
     try {
@@ -20,12 +23,12 @@ async function getRemoteManifest() {
         const content = await readFile(TEMP_REMOTE_PATH, "utf-8");
         return JSON.parse(content);
     } catch (e) {
-        console.log(e)
-        exit(1)
+        console.log(e);
+        exit(1);
     }
 }
 
-export async function compareManifests() {
+async function compareManifests() {
     const local = JSON.parse(await readFile(LOCAL_MANIFEST_PATH, "utf-8"));
     const remote = await getRemoteManifest();
 
@@ -51,5 +54,6 @@ export async function compareManifests() {
 
     return { upload, delete: del, keep };
 }
+compareManifests().then(console.log).catch(console.error);
 
-console.log(await compareManifests())
+module.exports = { compareManifests };
