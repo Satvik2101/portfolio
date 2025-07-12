@@ -4,14 +4,14 @@ const fs = require("fs");
 const path = require("path");
 
 // Import TypeScript compiled classes
-const Index = require("../build/src/Index").default;
-const More = require("../build/src/More").default;
-const Notes = require("../build/src/Notes").default;
-const Error404 = require("../build/src/404").default;
-const TimeTable = require("../build/src/TimeTable").default;
-const Conway = require("../build/src/Conway").default;
-const Login = require("../build/src/Login").default;
-const Success = require("../build/src/Success").default;
+const Index = require("../build/Index").default;
+const More = require("../build/More").default;
+const Notes = require("../build/Notes").default;
+const Error404 = require("../build/404").default;
+const TimeTable = require("../build/TimeTable").default;
+const Conway = require("../build/Conway").default;
+const Login = require("../build/Login").default;
+const Success = require("../build/Success").default;
 
 // Configuration
 const RAW_DATA_PATH = "./raw.json";
