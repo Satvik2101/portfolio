@@ -65,6 +65,9 @@ sync:
 
 manifest: 
 	node helpers/manifest.js
+
+deploy: manifest 
+	node helpers/upload.js
 # Help target
 .PHONY: help
 help:
