@@ -10,11 +10,16 @@ const fs = require("fs");
 const path = require("path")
 const { exit } = require("process");
 
-const BUCKET = "satvik-gupta";
+const BUCKET = process.env.S3_BUCKET
+const CLOUDFRONT_DISTRIBUTION_ID = process.env.CLOUDFRONT_DISTRIBUTION_ID
+
+if (BUCKET.length == 0 || CLOUDFRONT_DISTRIBUTION_ID.length == 0) {
+    console.error("Bucket ID and Cloudfront Distribution ID must be provided")
+    exit(1)
+}
 const KEY = "manifest.json";
-const LOCAL_MANIFEST_PATH = "web/manifest.json";
+const LOCAL_MANIFEST_PATH = "build/manifest.json";
 const LOCAL_ROOT = "web"
-const TEMP_REMOTE_PATH = "build/manifest.json";
 
 const s3 = new S3Client({
     region: "ap-south-1",
@@ -65,7 +70,6 @@ async function compareManifests() {
 
     return { upload, delete: del, keep };
 }
-// compareManifests().then(console.log).catch(console.error);
 
 async function uploadToS3(compareResults) {
     const { upload, delete: toDelete } = compareResults;
@@ -113,7 +117,6 @@ async function uploadToS3(compareResults) {
 
 }
 
-// Optional: naive content type helper
 function getContentType(file) {
     if (file.endsWith(".html")) return "text/html";
     if (file.endsWith(".css")) return "text/css";
@@ -124,12 +127,7 @@ function getContentType(file) {
     if (file.endsWith(".jpg") || file.endsWith(".jpeg")) return "image/jpeg";
     return "application/octet-stream"; // fallback
 }
-
-
 const cloudfront = new CloudFrontClient({ region: "ap-south-1" });
-
-// Replace with your actual distribution ID
-const CLOUDFRONT_DISTRIBUTION_ID = "E155KJRLQ7P4WG";
 
 async function invalidateChangedFiles(compareResults) {
     const changedFiles = compareResults.upload.changed;
@@ -162,6 +160,7 @@ async function invalidateChangedFiles(compareResults) {
         console.error("Failed to create CloudFront invalidation:", err);
     }
 }
+
 async function main() {
     const compareResults = await compareManifests();
     await uploadToS3(compareResults);

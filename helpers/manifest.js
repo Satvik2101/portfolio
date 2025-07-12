@@ -21,5 +21,5 @@ function walk(dir) {
 
 walk(root);
 
-fs.writeFileSync("web/manifest.json", JSON.stringify(manifest, null, 2));
+fs.writeFileSync("build/manifest.json", JSON.stringify(manifest, null, 2));
 console.log("✅ Manifest written to manifest.json");

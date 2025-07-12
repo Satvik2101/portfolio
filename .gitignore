@@ -1,8 +1,5 @@
 node_modules
 blah.html
-aws/aws_ids
-aws/aws_ids_dev
-test.sh
 .vscode
 build/
-index_manual.html
+.env
