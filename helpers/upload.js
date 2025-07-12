@@ -133,7 +133,7 @@ async function uploadToS3(compareResults) {
         });
 
         try {
-            // await s3.send(putCommand);
+            await s3.send(putCommand);
             console.log(`Uploaded: ${filePath} → ${key}`);
         } catch (error) {
             console.error(`Failed to upload ${file}:`, error);
@@ -175,8 +175,8 @@ async function deleteFromS3(filesToDelete) {
     };
 
     try {
-        // const result = await s3.send(new DeleteObjectsCommand(deleteParams));
-        // console.log("Deleted:", result.Deleted.map(obj => obj.Key));
+        const result = await s3.send(new DeleteObjectsCommand(deleteParams));
+        console.log("Deleted:", result.Deleted.map(obj => obj.Key));
 
         if (result.Errors && result.Errors.length) {
             console.error("Delete errors:", result.Errors);
@@ -212,8 +212,8 @@ async function invalidateChangedFiles(compareResults) {
     });
 
     try {
-        // const result = await cloudfront.send(command);
-        // console.log("CloudFront invalidation created:", result.Invalidation.Id);
+        const result = await cloudfront.send(command);
+        console.log("CloudFront invalidation created:", result.Invalidation.Id);
     } catch (error) {
         console.error("Failed to create CloudFront invalidation:", error);
     }
