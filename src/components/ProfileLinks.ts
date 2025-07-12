@@ -1,8 +1,6 @@
-import A from "../../lucid/tags/A";
-import Span from "../../lucid/tags/Span";
-import EnhancedDiv from "../../lucid/utils/EnhancedDiv";
-import SimpleAnchor from "../../lucid/utils/SimpleAnchor";
-import Tag from "../../lucid/utils/Tag";
+import EnhancedDiv from "@satvik2101/lucid/utils/EnhancedDiv";
+import SimpleAnchor from "@satvik2101/lucid/utils/SimpleAnchor";
+import Tag from "@satvik2101/lucid/utils/Tag";
 
 
 class ProfileLinkButton extends Tag {

@@ -1,12 +1,12 @@
-import Tag from "../lucid/utils/Tag";
+import Tag from "@satvik2101/lucid/utils/Tag";
 import { PortfolioHead } from "./components/PortfolioHead";
-import H1 from "../lucid/tags/H1";
-import P from "../lucid/tags/P";
-import Br from "../lucid/tags/Br";
-import Table from "../lucid/tags/Table";
-import Tr from "../lucid/tags/Tr";
-import Th from "../lucid/tags/Th";
-import Script from "../lucid/tags/Script";
+import H1 from "@satvik2101/lucid/tags/H1";
+import P from "@satvik2101/lucid/tags/P";
+import Br from "@satvik2101/lucid/tags/Br";
+import Table from "@satvik2101/lucid/tags/Table";
+import Tr from "@satvik2101/lucid/tags/Tr";
+import Th from "@satvik2101/lucid/tags/Th";
+import Script from "@satvik2101/lucid/tags/Script";
 
 // Import components
 import TimeTableInputs from "./components/time-table/TimeTableInputs";

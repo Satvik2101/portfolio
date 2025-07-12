@@ -1,10 +1,10 @@
-import Tag from "../lucid/utils/Tag";
+import Tag from "@satvik2101/lucid/utils/Tag";
 import { PortfolioHead } from "./components/PortfolioHead";
-import H1 from "../lucid/tags/H1";
-import Div from "../lucid/tags/Div";
-import Table from "../lucid/tags/Table";
-import Br from "../lucid/tags/Br";
-import Script from "../lucid/tags/Script";
+import H1 from "@satvik2101/lucid/tags/H1";
+import Div from "@satvik2101/lucid/tags/Div";
+import Table from "@satvik2101/lucid/tags/Table";
+import Br from "@satvik2101/lucid/tags/Br";
+import Script from "@satvik2101/lucid/tags/Script";
 
 
 import RulesSection from "./components/conway/RulesSection";

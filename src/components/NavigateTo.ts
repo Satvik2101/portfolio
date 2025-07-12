@@ -1,5 +1,5 @@
-import A from "../../lucid/tags/A";
-import Tag from "../../lucid/utils/Tag";
+import A from "@satvik2101/lucid/tags/A";
+import Tag from "@satvik2101/lucid/utils/Tag";
 import { AdaptiveHeading } from "../components/AdaptiveHeading";
 
 export class NavigateTo extends A {

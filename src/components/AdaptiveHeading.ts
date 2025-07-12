@@ -1,6 +1,5 @@
-import H2 from "../../lucid/tags/H2";
-import Span from "../../lucid/tags/Span";
-import Tag from "../../lucid/utils/Tag";
+import Span from "@satvik2101/lucid/tags/Span";
+import Tag from "@satvik2101/lucid/utils/Tag";
 
 export class AdaptiveHeading extends Tag {
     constructor(cliHeading: string, plainHeading: string, pre?: Tag) {

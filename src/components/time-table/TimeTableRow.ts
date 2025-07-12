@@ -1,5 +1,5 @@
-import Tag from "../../../lucid/utils/Tag";
-import Td from "../../../lucid/tags/Td";
+import Tag from "@satvik2101/lucid/utils/Tag";
+import Td from "@satvik2101/lucid/tags/Td";
 import TimeTableSlot from "./TimeTableSlot";
 
 class TimeTableRow extends Tag {

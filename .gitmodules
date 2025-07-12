@@ -1,4 +1,0 @@
-[submodule "lucid"]
-	path = lucid
-	url = https://github.com/Satvik2101/lucid.git
-	branch = main

@@ -1,7 +1,7 @@
-import Tag from "../../lucid/utils/Tag";
-import EnhancedDiv from "../../lucid/utils/EnhancedDiv";
+import Tag from "@satvik2101/lucid/utils/Tag";
+import EnhancedDiv from "@satvik2101/lucid/utils/EnhancedDiv";
 import Project from "../models/Project";
-import SimpleAnchor from "../../lucid/utils/SimpleAnchor";
+import SimpleAnchor from "@satvik2101/lucid/utils/SimpleAnchor";
 import { AdaptiveHeading } from "../components/AdaptiveHeading";
 
 class ProjectEntry extends EnhancedDiv {

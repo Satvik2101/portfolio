@@ -1,11 +1,11 @@
-import Script from "../lucid/tags/Script";
-import Header from "../lucid/tags/Header"
+import Script from "@satvik2101/lucid/tags/Script";
+import Header from "@satvik2101/lucid/tags/Header"
 
-import Tag from "../lucid/utils/Tag";
+import Tag from "@satvik2101/lucid/utils/Tag";
 import { DefaultHeader } from "./components/PortfolioHead";
-import Button from "../lucid/tags/Button";
-import H1 from "../lucid/tags/H1";
-import Br from "../lucid/tags/Br";
+import Button from "@satvik2101/lucid/tags/Button";
+import H1 from "@satvik2101/lucid/tags/H1";
+import Br from "@satvik2101/lucid/tags/Br";
 import ProfileLinks from "./components/ProfileLinks";
 
 // Import sections
