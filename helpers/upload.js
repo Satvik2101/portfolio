@@ -140,6 +140,22 @@ async function uploadToS3(compareResults) {
         }
     }
 
+    // Upload the manifest file
+    try {
+        const manifestStream = fs.createReadStream(LOCAL_MANIFEST_PATH);
+        const manifestCommand = new PutObjectCommand({
+            Bucket: BUCKET,
+            Key: MANIFEST_KEY,
+            Body: manifestStream,
+            ContentType: "application/json",
+        });
+
+        await s3.send(manifestCommand);
+        console.log(`Uploaded: ${LOCAL_MANIFEST_PATH} → ${MANIFEST_KEY}`);
+    } catch (error) {
+        console.error(`Failed to upload manifest:`, error);
+    }
+
     // Delete files that no longer exist locally
     if (toDelete.length > 0) {
         await deleteFromS3(toDelete);
