@@ -1,12 +1,4 @@
 const fs = require('fs');
-// var navBar = require("../helpers/navGen")();
-
-
-// html = require('./html-template-func');
-
-
-// first two arguments are node and the script name
-// the rest are the names of the notes to generate
 const notes = process.argv.slice(2);
 
 // Loop through each note in the notes array

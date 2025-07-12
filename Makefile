@@ -15,23 +15,6 @@ typescript:
 	@echo "Compiling TypeScript..."
 	tsc --project $(TS_CONFIG)
 
-# Generate index
-.PHONY: index
-index:
-	@echo "Generating index..."
-	node $(HELPERS_DIR)/indexGen.js
-
-# Add analytics
-.PHONY: analytics
-analytics:
-	@echo "Adding analytics..."
-	node $(HELPERS_DIR)/addAnalytics.js
-
-# Generate sitemap
-.PHONY: sitemap
-sitemap:
-	@echo "Generating sitemap..."
-	node $(HELPERS_DIR)/sitemap_gen.js
 
 # Update sitemap timestamp
 .PHONY: update-sitemap-timestamp
@@ -42,8 +25,14 @@ update-sitemap-timestamp:
 	sed -i "s/<lastmod>.*<\/lastmod>/<lastmod>$$isodate<\/lastmod>/g" $(WEB_DIR)/sitemap.xml
 
 # Build without TypeScript compilation
+.PHONY: gen
+gen: 
+	@echo "Generating index, adding analytics, and creating sitemap."
+	node $(HELPERS_DIR)/gen.js
+
+# Build without TypeScript compilation
 .PHONY: build
-build: index analytics sitemap update-sitemap-timestamp
+build: gen update-sitemap-timestamp
 
 # Build with TypeScript compilation
 .PHONY: build-full
@@ -74,6 +63,8 @@ sync:
 		echo "sync.sh not found"; \
 	fi
 
+manifest: 
+	node helpers/manifest.js
 # Help target
 .PHONY: help
 help:

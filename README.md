@@ -112,3 +112,8 @@ At the end, it commits the changes to the git repo, and stores the hash of that 
 ## watch.sh
 
 Used for development. Watched TS files in the Project directory. Whenever they change, it recompiles them and runs [create.sh](#createsh). 
+
+##TODO
+
+- Use lucid as a library and not a submodule.
+- Add Github Actions to automatically deploy the website.
