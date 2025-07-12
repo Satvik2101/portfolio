@@ -1,8 +1,8 @@
-import Base from "../../lucid/tags/Base";
-import Head from "../../lucid/tags/Head";
-import Link from "../../lucid/tags/Link";
-import Meta from "../../lucid/tags/Meta";
-import Title from "../../lucid/tags/Title";
+import Base from "@satvik2101/lucid/tags/Base";
+import Head from "@satvik2101/lucid/tags/Head";
+import Link from "@satvik2101/lucid/tags/Link";
+import Meta from "@satvik2101/lucid/tags/Meta";
+import Title from "@satvik2101/lucid/tags/Title";
 
 interface HeaderProps {
     title?: string;

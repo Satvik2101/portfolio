@@ -1,6 +1,6 @@
-import P from "../../lucid/tags/P";
-import Blockquote from "../../lucid/tags/Blockquote";
-import Tag from "../../lucid/utils/Tag";
+import P from "@satvik2101/lucid/tags/P";
+import Blockquote from "@satvik2101/lucid/tags/Blockquote";
+import Tag from "@satvik2101/lucid/utils/Tag";
 
 class MotdSection extends Tag {
     constructor() {

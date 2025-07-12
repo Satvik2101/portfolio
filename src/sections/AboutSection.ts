@@ -1,6 +1,6 @@
-import P from "../../lucid/tags/P";
-import Tag from "../../lucid/utils/Tag";
-import EnhancedDiv from "../../lucid/utils/EnhancedDiv";
+import P from "@satvik2101/lucid/tags/P";
+import Tag from "@satvik2101/lucid/utils/Tag";
+import EnhancedDiv from "@satvik2101/lucid/utils/EnhancedDiv";
 import { AdaptiveHeading } from "../components/AdaptiveHeading";
 
 class AboutSection extends Tag {

@@ -1,7 +1,7 @@
-import Tag from "../../../lucid/utils/Tag";
-import Div from "../../../lucid/tags/Div";
-import P from "../../../lucid/tags/P";
-import Button from "../../../lucid/tags/Button";
+import Tag from "@satvik2101/lucid/utils/Tag";
+import Div from "@satvik2101/lucid/tags/Div";
+import P from "@satvik2101/lucid/tags/P";
+import Button from "@satvik2101/lucid/tags/Button";
 
 class ICalSection extends Tag {
     constructor() {

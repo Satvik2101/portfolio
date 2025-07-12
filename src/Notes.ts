@@ -1,17 +1,12 @@
-import Script from "../lucid/tags/Script";
-import Header from "../lucid/tags/Header"
-
-import Tag from "../lucid/utils/Tag";
-import Ul from "../lucid/tags/Ul";
-import Li from "../lucid/tags/Li"
+import Tag from "@satvik2101/lucid/utils/Tag";
+import Ul from "@satvik2101/lucid/tags/Ul";
+import Li from "@satvik2101/lucid/tags/Li"
 import { DefaultHeader, PortfolioHead } from "./components/PortfolioHead";
 
 
-// Import navigation
-import { NavigateTo } from "./components/NavigateTo";
-import H1 from "../lucid/tags/H1";
-import Br from "../lucid/tags/Br";
-import SimpleAnchor from "../lucid/utils/SimpleAnchor";
+import H1 from "@satvik2101/lucid/tags/H1";
+import Br from "@satvik2101/lucid/tags/Br";
+import SimpleAnchor from "@satvik2101/lucid/utils/SimpleAnchor";
 
 const notes = [
     { "url": "CN", "name": "Computer Networks" },

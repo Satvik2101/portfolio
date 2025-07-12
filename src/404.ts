@@ -1,14 +1,10 @@
-import Script from "../lucid/tags/Script";
-import Header from "../lucid/tags/Header"
-import Tag from "../lucid/utils/Tag";
+import Tag from "@satvik2101/lucid/utils/Tag";
 import { DefaultHeader } from "./components/PortfolioHead";
-import Button from "../lucid/tags/Button";
-import H1 from "../lucid/tags/H1";
-import Br from "../lucid/tags/Br";
-import P from "../lucid/tags/P";
-import A from "../lucid/tags/A";
-import Img from "../lucid/tags/Img";
-import Style from "../lucid/tags/Style";
+import H1 from "@satvik2101/lucid/tags/H1";
+import P from "@satvik2101/lucid/tags/P";
+import A from "@satvik2101/lucid/tags/A";
+import Img from "@satvik2101/lucid/tags/Img";
+import Style from "@satvik2101/lucid/tags/Style";
 
 class Error404 extends Tag {
     constructor() {

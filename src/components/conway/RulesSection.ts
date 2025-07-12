@@ -1,12 +1,12 @@
-import Tag from "../../../lucid/utils/Tag";
-import Div from "../../../lucid/tags/Div";
-import Button from "../../../lucid/tags/Button";
-import H2 from "../../../lucid/tags/H2";
-import Ol from "../../../lucid/tags/Ol";
-import Li from "../../../lucid/tags/Li";
-import Input from "../../../lucid/tags/Input";
-import Label from "../../../lucid/tags/Label";
-import Br from "../../../lucid/tags/Br";
+import Tag from "@satvik2101/lucid/utils/Tag";
+import Div from "@satvik2101/lucid/tags/Div";
+import Button from "@satvik2101/lucid/tags/Button";
+import H2 from "@satvik2101/lucid/tags/H2";
+import Ol from "@satvik2101/lucid/tags/Ol";
+import Li from "@satvik2101/lucid/tags/Li";
+import Input from "@satvik2101/lucid/tags/Input";
+import Label from "@satvik2101/lucid/tags/Label";
+import Br from "@satvik2101/lucid/tags/Br";
 
 class RulesSection extends Tag {
     constructor() {

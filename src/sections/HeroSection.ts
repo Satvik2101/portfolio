@@ -1,7 +1,7 @@
-import P from "../../lucid/tags/P";
-import Br from "../../lucid/tags/Br";
-import Span from "../../lucid/tags/Span";
-import Tag from "../../lucid/utils/Tag";
+import P from "@satvik2101/lucid/tags/P";
+import Br from "@satvik2101/lucid/tags/Br";
+import Span from "@satvik2101/lucid/tags/Span";
+import Tag from "@satvik2101/lucid/utils/Tag";
 import { AdaptiveHeading } from "../components/AdaptiveHeading";
 
 class HeroSection extends Tag {

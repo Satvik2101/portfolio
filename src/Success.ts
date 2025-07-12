@@ -1,11 +1,11 @@
-import Tag from "../lucid/utils/Tag";
-import Head from "../lucid/tags/Head";
-import Meta from "../lucid/tags/Meta";
-import Title from "../lucid/tags/Title";
-import Script from "../lucid/tags/Script";
-import Link from "../lucid/tags/Link";
-import Style from "../lucid/tags/Style";
-import Div from "../lucid/tags/Div";
+import Tag from "@satvik2101/lucid/utils/Tag";
+import Head from "@satvik2101/lucid/tags/Head";
+import Meta from "@satvik2101/lucid/tags/Meta";
+import Title from "@satvik2101/lucid/tags/Title";
+import Script from "@satvik2101/lucid/tags/Script";
+import Link from "@satvik2101/lucid/tags/Link";
+import Style from "@satvik2101/lucid/tags/Style";
+import Div from "@satvik2101/lucid/tags/Div";
 
 class Success extends Tag {
     constructor() {

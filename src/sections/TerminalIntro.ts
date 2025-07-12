@@ -1,6 +1,6 @@
-import H2 from "../../lucid/tags/H2";
-import P from "../../lucid/tags/P";
-import Tag from "../../lucid/utils/Tag";
+import H2 from "@satvik2101/lucid/tags/H2";
+import P from "@satvik2101/lucid/tags/P";
+import Tag from "@satvik2101/lucid/utils/Tag";
 
 class TerminalIntro extends Tag {
     constructor() {
