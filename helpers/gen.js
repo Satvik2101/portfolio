@@ -1,132 +1,193 @@
 "use strict";
+
 const fs = require("fs");
 const path = require("path");
 
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = __importDefault(require("fs"));
-const Index_1 = __importDefault(require("../build/src/Index"));
-const More_1 = __importDefault(require("../build/src/More"))
-const Note_1 = __importDefault(require("../build/src/Notes"))
-const Error404_1 = __importDefault(require("../build/src/404"))
-const TimeTable_1 = __importDefault(require("../build/src/TimeTable"))
-const Conway_1 = __importDefault(require("../build/src/Conway"))
-const Login_1 = __importDefault(require("../build/src/Login"))
-const Success_1 = __importDefault(require("../build/src/Success"))
-//read raw.json
-var raw = JSON.parse(fs_1.default.readFileSync("./raw.json").toString());
-function Generate() {
-    var ele = new Index_1.default(raw);
-    fs_1.default.writeFileSync("./web/index.html", ele.toString());
-    var ele2 = new More_1.default(raw)
-    fs_1.default.writeFileSync("./web/more.html", ele2.toString())
-    var ele3 = new Note_1.default();
-    fs_1.default.writeFileSync("./web/notes.html", ele3.toString())
-    var ele4 = new Error404_1.default();
-    fs_1.default.writeFileSync("./web/404.html", ele4.toString())
-    var ele5 = new TimeTable_1.default();
-    fs_1.default.writeFileSync("./web/time-table.html", ele5.toString())
-    var ele6 = new Conway_1.default();
-    fs_1.default.writeFileSync("./web/conway.html", ele6.toString())
-    var ele7 = new Login_1.default();
-    fs_1.default.writeFileSync("./web/login.html", ele7.toString())
-    var ele8 = new Success_1.default();
-    fs_1.default.writeFileSync("./web/success.html", ele8.toString())
+// Import TypeScript compiled classes
+const Index = require("../build/src/Index").default;
+const More = require("../build/src/More").default;
+const Notes = require("../build/src/Notes").default;
+const Error404 = require("../build/src/404").default;
+const TimeTable = require("../build/src/TimeTable").default;
+const Conway = require("../build/src/Conway").default;
+const Login = require("../build/src/Login").default;
+const Success = require("../build/src/Success").default;
+
+// Configuration
+const RAW_DATA_PATH = "./raw.json";
+const WEB_DIR = "./web";
+const GANALYTICS_TAG_PATH = "./ganalyticstag.txt";
+const SITEMAP_PATH = "./web/sitemap.xml";
+
+// Files to ignore in sitemap
+const SITEMAP_IGNORE_FILES = ['404.html', 'index.html'];
+
+
+function readRawData() {
+    const rawData = fs.readFileSync(RAW_DATA_PATH, "utf8");
+    return JSON.parse(rawData);
 }
-Generate();
 
+/**
+ * Generate HTML pages from TypeScript components
+ */
+function generatePages(rawData) {
+    const pages = [
+        { component: new Index(rawData), output: "index.html" },
+        { component: new More(rawData), output: "more.html" },
+        { component: new Notes(), output: "notes.html" },
+        { component: new Error404(), output: "404.html" },
+        { component: new TimeTable(), output: "time-table.html" },
+        { component: new Conway(), output: "conway.html" },
+        { component: new Login(), output: "login.html" },
+        { component: new Success(), output: "success.html" }
+    ];
 
-const ganalyticsTag = fs.readFileSync("./ganalyticstag.txt", "utf8");
-const ganalyticsIdentifier = ganalyticsTag.match(/G-[A-Z0-9]{10}/)[0];
+    pages.forEach(({ component, output }) => {
+        const outputPath = path.join(WEB_DIR, output);
+        fs.writeFileSync(outputPath, component.toString());
+        console.log(`Generated: ${outputPath}`);
+    });
+}
 
-function injectAnalyticsTags(dir) {
-    for (const entry of fs.readdirSync(dir)) {
+/**
+ * Read Google Analytics tag from file
+ */
+function readAnalyticsTag() {
+    const ganalyticsTag = fs.readFileSync(GANALYTICS_TAG_PATH, "utf8");
+    const ganalyticsIdentifier = ganalyticsTag.match(/G-[A-Z0-9]{10}/)[0];
+    return { tag: ganalyticsTag, identifier: ganalyticsIdentifier };
+}
+
+/**
+ * Inject Google Analytics tags into HTML files
+ */
+function injectAnalyticsTags(dir, analyticsTag, analyticsIdentifier) {
+    const entries = fs.readdirSync(dir);
+
+    for (const entry of entries) {
         const fullPath = path.join(dir, entry);
         const stat = fs.statSync(fullPath);
 
         if (stat.isDirectory()) {
-            injectAnalyticsTags(fullPath);
+            injectAnalyticsTags(fullPath, analyticsTag, analyticsIdentifier);
         } else if (fullPath.endsWith(".html")) {
             let content = fs.readFileSync(fullPath, "utf8");
 
-            if (!content.includes(ganalyticsIdentifier)) {
-                const updated = content.replace("</head>", ganalyticsTag + "</head>");
+            if (!content.includes(analyticsIdentifier)) {
+                const updated = content.replace("</head>", analyticsTag + "</head>");
                 fs.writeFileSync(fullPath, updated, "utf8");
+                console.log(`Added analytics to: ${fullPath}`);
             }
         }
     }
 }
 
-injectAnalyticsTags("./web");
+/**
+ * Check if file should be ignored in sitemap
+ */
+function shouldIgnoreFile(file) {
+    if (file.length === 0) return true;
 
-//Look at the files in the folder and generate a sitemap
-
-var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
-sitemap += `<urlset
-xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n`;
-
-
-
-const toIgnore = ['404.html', 'index.html']
-
-function ignoreFile(file) {
-    if (file.length == 0) return true;
-    for (const igFile of toIgnore) {
-
-        if (file == igFile) {
+    for (const ignoreFile of SITEMAP_IGNORE_FILES) {
+        if (file === ignoreFile) {
             return true;
         }
 
-        else if (file.indexOf(igFile) == 0 && file.length > igFile.length && file[igFile.length] == '/') {
+        if (file.startsWith(ignoreFile + '/')) {
             return true;
-
         }
     }
 
     return false;
 }
 
-const currTimestampUtc = new Date().toISOString();
+/**
+ * Generate sitemap XML content
+ */
+function generateSitemap() {
+    let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
+    sitemap += `<urlset
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n`;
 
-function addFilesInDir(dir) {
-    var files = fs.readdirSync(dir);
-    files.forEach(function (file) {
-        if (!ignoreFile(file)) {
+    const currTimestampUtc = new Date().toISOString();
+    const urlEntries = [];
 
-            //check if file is a directory
-            var filePath = path.join(dir, file);
-            var stat = fs.statSync(filePath);
+    function addFilesInDir(dir) {
+        const files = fs.readdirSync(dir);
 
-            // Check if file is a directory
+        files.forEach((file) => {
+            if (shouldIgnoreFile(file)) return;
+
+            const filePath = path.join(dir, file);
+            const stat = fs.statSync(filePath);
+
             if (stat.isDirectory()) {
                 addFilesInDir(filePath);
-            }
-
-
-            if (filePath.indexOf('.html') == -1 && filePath.indexOf('.pdf') == -1) {
                 return;
             }
-            filePath = filePath.replace('.html', '');
-            console.log(filePath);
-            filePath = filePath.replace("web\\", '')
-            //convert \ to / in filePath
-            filePath = filePath.replace(/\\/g, '/');
-            sitemap += '<url>\n';
-            sitemap += '<loc>https://www.satvikgupta.com/' + filePath + '</loc>\n';
-            sitemap += '<lastmod>' + currTimestampUtc + '</lastmod>\n';
-            sitemap += '</url>\n';
-        }
+
+            if (!filePath.endsWith('.html') && !filePath.endsWith('.pdf')) {
+                return;
+            }
+
+            let cleanPath = filePath
+                .replace('.html', '')
+                .replace(/^web[\\\/]/, '')
+                .replace(/\\/g, '/');
+
+            urlEntries.push({
+                loc: `https://www.satvikgupta.com/${cleanPath}`,
+                lastmod: currTimestampUtc
+            });
+        });
+    }
+
+    addFilesInDir(WEB_DIR);
+
+    // Add URL entries to sitemap
+    urlEntries.forEach(({ loc, lastmod }) => {
+        sitemap += '<url>\n';
+        sitemap += `<loc>${loc}</loc>\n`;
+        sitemap += `<lastmod>${lastmod}</lastmod>\n`;
+        sitemap += '</url>\n';
     });
 
+    sitemap += '</urlset>';
+    return sitemap;
 }
 
-addFilesInDir('./web');
+/**
+ * Main generation function
+ */
+function generate() {
+    try {
+        console.log("Starting site generation...");
 
-sitemap += '</urlset>';
+        // Read raw data
+        const rawData = readRawData();
 
-fs.writeFileSync('./web/sitemap.xml', sitemap);
+        // Generate HTML pages from TypeScript
+        generatePages(rawData);
+
+        // Inject analytics
+        const { tag: analyticsTag, identifier: analyticsIdentifier } = readAnalyticsTag();
+        injectAnalyticsTags(WEB_DIR, analyticsTag, analyticsIdentifier);
+
+        // Generate sitemap
+        const sitemap = generateSitemap();
+        fs.writeFileSync(SITEMAP_PATH, sitemap);
+        console.log(`Generated sitemap: ${SITEMAP_PATH}`);
+
+        console.log("Site generation completed successfully!");
+    } catch (error) {
+        console.error("Error during site generation:", error);
+        process.exit(1);
+    }
+}
+
+// Run the generation
+generate();
