@@ -17,7 +17,7 @@ const AWS_REGION = "ap-south-1";
 // AWS Clients
 const s3 = new S3Client({
     region: AWS_REGION,
-    endpoint: "https://s3.ap-south-1.amazonaws.com"
+    endpoint: `https://s3.${AWS_REGION}.amazonaws.com`
 });
 
 const cloudfront = new CloudFrontClient({ region: AWS_REGION });
