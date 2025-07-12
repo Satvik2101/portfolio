@@ -13,8 +13,15 @@ function walk(dir) {
         } else {
             const relPath = path.relative(root, fullPath).replace(/\\/g, "/");
             const fileBuffer = fs.readFileSync(fullPath);
-            const hash = crypto.createHash("sha256").update(fileBuffer).digest("hex");
-            manifest[relPath] = hash;
+            const textExtensions = /\.(html|css|js|json|txt|svg|xml|md|csv)$/i;
+
+            if (textExtensions.test(relPath)) {
+                const content = fileBuffer.toString("utf8").replace(/\r\n/g, "\n");
+                manifest[relPath] = crypto.createHash("sha256").update(content).digest("hex");
+            } else {
+                manifest[relPath] = crypto.createHash("sha256").update(fileBuffer).digest("hex");
+            }
+
         }
     }
 }

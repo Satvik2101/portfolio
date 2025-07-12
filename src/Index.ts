@@ -27,7 +27,7 @@ class Index extends Tag {
                 new Header([
                     Button.withAttributes({ id: "modeToggle" }, "Developer Mode")
                 ]),
-                new H1("Satvik Gupta - this is a staging branch"),
+                new H1("Satvik Gupta"),
                 new TerminalIntro(),
                 new ProfileLinks(),
                 new HeroSection(),
