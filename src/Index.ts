@@ -25,7 +25,8 @@ class Index extends Tag {
             new Tag("body", [
 
                 new Header([
-                    Button.withAttributes({ id: "modeToggle" }, "Developer Mode")
+                    Button.withAttributes({ id: "modeToggle", class: "toggle-button" }, "Developer Mode"),
+                    Button.withAttributes({ id: "themeToggle", class: "toggle-button" }, "Dark Mode")
                 ]),
                 new H1("Satvik Gupta"),
                 new TerminalIntro(),

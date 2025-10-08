@@ -1,6 +1,78 @@
+:root {
+    --background-color: #fff;
+    --text-color: #333;
+    --h1-color: #000;
+    --h2-color: #464646;
+    --link-color: #405fdb;
+    --link-hover-color: rgb(44, 21, 144);
+    --cli-label-color: #444;
+    --mode-toggle-border-color: #ccc;
+    --mode-toggle-background-color: white;
+    --mode-toggle-hover-background-color: #f5f5f5;
+    --motd-color: #979797;
+    --cli-exp-dates: #667;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --background-color: #2e2e36;
+    /* Slightly blue-tinted black */
+    --text-color: #eee;
+    /* Off-white with slight blue tone */
+    --h1-color: #ffffff;
+    /* Clean, brighter for hierarchy */
+    --h2-color: #eaedf1;
+    /* Cooler gray for subtle separation */
+    --link-color: #b6d9ff;
+    /* Desaturated cool blue, professional */
+    --link-hover-color: #83abf4;
+    /* Slightly brighter on hover */
+    --cli-label-color: rgb(189, 213, 222);
+    /* Cool gray-blue, looks “techy” */
+    --mode-toggle-border-color: #534b4b;
+    /* Darker cool border */
+    --mode-toggle-background-color: #1a1c1f;
+    /* Slight lift from background */
+    --mode-toggle-hover-background-color: #2a2d31;
+    /* Distinct from bg, subtle presence */
+    --motd-color: #c9d8f0;
+    /* Faded steel gray for passive info */
+    --cli-exp-dates: #cdd7e0;
+    /* Cooler tone to imply timestamp info */
+}
+
+* {
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+    color: var(--link-color);
+    transition: color 0.2s ease;
+}
+
+/* 
+a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+} */
+
 body {
-    background: #fff;
-    color: #111;
+    background: var(--background-color);
+    color: var(--text-color);
     font-family: 'Courier New', monospace;
     margin: 0;
     line-height: 1.6;
@@ -12,9 +84,17 @@ body {
 
 h1,
 h2 {
-    color: #000;
     margin-top: 2rem;
 }
+
+h1 {
+    color: var(--h1-color);
+}
+
+h2 {
+    color: var(--h2-color);
+}
+
 
 ul {
     list-style-type: none;
@@ -37,13 +117,8 @@ li {
     }
 }
 
-a {
-    color: #00f;
-    text-decoration: underline;
-}
-
 a:hover {
-    color: rgb(44, 21, 144);
+    color: var(--link-hover-color);
 }
 
 /* CLI-style formatting */
@@ -55,7 +130,8 @@ a:hover {
 .cli-label {
     display: inline-block;
     width: 10ch;
-    color: #444;
+    min-width: 10ch;
+    color: var(--cli-label-color);
     font-weight: bold;
 }
 
@@ -74,11 +150,7 @@ h2 {
     margin-bottom: 0.5rem;
 }
 
-.cli-label {
-    min-width: 10ch;
-    color: #444;
-    font-weight: bold;
-}
+
 
 .cli-project {
     margin-bottom: 1.5rem;
@@ -86,7 +158,7 @@ h2 {
 
 .cli-name {
     font-weight: bold;
-    color: #000;
+    color: var(--h1-color);
 }
 
 .cli-desc {
@@ -95,7 +167,7 @@ h2 {
 
 .cli-meta {
     margin-left: 1ch;
-    color: #444;
+    color: var(--cli-label-color);
     font-style: italic;
     font-size: 0.9rem;
     margin-bottom: 0.8rem;
@@ -128,23 +200,38 @@ header {
     padding: 0 2rem;
 }
 
-#modeToggle {
+.toggle-button {
     font-family: monospace;
     background: none;
-    border: 1px solid #ccc;
+    border: 1px solid var(--mode-toggle-border-color);
     padding: 0.3rem 0.6rem;
     cursor: pointer;
     font-size: 0.9rem;
 
+    z-index: 1000;
+    background-color: var(--mode-toggle-background-color);
+    color: var(--h1-color);
+    transition: opacity 0.25s ease;
+}
+
+
+#modeToggle {
+
     position: fixed;
     top: 2rem;
     right: 2rem;
-    z-index: 1000;
-    background-color: white;
 }
 
-#modeToggle:hover {
-    background-color: #f5f5f5;
+#themeToggle {
+    width: 7rem;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+}
+
+#modeToggle:hover,
+#themeToggle:hover {
+    background-color: var(--mode-toggle-hover-background-color);
 }
 
 a h2 {
@@ -152,24 +239,8 @@ a h2 {
 
 }
 
-h2 {
-    color: #464646;
-    /* solarized cyan */
-}
-
-
-
-.login-line {
-    color: #636363;
-    /* font-size: 0.85rem; */
-    /* margin-left: 1rem; */
-    margin-bottom: 2rem;
-    /* font-family: monospace; */
-}
-
-
 .motd {
-    color: #979797;
+    color: var(--motd-color);
 }
 
 body.cli .motd.cli-mode {
@@ -183,7 +254,7 @@ body.cli .motd.plain-mode {
 .motd.plain-mode {
     display: block;
     font-style: italic;
-    border-left: 4px solid #ccc;
+    border-left: 4px solid var(--mode-toggle-border-color);
     padding-left: 1rem;
 
 }
@@ -195,7 +266,7 @@ body.cli .motd.plain-mode {
 }
 
 .terminal-intro {
-    color: #979797;
+    color: var(--motd-color);
 }
 
 body {
@@ -206,10 +277,7 @@ body.cli h1 {
     display: none;
 }
 
-a {
-    color: #405fdb;
-    text-decoration: none;
-}
+
 
 .cli-project {
     margin-bottom: 1.5rem;
@@ -218,7 +286,7 @@ a {
 
 .cli-desc {
     margin-left: 1ch;
-    color: #444;
+    color: var(--cli-label-color);
 }
 
 .cli-link a:hover {
@@ -232,21 +300,19 @@ a {
 }
 
 .cli-exp-header {
-
-
     font-weight: bold;
-    color: #111;
+    color: var(--text-color);
 }
 
 .cli-exp-dates {
     margin-left: 1ch;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--cli-exp-dates);
 }
 
 
 .cli-exp-point {
     margin-left: 3ch;
     padding-left: 1ch;
-    color: #333;
+    color: var(--text-color);
 }
