@@ -4,11 +4,11 @@ const toggleableFeatures = [
         buttonId: "modeToggle",
         option1: {
             name: "plain",
-            textContent: "Are you a developer?"
+            htmlContent: "Are you a developer?"
         },
         option2: {
             name: "cli",
-            textContent: "Nope, take me back!"
+            htmlContent: "Nope, take me back!"
         },
     },
     {
@@ -16,11 +16,11 @@ const toggleableFeatures = [
         buttonId: "themeToggle",
         option1: {
             name: "light-mode",
-            textContent: "Dark Mode"
+            htmlContent: '<i class="fa-solid fa-moon"></i>'
         },
         option2: {
             name: "dark-mode",
-            textContent: "Light Mode"
+            htmlContent: '<i class="fa-solid fa-sun"></i>'
         },
     }
 ];
@@ -31,7 +31,7 @@ function applyFeatureState({ name, button, activeOption, inactiveOption }) {
     localStorage.setItem(name, activeOption.name);
 
     if (button) {
-        button.textContent = activeOption.textContent;
+        button.innerHTML = activeOption.htmlContent;
     }
 }
 

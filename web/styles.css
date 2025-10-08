@@ -223,10 +223,13 @@ header {
 }
 
 #themeToggle {
-    width: 7rem;
     position: fixed;
     top: 2rem;
-    left: 2rem;
+    left: 1rem;
+}
+
+#themeToggle i {
+    font-size: 1.2rem;
 }
 
 #modeToggle:hover,
