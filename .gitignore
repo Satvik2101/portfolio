@@ -3,3 +3,5 @@ blah.html
 .vscode
 build/
 .env
+web/*.html
+web/sitemap.xml
