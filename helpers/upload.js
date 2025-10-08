@@ -25,6 +25,7 @@ const cloudfront = new CloudFrontClient({ region: AWS_REGION });
 // Content type mapping
 const CONTENT_TYPES = {
     '.html': 'text/html',
+    'xml': 'text/xml',
     '.css': 'text/css',
     '.js': 'application/javascript',
     '.json': 'application/json',
