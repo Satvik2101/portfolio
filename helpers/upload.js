@@ -32,7 +32,8 @@ const CONTENT_TYPES = {
     '.svg': 'image/svg+xml',
     '.png': 'image/png',
     '.jpg': 'image/jpeg',
-    '.jpeg': 'image/jpeg'
+    '.jpeg': 'image/jpeg',
+    '.pdf': 'application/pdf'
 };
 
 /**
