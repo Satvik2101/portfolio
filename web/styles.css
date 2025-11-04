@@ -1,3 +1,4 @@
+/* Light Mode (Default) */
 :root {
     --background-color: #fff;
     --text-color: #333;
@@ -16,59 +17,29 @@
 /* Dark Mode */
 body.dark-mode {
     --background-color: #202025;
-    /* Slightly blue-tinted black */
     --text-color: #eee;
-    /* Off-white with slight blue tone */
     --h1-color: #ffffff;
-    /* Clean, brighter for hierarchy */
     --h2-color: #eaedf1;
-    /* Cooler gray for subtle separation */
     --link-color: #b6d9ff;
-    /* Desaturated cool blue, professional */
     --link-hover-color: #83abf4;
-    /* Slightly brighter on hover */
     --cli-label-color: rgb(189, 213, 222);
-    /* Cool gray-blue, looks “techy” */
     --mode-toggle-border-color: #534b4b;
-    /* Darker cool border */
     --mode-toggle-background-color: #1a1c1f;
-    /* Slight lift from background */
     --mode-toggle-hover-background-color: #2a2d31;
-    /* Distinct from bg, subtle presence */
     --motd-color: #c9d8f0;
-    /* Faded steel gray for passive info */
     --cli-exp-dates: #cdd7e0;
-    /* Cooler tone to imply timestamp info */
 }
 
 * {
-    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 a {
     position: relative;
     text-decoration: none;
     color: var(--link-color);
-    transition: color 0.2s ease;
 }
 
-/* 
-a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background-color: currentColor;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-a:hover::after {
-    transform: scaleX(1);
-} */
 
 body {
     background: var(--background-color);
@@ -211,7 +182,6 @@ header {
     z-index: 1000;
     background-color: var(--mode-toggle-background-color);
     color: var(--h1-color);
-    transition: opacity 0.25s ease;
 }
 
 
