@@ -20,9 +20,11 @@ typescript:
 .PHONY: update-sitemap-timestamp
 update-sitemap-timestamp:
 	@echo "Updating sitemap timestamp..."
-	@isodate=$$(date -Is) && \
+	@isodate=$$(date -u +"%Y-%m-%dT%H:%M:%SZ") && \
 	echo $$isodate && \
-	sed -i "s/<lastmod>.*<\/lastmod>/<lastmod>$$isodate<\/lastmod>/g" $(WEB_DIR)/sitemap.xml
+	sed -i '' "s|<lastmod>.*</lastmod>|<lastmod>$$isodate</lastmod>|g" $(WEB_DIR)/sitemap.xml
+
+
 
 # Build without TypeScript compilation
 .PHONY: gen
