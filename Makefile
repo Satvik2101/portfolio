@@ -15,17 +15,6 @@ typescript:
 	@echo "Compiling TypeScript..."
 	tsc --project $(TS_CONFIG)
 
-
-# Update sitemap timestamp
-.PHONY: update-sitemap-timestamp
-update-sitemap-timestamp:
-	@echo "Updating sitemap timestamp..."
-	@isodate=$$(date -u +"%Y-%m-%dT%H:%M:%SZ") && \
-	echo $$isodate && \
-	sed -i '' "s|<lastmod>.*</lastmod>|<lastmod>$$isodate</lastmod>|g" $(WEB_DIR)/sitemap.xml
-
-
-
 # Build without TypeScript compilation
 .PHONY: gen
 gen: 
@@ -34,7 +23,7 @@ gen:
 
 # Build without TypeScript compilation
 .PHONY: build
-build: gen update-sitemap-timestamp
+build: gen
 
 # Build with TypeScript compilation
 .PHONY: build-full
@@ -81,7 +70,6 @@ help:
 	@echo "  index                  - Generate index only"
 	@echo "  analytics              - Add analytics only"
 	@echo "  sitemap                - Generate sitemap only"
-	@echo "  update-sitemap-timestamp - Update sitemap timestamp only"
 	@echo "  watch                  - TypeScript watch mode"
 	@echo "  dev                    - Development mode (build with TypeScript + watch)"
 	@echo "  sync                   - Sync to AWS"
