@@ -51,7 +51,8 @@ class DefaultHeader extends PortfolioHead {
             url: "https://www.satvikgupta.com",
             stylesheets: [
                 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
-                "/styles.css"
+                "/styles.css",
+                "/styles-modern.css"
             ],
 
         })

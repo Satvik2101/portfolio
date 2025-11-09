@@ -22,10 +22,30 @@ const toggleableFeatures = [
             name: "dark-mode",
             htmlContent: '<i class="fa-solid fa-sun"></i>'
         },
+    },
+    {
+        name: "style",
+        buttonId: "styleToggle",
+        option1: {
+            name: "classic-style",
+            htmlContent: '<i class="fa-solid fa-palette"></i>'
+        },
+        option2: {
+            name: "modern-style",
+            htmlContent: '<i class="fa-solid fa-brush"></i>'
+        },
+        onApply: function (activeOption) {
+            const classicStyle = document.querySelector('link[href="/styles.css"]');
+            const modernStyle = document.querySelector('link[href="/styles-modern.css"]');
+            const isModern = activeOption.name === "modern-style";
+
+            if (classicStyle) classicStyle.disabled = isModern;
+            if (modernStyle) modernStyle.disabled = !isModern;
+        }
     }
 ];
 
-function applyFeatureState({ name, button, activeOption, inactiveOption }) {
+function applyFeatureState({ name, button, activeOption, inactiveOption, onApply }) {
     document.body.classList.remove(inactiveOption.name);
     document.body.classList.add(activeOption.name);
     localStorage.setItem(name, activeOption.name);
@@ -33,10 +53,14 @@ function applyFeatureState({ name, button, activeOption, inactiveOption }) {
     if (button) {
         button.innerHTML = activeOption.htmlContent;
     }
+
+    if (onApply) {
+        onApply(activeOption);
+    }
 }
 
 function initToggle(feature) {
-    const { name, buttonId, option1, option2 } = feature;
+    const { name, buttonId, option1, option2, onApply } = feature;
     const button = document.getElementById(buttonId) || null;
 
     const saved = localStorage.getItem(name);
@@ -49,7 +73,8 @@ function initToggle(feature) {
         name,
         button,
         activeOption: current,
-        inactiveOption: other
+        inactiveOption: other,
+        onApply
     });
 
     if (button) {
@@ -62,7 +87,8 @@ function initToggle(feature) {
                 name,
                 button,
                 activeOption: active,
-                inactiveOption: inactive
+                inactiveOption: inactive,
+                onApply
             });
         });
     }

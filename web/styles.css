@@ -185,8 +185,13 @@ header {
 }
 
 
-#modeToggle {
+#styleToggle {
+    position: fixed;
+    top: 2rem;
+    left: 1rem;
+}
 
+#modeToggle {
     position: fixed;
     top: 2rem;
     right: 2rem;
@@ -194,14 +199,16 @@ header {
 
 #themeToggle {
     position: fixed;
-    top: 2rem;
-    left: 1rem;
+    bottom: 2rem;
+    right: 1rem;
 }
 
+#styleToggle i,
 #themeToggle i {
     font-size: 1.2rem;
 }
 
+#styleToggle:hover,
 #modeToggle:hover,
 #themeToggle:hover {
     background-color: var(--mode-toggle-hover-background-color);
