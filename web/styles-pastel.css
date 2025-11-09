@@ -1,0 +1,218 @@
+@import url('./styles-common.css');
+
+/* === Pastel Paper Palette === */
+:root {
+    --mint: #c8f4de;
+    --peach: #ffe5b4;
+    --lavender: #e9ddff;
+    --butter: #fff7b0;
+    --sky: #d7edff;
+    --text: #2b2b2b;
+    --muted: #555;
+    --link: #e06666;
+    --link-hover: #b33b3b;
+    --border: #ddd;
+    --bg: #ffffff;
+}
+
+body.dark-mode {
+    --mint: #1a3a2e;
+    --peach: #3a2820;
+    --lavender: #2d2240;
+    --butter: #3a361e;
+    --sky: #1e2f3a;
+    --text: #f4f4f4;
+    --muted: #b7b7b7;
+    --link: #ff9f9f;
+    --link-hover: #ffc4c4;
+    --border: #444;
+    --bg: #111216;
+}
+
+/* === Base === */
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    max-width: 760px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* === Headings === */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0.5rem 0 0.3rem;
+}
+
+/* === Sections === */
+section {
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+    margin-top: 0.75rem;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Assign distinct pastel tones per section */
+section:nth-of-type(1) {
+    background: var(--mint);
+}
+
+section:nth-of-type(2) {
+    background: var(--peach);
+}
+
+section:nth-of-type(3) {
+    background: var(--lavender);
+}
+
+section:nth-of-type(4) {
+    background: var(--butter);
+}
+
+section:nth-of-type(5) {
+    background: var(--sky);
+}
+
+body.dark-mode section {
+    color: var(--text);
+    /* subtle overlay to deepen pastel colors */
+    background-blend-mode: multiply;
+}
+
+body.dark-mode section:nth-of-type(1) {
+    background: color-mix(in srgb, var(--mint) 80%, #000 20%);
+}
+
+body.dark-mode section:nth-of-type(2) {
+    background: color-mix(in srgb, var(--peach) 80%, #000 20%);
+}
+
+body.dark-mode section:nth-of-type(3) {
+    background: color-mix(in srgb, var(--lavender) 80%, #000 20%);
+}
+
+body.dark-mode section:nth-of-type(4) {
+    background: color-mix(in srgb, var(--butter) 80%, #000 20%);
+}
+
+body.dark-mode section:nth-of-type(5) {
+    background: color-mix(in srgb, var(--sky) 80%, #000 20%);
+}
+
+/* === Links === */
+a {
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+/* === CLI Elements === */
+.cli-label {
+    font-family: 'Courier New', monospace;
+    color: var(--muted);
+    width: 9ch;
+    display: inline-block;
+}
+
+.cli-name,
+.cli-exp-header {
+    font-weight: 600;
+}
+
+.cli-meta,
+.cli-exp-dates {
+    font-style: italic;
+    color: var(--muted);
+    margin-left: 0.5ch;
+}
+
+.cli-exp-point {
+    margin-left: 2.5ch;
+    position: relative;
+}
+
+.cli-exp-point::before {
+    content: '▹';
+    color: var(--link);
+    margin-right: 0.4ch;
+}
+
+/* === MOTD === */
+.motd {
+    background: var(--lavender);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-style: italic;
+    margin: 1.2rem 0;
+    color: var(--muted);
+    transition: background 0.3s ease;
+}
+
+body.dark-mode .motd {
+    background: color-mix(in srgb, var(--lavender) 70%, #000 30%);
+}
+
+/* === Buttons === */
+.toggle-button,
+.profile_link_button {
+    background: var(--link);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.profile_link_button {
+    background-color: var(--sky);
+    margin-right: 1rem;
+    color: var(--text);
+}
+
+.profile_link_button:hover {
+    background-color: var(--lavender);
+}
+
+.toggle-button:hover {
+    background: var(--link-hover);
+}
+
+/* === CLI mode === */
+body.cli section {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0.3rem 0;
+}
+
+/* === Responsive === */
+@media (max-width: 700px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+}

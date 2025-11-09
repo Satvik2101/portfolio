@@ -1,0 +1,236 @@
+/* Soft Theme — Calm, Modern, Friendly */
+
+@import url('./styles-common.css');
+
+/* === Color Palette === */
+:root {
+    --background-color: #f7f8fa;
+    --surface-color: #ffffff;
+    --text-color: #1a1a1a;
+    --muted-text: #555;
+    --h1-color: #0e0e0e;
+    --h2-color: #333;
+    --link-color: #0066cc;
+    --link-hover-color: #004999;
+    --border-color: #e2e6ea;
+    --accent-color: #0072f5;
+    --motd-color: #666;
+    --cli-exp-dates: #777;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode {
+    --background-color: #101214;
+    --surface-color: #1b1d20;
+    --text-color: #f5f5f5;
+    --muted-text: #aaa;
+    --h1-color: #fff;
+    --h2-color: #ddd;
+    --link-color: #4aa8ff;
+    --link-hover-color: #82c3ff;
+    --border-color: #2c2f33;
+    --accent-color: #4aa8ff;
+    --motd-color: #bbb;
+    --cli-exp-dates: #999;
+    --shadow-color: rgba(0, 0, 0, 0.25);
+}
+
+/* === Base === */
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 2.5rem 1.5rem;
+}
+
+/* === Headings === */
+h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--h1-color);
+    margin: 1.5rem 0 1rem;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    color: var(--h2-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 0.75rem;
+}
+
+/* === Links === */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    border-bottom-color: var(--link-hover-color);
+}
+
+/* === Sections === */
+section {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    padding: 0 1.5rem;
+    margin: 1rem;
+}
+
+/* === CLI Elements === */
+.cli-label {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    display: inline-block;
+    width: 10ch;
+    color: var(--muted-text);
+}
+
+.cli-project,
+.cli-workexp {
+    margin-bottom: 1.25rem;
+}
+
+.cli-name,
+.cli-exp-header {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.cli-meta,
+.cli-exp-dates {
+    color: var(--cli-exp-dates);
+    font-style: italic;
+    margin-left: 1ch;
+}
+
+.cli-desc {
+    color: var(--muted-text);
+    margin-left: 1ch;
+}
+
+.cli-exp-point {
+    margin-left: 3ch;
+    color: var(--text-color);
+    position: relative;
+    line-height: 1.6;
+}
+
+.cli-exp-point::before {
+    content: "• ";
+    color: var(--accent-color);
+}
+
+/* === MOTD === */
+.motd {
+    color: var(--motd-color);
+    background: var(--surface-color);
+    border-left: 4px solid var(--accent-color);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    margin: 2rem 0;
+}
+
+/* === Buttons === */
+.toggle-button {
+    font-family: inherit;
+    font-weight: 500;
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s ease;
+}
+
+.toggle-button:hover {
+    background: var(--link-hover-color);
+}
+
+/* === Profile Buttons === */
+.profile_link_button {
+    display: inline-block;
+    background: var(--surface-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem 0.9rem;
+    margin: 0.25rem;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: all 0.2s ease;
+}
+
+.profile_link_button:hover {
+    background: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
+
+/* === Terminal Intro === */
+.terminal-intro {
+    font-family: 'Courier New', monospace;
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1rem;
+    margin: 2rem 0;
+    line-height: 1.7;
+}
+
+/* === CLI Mode === */
+body.cli {
+    font-family: 'Courier New', monospace;
+    background: var(--background-color);
+}
+
+body.cli section {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+body.cli .motd {
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* === Responsiveness === */
+@media (max-width: 768px) {
+    body {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.9rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+}
+
+/* === Accessibility === */
+a:focus,
+.toggle-button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}

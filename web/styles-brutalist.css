@@ -1,0 +1,247 @@
+/* Brutalist Theme — Raw, Bold, Fast, Intentionally Unrefined */
+
+@import url('./styles-common.css');
+
+/* === Colors === */
+:root {
+    --background-color: #fefefe;
+    --surface-color: #ffffff;
+    --text-color: #111;
+    --muted-text: #555;
+    --h1-color: #000;
+    --h2-color: #111;
+    --link-color: #000;
+    --link-hover-color: #ff0055;
+    --border-color: #000;
+    --accent-color: #000;
+    --motd-color: #333;
+    --cli-exp-dates: #666;
+}
+
+body.dark-mode {
+    --background-color: #0d0d0d;
+    --surface-color: #1a1a1a;
+    --text-color: #f3f3f3;
+    --muted-text: #aaa;
+    --h1-color: #fff;
+    --h2-color: #eee;
+    --link-color: #fff;
+    --link-hover-color: #ff3c7c;
+    --border-color: #fff;
+    --accent-color: #fff;
+    --motd-color: #bbb;
+    --cli-exp-dates: #aaa;
+}
+
+/* === Base === */
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-rendering: optimizeLegibility;
+}
+
+/* === Typography === */
+h1,
+h2,
+h3 {
+    text-transform: uppercase;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+h1 {
+    font-size: 2.4rem;
+    border-bottom: 4px solid var(--border-color);
+    display: inline-block;
+    padding-bottom: 0.2rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+    border-left: 5px solid var(--border-color);
+    padding-left: 0.5rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+/* === Links === */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 2px solid var(--border-color);
+    transition: color 0.1s, background 0.1s;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* === Lists === */
+ul {
+    list-style-type: square;
+    padding-left: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+li {
+    margin: 0.25rem 0.25rem;
+}
+
+/* === Section === */
+section {
+    border-top: 2px solid var(--border-color);
+    padding-top: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+/* === CLI Elements === */
+.cli-label {
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    width: 10ch;
+    color: var(--muted-text);
+}
+
+.cli-project,
+.cli-workexp {
+    margin-bottom: 1rem;
+}
+
+.cli-name,
+.cli-exp-header {
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+
+.cli-meta,
+.cli-exp-dates {
+    font-size: 0.85rem;
+    color: var(--cli-exp-dates);
+    text-transform: uppercase;
+}
+
+.cli-desc {
+    margin-left: 1ch;
+    color: var(--muted-text);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.cli-exp-point {
+    margin-left: 2ch;
+    line-height: 1.5;
+    position: relative;
+}
+
+.cli-exp-point::before {
+    content: "▌";
+    color: var(--border-color);
+    margin-right: 0.5ch;
+}
+
+/* === MOTD === */
+.motd {
+    border-left: 4px solid var(--border-color);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-family: 'Courier New', monospace;
+    color: var(--motd-color);
+    font-size: 0.95rem;
+}
+
+/* === Buttons === */
+.toggle-button {
+    background: none;
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    font-family: inherit;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background 0.15s, color 0.15s;
+}
+
+.toggle-button:hover {
+    background: var(--accent-color);
+    color: var(--background-color);
+}
+
+/* === Profile Buttons === */
+.profile_link_button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--border-color);
+    background: none;
+    color: var(--link-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0.25rem 0.5rem 0.25rem 0;
+}
+
+.profile_link_button:hover {
+    background: var(--accent-color);
+    color: var(--background-color);
+}
+
+/* === Terminal Intro === */
+.terminal-intro {
+    font-family: 'Courier New', monospace;
+    border: 2px solid var(--border-color);
+    padding: 1rem;
+    background: var(--surface-color);
+    color: var(--muted-text);
+    font-size: 0.9rem;
+    margin: 1.5rem 0;
+}
+
+/* === CLI Mode === */
+body.cli {
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+body.cli section {
+    border: none;
+    padding: 0;
+}
+
+body.cli h1,
+body.cli h2 {
+    border: none;
+    text-transform: none;
+}
+
+body.cli .cli-label {
+    color: var(--muted-text);
+}
+
+/* === Responsiveness === */
+@media (max-width: 768px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* === Accessibility === */
+a:focus,
+.toggle-button:focus {
+    outline: 2px dashed var(--link-hover-color);
+    outline-offset: 3px;
+}

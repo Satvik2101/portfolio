@@ -1,0 +1,236 @@
+/* Serif Theme — Elegant, Academic, Literary */
+
+@import url('./styles-common.css');
+
+/* === Color System === */
+:root {
+    --background-color: #fdfcf9;
+    --surface-color: #ffffff;
+    --text-color: #2a2a2a;
+    --muted-text: #6b655d;
+    --h1-color: #1d1c1a;
+    --h2-color: #3a3835;
+    --link-color: #7a3e2f;
+    --link-hover-color: #b35a40;
+    --border-color: #d8d2c9;
+    --accent-color: #7a3e2f;
+    --motd-color: #5e554a;
+    --cli-exp-dates: #7a7a7a;
+}
+
+body.dark-mode {
+    --background-color: #191715;
+    --surface-color: #1f1c19;
+    --text-color: #eae6df;
+    --muted-text: #aaa196;
+    --h1-color: #fff;
+    --h2-color: #ddd7cf;
+    --link-color: #d8a676;
+    --link-hover-color: #ffcb91;
+    --border-color: #3a312a;
+    --accent-color: #d8a676;
+    --motd-color: #b8b0a7;
+    --cli-exp-dates: #a79e91;
+}
+
+/* === Base === */
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    line-height: 1.8;
+}
+
+/* === Headers === */
+h1 {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: var(--h1-color);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    border-bottom: 3px double var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    font-family: 'Georgia', serif;
+    color: var(--h2-color);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 0.8rem;
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
+}
+
+/* === Links === */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1px;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    border-color: var(--link-hover-color);
+}
+
+/* === Sections === */
+section {
+    border-top: 1px solid var(--border-color);
+}
+
+/* === CLI Label Elements === */
+.cli-label {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--muted-text);
+    display: inline-block;
+    width: 9ch;
+}
+
+.cli-project,
+.cli-workexp {
+    margin-bottom: 2rem;
+}
+
+.cli-name,
+.cli-exp-header {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--text-color);
+    font-family: 'Georgia', serif;
+}
+
+.cli-meta,
+.cli-exp-dates {
+    color: var(--cli-exp-dates);
+    font-style: italic;
+    margin-left: 1ch;
+}
+
+.cli-desc {
+    color: var(--muted-text);
+    margin-left: 1ch;
+    font-style: italic;
+}
+
+.cli-exp-point {
+    margin-left: 2ch;
+    position: relative;
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+.cli-exp-point::before {
+    content: "• ";
+    color: var(--accent-color);
+}
+
+/* === MOTD === */
+.motd {
+    color: var(--motd-color);
+    font-style: italic;
+    border-left: 3px solid var(--border-color);
+    padding-left: 1rem;
+    margin: 2.5rem 0;
+    font-family: 'Georgia', serif;
+}
+
+/* === Buttons === */
+.toggle-button {
+    background: var(--surface-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+}
+
+.toggle-button:hover {
+    background: var(--accent-color);
+    color: var(--background-color);
+}
+
+/* === Profile Links === */
+.profile_link_button {
+    display: inline-block;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    color: var(--link-color);
+    font-family: 'Georgia', serif;
+    margin: 0.3rem;
+    font-weight: 500;
+}
+
+.profile_link_button:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+/* === Terminal Intro === */
+.terminal-intro {
+    font-family: 'Courier New', monospace;
+    color: var(--muted-text);
+    border-left: 3px solid var(--border-color);
+    padding-left: 1rem;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+}
+
+/* === CLI Mode === */
+body.cli {
+    font-family: 'Courier New', monospace;
+    background: var(--background-color);
+}
+
+body.cli h2 {
+    text-transform: none;
+    border: none;
+    font-family: 'Georgia', serif;
+    font-weight: 600;
+}
+
+body.cli section {
+    border: none;
+}
+
+body.cli .cli-label {
+    color: var(--muted-text);
+}
+
+body.cli .motd {
+    border-left: 2px solid var(--border-color);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    body {
+        padding: 2rem 1.2rem;
+    }
+
+    h1 {
+        font-size: 2.1rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* === Accessibility === */
+a:focus,
+.toggle-button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}

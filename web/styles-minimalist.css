@@ -1,0 +1,271 @@
+/* Minimalist Theme - Editorial, Monochrome, Elegant */
+
+@import url('./styles-common.css');
+
+/* === Base Colors === */
+:root {
+    --background-color: #fafafa;
+    --surface-color: #ffffff;
+    --text-color: #1a1a1a;
+    --muted-text: #666;
+    --h1-color: #000;
+    --h2-color: #222;
+    --link-color: #111;
+    --link-hover-color: #888;
+    --border-color: #ddd;
+    --accent-color: #111;
+    --motd-color: #555;
+    --cli-exp-dates: #777;
+}
+
+body.dark-mode {
+    --background-color: #111;
+    --surface-color: #1b1b1b;
+    --text-color: #eee;
+    --muted-text: #aaa;
+    --h1-color: #fff;
+    --h2-color: #e5e5e5;
+    --link-color: #fff;
+    --link-hover-color: #999;
+    --border-color: #333;
+    --accent-color: #fff;
+    --motd-color: #bbb;
+    --cli-exp-dates: #ccc;
+}
+
+/* === Transitions === */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* === Base Layout === */
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Helvetica Neue', 'Inter', 'Segoe UI', sans-serif;
+    line-height: 1.75;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+/* === Typography === */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--h1-color);
+    margin: 2rem 0 1rem;
+    letter-spacing: -0.02em;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 0.25rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 3rem;
+    color: var(--h2-color);
+    border-left: 3px solid var(--accent-color);
+    padding-left: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* === Links === */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1px;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    border-color: var(--link-hover-color);
+}
+
+/* === Lists === */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 1rem;
+}
+
+/* === Sections === */
+section {
+    border-top: 1px solid var(--border-color);
+}
+
+/* === CLI Elements === */
+.cli-label {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    display: inline-block;
+    width: 10ch;
+    min-width: 10ch;
+    color: var(--muted-text);
+}
+
+.cli-project,
+.cli-workexp {
+    margin-bottom: 2rem;
+    padding-left: 1ch;
+}
+
+.cli-name,
+.cli-exp-header {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+}
+
+.cli-meta,
+.cli-exp-dates {
+    color: var(--cli-exp-dates);
+    font-style: italic;
+    margin-left: 1ch;
+}
+
+.cli-desc {
+    color: var(--muted-text);
+    margin-left: 1ch;
+}
+
+.cli-exp-point {
+    margin-left: 3ch;
+    color: var(--text-color);
+    position: relative;
+    line-height: 1.6;
+}
+
+.cli-exp-point::before {
+    content: "— ";
+    color: var(--muted-text);
+}
+
+/* === MOTD === */
+.motd {
+    color: var(--motd-color);
+    font-style: italic;
+    border-left: 2px solid var(--border-color);
+    padding-left: 1rem;
+    margin: 2rem 0;
+}
+
+/* === Header & Toggle Buttons === */
+header {
+    text-align: right;
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.toggle-button {
+    font-family: inherit;
+    font-weight: 500;
+    background: var(--surface-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.toggle-button:hover {
+    background: var(--accent-color);
+    color: var(--background-color);
+}
+
+/* === Profile Links === */
+.profile_link_button {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin: 0.25rem;
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: 500;
+}
+
+.profile_link_button:hover {
+    background: var(--accent-color);
+    color: var(--background-color);
+}
+
+/* === Terminal Intro === */
+.terminal-intro {
+    font-family: 'Courier New', monospace;
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    border-left: 3px solid var(--border-color);
+    padding-left: 1rem;
+    margin: 2rem 0;
+    line-height: 1.7;
+}
+
+/* === CLI Mode Overrides === */
+body.cli {
+    font-family: 'Courier New', monospace;
+    max-width: 700px;
+    padding: 2rem 1rem;
+}
+
+body.cli section {
+    border: none;
+    background: transparent;
+}
+
+body.cli h2 {
+    font-size: 1.2rem;
+    text-transform: none;
+    border: none;
+    color: var(--link-color);
+}
+
+body.cli .cli-label {
+    color: var(--muted-text);
+    text-transform: uppercase;
+}
+
+body.cli .motd {
+    border-left: 2px solid var(--border-color);
+    padding-left: 1rem;
+    color: var(--motd-color);
+}
+
+body.cli .profile_link_button {
+    border: 1px solid var(--border-color);
+}
+
+/* === Responsiveness === */
+@media (max-width: 768px) {
+    body {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .toggle-button {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* === Accessibility === */
+a:focus,
+.toggle-button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
