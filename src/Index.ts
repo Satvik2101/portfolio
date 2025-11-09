@@ -41,6 +41,7 @@ class Index extends Tag {
 
             new Br(),
             new Script().src("./scripts/toggle.js"),
+            new Script().src("./scripts/switch-style.js"),
         ], { lang: "en", ontouchmove: "" })
     }
 
