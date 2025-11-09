@@ -1,3 +1,5 @@
+@import url('./styles-common.css');
+
 /* Light Mode (Default) */
 :root {
     --background-color: #fff;
@@ -67,10 +69,6 @@ h2 {
 }
 
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
 
 li {
     margin-bottom: 1rem;
@@ -94,9 +92,6 @@ a:hover {
 
 /* CLI-style formatting */
 
-.cli-block p {
-    margin: 0 0 1rem 0;
-}
 
 .cli-label {
     display: inline-block;
@@ -115,11 +110,6 @@ h2 {
     margin-bottom: 0.5rem;
 }
 
-.cli-row {
-    display: flex;
-    gap: 1ch;
-    margin-bottom: 0.5rem;
-}
 
 
 
@@ -132,38 +122,14 @@ h2 {
     color: var(--h1-color);
 }
 
-.cli-desc {
-    margin-left: 1ch;
-}
 
 .cli-meta {
     margin-left: 1ch;
     color: var(--cli-label-color);
-    font-style: italic;
-    font-size: 0.9rem;
     margin-bottom: 0.8rem;
 }
 
-.cli-link {
-    margin-left: 1ch;
-}
 
-/* Hide plain-mode by default */
-.plain-mode {
-    display: inline;
-}
-
-.cli-mode {
-    display: none;
-}
-
-body.cli .plain-mode {
-    display: none;
-}
-
-body.cli .cli-mode {
-    display: inline;
-}
 
 /* Button styling */
 header {
@@ -185,28 +151,6 @@ header {
 }
 
 
-#styleToggle {
-    position: fixed;
-    top: 2rem;
-    left: 1rem;
-}
-
-#modeToggle {
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
-}
-
-#themeToggle {
-    position: fixed;
-    bottom: 2rem;
-    right: 1rem;
-}
-
-#styleToggle i,
-#themeToggle i {
-    font-size: 1.2rem;
-}
 
 #styleToggle:hover,
 #modeToggle:hover,
@@ -214,29 +158,15 @@ header {
     background-color: var(--mode-toggle-hover-background-color);
 }
 
-a h2 {
-    color: unset;
-
-}
 
 .motd {
     color: var(--motd-color);
 }
 
-body.cli .motd.cli-mode {
-    display: inline;
-}
-
-body.cli .motd.plain-mode {
-    display: none;
-}
-
 .motd.plain-mode {
-    display: block;
     font-style: italic;
     border-left: 4px solid var(--mode-toggle-border-color);
     padding-left: 1rem;
-
 }
 
 .profile_link_button {
@@ -253,10 +183,6 @@ body {
     padding-top: 2rem;
 }
 
-body.cli h1 {
-    display: none;
-}
-
 
 
 .cli-project {
@@ -269,9 +195,6 @@ body.cli h1 {
     color: var(--cli-label-color);
 }
 
-.cli-link a:hover {
-    text-decoration: underline;
-}
 
 /* === Work Experience === */
 .cli-workexp {
@@ -285,8 +208,6 @@ body.cli h1 {
 }
 
 .cli-exp-dates {
-    margin-left: 1ch;
-    font-size: 0.9rem;
     color: var(--cli-exp-dates);
 }
 

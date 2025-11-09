@@ -1,0 +1,111 @@
+/* Common Styles - Shared between classic and modern themes */
+
+/* Mode Toggles */
+.plain-mode {
+    display: inline;
+}
+
+.cli-mode {
+    display: none;
+}
+
+body.cli .plain-mode {
+    display: none;
+}
+
+body.cli .cli-mode {
+    display: inline;
+}
+
+body.cli h1 {
+    display: none;
+}
+
+/* Button Positioning */
+#styleToggle {
+    position: fixed;
+    top: 2rem;
+    left: 1rem;
+}
+
+#modeToggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+}
+
+#themeToggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 1rem;
+}
+
+#styleToggle i,
+#themeToggle i {
+    font-size: 1.2rem;
+}
+
+/* MOTD Display Logic */
+body.cli .motd.cli-mode {
+    display: inline;
+}
+
+body.cli .motd.plain-mode {
+    display: none;
+}
+
+.motd.plain-mode {
+    display: block;
+}
+
+/* Common List Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Common CLI Block */
+.cli-block p {
+    margin: 0 0 1rem 0;
+}
+
+/* Common CLI Row */
+.cli-row {
+    display: flex;
+    gap: 1ch;
+    margin-bottom: 0.5rem;
+}
+
+/* Common CLI Elements Structure */
+.cli-desc {
+    margin-left: 1ch;
+}
+
+.cli-meta {
+    margin-left: 1ch;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.cli-link {
+    margin-left: 1ch;
+}
+
+.cli-exp-dates {
+    margin-left: 1ch;
+    font-size: 0.9rem;
+}
+
+.cli-exp-point {
+    margin-left: 3ch;
+    padding-left: 1ch;
+}
+
+/* Common Link Behavior */
+a h2 {
+    color: unset;
+}
+
+.cli-link a:hover {
+    text-decoration: underline;
+}
