@@ -13,7 +13,7 @@ class HeroSection extends Tag {
                 new Br(),
                 "Backend Engineer · Infra Enthusiast · Code Purist",
                 Span.withAttributes({ class: "cursor" }, "|")
-            ])
+            ]).class("hero-text")
         ])
     }
 }

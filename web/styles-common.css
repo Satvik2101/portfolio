@@ -21,6 +21,19 @@ body.cli h1 {
     display: none;
 }
 
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+.cursor {
+    display: inline-block;
+    width: 1ch;
+    font-family: 'Courier New', monospace;
+    animation: blink 1s steps(2, start) infinite;
+}
+
 /* Button Positioning */
 #styleToggle {
     position: fixed;
