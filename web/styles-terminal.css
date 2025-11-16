@@ -1,0 +1,186 @@
+@import url('./styles-common.css');
+
+/* === ORGANIC (Tactile Handmade Edition) ===
+   Feels analog, crafted, and a little imperfect.
+   Warm paper tones, subtle ink bleed, and hand-drawn accents.
+*/
+
+:root {
+    --paper: #f6f1e7;
+    --fiber: #fffdf8;
+    --ink: #2d2a26;
+    --muted-ink: #6a6258;
+    --accent: #ad7b5b;
+    --accent-strong: #835a3c;
+    --border: #d5c7b3;
+    --highlight: #d9c4a3;
+    --shadow: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode {
+    --paper: #1b1815;
+    --fiber: #22201c;
+    --ink: #f0ece5;
+    --muted-ink: #a59a8b;
+    --accent: #d5a87a;
+    --accent-strong: #f4c48b;
+    --border: #3a332b;
+    --highlight: #2d2720;
+    --shadow: rgba(255, 255, 255, 0.05);
+}
+
+/* === BASE === */
+body {
+    font-family: "Literata", "Georgia", serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.75;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.2rem 1.5rem;
+    position: relative;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* handmade paper grain */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* === HEADINGS === */
+h1,
+h2 {
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+    color: var(--accent);
+}
+
+h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted-ink);
+    margin: 0.6rem 0 0.4rem;
+}
+
+/* === SECTIONS === */
+section {
+    background: var(--fiber);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    padding: 1.2rem 1.4rem;
+    margin-top: 0.9rem;
+    box-shadow: 1px 2px 4px var(--shadow);
+    position: relative;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* uneven “inked” borders for charm */
+section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px dashed rgba(0, 0, 0, 0.06);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+/* alternate tone variation */
+section:nth-of-type(even) {
+    background: var(--highlight);
+}
+
+/* === LINKS === */
+a {
+    color: var(--accent);
+    text-decoration: underline wavy 1px;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-strong);
+}
+
+/* === CLI ELEMENTS === */
+.cli-label {
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--muted-ink);
+    width: 9ch;
+    display: inline-block;
+}
+
+.cli-exp-point {
+    margin-left: 2.5ch;
+    position: relative;
+}
+
+.cli-exp-point::before {
+    content: '✶';
+    color: var(--accent);
+    margin-right: 0.4ch;
+}
+
+/* === MOTD === */
+.motd {
+    font-style: italic;
+    border-left: 4px solid var(--accent);
+    padding: 0.8rem 1rem;
+    background: var(--highlight);
+    color: var(--muted-ink);
+    margin: 1.2rem 0;
+    border-radius: 4px;
+}
+
+/* === BUTTONS === */
+.toggle-button,
+.profile_link_button {
+    font-family: "Inter", sans-serif;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    padding: 0.45rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+    font-weight: 600;
+    background: transparent;
+    color: var(--accent);
+}
+
+.toggle-button:hover,
+.profile_link_button:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* === CLI MODE === */
+body.cli section {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0.3rem 0;
+    box-shadow: none;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 700px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+}

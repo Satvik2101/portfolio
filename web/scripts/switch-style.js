@@ -10,7 +10,9 @@ const themes = [
     'styles-brutalist.css',
     'styles-soft.css',
     'styles-pastel.css',
-    'styles-manuscript.css'
+    'styles-manuscript.css',
+    'styles-blueprint.css',
+    'styles-terminal.css'
 ];
 
 let currentThemeIndex = parseInt(localStorage.getItem('themeIndex')) || 0;
