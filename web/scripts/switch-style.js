@@ -3,12 +3,9 @@ const themeToggle = document.getElementById('styleToggle');
 
 const themes = [
     'styles-classic.css',
-    'styles-modern.css',
     'styles-retro.css',
-    'styles-minimalist.css',
     'styles-serif.css',
     'styles-brutalist.css',
-    'styles-soft.css',
     'styles-pastel.css',
     'styles-manuscript.css',
     'styles-blueprint.css',
