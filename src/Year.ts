@@ -1,10 +1,6 @@
 import Tag from "@satvik2101/lucid/utils/Tag";
-import { DefaultHeader, PortfolioHead } from "./components/PortfolioHead";
+import { PortfolioHead } from "./components/PortfolioHead";
 import H1 from "@satvik2101/lucid/tags/H1";
-import P from "@satvik2101/lucid/tags/P";
-import A from "@satvik2101/lucid/tags/A";
-import Img from "@satvik2101/lucid/tags/Img";
-import Style from "@satvik2101/lucid/tags/Style";
 import { Button, EnhancedDiv, H2, H3, Header, Script } from "@satvik2101/lucid";
 
 
@@ -37,6 +33,7 @@ class Year extends Tag {
             }),
             new Tag("body", [
                 new H1(year.toString()),
+                new H2("Year Progress"),
                 new Header([
                     Button.withAttributes({ id: "themeToggle", class: "toggle-button" }, "Dark Mode")
                 ]),
@@ -51,7 +48,6 @@ class Year extends Tag {
                     ...Array.from({ length: totalDays }, () => new Circle(true)),
                 ]
             }),
-            new H2("Year Progress"),
             new H3().class("date"),
             new H3().class("percentage"),
 
