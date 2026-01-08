@@ -1,0 +1,317 @@
+/* Retro Theme - CRT Terminal Style */
+
+@import url('./styles-common.css');
+
+/* === Base Colors === */
+:root {
+    --background-color: #000;
+    --text-color: #00ff66;
+    --h1-color: #00ff66;
+    --h2-color: #33ff99;
+    --link-color: #00cc66;
+    --link-hover-color: #66ffaa;
+    --cli-label-color: #00ff66;
+    --mode-toggle-border-color: #008844;
+    --mode-toggle-background-color: #000;
+    --mode-toggle-hover-background-color: #002200;
+    --motd-color: #33ff99;
+    --cli-exp-dates: #00ff66;
+
+    --crt-glow: 0 0 5px #00ff66, 0 0 10px #00ff66, 0 0 20px #00ff66;
+}
+
+/* === Dark Mode Variant (Amber Terminal) === */
+body.dark-mode {
+    --background-color: #0d0a00;
+    --text-color: #ffb84d;
+    --h1-color: #ffd480;
+    --h2-color: #ffcc66;
+    --link-color: #ffaa00;
+    --link-hover-color: #ffcc33;
+    --cli-label-color: #ffc266;
+    --mode-toggle-border-color: #995c00;
+    --mode-toggle-background-color: #1a1000;
+    --mode-toggle-hover-background-color: #332200;
+    --motd-color: #ffb84d;
+    --cli-exp-dates: #ffb84d;
+
+    --crt-glow: 0 0 5px #ffb84d, 0 0 10px #ffb84d, 0 0 20px #ffb84d;
+}
+
+/* === Transitions === */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* === General Layout === */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Courier New', monospace;
+    margin: 0 auto;
+    max-width: 720px;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+    text-shadow: 0 0 2px var(--text-color);
+}
+
+/* === CRT Screen Glow === */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom,
+            rgba(0, 255, 0, 0.05),
+            rgba(0, 255, 0, 0.05) 1px,
+            transparent 1px,
+            transparent 2px);
+    opacity: 0.2;
+    z-index: 9999;
+}
+
+/* === Headings === */
+h1 {
+    color: var(--h1-color);
+    font-size: 2rem;
+    text-shadow: var(--crt-glow);
+}
+
+h2 {
+    color: var(--h2-color);
+    font-size: 1.3rem;
+    text-shadow: 0 0 6px var(--h2-color);
+}
+
+/* === Links === */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    position: relative;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-shadow: 0 0 8px var(--link-hover-color);
+}
+
+a::after {
+    content: '_';
+    opacity: 0;
+    position: absolute;
+    right: -0.5ch;
+    animation: blink 1s steps(2, start) infinite;
+}
+
+a:hover::after {
+    opacity: 1;
+}
+
+/* === Lists === */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 1rem;
+}
+
+/* === CLI Elements === */
+.cli-label {
+    display: inline-block;
+    width: 10ch;
+    color: var(--cli-label-color);
+    font-weight: bold;
+    text-shadow: var(--crt-glow);
+}
+
+.cli-project,
+.cli-workexp {
+    margin-bottom: 1.5rem;
+    padding-left: 1ch;
+    border-left: 2px solid var(--link-color);
+}
+
+.cli-name,
+.cli-exp-header {
+    color: var(--h1-color);
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    text-shadow: var(--crt-glow);
+}
+
+.cli-desc {
+    color: var(--cli-label-color);
+    margin-left: 1ch;
+    line-height: 1.5;
+}
+
+.cli-meta {
+    margin-left: 1ch;
+    color: var(--cli-label-color);
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.cli-exp-dates {
+    color: var(--cli-exp-dates);
+    margin-left: 1ch;
+}
+
+.cli-exp-point {
+    margin-left: 3ch;
+    color: var(--text-color);
+}
+
+.cli-exp-point::before {
+    content: '>';
+    margin-right: 1ch;
+    color: var(--link-color);
+}
+
+/* === MOTD === */
+.motd {
+    color: var(--motd-color);
+    font-style: italic;
+    margin: 1.5rem 0;
+    border-left: 2px solid var(--link-color);
+    padding-left: 1rem;
+    opacity: 0.85;
+}
+
+/* === Header and Toggle Buttons === */
+header {
+    text-align: right;
+    padding: 0 2rem;
+}
+
+.toggle-button {
+    font-family: 'Courier New', monospace;
+    background: var(--mode-toggle-background-color);
+    color: var(--h1-color);
+    border: 1px solid var(--mode-toggle-border-color);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    box-shadow: 0 0 4px var(--mode-toggle-border-color);
+}
+
+.toggle-button:hover {
+    background: var(--mode-toggle-hover-background-color);
+    box-shadow: 0 0 8px var(--link-hover-color);
+}
+
+/* === Profile Links === */
+.profile_link_button {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    font-weight: bold;
+    color: var(--link-color);
+    border: 1px solid var(--mode-toggle-border-color);
+    text-decoration: none;
+    margin-right: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.profile_link_button:hover {
+    background: var(--mode-toggle-hover-background-color);
+    color: var(--link-hover-color);
+    text-shadow: 0 0 8px var(--link-hover-color);
+}
+
+/* === Terminal Intro === */
+.terminal-intro {
+    border-left: 3px solid var(--link-color);
+    padding-left: 1rem;
+    color: var(--motd-color);
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* === CLI Mode Overrides === */
+body.cli {
+    font-family: 'Courier New', monospace;
+    max-width: 700px;
+    padding: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body.cli section {
+    border: none;
+    background: transparent;
+}
+
+body.cli h2 {
+    color: var(--link-color);
+}
+
+body.cli .cli-label {
+    text-transform: uppercase;
+}
+
+body.cli .motd {
+    border-left: 3px solid var(--link-color);
+    color: var(--motd-color);
+}
+
+body.cli .profile_link_button {
+    border: 1px solid var(--mode-toggle-border-color);
+}
+
+/* === Section Formatting === */
+section {
+    margin-top: 2rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--link-color);
+    background: rgba(0, 255, 100, 0.02);
+}
+
+/* === CRT Flicker Animation === */
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.97;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: flicker 0.15s infinite;
+}
+
+/* === Cursor Blink === */
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+.cursor {
+    display: inline-block;
+    width: 1ch;
+    animation: blink 1s steps(2, start) infinite;
+}
+
+/* === Scrollbars (for fun) === */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--link-color);
+}
+
+::-webkit-scrollbar-track {
+    background-color: #001100;
+}

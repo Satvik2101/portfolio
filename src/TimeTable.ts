@@ -22,10 +22,10 @@ class TimeTable extends Tag {
                 image: "https://www.satvikgupta.com/assets/images/preview.png",
                 url: "https://www.satvikgupta.com/time-table",
                 stylesheets: [
-                    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
-                    "styles.css",
-                    "styles/navbar_light.css",
-                    "styles/time_table_styles.css"
+                    { href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css", id: "font-awesome" },
+                    { href: "styles-classic.css", id: "themeStylesheet" },
+                    { href: "styles/navbar_light.css", id: "navbarLightStylesheet" },
+                    { href: "styles/time_table_styles.css", id: "timeTableStylesheet" }
                 ]
             }),
             new Tag("body", [

@@ -24,10 +24,9 @@ class Notes extends Tag {
                 image: "https://www.satvikgupta.com/assets/images/preview.png",
                 url: "https://www.satvikgupta.com/notes",
                 stylesheets: [
-                    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
-                    "/styles.css"
-                ],
-
+                    { href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css", id: "font-awesome" },
+                    { href: "styles-classic.css", id: "themeStylesheet" },
+                ]
             }),
             new Tag("body", [
                 new H1("Notes by Satvik Gupta"),

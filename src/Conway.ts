@@ -18,7 +18,7 @@ class Conway extends Tag {
                 image: "https://www.satvikgupta.com/assets/images/preview.png",
                 url: "https://www.satvikgupta.com/conway",
                 stylesheets: [
-                    "styles/conway.css"
+                    { "href": "styles/conway.css", "id": "conwayStylesheet" },
                 ]
             }),
             new Tag("body", [

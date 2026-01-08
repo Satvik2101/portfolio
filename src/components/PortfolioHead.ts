@@ -9,15 +9,15 @@ interface HeaderProps {
     description?: string;
     image?: string;
     url?: string;
-    stylesheets?: string[];
+    stylesheets?: { href: string, id?: string }[];
 }
 
 class PortfolioHead extends Head {
     constructor(props: HeaderProps) {
         const titleTag = props.title ? new Title(props.title) : "";
         var stylesheets = props.stylesheets?.map((stylesheet) => {
-            return new Link().rel("stylesheet").href(stylesheet);
-        });
+            return new Link().rel("stylesheet").href(stylesheet.href).id(stylesheet.id);
+        })
 
         super([
             new Meta().charset("UTF-8"),
@@ -50,8 +50,15 @@ class DefaultHeader extends PortfolioHead {
             image: "https://www.satmvikgupta.com/assets/images/preview.png",
             url: "https://www.satvikgupta.com",
             stylesheets: [
-                "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
-                "/styles.css"
+                {
+                    "href": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
+                    "id": "font-awesome"
+
+                },
+                {
+                    "href": "/styles-classic.css",
+                    "id": "themeStylesheet"
+                }
             ],
 
         })
