@@ -69,3 +69,35 @@ function initToggle(feature) {
 }
 
 toggleableFeatures.forEach(initToggle);
+
+// Work Experience "Show All" toggle
+function initWorkExpToggle() {
+    const showAllButton = document.getElementById("workexpShowAll");
+    if (!showAllButton) return;
+
+    const hiddenEntries = document.querySelectorAll(".workexp-hidden");
+    if (hiddenEntries.length === 0) return;
+
+    let isExpanded = false;
+
+    showAllButton.addEventListener("click", () => {
+        isExpanded = !isExpanded;
+
+        hiddenEntries.forEach(entry => {
+            if (isExpanded) {
+                entry.classList.remove("workexp-hidden");
+            } else {
+                entry.classList.add("workexp-hidden");
+            }
+        });
+
+        showAllButton.textContent = isExpanded ? "Show Less" : "Show All";
+    });
+}
+
+// Initialize when DOM is ready
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initWorkExpToggle);
+} else {
+    initWorkExpToggle();
+}

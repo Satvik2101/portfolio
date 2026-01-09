@@ -3,11 +3,12 @@ import EnhancedDiv from "@satvik2101/lucid/utils/EnhancedDiv";
 import Workexp from "../models/workexp";
 import SimpleAnchor from "@satvik2101/lucid/utils/SimpleAnchor";
 import { AdaptiveHeading } from "../components/AdaptiveHeading";
+import Button from "@satvik2101/lucid/tags/Button";
 
 class WorkExpEntry extends EnhancedDiv {
-    constructor(exp: Workexp) {
+    constructor(exp: Workexp, isHidden: boolean = false) {
         super({
-            class: "cli-workexp",
+            class: isHidden ? "cli-workexp workexp-hidden" : "cli-workexp",
             children: [
                 new EnhancedDiv({ class: "cli-exp-header", children: `${exp.role} @ ${exp.shortName}` }),
                 new EnhancedDiv({ class: "cli-exp-dates", children: `${exp.start} – ${exp.end}` }),
@@ -28,12 +29,30 @@ class WorkExpEntry extends EnhancedDiv {
 
 class WorkExpSection extends Tag {
     constructor(experiences: Workexp[]) {
-        super("section", [
+        const filteredExperiences = experiences.filter(exp => exp.excluded !== true);
+        const visibleExperiences = filteredExperiences.slice(0, 3);
+        const hiddenExperiences = filteredExperiences.slice(3);
+        const hasMore = hiddenExperiences.length > 0;
+
+        const children: any[] = [
             new AdaptiveHeading("cat workexp.txt", "Work Experience"),
-            ...experiences
-                .filter(exp => exp.excluded !== true)
-                .map(exp => new WorkExpEntry(exp))
-        ], { id: "workexp" });
+            ...visibleExperiences.map(exp => new WorkExpEntry(exp, false)),
+            ...hiddenExperiences.map(exp => new WorkExpEntry(exp, true))
+        ];
+
+        if (hasMore) {
+            children.push(
+                new EnhancedDiv({
+                    class: "workexp-show-all-container",
+                    children: Button.withAttributes(
+                        { id: "workexpShowAll", class: "workexp-show-all-button" },
+                        "Show All"
+                    )
+                })
+            );
+        }
+
+        super("section", children, { id: "workexp" });
     }
 }
 
