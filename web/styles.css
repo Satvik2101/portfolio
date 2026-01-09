@@ -12,6 +12,7 @@
     --mode-toggle-hover-background-color: #f5f5f5;
     --motd-color: #979797;
     --cli-exp-dates: #667;
+    --workexp-button-text-color: #888;
 }
 
 /* Dark Mode */
@@ -28,6 +29,7 @@ body.dark-mode {
     --mode-toggle-hover-background-color: #2a2d31;
     --motd-color: #c9d8f0;
     --cli-exp-dates: #cdd7e0;
+    --workexp-button-text-color: #aaa;
 }
 
 * {
@@ -288,4 +290,28 @@ body.cli h1 {
     margin-left: 3ch;
     padding-left: 1ch;
     color: var(--text-color);
+}
+
+.workexp-hidden {
+    display: none;
+}
+
+.workexp-show-all-container {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.workexp-show-all-button {
+    font-family: monospace;
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    background-color: none;
+    color: var(--motd-color);
+}
+
+.workexp-show-all-button:hover {
+    background-color: var(--mode-toggle-hover-background-color);
 }
