@@ -11,7 +11,8 @@ import SimpleAnchor from "@satvik2101/lucid/utils/SimpleAnchor";
 const notes = [
     { "url": "exercised", "name": "Exercised (Daniel Lieberman)" },
     { "url": "linchpin", "name": "Linchpin" },
-    { "url": "the-courage-to-be-disliked", "name": "The Courage to Be Disliked" }
+    { "url": "the-courage-to-be-disliked", "name": "The Courage to Be Disliked" },
+    { "url": "pragmatic-programmer", "name": "The Pragmatic Programmer" }
 ]
 
 class BookNotes extends Tag {
