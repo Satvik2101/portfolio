@@ -13,6 +13,7 @@ const Conway = require("../build/Conway").default;
 const Login = require("../build/Login").default;
 const Success = require("../build/Success").default;
 const Year = require("../build/Year").default;
+const BookNotes = require("../build/Book-Notes").default;
 
 // Configuration
 const RAW_DATA_PATH = "./raw.json";
@@ -43,6 +44,7 @@ function generatePages(rawData) {
         { component: new Login(), output: "login.html" },
         { component: new Success(), output: "success.html" },
         { component: new Year(), output: "year.html" },
+        { component: new BookNotes(), output: "book-notes.html" }
     ];
 
     pages.forEach(({ component, output }) => {

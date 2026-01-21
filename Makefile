@@ -44,16 +44,6 @@ dev: build-full
 		sleep 2; \
 	done
 
-# Sync to AWS (equivalent to sync.sh)
-.PHONY: sync
-sync:
-	@echo "Syncing to AWS..."
-	@if [ -f sync.sh ]; then \
-		bash sync.sh; \
-	else \
-		echo "sync.sh not found"; \
-	fi
-
 manifest: 
 	node helpers/manifest.js
 
@@ -68,9 +58,6 @@ help:
 	@echo "  build-full             - Build with TypeScript compilation"
 	@echo "  typescript             - Compile TypeScript only"
 	@echo "  index                  - Generate index only"
-	@echo "  analytics              - Add analytics only"
-	@echo "  sitemap                - Generate sitemap only"
 	@echo "  watch                  - TypeScript watch mode"
 	@echo "  dev                    - Development mode (build with TypeScript + watch)"
-	@echo "  sync                   - Sync to AWS"
 	@echo "  help                   - Show this help message" 
