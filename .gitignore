@@ -5,3 +5,4 @@ build/
 .env
 web/*.html
 web/sitemap.xml
+.DS_Store
