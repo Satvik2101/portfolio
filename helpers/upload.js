@@ -9,10 +9,14 @@ const path = require("path");
 // Configuration
 const BUCKET = process.env.S3_BUCKET;
 const CLOUDFRONT_DISTRIBUTION_ID = process.env.CLOUDFRONT_DISTRIBUTION_ID;
-const MANIFEST_KEY = "manifest.json";
+const DEPLOY_PREFIX = process.env.DEPLOY_PREFIX || "";
+const MANIFEST_KEY = DEPLOY_PREFIX
+    ? `${DEPLOY_PREFIX}/manifest.json`
+    : "manifest.json";
 const LOCAL_MANIFEST_PATH = "build/manifest.json";
 const LOCAL_ROOT = "web";
 const AWS_REGION = "ap-south-1";
+
 
 // AWS Clients
 const s3 = new S3Client({
@@ -109,7 +113,8 @@ function getContentType(file) {
  * Convert file path to S3 key (remove .html extension)
  */
 function getS3Key(file) {
-    return file.endsWith(".html") ? file.slice(0, -5) : file;
+    const key = file.endsWith(".html") ? file.slice(0, -5) : file;
+    return DEPLOY_PREFIX ? `${DEPLOY_PREFIX}/${key}` : key;
 }
 
 /**
