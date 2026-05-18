@@ -24,7 +24,7 @@ class PortfolioHead extends Head {
             new Meta().http_equiv("X-UA-Compatible").content("IE=edge"),
             new Meta().name("viewport").content("width=device-width, initial-scale=1.0"),
             new Base().target("_blank"),
-            new Link().rel("icon").href("/favicon.ico").type("image/x-icon"),
+            new Link().rel("icon").href("./favicon.ico").type("image/x-icon"),
             props.description ? new Meta().name("description").content(props.description) : "",
             props.title ? new Meta().property("og:title").content(props.title) : "",
             props.description ? new Meta().property("og:description").content(props.description) : "",
@@ -51,7 +51,7 @@ class DefaultHeader extends PortfolioHead {
             url: "https://www.satvikgupta.com",
             stylesheets: [
                 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
-                "/styles.css"
+                "./styles.css"
             ],
 
         })
