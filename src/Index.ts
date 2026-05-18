@@ -35,7 +35,7 @@ class Index extends Tag {
                 new MotdSection(),
                 new AboutSection(),
                 new NavigateTo({ href: "https://www.satvikgupta.com/resume.pdf", cliText: "curl satvikgupta.com/resume.pdf -O", plainText: "Download Resume", iconClass: "fa-regular fa-file-lines", target: "_blank" }),
-                new NavigateTo({ href: "/more", cliText: "./.show-more.sh", plainText: "Cool, show me more!", iconClass: "fa-duotone fa-solid fa-link", })
+                new NavigateTo({ href: "./more", cliText: "./.show-more.sh", plainText: "Cool, show me more!", iconClass: "fa-duotone fa-solid fa-link", })
             ]),
 
             new Br(),
